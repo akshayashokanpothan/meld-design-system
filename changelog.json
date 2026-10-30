@@ -1,6 +1,29 @@
 {
   "entries": [
     {
+      "id": "fix-complex-data-components",
+      "version": "1.1.1",
+      "date": "2026-10-30",
+      "category": "fix",
+      "title": "Repair Complex Data Components & Interaction Lifecycle",
+      "summary": "Repaired behaviour, state lifecycles, and visual representations for Column Visibility Menu, Editable Cell, Filter Builder, and Data Grid.",
+      "description": "Resolved root-cause generic table fallback by implementing dedicated component controllers, type-aware query builders, in-place cell editing state machines, and a unified Phase 3 integrated scenario workflow.",
+      "changes": [
+        "Implemented dedicated Column Visibility Menu with real-time column search, locked identifier protection, and live grid synchronization.",
+        "Implemented Editable Cell with complete lifecycle (View, Hover, Focus, Edit, Dirty, Saving, Saved, Validation Error) across 5 data types.",
+        "Implemented Filter Builder featuring type-aware operators, dynamic value inputs (between, enum, text), and AND/OR logic conjunctions.",
+        "Implemented Data Grid composite architecture with sorting, row selection, bulk actions, density switcher, pagination, and a 7-step integrated workflow scenario.",
+        "Added WCAG 2.2 AA compliant token bindings and side-by-side light and dark preview modes."
+      ],
+      "affectedAreas": [
+        "Components",
+        "Tables and Complex Data"
+      ],
+      "commitMessage": "fix(components): repair behaviour, states, and integration for complex data components",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
       "id": "changelog-page",
       "version": "1.1.0",
       "date": "2026-10-30",
@@ -21,7 +44,7 @@
         "Design System Infrastructure"
       ],
       "commitMessage": "feat: introduce changelog page and update tracking",
-      "commitRef": null,
+      "commitRef": "ec5aead",
       "breaking": false
     },
     {

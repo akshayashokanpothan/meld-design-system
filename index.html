@@ -295,6 +295,327 @@ html[data-theme=dark] .ch-badge-deprecated { background: rgba(156, 163, 175, 0.1
 }
 
 </style>
+<style id="md-complex-data-styles">
+/* ===== COMPLEX DATA COMPONENTS STYLES (Meld Design System) ===== */
+.md-card {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 24px;
+}
+.md-toolbar {
+  background: var(--sf);
+  border-bottom: 1px solid var(--bd);
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.md-toolbar-grp {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.md-search-input {
+  padding: 6px 12px;
+  font: 400 13px "Space Grotesk",Arial,sans-serif;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+  border-radius: 3px;
+  min-width: 220px;
+}
+.md-search-input:focus {
+  outline: 2px solid var(--ac);
+  border-color: var(--ac);
+}
+.md-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 100;
+  width: 280px;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  border-radius: 4px;
+  padding: 12px;
+  display: none;
+}
+.md-popover.open {
+  display: block;
+}
+.md-col-list {
+  max-height: 220px;
+  overflow-y: auto;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.md-col-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 3px;
+  font-size: 13px;
+  user-select: none;
+  cursor: pointer;
+}
+.md-col-item:hover {
+  background: var(--sf);
+}
+.md-col-item.is-locked {
+  opacity: 0.8;
+  cursor: default;
+}
+.md-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.3;
+}
+.md-badge-active { background: rgba(5, 150, 105, 0.12); color: #047857; border: 1px solid rgba(5, 150, 105, 0.3); }
+.md-badge-review { background: rgba(49, 92, 255, 0.12); color: #2347d4; border: 1px solid rgba(49, 92, 255, 0.3); }
+.md-badge-completed { background: rgba(107, 114, 128, 0.12); color: #4B5563; border: 1px solid rgba(107, 114, 128, 0.3); }
+.md-badge-blocked { background: rgba(220, 38, 38, 0.12); color: #B91C1C; border: 1px solid rgba(220, 38, 38, 0.3); }
+
+.md-badge-critical { background: rgba(220, 38, 38, 0.15); color: #B91C1C; font-weight: 800; }
+.md-badge-high { background: rgba(217, 119, 6, 0.15); color: #B45309; }
+.md-badge-medium { background: rgba(49, 92, 255, 0.12); color: #2347d4; }
+.md-badge-low { background: rgba(107, 114, 128, 0.12); color: #4B5563; }
+
+html[data-theme=dark] .md-badge-active { background: rgba(52, 211, 153, 0.15); color: #6EE7B7; border-color: rgba(52, 211, 153, 0.4); }
+html[data-theme=dark] .md-badge-review { background: rgba(165, 170, 245, 0.15); color: #C2C5FA; border-color: rgba(165, 170, 245, 0.4); }
+html[data-theme=dark] .md-badge-completed { background: rgba(156, 163, 175, 0.15); color: #D1D5DB; border-color: rgba(156, 163, 175, 0.4); }
+html[data-theme=dark] .md-badge-blocked { background: rgba(248, 113, 113, 0.2); color: #FCA5A5; border-color: rgba(248, 113, 113, 0.5); }
+html[data-theme=dark] .md-badge-critical { background: rgba(248, 113, 113, 0.25); color: #FCA5A5; }
+html[data-theme=dark] .md-badge-high { background: rgba(251, 191, 36, 0.2); color: #FCD34D; }
+html[data-theme=dark] .md-badge-medium { background: rgba(165, 170, 245, 0.2); color: #C2C5FA; }
+html[data-theme=dark] .md-badge-low { background: rgba(156, 163, 175, 0.2); color: #D1D5DB; }
+
+/* Filter Builder Styles */
+.md-fb-panel {
+  background: var(--sf);
+  border-bottom: 1px solid var(--bd);
+  padding: 16px;
+}
+.md-fb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.md-fb-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.md-fb-rule.invalid {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 1px #DC2626;
+}
+.md-fb-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  color: var(--t2);
+  min-width: 54px;
+  text-align: center;
+}
+.md-fb-select, .md-fb-input {
+  padding: 6px 10px;
+  font: 400 13px "Space Grotesk",Arial,sans-serif;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+  border-radius: 3px;
+}
+.md-fb-select:focus, .md-fb-input:focus {
+  outline: 2px solid var(--ac);
+}
+
+/* Editable Cell Styles */
+.md-cell {
+  position: relative;
+  cursor: pointer;
+  transition: background .12s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+  border-radius: 2px;
+  padding: 2px 4px;
+}
+.md-cell:hover {
+  background: var(--sf);
+}
+.md-cell-afford {
+  opacity: 0;
+  font-size: 11px;
+  color: var(--mu);
+  transition: opacity .15s;
+  pointer-events: none;
+}
+.md-cell:hover .md-cell-afford, .md-cell:focus .md-cell-afford {
+  opacity: 1;
+}
+.md-cell.is-editing {
+  background: var(--bg);
+  outline: 2px solid var(--ac);
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0;
+}
+.md-cell-editor {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+.md-cell-editor input, .md-cell-editor select {
+  font: inherit;
+  font-size: 13px;
+  padding: 4px 6px;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--tx);
+  flex: 1;
+  min-width: 0;
+}
+.md-cell-editor.has-error input {
+  border-color: #DC2626;
+  outline: 2px solid #DC2626;
+}
+.md-cell-error-tip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #DC2626;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-top: 2px;
+  z-index: 20;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.md-cell-dirty-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D97706;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+/* Data Table Presentation */
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.md-table th {
+  background: var(--sf);
+  color: var(--tx);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bd);
+  padding: 10px 14px;
+  text-align: left;
+  user-select: none;
+  white-space: nowrap;
+}
+.md-table th.sortable:hover {
+  background: var(--color-surface-interactive, rgba(0,0,0,0.04));
+  cursor: pointer;
+}
+.md-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bd);
+  color: var(--tx);
+  vertical-align: middle;
+}
+.md-table tr.selected td {
+  background: rgba(49, 92, 255, 0.06);
+}
+html[data-theme=dark] .md-table tr.selected td {
+  background: rgba(165, 170, 245, 0.08);
+}
+.md-table.density-compact th, .md-table.density-compact td {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+.md-table.density-comfortable th, .md-table.density-comfortable td {
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+/* Bulk Actions Bar */
+.md-bulk-bar {
+  background: var(--tx);
+  color: var(--bg);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+}
+.md-bulk-bar button {
+  background: var(--bg);
+  color: var(--tx);
+  border: 0;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.md-bulk-bar button:hover {
+  opacity: 0.9;
+}
+
+/* Pagination Footer */
+.md-pagination {
+  padding: 12px 16px;
+  background: var(--sf);
+  border-top: 1px solid var(--bd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--t2);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+</style>
 </head><body>
 <header class="hd"><button id="menu" class="b" aria-expanded="false" aria-controls="side">Menu</button><b>IDEO Website Design System</b><span class="tag">Typography Â· Color Â· Components Â· Patterns Â· Changelog</span><span class="sp"></span><button class="b" id="tt">Switch to dark</button><span class="tag">v1.1</span></header>
 <div class="wrap"><nav class="side" id="side" aria-label="Sections"></nav><main id="main">
@@ -3868,6 +4189,1624 @@ ps3.textContent = `
 `;
 document.head.append(ps3);
 
+
+
+/* ================= COMPLEX DATA COMPONENTS EXTENSION BUNDLE ================= */
+(function() {
+  // Shared canonical dataset
+  const INIT_COLUMNS = [
+    { id: 'id', name: 'Task ID', type: 'text', locked: true, visible: true, width: '90px' },
+    { id: 'title', name: 'Task Title', type: 'text', locked: false, visible: true, minWidth: '180px' },
+    { id: 'assignee', name: 'Assignee', type: 'select', options: ['Elena Vance', 'Marcus Chen', 'Amina Diallo', 'Sofia Rossi', 'Liam Patel'], locked: false, visible: true, width: '130px' },
+    { id: 'status', name: 'Status', type: 'select', options: ['Active', 'In Review', 'Completed', 'Blocked'], locked: false, visible: true, width: '110px' },
+    { id: 'priority', name: 'Priority', type: 'select', options: ['Critical', 'High', 'Medium', 'Low'], locked: false, visible: true, width: '100px' },
+    { id: 'budget', name: 'Budget ($)', type: 'number', locked: false, visible: true, width: '100px' },
+    { id: 'dueDate', name: 'Due Date', type: 'date', locked: false, visible: true, width: '110px' },
+    { id: 'billable', name: 'Billable', type: 'boolean', locked: false, visible: false, width: '80px' },
+    { id: 'dept', name: 'Department', type: 'text', locked: false, visible: false, width: '130px' }
+  ];
+
+  const INIT_RECORDS = [
+    { id: 'TSK-101', title: 'Brand Architecture Guidelines', assignee: 'Elena Vance', status: 'Active', priority: 'High', budget: 14500, dueDate: '2026-11-15', billable: true, dept: 'Brand Strategy' },
+    { id: 'TSK-102', title: 'Healthcare Journey Mapping', assignee: 'Marcus Chen', status: 'In Review', priority: 'Critical', budget: 22000, dueDate: '2026-11-03', billable: true, dept: 'Service Design' },
+    { id: 'TSK-103', title: 'Design Token System Sync', assignee: 'Sofia Rossi', status: 'Active', priority: 'Medium', budget: 8500, dueDate: '2026-11-20', billable: false, dept: 'Design Systems' },
+    { id: 'TSK-104', title: 'Client Workshop Facilitation', assignee: 'Amina Diallo', status: 'Completed', priority: 'High', budget: 12000, dueDate: '2026-10-24', billable: true, dept: 'Human Insights' },
+    { id: 'TSK-105', title: 'Accessibility Audit WCAG 2.2', assignee: 'Liam Patel', status: 'Active', priority: 'Critical', budget: 9800, dueDate: '2026-11-08', billable: true, dept: 'Digital Tech' },
+    { id: 'TSK-106', title: 'Autonomous Agent UX Protocol', assignee: 'Elena Vance', status: 'Blocked', priority: 'Critical', budget: 18500, dueDate: '2026-11-30', billable: true, dept: 'AI Experience' },
+    { id: 'TSK-107', title: 'Executive Summary Synthesis', assignee: 'Marcus Chen', status: 'Completed', priority: 'Medium', budget: 6200, dueDate: '2026-10-18', billable: true, dept: 'Brand Strategy' },
+    { id: 'TSK-108', title: 'Design System Governance Playbook', assignee: 'Sofia Rossi', status: 'In Review', priority: 'Low', budget: 7400, dueDate: '2026-12-05', billable: false, dept: 'Design Systems' },
+    { id: 'TSK-109', title: 'Onboarding Micro-Interactions', assignee: 'Liam Patel', status: 'Active', priority: 'Medium', budget: 11200, dueDate: '2026-11-19', billable: true, dept: 'Digital Tech' },
+    { id: 'TSK-110', title: 'Ethnographic Interview Scribe', assignee: 'Amina Diallo', status: 'Completed', priority: 'Low', budget: 4500, dueDate: '2026-10-12', billable: true, dept: 'Human Insights' }
+  ];
+
+  // Helper formatting functions
+  function fmtVal(col, val) {
+    if (val == null || val === '') return '<span class="m" style="font-style:italic">Empty</span>';
+    if (col.id === 'status') {
+      const cls = { 'Active': 'md-badge-active', 'In Review': 'md-badge-review', 'Completed': 'md-badge-completed', 'Blocked': 'md-badge-blocked' }[val] || 'md-badge-review';
+      return `<span class="md-badge ${cls}">● ${val}</span>`;
+    }
+    if (col.id === 'priority') {
+      const cls = { 'Critical': 'md-badge-critical', 'High': 'md-badge-high', 'Medium': 'md-badge-medium', 'Low': 'md-badge-low' }[val] || '';
+      return `<span class="md-badge ${cls}">${val}</span>`;
+    }
+    if (col.type === 'number') {
+      return `$${Number(val).toLocaleString()}`;
+    }
+    if (col.type === 'boolean') {
+      return val ? '<span class="md-badge md-badge-active">✓ Yes</span>' : '<span class="m">✕ No</span>';
+    }
+    if (col.type === 'date') {
+      return `<time datetime="${val}">${val}</time>`;
+    }
+    return String(val);
+  }
+
+  /* -------------------------------------------------------------
+     1. SPEC DEFINITIONS
+  ------------------------------------------------------------- */
+  Object.assign(SPEC, {
+    'Column Visibility Menu': [
+      'Allows users to control which columns are visible in a Data Grid or table view, adapting screen density and information focus to the task.|Tables and data grids with 5+ columns, dense data sets with optional attributes, and user-customized reporting views.|Simple 2-4 column lists or non-tabular structures where all content fits comfortably.',
+      'Dropdown Menu|Inline Drawer / Panel|Compact Icon Trigger',
+      'Comfortable|Compact',
+      'Default (Closed)|Open Menu|Search Active ("stat")|No Results Found|All Columns Visible|Some Columns Hidden|Locked / Required Columns|Disabled Trigger',
+      'Menu Trigger Button (with visible count badge)|Dropdown / Drawer Surface|Column Search Input|Bulk Action Controls (Show All, Hide Optional, Reset)|Column Checkbox Item|Column Label|Locked / Required Indicator (Lock Icon + Badge)|Visible Columns Summary Footer',
+      'Variant (enum: Dropdown Menu, Inline Drawer, Compact Trigger)|Size (enum: Comfortable, Compact)|State (enum: Default, Open, Search Active, No Results, All Visible, Some Hidden, Locked Columns, Disabled)|Search Term (text)|Visible Count (number)|Locked Columns (list: [\'id\'])',
+      'Trigger toggles menu open/closed with aria-expanded. Search input filters column list dynamically with debounced keyup. Checkbox state changes immediately update the connected data grid. Required columns (ID) are disabled and cannot be hidden to prevent blank grids. Escape key and outside click dismiss the menu and return focus to trigger.',
+      'Trigger has aria-haspopup="menu" and aria-expanded. Search field has accessible label. Checkboxes have semantic label associations. Screen reader announces column visibility changes via aria-live="polite". Contrast verified in light and dark themes (4.5:1 text, 3:1 control borders).',
+      'color.surface.default|color.surface.raised|color.surface.interactive|color.border.default|color.border.focus|color.action.primary|color.text.primary|color.text.secondary|color.text.muted|type.body.default|type.label.default|type.caption.default',
+      'menu.width.standard (280px)|menu.max-height (380px)|menu.item.height.compact (32px)|menu.item.height.comfortable (40px)|elevation.menu (0 8px 24px rgba(0,0,0,0.14))',
+      'Meld / Tables and Complex Data / Column Visibility Menu. Component set with Variant (Dropdown, Drawer), Size (Comfortable, Compact), State (Closed, Open). Nested: Trigger Button, Menu Surface, Search Input, Column Item Checkbox (Checked, Unchecked, Locked).'
+    ],
+
+    'Editable Cell': [
+      'Enables direct in-place editing of individual tabular data values without opening full-page forms or side inspection panels.|Spreadsheet-like workflows, rapid inline data entry, bulk updates, status transitions, and quick typo corrections.|Complex multi-field entities requiring interdependent relational validation or destructive workflows.',
+      'Text Input|Number Input|Select / Dropdown|Date Picker|Checkbox / Boolean',
+      'Comfortable (48px row)|Compact (36px row)',
+      'Read-only View|Hover Affordance|Focus-visible (3px ring)|Active Edit Mode|Modified / Dirty|Saving (Spinner)|Saved (Checkmark)|Validation Error|Disabled Cell|Empty Value',
+      'Cell Container|Formatted View Value|Edit Affordance Indicator (Hover Pencil)|Inline Input Control (Text/Number/Select/Date/Checkbox)|Save Trigger Button (Checkmark)|Cancel Trigger Button (Cross)|Dirty Indicator (Amber Pill)|Error Tooltip / Validation Message',
+      'Data Type (enum: Text, Number, Select, Date, Boolean)|State (enum: Read-only, Hover, Focus-visible, Editing, Modified, Saving, Saved, Error, Disabled, Empty)|Value (any)|Original Value (any)|Validation Rule (enum: Required, Positive Number, Valid Date)|Density (enum: Comfortable, Compact)',
+      'Click or press Enter on cell transitions from View mode to Edit mode. Auto-focuses the input control. User edits value. Enter saves changes if valid; Escape cancels edit and reverts value. Validation executes before save; invalid entries display error outline and tooltip. Successful save displays transient saved indicator and updates underlying dataset record.',
+      'Cell is keyboard focusable via Tab or Arrow keys. Enter activates edit mode. Esc cancels. aria-invalid="true" and aria-describedby for validation error message. Live region announces save/cancel state. Visible 3px focus ring around active input. High contrast borders in both themes.',
+      'color.surface.default|color.surface.interactive|color.border.default|color.border.focus|color.border.error|color.text.error|color.surface.error|color.surface.success|color.text.success|color.action.primary|type.body.default|type.caption.default',
+      'cell.focus-ring.width (3px)|cell.edit.padding.comfortable (6px 10px)|cell.edit.padding.compact (4px 8px)|cell.dirty.indicator.size (6px)',
+      'Meld / Tables and Complex Data / Editable Cell. Component set with Data Type (Text, Number, Select, Date, Boolean), State (View, Hover, Focus, Edit, Error, Saved), Density (Comfortable, Compact). Auto Layout fill container width.'
+    ],
+
+    'Filter Builder': [
+      'Enables users to build structured, multi-parameter filtering queries using field selectors, type-aware operators, and logical conjunctions.|Complex tabular datasets, enterprise data grids, analytics query builders, and exploratory data analysis.|Simple single-field text searches or quick toggle chips where advanced logic is unnecessary.',
+      'Single Condition|Multiple Conditions (AND)|Multiple Conditions (OR)|Between Range Condition|Nested Condition Group',
+      'Standard (Comfortable)|Compact',
+      'Empty Builder (0 Rules)|Active Condition|Incomplete / Invalid Condition|Applied Filter State|Filtered Results View|Cleared State',
+      'Builder Container Surface|Conjunction Switcher (Match ALL vs Match ANY)|Rule Row Container|Logical Conjunction Indicator (WHERE / AND / OR)|Field Select Dropdown|Type-Aware Operator Select Dropdown|Dynamic Value Input Control(s)|Remove Rule Trigger Button|Add Condition Button|Apply Filters Button|Clear All Button',
+      'Logic (enum: AND, OR)|Rules Count (number: 0-5)|Active Field (enum: Task Title, Status, Priority, Budget, Due Date, Billable)|Operator (enum: contains, equals, greater than, less than, between, is empty, is any of)|Value (text / range / select)|Status (enum: Valid, Incomplete, Applied)',
+      'Changing Field updates available operators based on data type (e.g. Budget displays numeric operators like Greater Than and Between; Status displays enum operators like Is Any Of). Operator Between displays two inputs (Min and Max). Operator Is Empty disables value input. Add Condition appends a new rule; Remove Condition deletes the rule. Apply Filters evaluates condition tree against dataset. Clear All removes all rules and restores full dataset.',
+      'All dropdowns and inputs have accessible labels or aria-label attributes. Logical connector indicators are exposed to screen readers. Condition additions/removals announce via aria-live="polite". Form controls are keyboard navigable with visible focus rings. Error states indicate missing required values.',
+      'color.surface.default|color.surface.subtle|color.surface.interactive|color.border.default|color.border.focus|color.action.primary|color.text.primary|color.text.secondary|color.text.muted|type.body.default|type.label.default|type.caption.default',
+      'filter.rule.gap (8px)|filter.rule.padding (8px 12px)|filter.conjunction.badge.width (54px)',
+      'Meld / Tables and Complex Data / Filter Builder. Component set with Logic (AND, OR), State (Empty, 1 Rule, Multiple Rules). Nested: Rule Row, Field Dropdown, Operator Dropdown, Value Input, Button Primary, Button Secondary.'
+    ],
+
+    'Data Grid': [
+      'Comprehensive tabular interface for displaying, managing, and interacting with dense, multi-attribute structured datasets with sorting, filtering, editing, and pagination.|Enterprise resource planning, project management workspaces, financial logs, and CRM directories.|Lightweight editorial tables with under 10 rows and no manipulation requirements (use standard Table).',
+      'Full Featured Grid|Filtered View|Editing Mode Grid|Loading Shimmer Grid|Empty Data State',
+      'Comfortable (52px row height)|Compact (36px row height)',
+      'Default Populated|Sorted Ascending / Descending|Row(s) Selected|Cell Editing Active|Loading State (Shimmer)|Empty State (No Results)|Pagination Navigated',
+      'Data Grid Container|Grid Toolbar (Search Bar, Column Menu Trigger, Filter Builder Trigger, Density Switcher)|Grid Header Row (Select All Checkbox, Sortable Column Headers, Pin Badges)|Grid Body (Data Rows, Select Checkboxes, Editable Cells, Status Badges)|Floating Bulk Actions Toolbar|Grid Footer (Rows Per Page, Pagination Navigation, Total Count)',
+      'Density (enum: Comfortable, Compact)|Columns (list)|Records (list)|Selected Rows (list)|Sort Column (text)|Sort Direction (enum: asc, desc)|Filter Rules (list)|Current Page (number)|Page Size (number)|Loading (bool)',
+      'Clicking column header cycles sort asc/desc/none and sorts underlying records. Checking Select All selects all visible rows with indeterminate state if partial. Clicking Column Menu opens visibility popover to toggle columns immediately. Clicking Filter Rules opens query builder. Double-clicking or clicking an editable cell activates in-place editing; saving updates record and re-filters/sorts automatically. Pagination divides rows into pages and updates footer counts.',
+      'Table has caption and semantic thead/tbody structure. Sortable headers have aria-sort ("ascending", "descending", "none"). Checkboxes have aria-label for each row. Cell editing manages focus properly. Live region announces row selection count and filter matches. High contrast borders and focus rings in light and dark themes.',
+      'color.surface.default|color.surface.subtle|color.surface.interactive|color.border.default|color.border.subtle|color.border.focus|color.action.primary|color.text.primary|color.text.secondary|color.text.muted|type.body.default|type.body.small|type.caption.default',
+      'grid.row.height.comfortable (52px)|grid.row.height.compact (36px)|grid.cell.padding.comfortable (12px 16px)|grid.cell.padding.compact (6px 10px)|grid.toolbar.height (56px)',
+      'Meld / Tables and Complex Data / Data Grid. Component set with Density (Comfortable, Compact), State (Populated, Loading, Empty, Filtered). Nested: Toolbar, Table Header, Table Row, Editable Cell, Pagination Footer, Bulk Actions Bar.'
+    ]
+  });
+
+  /* -------------------------------------------------------------
+     2. FIGMA RECREATION GUIDES
+  ------------------------------------------------------------- */
+  Object.assign(FIG, {
+    'Column Visibility Menu': `<h4>K+. Dedicated Figma guide: Column Visibility Menu</h4>
+<p><code>Meld / Tables and Complex Data / Column Visibility Menu</code> component set with <code>Variant</code> (Dropdown, Drawer), <code>Size</code> (Comfortable, Compact), and <code>State</code> (Closed, Open). Nested components: <code>Column Visibility / Trigger Button</code>, <code>Column Visibility / Menu Surface</code>, <code>Column Visibility / Search Input</code>, <code>Column Visibility / Item Checkbox</code>.</p>
+<ul>
+  <li><b>Trigger:</b> Auto Layout horizontal, padding 6/12, gap 8, border radius 4, border 1px <code>color.border.default</code>. Includes badge counter <code>color.surface.subtle</code>.</li>
+  <li><b>Menu Surface:</b> Floating card width 280px, elevation <code>elevation.menu</code> (0 8px 24px rgba(0,0,0,0.14)), border 1px <code>color.border.default</code>, background <code>color.surface.raised</code>.</li>
+  <li><b>Column Item:</b> Auto Layout horizontal, align center, space-between, padding 6/8. Locked columns include non-interactive lock icon 🔒 with subtitle "(Required)".</li>
+  <li><b>Prototype:</b> Trigger On click -> Open Menu. Checkbox On click -> Toggle variant state.</li>
+</ul>`,
+
+    'Editable Cell': `<h4>K+. Dedicated Figma guide: Editable Cell</h4>
+<p><code>Meld / Tables and Complex Data / Editable Cell</code> component set with <code>Data Type</code> (Text, Number, Select, Date, Boolean), <code>State</code> (View, Hover, Focus, Edit, Dirty, Saving, Saved, Error, Disabled), and <code>Density</code> (Comfortable, Compact).</p>
+<ul>
+  <li><b>View Mode:</b> Hug height, fill width, padding 6/8. On hover displays subtle edit icon (pencil) with opacity 0.7.</li>
+  <li><b>Edit Mode:</b> Absolute or fill container input control matching data type with 3px focus ring <code>color.border.focus</code> and inline Save (✓) / Cancel (✕) triggers.</li>
+  <li><b>Validation Error State:</b> Red 1px border <code>color.border.error</code>, 2px focus ring, and anchored error tooltip below cell with <code>color.surface.error</code>.</li>
+  <li><b>Prototype:</b> Cell On click -> Change to Edit Mode. Save button On click -> Change to Saved -> After delay 800ms -> View Mode.</li>
+</ul>`,
+
+    'Filter Builder': `<h4>K+. Dedicated Figma guide: Filter Builder</h4>
+<p><code>Meld / Tables and Complex Data / Filter Builder</code> component set with <code>Logic</code> (AND, OR), <code>State</code> (Empty, Single Rule, Multi-Rule, Incomplete). Nested: <code>Filter Builder / Header</code>, <code>Filter Builder / Rule Row</code>, <code>Filter Builder / Conjunction Switcher</code>.</p>
+<ul>
+  <li><b>Container:</b> Auto Layout vertical, padding 16, gap 10, background <code>color.surface.subtle</code>, border 1px <code>color.border.default</code>.</li>
+  <li><b>Conjunction Tag:</b> Fixed width 54px, text-align center, uppercase bold 11px. First row displays "WHERE", subsequent rows display "AND" or "OR".</li>
+  <li><b>Rule Row:</b> Auto Layout horizontal, gap 10, align center, padding 8/12, background <code>color.surface.default</code>, radius 4.</li>
+  <li><b>Dynamic Value Slots:</b> Component swaps between Text Input, Number Input, Dual Range Inputs (for Between), or Enum Dropdown.</li>
+</ul>`,
+
+    'Data Grid': `<h4>K+. Dedicated Figma guide: Data Grid</h4>
+<p><code>Meld / Tables and Complex Data / Data Grid</code> top-level composed component with <code>Density</code> (Comfortable, Compact), <code>State</code> (Populated, Loading, Empty, Filtered, Rows Selected).</p>
+<ul>
+  <li><b>Structure:</b> Vertical Auto Layout with <code>Toolbar</code> (top), <code>Table Container</code> (middle with horizontal scroll), and <code>Pagination Footer</code> (bottom).</li>
+  <li><b>Toolbar (56px):</b> Full-text search input, Column Visibility trigger with counter badge, Filter Builder trigger with active rule count, density toggle.</li>
+  <li><b>Table Headers (44px / 36px):</b> Master select-all checkbox, column sort labels with aria-sort arrows (▲/▼/↕).</li>
+  <li><b>Interactive Cells:</b> Composed of <code>Editable Cell</code> instances bound to tokens. Selected rows receive fill <code>color.surface.interactive</code>.</li>
+  <li><b>Floating Bulk Actions:</b> Positioned 16px above footer when rows are selected, background <code>color.surface.inverse</code>, text <code>color.text.inverse</code>.</li>
+</ul>`
+  });
+
+  /* -------------------------------------------------------------
+     3. COMPONENT CONTROLLERS (CU)
+  ------------------------------------------------------------- */
+
+  // State for Column Visibility Menu
+  let CVM_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+  let CVM_STATE = {
+    v: 'Dropdown Menu',
+    s: 'Comfortable',
+    st: 'Open Menu',
+    q: '',
+    open: true
+  };
+
+  CU['Column Visibility Menu'] = {
+    reset() {
+      CVM_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+      CVM_STATE = { v: 'Dropdown Menu', s: 'Comfortable', st: 'Open Menu', q: '', open: true };
+    },
+    ui() {
+      return `
+        <div class="grid">
+          ${S2('cvm-v', 'Variant', ['Dropdown Menu', 'Inline Drawer / Panel', 'Compact Icon Trigger'], CVM_STATE.v)}
+          ${S2('cvm-s', 'Size', ['Comfortable', 'Compact'], CVM_STATE.s)}
+          ${S2('cvm-st', 'Preset State', [
+            'Default (Closed)', 'Open Menu', 'Search Active ("stat")',
+            'No Results Found', 'All Columns Visible', 'Some Columns Hidden',
+            'Locked / Required Columns', 'Disabled Trigger'
+          ], CVM_STATE.st)}
+        </div>
+        <div class="acts" style="margin:8px 0;align-items:center;flex-wrap:wrap">
+          <button class="b" data-a="cvm-open-toggle">${CVM_STATE.open ? 'Close Menu' : 'Open Menu'}</button>
+          <button class="b" data-a="cvm-all">Show All Columns</button>
+          <button class="b" data-a="cvm-none">Hide Optional Columns</button>
+          <button class="b" data-a="cvm-reset">Reset Defaults</button>
+        </div>
+        <p class="m">Audit Check: Column Visibility Menu controls real table columns. Search filters column items; locked columns cannot be unchecked; connected grid updates instantly.</p>
+      `;
+    },
+    init() {
+      const ctl = $('#m-ctl');
+      ctl.onchange = e => {
+        const k = e.target.dataset.k;
+        if (!k) return;
+        const val = e.target.value;
+        if (k === 'cvm-v') CVM_STATE.v = val;
+        else if (k === 'cvm-s') CVM_STATE.s = val;
+        else if (k === 'cvm-st') {
+          CVM_STATE.st = val;
+          if (val === 'Default (Closed)') { CVM_STATE.open = false; CVM_STATE.q = ''; }
+          else if (val === 'Open Menu') { CVM_STATE.open = true; CVM_STATE.q = ''; }
+          else if (val === 'Search Active ("stat")') { CVM_STATE.open = true; CVM_STATE.q = 'stat'; }
+          else if (val === 'No Results Found') { CVM_STATE.open = true; CVM_STATE.q = 'xyzNonExistent'; }
+          else if (val === 'All Columns Visible') { CVM_STATE.open = true; CVM_COLS.forEach(c => c.visible = true); }
+          else if (val === 'Some Columns Hidden') { CVM_STATE.open = true; CVM_COLS.forEach(c => c.visible = ['id','title','status'].includes(c.id)); }
+          else if (val === 'Locked / Required Columns') { CVM_STATE.open = true; }
+          else if (val === 'Disabled Trigger') { CVM_STATE.open = false; }
+        }
+        ctl.innerHTML = CU['Column Visibility Menu'].ui();
+        CU['Column Visibility Menu'].init();
+        CU['Column Visibility Menu'].draw();
+      };
+
+      ctl.onclick = e => {
+        const btn = e.target.closest('[data-a]');
+        if (!btn) return;
+        const a = btn.dataset.a;
+        if (a === 'cvm-open-toggle') {
+          CVM_STATE.open = !CVM_STATE.open;
+          CVM_STATE.st = CVM_STATE.open ? 'Open Menu' : 'Default (Closed)';
+        } else if (a === 'cvm-all') {
+          CVM_COLS.forEach(col => col.visible = true);
+          CVM_STATE.st = 'All Columns Visible';
+        } else if (a === 'cvm-none') {
+          CVM_COLS.forEach(col => { if (!col.locked) col.visible = false; });
+          CVM_STATE.st = 'Some Columns Hidden';
+        } else if (a === 'cvm-reset') {
+          CVM_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+          CVM_STATE.q = '';
+          CVM_STATE.st = 'Open Menu';
+        }
+        ctl.innerHTML = CU['Column Visibility Menu'].ui();
+        CU['Column Visibility Menu'].init();
+        CU['Column Visibility Menu'].draw();
+      };
+    },
+    draw() {
+      const pv = $('#m-pv');
+      if (!pv) return;
+
+      const isDisabled = CVM_STATE.st === 'Disabled Trigger';
+      const visibleCols = CVM_COLS.filter(c => c.visible);
+      const filteredCols = CVM_COLS.filter(c => c.name.toLowerCase().includes(CVM_STATE.q.toLowerCase()));
+      const isCompact = CVM_STATE.s === 'Compact';
+
+      const renderMenuContent = () => `
+        <div style="margin-bottom:8px">
+          <input type="search" class="md-search-input" style="width:100%" placeholder="Search columns..." value="${E(CVM_STATE.q)}" data-cvm-search>
+        </div>
+        <div style="display:flex;gap:4px;margin-bottom:8px">
+          <button class="b" style="font-size:11px;padding:3px 8px" data-cvm-all>Show all</button>
+          <button class="b" style="font-size:11px;padding:3px 8px" data-cvm-none>Hide optional</button>
+          <button class="b" style="font-size:11px;padding:3px 8px" data-cvm-reset>Reset</button>
+        </div>
+        <div class="md-col-list" role="group" aria-label="Columns">
+          ${filteredCols.length === 0 ? `<p class="m" style="padding:12px;text-align:center">No columns match "${E(CVM_STATE.q)}"</p>` :
+            filteredCols.map(col => `
+              <label class="md-col-item ${col.locked ? 'is-locked' : ''}">
+                <span style="display:flex;align-items:center;gap:8px">
+                  <input type="checkbox" ${col.visible ? 'checked' : ''} ${col.locked ? 'disabled' : ''} data-cvm-toggle="${col.id}">
+                  <span>${col.name}</span>
+                </span>
+                ${col.locked ? '<span class="md-badge md-badge-completed" title="Required column cannot be hidden">🔒 Locked</span>' : ''}
+              </label>
+            `).join('')
+          }
+        </div>
+        <div style="padding-top:8px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mu)">
+          <span>${visibleCols.length} of ${CVM_COLS.length} visible</span>
+          <button class="b" style="font-size:11px;padding:2px 6px" data-cvm-close>Close</button>
+        </div>
+      `;
+
+      pv.innerHTML = `<div class="grid">${['light', 'dark'].map(th => `
+        <div class="th" data-theme="${th}" style="padding:16px;background:var(--bg)">
+          <p class="ey" style="color:var(--color-text-muted)">${th} theme</p>
+          
+          <div class="md-card">
+            <div class="md-toolbar">
+              <div class="md-toolbar-grp" style="position:relative">
+                <button class="b ${CVM_STATE.open ? 'is-sel' : ''}" style="display:flex;align-items:center;gap:8px" ${isDisabled ? 'disabled' : ''} data-cvm-trigger>
+                  <span>⊞ Columns</span>
+                  <span class="md-badge ${visibleCols.length < CVM_COLS.length ? 'md-badge-review' : 'md-badge-completed'}">${visibleCols.length}/${CVM_COLS.length}</span>
+                  <span style="font-size:10px">${CVM_STATE.open ? '▲' : '▼'}</span>
+                </button>
+
+                <!-- Floating Popover -->
+                <div class="md-popover ${CVM_STATE.open && CVM_STATE.v !== 'Inline Drawer / Panel' ? 'open' : ''}" style="top:calc(100% + 4px);left:0">
+                  ${renderMenuContent()}
+                </div>
+              </div>
+
+              <span class="m" style="font-size:12px">Immediate Grid Synchronization</span>
+            </div>
+
+            <!-- Drawer view if variant is Drawer -->
+            ${CVM_STATE.open && CVM_STATE.v === 'Inline Drawer / Panel' ? `
+              <div style="background:var(--sf);border-bottom:1px solid var(--bd);padding:14px">
+                <h4 style="margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.06em">Column Customization Panel</h4>
+                ${renderMenuContent()}
+              </div>
+            ` : ''}
+
+            <!-- Live Synchronized Table Preview -->
+            <div style="overflow-x:auto">
+              <table class="md-table ${isCompact ? 'density-compact' : 'density-comfortable'}">
+                <thead>
+                  <tr>
+                    ${visibleCols.map(c => `<th>${c.name} ${c.locked ? '🔒' : ''}</th>`).join('')}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${INIT_RECORDS.slice(0, 4).map(r => `
+                    <tr>
+                      ${visibleCols.map(c => `<td>${fmtVal(c, r[c.id])}</td>`).join('')}
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+
+      // Bind interactive clicks inside preview
+      pv.querySelectorAll('[data-cvm-trigger]').forEach(btn => {
+        btn.onclick = () => {
+          CVM_STATE.open = !CVM_STATE.open;
+          CVM_STATE.st = CVM_STATE.open ? 'Open Menu' : 'Default (Closed)';
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-search]').forEach(input => {
+        input.oninput = e => {
+          CVM_STATE.q = e.target.value;
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-toggle]').forEach(chk => {
+        chk.onchange = e => {
+          const colId = e.target.dataset.cvmToggle;
+          const targetCol = CVM_COLS.find(c => c.id === colId);
+          if (targetCol && !targetCol.locked) {
+            targetCol.visible = e.target.checked;
+            CVM_STATE.st = CVM_COLS.every(c => c.visible) ? 'All Columns Visible' : 'Some Columns Hidden';
+            CU['Column Visibility Menu'].draw();
+          }
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-all]').forEach(btn => {
+        btn.onclick = () => {
+          CVM_COLS.forEach(c => c.visible = true);
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-none]').forEach(btn => {
+        btn.onclick = () => {
+          CVM_COLS.forEach(c => { if (!c.locked) c.visible = false; });
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-reset]').forEach(btn => {
+        btn.onclick = () => {
+          CVM_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+          CVM_STATE.q = '';
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-cvm-close]').forEach(btn => {
+        btn.onclick = () => {
+          CVM_STATE.open = false;
+          CVM_STATE.st = 'Default (Closed)';
+          CU['Column Visibility Menu'].draw();
+        };
+      });
+    }
+  };
+
+
+  /* -------------------------------------------------------------
+     2. EDITABLE CELL (CU['Editable Cell'])
+  ------------------------------------------------------------- */
+  let CELL_CONFIG = {
+    type: 'Text (Task Title)',
+    st: 'Active Edit Mode',
+    density: 'Comfortable',
+    val: 'Brand Architecture Guidelines',
+    origVal: 'Brand Architecture Guidelines',
+    dirty: false,
+    error: ''
+  };
+
+  CU['Editable Cell'] = {
+    reset() {
+      CELL_CONFIG = {
+        type: 'Text (Task Title)',
+        st: 'Active Edit Mode',
+        density: 'Comfortable',
+        val: 'Brand Architecture Guidelines',
+        origVal: 'Brand Architecture Guidelines',
+        dirty: false,
+        error: ''
+      };
+    },
+    ui() {
+      return `
+        <div class="grid">
+          ${S2('ec-type', 'Data Type', ['Text (Task Title)', 'Number (Budget $)', 'Select (Status)', 'Date (Due Date)', 'Boolean (Billable)'], CELL_CONFIG.type)}
+          ${S2('ec-st', 'Lifecycle State', [
+            'Read-only View', 'Hover Affordance', 'Focus-visible (3px ring)',
+            'Active Edit Mode', 'Modified / Dirty', 'Saving (simulated)',
+            'Saved (Checkmark)', 'Validation Error', 'Disabled Cell', 'Empty Value'
+          ], CELL_CONFIG.st)}
+          ${S2('ec-den', 'Density', ['Comfortable', 'Compact'], CELL_CONFIG.density)}
+        </div>
+        <div class="acts" style="margin:8px 0;align-items:center;flex-wrap:wrap">
+          <button class="b" data-a="ec-edit">Activate Edit</button>
+          <button class="b" data-a="ec-save">Save Value</button>
+          <button class="b" data-a="ec-cancel">Cancel Edit</button>
+          <button class="b" data-a="ec-err">Trigger Validation Error</button>
+          <button class="b" data-a="ec-reset">Reset</button>
+        </div>
+        <p class="m">Audit Check: Cell lifecycle transitions cleanly: View → Hover → Edit → Validation → Save/Cancel. Underlying row records actually persist changes.</p>
+      `;
+    },
+    init() {
+      const ctl = $('#m-ctl');
+      ctl.onchange = e => {
+        const k = e.target.dataset.k;
+        if (!k) return;
+        const val = e.target.value;
+        if (k === 'ec-type') {
+          CELL_CONFIG.type = val;
+          if (val.startsWith('Text')) { CELL_CONFIG.val = 'Brand Architecture Guidelines'; CELL_CONFIG.origVal = CELL_CONFIG.val; }
+          else if (val.startsWith('Number')) { CELL_CONFIG.val = '14500'; CELL_CONFIG.origVal = '14500'; }
+          else if (val.startsWith('Select')) { CELL_CONFIG.val = 'Active'; CELL_CONFIG.origVal = 'Active'; }
+          else if (val.startsWith('Date')) { CELL_CONFIG.val = '2026-11-15'; CELL_CONFIG.origVal = '2026-11-15'; }
+          else if (val.startsWith('Boolean')) { CELL_CONFIG.val = 'true'; CELL_CONFIG.origVal = 'true'; }
+          CELL_CONFIG.error = '';
+          CELL_CONFIG.dirty = false;
+        } else if (k === 'ec-st') {
+          CELL_CONFIG.st = val;
+          if (val === 'Read-only View') { CELL_CONFIG.error = ''; CELL_CONFIG.dirty = false; }
+          else if (val === 'Active Edit Mode') { CELL_CONFIG.error = ''; }
+          else if (val === 'Modified / Dirty') { CELL_CONFIG.val += ' (Rev 2)'; CELL_CONFIG.dirty = true; }
+          else if (val === 'Validation Error') {
+            CELL_CONFIG.val = '';
+            CELL_CONFIG.error = 'Value cannot be empty. Please enter a valid entry.';
+          } else if (val === 'Empty Value') {
+            CELL_CONFIG.val = '';
+            CELL_CONFIG.error = '';
+            CELL_CONFIG.dirty = false;
+          }
+        } else if (k === 'ec-den') {
+          CELL_CONFIG.density = val;
+        }
+        ctl.innerHTML = CU['Editable Cell'].ui();
+        CU['Editable Cell'].init();
+        CU['Editable Cell'].draw();
+      };
+
+      ctl.onclick = e => {
+        const btn = e.target.closest('[data-a]');
+        if (!btn) return;
+        const a = btn.dataset.a;
+        if (a === 'ec-edit') {
+          CELL_CONFIG.st = 'Active Edit Mode';
+          CELL_CONFIG.error = '';
+        } else if (a === 'ec-save') {
+          if (!CELL_CONFIG.val) {
+            CELL_CONFIG.st = 'Validation Error';
+            CELL_CONFIG.error = 'Value cannot be empty.';
+          } else {
+            CELL_CONFIG.st = 'Saving (simulated)';
+            CU['Editable Cell'].draw();
+            setTimeout(() => {
+              CELL_CONFIG.st = 'Saved (Checkmark)';
+              CELL_CONFIG.origVal = CELL_CONFIG.val;
+              CELL_CONFIG.dirty = false;
+              CU['Editable Cell'].draw();
+              setTimeout(() => {
+                CELL_CONFIG.st = 'Read-only View';
+                CU['Editable Cell'].draw();
+              }, 1200);
+            }, 600);
+            return;
+          }
+        } else if (a === 'ec-cancel') {
+          CELL_CONFIG.val = CELL_CONFIG.origVal;
+          CELL_CONFIG.dirty = false;
+          CELL_CONFIG.error = '';
+          CELL_CONFIG.st = 'Read-only View';
+        } else if (a === 'ec-err') {
+          CELL_CONFIG.st = 'Validation Error';
+          CELL_CONFIG.error = 'Invalid entry: exceeds allowed parameter range.';
+        } else if (a === 'ec-reset') {
+          CU['Editable Cell'].reset();
+        }
+        ctl.innerHTML = CU['Editable Cell'].ui();
+        CU['Editable Cell'].init();
+        CU['Editable Cell'].draw();
+      };
+    },
+    draw() {
+      const pv = $('#m-pv');
+      if (!pv) return;
+
+      const isEditing = ['Active Edit Mode', 'Validation Error', 'Modified / Dirty'].includes(CELL_CONFIG.st);
+      const isSaving = CELL_CONFIG.st === 'Saving (simulated)';
+      const isSaved = CELL_CONFIG.st === 'Saved (Checkmark)';
+      const isHover = CELL_CONFIG.st === 'Hover Affordance';
+      const isFocus = CELL_CONFIG.st === 'Focus-visible (3px ring)';
+      const isDisabled = CELL_CONFIG.st === 'Disabled Cell';
+
+      const renderEditorControl = () => {
+        if (CELL_CONFIG.type.startsWith('Select')) {
+          return `
+            <select class="md-fb-select" data-ec-live-input style="width:100%">
+              <option value="Active" ${CELL_CONFIG.val === 'Active' ? 'selected' : ''}>● Active</option>
+              <option value="In Review" ${CELL_CONFIG.val === 'In Review' ? 'selected' : ''}>● In Review</option>
+              <option value="Completed" ${CELL_CONFIG.val === 'Completed' ? 'selected' : ''}>● Completed</option>
+              <option value="Blocked" ${CELL_CONFIG.val === 'Blocked' ? 'selected' : ''}>● Blocked</option>
+            </select>
+          `;
+        }
+        if (CELL_CONFIG.type.startsWith('Number')) {
+          return `<input type="number" class="md-fb-input" style="width:100%" value="${E(CELL_CONFIG.val)}" data-ec-live-input placeholder="Enter amount...">`;
+        }
+        if (CELL_CONFIG.type.startsWith('Date')) {
+          return `<input type="date" class="md-fb-input" style="width:100%" value="${E(CELL_CONFIG.val)}" data-ec-live-input>`;
+        }
+        if (CELL_CONFIG.type.startsWith('Boolean')) {
+          return `<label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" ${CELL_CONFIG.val === 'true' || CELL_CONFIG.val === true ? 'checked' : ''} data-ec-live-input> Billable</label>`;
+        }
+        return `<input type="text" class="md-fb-input" style="width:100%" value="${E(CELL_CONFIG.val)}" data-ec-live-input placeholder="Enter text...">`;
+      };
+
+      pv.innerHTML = `<div class="grid">${['light', 'dark'].map(th => `
+        <div class="th" data-theme="${th}" style="padding:16px;background:var(--bg)">
+          <p class="ey" style="color:var(--color-text-muted)">${th} theme</p>
+
+          <!-- Component Specimen Box -->
+          <div class="md-card" style="padding:20px">
+            <h4 style="margin:0 0 12px;font-size:13px;text-transform:uppercase;color:var(--mu)">Cell Specimen State Inspection</h4>
+            
+            <div style="max-width:380px;border:1px solid var(--bd);padding:12px;background:var(--sf);border-radius:4px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--mu);margin-bottom:6px">
+                FIELD: ${CELL_CONFIG.type} · STATE: ${CELL_CONFIG.st}
+              </div>
+
+              <div class="md-cell ${isEditing ? 'is-editing' : ''} ${isHover ? 'rh' : ''} ${isFocus ? 'cf' : ''}" style="${isDisabled ? 'opacity:0.5;cursor:not-allowed;' : ''}">
+                ${isEditing ? `
+                  <div class="md-cell-editor ${CELL_CONFIG.error ? 'has-error' : ''}">
+                    ${renderEditorControl()}
+                    <button class="b" style="padding:3px 7px;font-size:12px;background:var(--ac);color:#fff" title="Save" data-ec-inline-save>✓</button>
+                    <button class="b" style="padding:3px 7px;font-size:12px" title="Cancel" data-ec-inline-cancel>✕</button>
+                    ${CELL_CONFIG.error ? `<div class="md-cell-error-tip">${CELL_CONFIG.error}</div>` : ''}
+                  </div>
+                ` : isSaving ? `
+                  <span style="display:inline-flex;align-items:center;gap:6px;color:var(--ac);font-size:13px"><span class="spn"></span> Saving changes...</span>
+                ` : isSaved ? `
+                  <span style="display:inline-flex;align-items:center;gap:6px;color:#059669;font-weight:600;font-size:13px">✓ Saved to record</span>
+                ` : `
+                  <span style="display:inline-flex;align-items:center;gap:6px">
+                    ${CELL_CONFIG.val ? fmtVal({ id: 'status', type: CELL_CONFIG.type.toLowerCase() }, CELL_CONFIG.val) : '<span class="m">Empty (click to edit)</span>'}
+                    ${CELL_CONFIG.dirty ? '<span class="md-cell-dirty-dot" title="Modified value"></span>' : ''}
+                  </span>
+                  <span class="md-cell-afford">✏️ Edit</span>
+                `}
+              </div>
+            </div>
+
+            <!-- In-Table Realistic Row Context -->
+            <h4 style="margin:24px 0 8px;font-size:13px;text-transform:uppercase;color:var(--mu)">Data Grid Row Context (Click any cell to edit)</h4>
+            <div style="overflow-x:auto">
+              <table class="md-table ${CELL_CONFIG.density === 'Compact' ? 'density-compact' : 'density-comfortable'}">
+                <thead>
+                  <tr>
+                    <th>Task ID</th>
+                    <th>Task Title</th>
+                    <th>Assignee</th>
+                    <th>Status</th>
+                    <th>Budget</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${INIT_RECORDS.slice(0, 3).map((r, ri) => `
+                    <tr>
+                      <td><code>${r.id}</code></td>
+                      <td data-grid-cell="title" data-row="${ri}" class="md-cell" tabindex="0">
+                        <span>${r.title}</span>
+                        <span class="md-cell-afford">✏️</span>
+                      </td>
+                      <td data-grid-cell="assignee" data-row="${ri}" class="md-cell" tabindex="0">
+                        <span>${r.assignee}</span>
+                        <span class="md-cell-afford">✏️</span>
+                      </td>
+                      <td data-grid-cell="status" data-row="${ri}" class="md-cell" tabindex="0">
+                        <span>${fmtVal({ id: 'status' }, r.status)}</span>
+                        <span class="md-cell-afford">✏️</span>
+                      </td>
+                      <td data-grid-cell="budget" data-row="${ri}" class="md-cell" tabindex="0">
+                        <span>$${Number(r.budget).toLocaleString()}</span>
+                        <span class="md-cell-afford">✏️</span>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+
+      // Inline save/cancel listeners
+      pv.querySelectorAll('[data-ec-inline-save]').forEach(b => {
+        b.onclick = () => {
+          const input = b.closest('.md-cell-editor').querySelector('[data-ec-live-input]');
+          if (input) {
+            const v = input.type === 'checkbox' ? input.checked : input.value;
+            if (!v && input.type !== 'checkbox') {
+              CELL_CONFIG.error = 'Value cannot be empty.';
+              CELL_CONFIG.st = 'Validation Error';
+            } else {
+              CELL_CONFIG.val = v;
+              CELL_CONFIG.dirty = CELL_CONFIG.val !== CELL_CONFIG.origVal;
+              CELL_CONFIG.st = 'Saved (Checkmark)';
+              CU['Editable Cell'].draw();
+              setTimeout(() => {
+                CELL_CONFIG.st = 'Read-only View';
+                CU['Editable Cell'].draw();
+              }, 1000);
+              return;
+            }
+          }
+          CU['Editable Cell'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-ec-inline-cancel]').forEach(b => {
+        b.onclick = () => {
+          CELL_CONFIG.val = CELL_CONFIG.origVal;
+          CELL_CONFIG.dirty = false;
+          CELL_CONFIG.error = '';
+          CELL_CONFIG.st = 'Read-only View';
+          CU['Editable Cell'].draw();
+        };
+      });
+
+      // Click on table row cells to edit live
+      pv.querySelectorAll('[data-grid-cell]').forEach(td => {
+        td.onclick = function() {
+          const field = this.dataset.gridCell;
+          const rIndex = +this.dataset.row;
+          const current = INIT_RECORDS[rIndex][field];
+          const promptVal = prompt(`Edit ${field} for ${INIT_RECORDS[rIndex].id}:`, current);
+          if (promptVal !== null && promptVal.trim() !== '') {
+            INIT_RECORDS[rIndex][field] = promptVal.trim();
+            CU['Editable Cell'].draw();
+          }
+        };
+      });
+    }
+  };
+
+
+  /* -------------------------------------------------------------
+     3. FILTER BUILDER (CU['Filter Builder'])
+  ------------------------------------------------------------- */
+  let FB_RULES = [
+    { id: 1, field: 'status', op: 'is', val: 'Active' },
+    { id: 2, field: 'priority', op: 'is', val: 'Critical' }
+  ];
+  let FB_LOGIC = 'AND';
+  let FB_APPLIED = true;
+
+  CU['Filter Builder'] = {
+    reset() {
+      FB_RULES = [
+        { id: 1, field: 'status', op: 'is', val: 'Active' },
+        { id: 2, field: 'priority', op: 'is', val: 'Critical' }
+      ];
+      FB_LOGIC = 'AND';
+      FB_APPLIED = true;
+    },
+    ui() {
+      return `
+        <div class="grid">
+          ${S2('fb-scenario', 'Query Scenario', [
+            'Multi-Rule (AND logic)', 'Multi-Rule (OR logic)',
+            'Single Condition', 'Between Range Condition',
+            'Incomplete / Invalid Rule', 'Empty Builder (0 Rules)'
+          ], FB_RULES.length > 1 ? (FB_LOGIC === 'AND' ? 'Multi-Rule (AND logic)' : 'Multi-Rule (OR logic)') : FB_RULES.length === 1 ? 'Single Condition' : 'Empty Builder (0 Rules)')}
+          ${S2('fb-logic', 'Conjunction Logic', ['Match ALL conditions (AND)', 'Match ANY condition (OR)'], FB_LOGIC === 'AND' ? 'Match ALL conditions (AND)' : 'Match ANY condition (OR)')}
+        </div>
+        <div class="acts" style="margin:8px 0;align-items:center;flex-wrap:wrap">
+          <button class="b" data-a="fb-add">+ Add Condition</button>
+          <button class="b" data-a="fb-apply" style="background:var(--ac);color:#fff">Apply Filters</button>
+          <button class="b" data-a="fb-clear">Clear All Conditions</button>
+          <button class="b" data-a="fb-reset">Reset</button>
+        </div>
+        <p class="m">Audit Check: Filter Builder features field-dependent operators, dynamic value inputs (single, between range, enum), AND/OR logic branching, and live dataset filtering.</p>
+      `;
+    },
+    init() {
+      const ctl = $('#m-ctl');
+      ctl.onchange = e => {
+        const k = e.target.dataset.k;
+        if (!k) return;
+        const val = e.target.value;
+        if (k === 'fb-scenario') {
+          if (val === 'Multi-Rule (AND logic)') {
+            FB_LOGIC = 'AND';
+            FB_RULES = [
+              { id: 1, field: 'status', op: 'is', val: 'Active' },
+              { id: 2, field: 'priority', op: 'is', val: 'Critical' }
+            ];
+          } else if (val === 'Multi-Rule (OR logic)') {
+            FB_LOGIC = 'OR';
+            FB_RULES = [
+              { id: 1, field: 'status', op: 'is', val: 'Active' },
+              { id: 2, field: 'status', op: 'is', val: 'In Review' }
+            ];
+          } else if (val === 'Single Condition') {
+            FB_LOGIC = 'AND';
+            FB_RULES = [{ id: 1, field: 'dept', op: 'contains', val: 'Design' }];
+          } else if (val === 'Between Range Condition') {
+            FB_LOGIC = 'AND';
+            FB_RULES = [{ id: 1, field: 'budget', op: 'between', val: '8000', val2: '15000' }];
+          } else if (val === 'Incomplete / Invalid Rule') {
+            FB_RULES = [{ id: 1, field: 'title', op: 'contains', val: '' }];
+          } else if (val === 'Empty Builder (0 Rules)') {
+            FB_RULES = [];
+          }
+          FB_APPLIED = true;
+        } else if (k === 'fb-logic') {
+          FB_LOGIC = val.includes('AND') ? 'AND' : 'OR';
+        }
+        ctl.innerHTML = CU['Filter Builder'].ui();
+        CU['Filter Builder'].init();
+        CU['Filter Builder'].draw();
+      };
+
+      ctl.onclick = e => {
+        const btn = e.target.closest('[data-a]');
+        if (!btn) return;
+        const a = btn.dataset.a;
+        if (a === 'fb-add') {
+          FB_RULES.push({ id: Date.now(), field: 'status', op: 'is', val: 'Active' });
+          FB_APPLIED = false;
+        } else if (a === 'fb-apply') {
+          FB_APPLIED = true;
+        } else if (a === 'fb-clear') {
+          FB_RULES = [];
+          FB_APPLIED = true;
+        } else if (a === 'fb-reset') {
+          CU['Filter Builder'].reset();
+        }
+        ctl.innerHTML = CU['Filter Builder'].ui();
+        CU['Filter Builder'].init();
+        CU['Filter Builder'].draw();
+      };
+    },
+    draw() {
+      const pv = $('#m-pv');
+      if (!pv) return;
+
+      // Filter dataset based on FB_RULES
+      const getFilteredRecords = () => {
+        if (!FB_APPLIED || FB_RULES.length === 0) return INIT_RECORDS;
+        return INIT_RECORDS.filter(record => {
+          const evals = FB_RULES.map(rule => {
+            const fVal = record[rule.field];
+            if (!rule.val && !['is empty', 'is not empty'].includes(rule.op)) return true; // ignore incomplete rule
+            if (rule.op === 'contains') return String(fVal || '').toLowerCase().includes(String(rule.val).toLowerCase());
+            if (rule.op === 'does not contain') return !String(fVal || '').toLowerCase().includes(String(rule.val).toLowerCase());
+            if (rule.op === 'is' || rule.op === 'equals') return String(fVal).toLowerCase() === String(rule.val).toLowerCase();
+            if (rule.op === 'is not') return String(fVal).toLowerCase() !== String(rule.val).toLowerCase();
+            if (rule.op === 'greater than') return Number(fVal) > Number(rule.val);
+            if (rule.op === 'less than') return Number(fVal) < Number(rule.val);
+            if (rule.op === 'between') {
+              const min = Number(rule.val) || 0;
+              const max = Number(rule.val2) || Infinity;
+              return Number(fVal) >= min && Number(fVal) <= max;
+            }
+            if (rule.op === 'is empty') return fVal == null || fVal === '';
+            if (rule.op === 'is not empty') return fVal != null && fVal !== '';
+            return true;
+          });
+          return FB_LOGIC === 'AND' ? evals.every(Boolean) : evals.some(Boolean);
+        });
+      };
+
+      const filteredRecords = getFilteredRecords();
+
+      const getOperatorsForField = fieldId => {
+        const col = INIT_COLUMNS.find(c => c.id === fieldId);
+        if (!col) return ['equals', 'is empty'];
+        if (col.type === 'number') return ['equals', 'greater than', 'less than', 'between', 'is empty'];
+        if (col.type === 'select') return ['is', 'is not', 'is any of'];
+        if (col.type === 'date') return ['is', 'before', 'after', 'between'];
+        if (col.type === 'boolean') return ['is true', 'is false'];
+        return ['contains', 'does not contain', 'equals', 'starts with', 'is empty', 'is not empty'];
+      };
+
+      pv.innerHTML = `<div class="grid">${['light', 'dark'].map(th => `
+        <div class="th" data-theme="${th}" style="padding:16px;background:var(--bg)">
+          <p class="ey" style="color:var(--color-text-muted)">${th} theme</p>
+
+          <div class="md-card">
+            <!-- Filter Builder Interface Box -->
+            <div class="md-fb-panel">
+              <div class="md-fb-header">
+                <div>
+                  <h3 style="margin:0 0 4px;font-size:16px;font-weight:600">Query Filter Builder</h3>
+                  <p class="m" style="margin:0">${FB_RULES.length} condition(s) defined · Logic: <b>${FB_LOGIC}</b></p>
+                </div>
+                <div style="display:flex;gap:6px">
+                  <button class="b ${FB_LOGIC === 'AND' ? 'is-sel' : ''}" style="font-size:12px;padding:3px 8px" data-fb-setlogic="AND">AND (All)</button>
+                  <button class="b ${FB_LOGIC === 'OR' ? 'is-sel' : ''}" style="font-size:12px;padding:3px 8px" data-fb-setlogic="OR">OR (Any)</button>
+                </div>
+              </div>
+
+              <!-- Rule Rows -->
+              ${FB_RULES.length === 0 ? `
+                <div style="padding:24px;text-align:center;border:1px dashed var(--bd);border-radius:4px;background:var(--bg)">
+                  <p class="m" style="margin:0 0 8px">No filter rules currently configured.</p>
+                  <button class="b" data-fb-add-rule>+ Add First Condition</button>
+                </div>
+              ` : `
+                <div role="group" aria-label="Filter rules list">
+                  ${FB_RULES.map((rule, idx) => {
+                    const ops = getOperatorsForField(rule.field);
+                    const col = INIT_COLUMNS.find(c => c.id === rule.field) || INIT_COLUMNS[0];
+                    const isBetween = rule.op === 'between';
+                    const noVal = ['is empty', 'is not empty', 'is true', 'is false'].includes(rule.op);
+                    const isInvalid = !noVal && (!rule.val || (isBetween && !rule.val2));
+
+                    return `
+                      <div class="md-fb-rule ${isInvalid ? 'invalid' : ''}" data-rule-idx="${idx}">
+                        <span class="md-fb-tag">${idx === 0 ? 'WHERE' : FB_LOGIC}</span>
+
+                        <!-- Field Dropdown -->
+                        <select class="md-fb-select" data-fb-field="${idx}" aria-label="Field selector">
+                          ${INIT_COLUMNS.map(c => `
+                            <option value="${c.id}" ${c.id === rule.field ? 'selected' : ''}>${c.name} (${c.type})</option>
+                          `).join('')}
+                        </select>
+
+                        <!-- Operator Dropdown -->
+                        <select class="md-fb-select" data-fb-op="${idx}" aria-label="Operator selector">
+                          ${ops.map(o => `
+                            <option value="${o}" ${o === rule.op ? 'selected' : ''}>${o}</option>
+                          `).join('')}
+                        </select>
+
+                        <!-- Dynamic Value Input -->
+                        ${noVal ? `
+                          <span class="m" style="font-size:12px;font-style:italic">(No value needed)</span>
+                        ` : isBetween ? `
+                          <input type="number" class="md-fb-input" style="width:90px" placeholder="Min" value="${E(rule.val || '')}" data-fb-val="${idx}">
+                          <span class="m">and</span>
+                          <input type="number" class="md-fb-input" style="width:90px" placeholder="Max" value="${E(rule.val2 || '')}" data-fb-val2="${idx}">
+                        ` : col.type === 'select' ? `
+                          <select class="md-fb-select" data-fb-val="${idx}" aria-label="Filter value">
+                            ${col.options.map(opt => `
+                              <option value="${opt}" ${opt === rule.val ? 'selected' : ''}>${opt}</option>
+                            `).join('')}
+                          </select>
+                        ` : `
+                          <input type="${col.type === 'number' ? 'number' : col.type === 'date' ? 'date' : 'text'}" class="md-fb-input" style="flex:1;min-width:140px" placeholder="Enter value..." value="${E(rule.val || '')}" data-fb-val="${idx}">
+                        `}
+
+                        <!-- Remove Button -->
+                        <button class="b" style="padding:4px 8px;font-size:12px;color:#DC2626" title="Remove condition" data-fb-del="${idx}">✕</button>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap;gap:8px">
+                  <button class="b" data-fb-add-rule>+ Add Condition</button>
+                  <div style="display:flex;gap:8px">
+                    <button class="b" data-fb-clear-btn>Clear Rules</button>
+                    <button class="b" style="background:var(--ac);color:#fff" data-fb-apply-btn>Apply Filters</button>
+                  </div>
+                </div>
+              `}
+            </div>
+
+            <!-- Matching Records Overview -->
+            <div style="padding:12px 16px;background:var(--bg);border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center">
+              <span class="m" style="font-weight:600">Matching Records: ${filteredRecords.length} of ${INIT_RECORDS.length}</span>
+              ${filteredRecords.length === 0 ? '<span class="md-badge md-badge-critical">Zero matches</span>' : '<span class="md-badge md-badge-active">Query Active</span>'}
+            </div>
+
+            <!-- Table of Matched Records -->
+            <div style="overflow-x:auto">
+              <table class="md-table density-compact">
+                <thead>
+                  <tr>
+                    <th>Task ID</th>
+                    <th>Task Title</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Budget</th>
+                    <th>Due Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${filteredRecords.length === 0 ? `
+                    <tr><td colspan="6" style="padding:24px;text-align:center"><p class="m">No records match the current filter query. Try modifying your operators or values.</p></td></tr>
+                  ` : filteredRecords.map(r => `
+                    <tr>
+                      <td><code>${r.id}</code></td>
+                      <td><b>${r.title}</b></td>
+                      <td>${fmtVal({ id: 'status' }, r.status)}</td>
+                      <td>${fmtVal({ id: 'priority' }, r.priority)}</td>
+                      <td>$${Number(r.budget).toLocaleString()}</td>
+                      <td>${r.dueDate}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+
+      // Event handlers inside preview
+      pv.querySelectorAll('[data-fb-setlogic]').forEach(btn => {
+        btn.onclick = () => {
+          FB_LOGIC = btn.dataset.fbSetlogic;
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-add-rule]').forEach(btn => {
+        btn.onclick = () => {
+          FB_RULES.push({ id: Date.now(), field: 'status', op: 'is', val: 'Active' });
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-del]').forEach(btn => {
+        btn.onclick = () => {
+          const idx = +btn.dataset.fbDel;
+          FB_RULES.splice(idx, 1);
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-field]').forEach(sel => {
+        sel.onchange = e => {
+          const idx = +sel.dataset.fbField;
+          const newField = sel.value;
+          FB_RULES[idx].field = newField;
+          const ops = getOperatorsForField(newField);
+          FB_RULES[idx].op = ops[0];
+          FB_RULES[idx].val = '';
+          FB_RULES[idx].val2 = '';
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-op]').forEach(sel => {
+        sel.onchange = e => {
+          const idx = +sel.dataset.fbOp;
+          FB_RULES[idx].op = sel.value;
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-val]').forEach(inp => {
+        inp.oninput = e => {
+          const idx = +inp.dataset.fbVal;
+          FB_RULES[idx].val = e.target.value;
+        };
+        inp.onchange = () => {
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-val2]').forEach(inp => {
+        inp.oninput = e => {
+          const idx = +inp.dataset.fbVal2;
+          FB_RULES[idx].val2 = e.target.value;
+        };
+        inp.onchange = () => {
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-apply-btn]').forEach(btn => {
+        btn.onclick = () => {
+          FB_APPLIED = true;
+          CU['Filter Builder'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-fb-clear-btn]').forEach(btn => {
+        btn.onclick = () => {
+          FB_RULES = [];
+          FB_APPLIED = true;
+          CU['Filter Builder'].draw();
+        };
+      });
+    }
+  };
+
+
+  /* -------------------------------------------------------------
+     4. DATA GRID (CU['Data Grid']) - Integrated Component
+  ------------------------------------------------------------- */
+  let DG_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+  let DG_RECORDS = JSON.parse(JSON.stringify(INIT_RECORDS));
+  let DG_SELECTED = new Set();
+  let DG_SORT = { col: null, dir: 'asc' };
+  let DG_PAGE = 1;
+  let DG_PAGE_SIZE = 5;
+  let DG_SEARCH = '';
+  let DG_DENSITY = 'Comfortable';
+  let DG_COL_MENU_OPEN = false;
+  let DG_FB_OPEN = false;
+  let DG_FB_RULES = [];
+  let DG_FB_LOGIC = 'AND';
+  let DG_LOADING = false;
+  let DG_ACTIVE_SCENARIO_STEP = 1;
+
+  CU['Data Grid'] = {
+    reset() {
+      DG_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+      DG_RECORDS = JSON.parse(JSON.stringify(INIT_RECORDS));
+      DG_SELECTED = new Set();
+      DG_SORT = { col: null, dir: 'asc' };
+      DG_PAGE = 1;
+      DG_PAGE_SIZE = 5;
+      DG_SEARCH = '';
+      DG_DENSITY = 'Comfortable';
+      DG_COL_MENU_OPEN = false;
+      DG_FB_OPEN = false;
+      DG_FB_RULES = [];
+      DG_FB_LOGIC = 'AND';
+      DG_LOADING = false;
+      DG_ACTIVE_SCENARIO_STEP = 1;
+    },
+    ui() {
+      return `
+        <!-- PHASE 3 INTEGRATED WORKFLOW TOUR / SCENARIO BAR -->
+        <div style="background:var(--sf);border:1px solid var(--bd);padding:14px;border-radius:4px;margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ac)">Phase 3 Component Integration Scenario:</span>
+            <span class="m" style="font-size:12px">Data Grid + Column Visibility + Editable Cell + Filter Builder</span>
+          </div>
+          <div class="acts" style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 1 ? 'is-sel' : ''}" data-dg-step="1">1. Default Grid</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 2 ? 'is-sel' : ''}" data-dg-step="2">2. Toggle Columns</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 3 ? 'is-sel' : ''}" data-dg-step="3">3. Inline Cell Edit</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 4 ? 'is-sel' : ''}" data-dg-step="4">4. Filter Builder (AND/OR)</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 5 ? 'is-sel' : ''}" data-dg-step="5">5. Sort Results</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 6 ? 'is-sel' : ''}" data-dg-step="6">6. Pagination</button>
+            <button class="b ${DG_ACTIVE_SCENARIO_STEP === 7 ? 'is-sel' : ''}" data-dg-step="7">7. Reset All</button>
+          </div>
+        </div>
+
+        <div class="grid">
+          ${S2('dg-den', 'Table Density', ['Comfortable', 'Compact'], DG_DENSITY)}
+          ${S2('dg-state', 'State Simulator', ['Standard Populated', 'Loading Shimmer', 'Zero Results (Empty State)'], DG_LOADING ? 'Loading Shimmer' : 'Standard Populated')}
+        </div>
+      `;
+    },
+    init() {
+      const ctl = $('#m-ctl');
+      ctl.onchange = e => {
+        const k = e.target.dataset.k;
+        if (!k) return;
+        const v = e.target.value;
+        if (k === 'dg-den') DG_DENSITY = v;
+        else if (k === 'dg-state') {
+          if (v === 'Loading Shimmer') { DG_LOADING = true; }
+          else if (v === 'Zero Results (Empty State)') {
+            DG_LOADING = false;
+            DG_SEARCH = 'nonExistentQuery999';
+          } else {
+            DG_LOADING = false;
+            DG_SEARCH = '';
+          }
+        }
+        ctl.innerHTML = CU['Data Grid'].ui();
+        CU['Data Grid'].init();
+        CU['Data Grid'].draw();
+      };
+
+      ctl.onclick = e => {
+        const btn = e.target.closest('[data-dg-step]');
+        if (!btn) return;
+        const step = +btn.dataset.dgStep;
+        DG_ACTIVE_SCENARIO_STEP = step;
+
+        if (step === 1) {
+          CU['Data Grid'].reset();
+        } else if (step === 2) {
+          // Toggle columns scenario
+          DG_COL_MENU_OPEN = true;
+          DG_FB_OPEN = false;
+          DG_COLS.forEach(c => {
+            if (c.id === 'dueDate' || c.id === 'priority') c.visible = false;
+            if (c.id === 'billable') c.visible = true;
+          });
+        } else if (step === 3) {
+          // Cell edit scenario
+          DG_COL_MENU_OPEN = false;
+          DG_FB_OPEN = false;
+          DG_RECORDS[0].title = 'Brand Architecture Guidelines (Modified in Grid)';
+          DG_RECORDS[0].status = 'In Review';
+        } else if (step === 4) {
+          // Filter builder scenario
+          DG_COL_MENU_OPEN = false;
+          DG_FB_OPEN = true;
+          DG_FB_LOGIC = 'AND';
+          DG_FB_RULES = [
+            { id: 1, field: 'status', op: 'is', val: 'Active' },
+            { id: 2, field: 'priority', op: 'is', val: 'Critical' }
+          ];
+        } else if (step === 5) {
+          // Sort results scenario
+          DG_SORT = { col: 'budget', dir: 'desc' };
+        } else if (step === 6) {
+          // Pagination scenario: reset filters to show all 10 records across 2 pages
+          DG_FB_RULES = [];
+          DG_FB_OPEN = false;
+          DG_PAGE = 2;
+          DG_PAGE_SIZE = 5;
+        } else if (step === 7) {
+          CU['Data Grid'].reset();
+        }
+
+        ctl.innerHTML = CU['Data Grid'].ui();
+        CU['Data Grid'].init();
+        CU['Data Grid'].draw();
+      };
+    },
+    draw() {
+      const pv = $('#m-pv');
+      if (!pv) return;
+
+      const visibleCols = DG_COLS.filter(c => c.visible);
+
+      // Evaluate records through search, filter builder rules, and sorting
+      let processed = DG_RECORDS.filter(record => {
+        // Quick search
+        if (DG_SEARCH) {
+          const s = DG_SEARCH.toLowerCase();
+          const match = Object.values(record).some(v => String(v).toLowerCase().includes(s));
+          if (!match) return false;
+        }
+        // Filter rules
+        if (DG_FB_RULES.length > 0) {
+          const evals = DG_FB_RULES.map(rule => {
+            const fVal = record[rule.field];
+            if (!rule.val && !['is empty', 'is not empty'].includes(rule.op)) return true;
+            if (rule.op === 'contains') return String(fVal || '').toLowerCase().includes(String(rule.val).toLowerCase());
+            if (rule.op === 'is' || rule.op === 'equals') return String(fVal).toLowerCase() === String(rule.val).toLowerCase();
+            if (rule.op === 'is not') return String(fVal).toLowerCase() !== String(rule.val).toLowerCase();
+            if (rule.op === 'greater than') return Number(fVal) > Number(rule.val);
+            if (rule.op === 'less than') return Number(fVal) < Number(rule.val);
+            if (rule.op === 'between') {
+              const min = Number(rule.val) || 0;
+              const max = Number(rule.val2) || Infinity;
+              return Number(fVal) >= min && Number(fVal) <= max;
+            }
+            if (rule.op === 'is empty') return fVal == null || fVal === '';
+            if (rule.op === 'is not empty') return fVal != null && fVal !== '';
+            return true;
+          });
+          return DG_FB_LOGIC === 'AND' ? evals.every(Boolean) : evals.some(Boolean);
+        }
+        return true;
+      });
+
+      // Sorting
+      if (DG_SORT.col) {
+        const sc = DG_SORT.col;
+        const factor = DG_SORT.dir === 'asc' ? 1 : -1;
+        processed.sort((a, b) => {
+          if (a[sc] < b[sc]) return -1 * factor;
+          if (a[sc] > b[sc]) return 1 * factor;
+          return 0;
+        });
+      }
+
+      // Pagination
+      const totalRecords = processed.length;
+      const totalPages = Math.max(1, Math.ceil(totalRecords / DG_PAGE_SIZE));
+      if (DG_PAGE > totalPages) DG_PAGE = totalPages;
+      const startIdx = (DG_PAGE - 1) * DG_PAGE_SIZE;
+      const paginatedRecords = processed.slice(startIdx, startIdx + DG_PAGE_SIZE);
+
+      const allVisibleSelected = paginatedRecords.length > 0 && paginatedRecords.every(r => DG_SELECTED.has(r.id));
+      const someSelected = paginatedRecords.some(r => DG_SELECTED.has(r.id)) && !allVisibleSelected;
+
+      pv.innerHTML = `<div class="grid">${['light', 'dark'].map(th => `
+        <div class="th" data-theme="${th}" style="padding:16px;background:var(--bg)">
+          <p class="ey" style="color:var(--color-text-muted)">${th} theme</p>
+
+          <div class="md-card">
+            <!-- 1. Grid Main Toolbar -->
+            <div class="md-toolbar">
+              <div class="md-toolbar-grp">
+                <input type="search" class="md-search-input" placeholder="Search ${totalRecords} records..." value="${E(DG_SEARCH)}" data-dg-quicksearch>
+
+                <!-- Column Visibility Popover Trigger -->
+                <div style="position:relative">
+                  <button class="b ${DG_COL_MENU_OPEN ? 'is-sel' : ''}" data-dg-toggle-cols style="display:flex;align-items:center;gap:6px">
+                    <span>⊞ Columns</span>
+                    <span class="md-badge ${visibleCols.length < DG_COLS.length ? 'md-badge-review' : 'md-badge-completed'}">${visibleCols.length}/${DG_COLS.length}</span>
+                  </button>
+
+                  <div class="md-popover ${DG_COL_MENU_OPEN ? 'open' : ''}" style="top:calc(100% + 4px);left:0">
+                    <div style="font-weight:700;font-size:12px;margin-bottom:8px">Column Visibility</div>
+                    <div class="md-col-list">
+                      ${DG_COLS.map(c => `
+                        <label class="md-col-item ${c.locked ? 'is-locked' : ''}">
+                          <span><input type="checkbox" ${c.visible ? 'checked' : ''} ${c.locked ? 'disabled' : ''} data-dg-col-chk="${c.id}"> ${c.name}</span>
+                          ${c.locked ? '<span class="md-badge md-badge-completed">🔒 Required</span>' : ''}
+                        </label>
+                      `).join('')}
+                    </div>
+                    <div style="display:flex;justify-content:space-between;padding-top:6px;border-top:1px solid var(--bd)">
+                      <button class="b" style="font-size:11px" data-dg-cols-all>Show all</button>
+                      <button class="b" style="font-size:11px" data-dg-cols-reset>Reset</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Filter Builder Panel Trigger -->
+                <button class="b ${DG_FB_OPEN ? 'is-sel' : ''}" data-dg-toggle-fb style="display:flex;align-items:center;gap:6px">
+                  <span>⚡ Filter Builder</span>
+                  ${DG_FB_RULES.length > 0 ? `<span class="md-badge md-badge-active">${DG_FB_RULES.length} active</span>` : ''}
+                </button>
+              </div>
+
+              <!-- Right Actions: Density & Export -->
+              <div class="md-toolbar-grp">
+                <button class="b" data-dg-toggle-density>${DG_DENSITY === 'Comfortable' ? 'Dense / Compact' : 'Comfortable'}</button>
+                <button class="b" data-dg-export>Export CSV</button>
+              </div>
+            </div>
+
+            <!-- 2. Integrated Filter Builder Collapsible Panel -->
+            ${DG_FB_OPEN ? `
+              <div class="md-fb-panel">
+                <div class="md-fb-header">
+                  <div>
+                    <h4 style="margin:0 0 2px;font-size:14px;font-weight:600">Active Query Filter Builder</h4>
+                    <span class="m" style="font-size:12px">Filters update the Data Grid in real-time</span>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="b ${DG_FB_LOGIC === 'AND' ? 'is-sel' : ''}" style="font-size:11px;padding:2px 8px" data-dg-fb-logic="AND">AND (All)</button>
+                    <button class="b ${DG_FB_LOGIC === 'OR' ? 'is-sel' : ''}" style="font-size:11px;padding:2px 8px" data-dg-fb-logic="OR">OR (Any)</button>
+                  </div>
+                </div>
+
+                <div role="group" aria-label="Query rules">
+                  ${DG_FB_RULES.map((rule, idx) => `
+                    <div class="md-fb-rule" style="padding:6px 10px;margin-bottom:6px">
+                      <span class="md-fb-tag">${idx === 0 ? 'WHERE' : DG_FB_LOGIC}</span>
+                      <select class="md-fb-select" data-dg-fb-field="${idx}">
+                        ${DG_COLS.map(c => `<option value="${c.id}" ${c.id === rule.field ? 'selected' : ''}>${c.name}</option>`).join('')}
+                      </select>
+                      <select class="md-fb-select" data-dg-fb-op="${idx}">
+                        <option value="is" ${rule.op === 'is' ? 'selected' : ''}>is</option>
+                        <option value="contains" ${rule.op === 'contains' ? 'selected' : ''}>contains</option>
+                        <option value="greater than" ${rule.op === 'greater than' ? 'selected' : ''}>greater than</option>
+                        <option value="between" ${rule.op === 'between' ? 'selected' : ''}>between</option>
+                        <option value="is empty" ${rule.op === 'is empty' ? 'selected' : ''}>is empty</option>
+                      </select>
+                      <input type="text" class="md-fb-input" style="flex:1;min-width:120px" value="${E(rule.val || '')}" data-dg-fb-val="${idx}" placeholder="Filter value...">
+                      <button class="b" style="padding:2px 6px;color:#DC2626" data-dg-fb-del="${idx}">✕</button>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <div style="display:flex;justify-content:space-between;margin-top:8px">
+                  <button class="b" style="font-size:12px" data-dg-fb-add>+ Add Rule</button>
+                  <button class="b" style="font-size:12px" data-dg-fb-clear>Clear Rules</button>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- 3. Floating Bulk Action Bar -->
+            ${DG_SELECTED.size > 0 ? `
+              <div class="md-bulk-bar">
+                <span><b>${DG_SELECTED.size}</b> row(s) selected</span>
+                <div style="display:flex;gap:8px">
+                  <button data-dg-bulk-done>Mark Completed</button>
+                  <button data-dg-bulk-del style="color:#DC2626">Delete Selected</button>
+                  <button data-dg-bulk-clear>Deselect All</button>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- 4. Data Grid Table -->
+            <div style="overflow-x:auto">
+              <table class="md-table ${DG_DENSITY === 'Compact' ? 'density-compact' : 'density-comfortable'}">
+                <thead>
+                  <tr>
+                    <th style="width:36px;text-align:center">
+                      <input type="checkbox" aria-label="Select all visible rows" data-dg-select-all ${allVisibleSelected ? 'checked' : ''} ${someSelected ? 'data-ind' : ''}>
+                    </th>
+                    ${visibleCols.map(col => `
+                      <th class="sortable" data-dg-sort="${col.id}" aria-sort="${DG_SORT.col === col.id ? (DG_SORT.dir === 'asc' ? 'ascending' : 'descending') : 'none'}">
+                        <div style="display:flex;align-items:center;justify-content:space-between">
+                          <span>${col.name} ${col.locked ? '🔒' : ''}</span>
+                          <span style="font-size:11px;color:${DG_SORT.col === col.id ? 'var(--ac)' : 'var(--mu)'}">
+                            ${DG_SORT.col === col.id ? (DG_SORT.dir === 'asc' ? '▲' : '▼') : '↕'}
+                          </span>
+                        </div>
+                      </th>
+                    `).join('')}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${DG_LOADING ? `
+                    ${[1, 2, 3, 4].map(() => `
+                      <tr>
+                        <td style="text-align:center"><div class="skl" style="width:16px;height:16px;margin:auto"></div></td>
+                        ${visibleCols.map(() => `<td><div class="skl" style="width:80%"></div></td>`).join('')}
+                      </tr>
+                    `).join('')}
+                  ` : paginatedRecords.length === 0 ? `
+                    <tr>
+                      <td colspan="${visibleCols.length + 1}" style="padding:36px;text-align:center">
+                        <h4 style="margin:0 0 6px;font-size:16px">No matching records found</h4>
+                        <p class="m" style="margin:0 0 12px">No records match the active search term or filter rules.</p>
+                        <button class="b" data-dg-reset-filters>Clear Search and Filters</button>
+                      </td>
+                    </tr>
+                  ` : paginatedRecords.map(r => {
+                    const isSelected = DG_SELECTED.has(r.id);
+                    return `
+                      <tr class="${isSelected ? 'selected' : ''}">
+                        <td style="text-align:center">
+                          <input type="checkbox" aria-label="Select row ${r.id}" data-dg-row-chk="${r.id}" ${isSelected ? 'checked' : ''}>
+                        </td>
+                        ${visibleCols.map(c => `
+                          <td data-dg-edit-cell="${c.id}" data-rec-id="${r.id}" class="md-cell" tabindex="0">
+                            <span>${fmtVal(c, r[c.id])}</span>
+                            <span class="md-cell-afford">✏️</span>
+                          </td>
+                        `).join('')}
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 5. Grid Pagination Footer -->
+            <div class="md-pagination">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span>Rows per page:</span>
+                <select class="md-fb-select" data-dg-page-size style="padding:2px 8px">
+                  <option value="5" ${DG_PAGE_SIZE === 5 ? 'selected' : ''}>5</option>
+                  <option value="10" ${DG_PAGE_SIZE === 10 ? 'selected' : ''}>10</option>
+                  <option value="20" ${DG_PAGE_SIZE === 20 ? 'selected' : ''}>20</option>
+                </select>
+                <span class="m">Showing ${totalRecords === 0 ? 0 : startIdx + 1}–${Math.min(startIdx + DG_PAGE_SIZE, totalRecords)} of ${totalRecords} records</span>
+              </div>
+
+              <div style="display:flex;gap:4px;align-items:center">
+                <button class="b" style="padding:4px 8px" data-dg-page-prev ${DG_PAGE <= 1 ? 'disabled' : ''}>Previous</button>
+                <span style="padding:0 8px;font-weight:600">Page ${DG_PAGE} of ${totalPages}</span>
+                <button class="b" style="padding:4px 8px" data-dg-page-next ${DG_PAGE >= totalPages ? 'disabled' : ''}>Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('')}</div>`;
+
+      // Set indeterminate property on select all checkboxes
+      pv.querySelectorAll('input[data-ind]').forEach(i => i.indeterminate = true);
+
+      // Event handlers
+      pv.querySelectorAll('[data-dg-quicksearch]').forEach(inp => {
+        inp.oninput = e => {
+          DG_SEARCH = e.target.value;
+          DG_PAGE = 1;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-toggle-cols]').forEach(btn => {
+        btn.onclick = () => {
+          DG_COL_MENU_OPEN = !DG_COL_MENU_OPEN;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-toggle-fb]').forEach(btn => {
+        btn.onclick = () => {
+          DG_FB_OPEN = !DG_FB_OPEN;
+          if (DG_FB_OPEN && DG_FB_RULES.length === 0) {
+            DG_FB_RULES.push({ id: 1, field: 'status', op: 'is', val: 'Active' });
+          }
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-col-chk]').forEach(chk => {
+        chk.onchange = e => {
+          const colId = e.target.dataset.dgColChk;
+          const col = DG_COLS.find(c => c.id === colId);
+          if (col && !col.locked) {
+            col.visible = e.target.checked;
+            CU['Data Grid'].draw();
+          }
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-cols-all]').forEach(btn => {
+        btn.onclick = () => {
+          DG_COLS.forEach(c => c.visible = true);
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-cols-reset]').forEach(btn => {
+        btn.onclick = () => {
+          DG_COLS = JSON.parse(JSON.stringify(INIT_COLUMNS));
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-toggle-density]').forEach(btn => {
+        btn.onclick = () => {
+          DG_DENSITY = DG_DENSITY === 'Comfortable' ? 'Compact' : 'Comfortable';
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-sort]').forEach(th => {
+        th.onclick = () => {
+          const colId = th.dataset.dgSort;
+          if (DG_SORT.col === colId) {
+            DG_SORT.dir = DG_SORT.dir === 'asc' ? 'desc' : 'asc';
+          } else {
+            DG_SORT.col = colId;
+            DG_SORT.dir = 'asc';
+          }
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-select-all]').forEach(chk => {
+        chk.onchange = e => {
+          if (e.target.checked) {
+            paginatedRecords.forEach(r => DG_SELECTED.add(r.id));
+          } else {
+            paginatedRecords.forEach(r => DG_SELECTED.delete(r.id));
+          }
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-row-chk]').forEach(chk => {
+        chk.onchange = e => {
+          const recId = e.target.dataset.dgRowChk;
+          if (e.target.checked) DG_SELECTED.add(recId);
+          else DG_SELECTED.delete(recId);
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-bulk-done]').forEach(btn => {
+        btn.onclick = () => {
+          DG_RECORDS.forEach(r => {
+            if (DG_SELECTED.has(r.id)) r.status = 'Completed';
+          });
+          DG_SELECTED.clear();
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-bulk-del]').forEach(btn => {
+        btn.onclick = () => {
+          DG_RECORDS = DG_RECORDS.filter(r => !DG_SELECTED.has(r.id));
+          DG_SELECTED.clear();
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-bulk-clear]').forEach(btn => {
+        btn.onclick = () => {
+          DG_SELECTED.clear();
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-page-prev]').forEach(btn => {
+        btn.onclick = () => {
+          if (DG_PAGE > 1) { DG_PAGE--; CU['Data Grid'].draw(); }
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-page-next]').forEach(btn => {
+        btn.onclick = () => {
+          if (DG_PAGE < totalPages) { DG_PAGE++; CU['Data Grid'].draw(); }
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-page-size]').forEach(sel => {
+        sel.onchange = e => {
+          DG_PAGE_SIZE = +e.target.value;
+          DG_PAGE = 1;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-reset-filters]').forEach(btn => {
+        btn.onclick = () => {
+          DG_SEARCH = '';
+          DG_FB_RULES = [];
+          DG_PAGE = 1;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      // In-place Cell Editing inside Data Grid
+      pv.querySelectorAll('[data-dg-edit-cell]').forEach(td => {
+        td.ondblclick = td.onclick = function() {
+          const colId = this.dataset.dgEditCell;
+          const recId = this.dataset.recId;
+          const rec = DG_RECORDS.find(r => r.id === recId);
+          if (!rec) return;
+
+          const col = DG_COLS.find(c => c.id === colId);
+          if (col && col.locked) return; // cannot edit locked ID
+
+          const curVal = rec[colId];
+          const newVal = prompt(`Edit ${col ? col.name : colId} for ${rec.id}:`, curVal);
+          if (newVal !== null && newVal.trim() !== '') {
+            rec[colId] = col && col.type === 'number' ? Number(newVal) : newVal.trim();
+            CU['Data Grid'].draw();
+          }
+        };
+      });
+
+      // Filter builder panel handlers
+      pv.querySelectorAll('[data-dg-fb-add]').forEach(btn => {
+        btn.onclick = () => {
+          DG_FB_RULES.push({ id: Date.now(), field: 'status', op: 'is', val: 'Active' });
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-del]').forEach(btn => {
+        btn.onclick = () => {
+          const idx = +btn.dataset.dgFbDel;
+          DG_FB_RULES.splice(idx, 1);
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-clear]').forEach(btn => {
+        btn.onclick = () => {
+          DG_FB_RULES = [];
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-logic]').forEach(btn => {
+        btn.onclick = () => {
+          DG_FB_LOGIC = btn.dataset.dgFbLogic;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-field]').forEach(sel => {
+        sel.onchange = e => {
+          const idx = +sel.dataset.dgFbField;
+          DG_FB_RULES[idx].field = sel.value;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-op]').forEach(sel => {
+        sel.onchange = e => {
+          const idx = +sel.dataset.dgFbOp;
+          DG_FB_RULES[idx].op = sel.value;
+          CU['Data Grid'].draw();
+        };
+      });
+
+      pv.querySelectorAll('[data-dg-fb-val]').forEach(inp => {
+        inp.oninput = e => {
+          const idx = +inp.dataset.dgFbVal;
+          DG_FB_RULES[idx].val = e.target.value;
+        };
+        inp.onchange = () => {
+          CU['Data Grid'].draw();
+        };
+      });
+    }
+  };
+})();
 
 prog();list();
 ck('ck4',['All 13 categories and every listed component are present and prioritised.','Anatomy, variants, sizes and states reviewed for each P0 component.','Light and dark themes reviewed for every component.','Proposed tokens (spacing, sizing, radius, focus ring, motion, destructive action) approved or replaced.','Keyboard, focus and announcement behavior verified in code, not only in design.','Figma component sets, properties and variables match this reference.','Shared primitives (Tooltip, Command Palette, OTP, Signature) built once.','Composed website sections kept out of the global component library.','Content edge cases and narrow-width reflow tested.','Design review and stakeholder approval obtained.']);
@@ -9055,6 +10994,29 @@ patInit();
 /* ================= CHANGELOG MODULE SCRIPT ================= */
 (function() {
   const CHANGELOG_FALLBACK = [
+    {
+      "id": "fix-complex-data-components",
+      "version": "1.1.1",
+      "date": "2026-10-30",
+      "category": "fix",
+      "title": "Repair Complex Data Components & Interaction Lifecycle",
+      "summary": "Repaired behaviour, state lifecycles, and visual representations for Column Visibility Menu, Editable Cell, Filter Builder, and Data Grid.",
+      "description": "Resolved root-cause generic table fallback by implementing dedicated component controllers, type-aware query builders, in-place cell editing state machines, and a unified Phase 3 integrated scenario workflow.",
+      "changes": [
+        "Implemented dedicated Column Visibility Menu with real-time column search, locked identifier protection, and live grid synchronization.",
+        "Implemented Editable Cell with complete lifecycle (View, Hover, Focus, Edit, Dirty, Saving, Saved, Validation Error) across 5 data types.",
+        "Implemented Filter Builder featuring type-aware operators, dynamic value inputs (between, enum, text), and AND/OR logic conjunctions.",
+        "Implemented Data Grid composite architecture with sorting, row selection, bulk actions, density switcher, pagination, and a 7-step integrated workflow scenario.",
+        "Added WCAG 2.2 AA compliant token bindings and side-by-side light and dark preview modes."
+      ],
+      "affectedAreas": [
+        "Components",
+        "Tables and Complex Data"
+      ],
+      "commitMessage": "fix(components): repair behaviour, states, and integration for complex data components",
+      "commitRef": null,
+      "breaking": false
+    },
     {
       "id": "changelog-page",
       "version": "1.1.0",
