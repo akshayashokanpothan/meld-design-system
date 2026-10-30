@@ -75,8 +75,228 @@ nav.side.open{display:block}section{padding:48px 20px}
 html[data-theme=dark]{--bg:#171717;--sf:#1F1F1F;--tx:#F7F7F5;--t2:#CFCFCB;--mu:#A3A39F;--bd:#3a3a3a;--ac:#A5AAF5;color-scheme:dark}
 html[data-theme=dark] .fr,html[data-theme=dark] select,html[data-theme=dark] textarea,html[data-theme=dark] input:not(.fi){background:var(--sf);color:var(--tx)}
 html[data-theme=dark] .b[aria-pressed=true]{color:#171717}html[data-theme=dark] .btnx,html[data-theme=dark] #toast{color:var(--bg)}
-</style></head><body>
-<header class="hd"><button id="menu" class="b" aria-expanded="false" aria-controls="side">Menu</button><b>IDEO Website Design System</b><span class="tag">Typography Â· Color Â· Components Â· Patterns</span><span class="sp"></span><button class="b" id="tt">Switch to dark</button><span class="tag">v1.0</span></header>
+</style>
+<style id="ch-styles">
+/* ===== CHANGELOG MODULE STYLES ===== */
+.ch-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 20px 0 32px;
+}
+.ch-metric-card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+.ch-metric-val {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--tx);
+  margin-bottom: 6px;
+  font-feature-settings: "tnum";
+}
+.ch-metric-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.ch-toolbar {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  padding: 20px;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+.ch-cats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.ch-cat-btn[aria-pressed=true] {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff;
+}
+.ch-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ch-timeline {
+  position: relative;
+  margin: 32px 0 0 12px;
+  padding-left: 28px;
+  border-left: 2px solid var(--bd);
+}
+.ch-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+.ch-item:last-child {
+  margin-bottom: 0;
+}
+.ch-node {
+  position: absolute;
+  left: -38px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--ac);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.ch-item[data-cat="feature"] .ch-node { border-color: #315CFF; }
+.ch-item[data-cat="improvement"] .ch-node { border-color: #059669; }
+.ch-item[data-cat="fix"] .ch-node { border-color: #D97706; }
+.ch-item[data-cat="breaking"] .ch-node { border-color: #DC2626; background: #DC2626; }
+.ch-item[data-cat="docs"] .ch-node { border-color: #7C3AED; }
+
+.ch-card {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  padding: 24px;
+  border-radius: 4px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.ch-card:hover {
+  border-color: var(--tx);
+}
+.ch-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.ch-ver {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--tx);
+  background: var(--sf);
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--bd);
+}
+.ch-date {
+  font-size: 13px;
+  color: var(--mu);
+}
+.ch-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ch-badge-feature { background: rgba(49, 92, 255, 0.12); color: #2347d4; border: 1px solid rgba(49, 92, 255, 0.3); }
+.ch-badge-improvement { background: rgba(5, 150, 105, 0.12); color: #047857; border: 1px solid rgba(5, 150, 105, 0.3); }
+.ch-badge-fix { background: rgba(217, 119, 6, 0.12); color: #B45309; border: 1px solid rgba(217, 119, 6, 0.3); }
+.ch-badge-breaking { background: rgba(220, 38, 38, 0.14); color: #B91C1C; border: 1px solid rgba(220, 38, 38, 0.4); font-weight: 800; }
+.ch-badge-docs { background: rgba(124, 58, 237, 0.12); color: #6D28D9; border: 1px solid rgba(124, 58, 237, 0.3); }
+.ch-badge-deprecated { background: rgba(107, 114, 128, 0.12); color: #4B5563; border: 1px solid rgba(107, 114, 128, 0.3); }
+
+html[data-theme=dark] .ch-badge-feature { background: rgba(165, 170, 245, 0.15); color: #C2C5FA; border-color: rgba(165, 170, 245, 0.4); }
+html[data-theme=dark] .ch-badge-improvement { background: rgba(52, 211, 153, 0.15); color: #6EE7B7; border-color: rgba(52, 211, 153, 0.4); }
+html[data-theme=dark] .ch-badge-fix { background: rgba(251, 191, 36, 0.15); color: #FCD34D; border-color: rgba(251, 191, 36, 0.4); }
+html[data-theme=dark] .ch-badge-breaking { background: rgba(248, 113, 113, 0.2); color: #FCA5A5; border-color: rgba(248, 113, 113, 0.5); }
+html[data-theme=dark] .ch-badge-docs { background: rgba(167, 139, 250, 0.15); color: #C4B5FD; border-color: rgba(167, 139, 250, 0.4); }
+html[data-theme=dark] .ch-badge-deprecated { background: rgba(156, 163, 175, 0.15); color: #D1D5DB; border-color: rgba(156, 163, 175, 0.4); }
+
+.ch-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--tx);
+}
+.ch-summary {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--t2);
+  margin: 0 0 16px;
+}
+.ch-details {
+  border-top: 1px solid var(--bd);
+  padding-top: 14px;
+  margin-top: 14px;
+}
+.ch-details summary {
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ac);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+.ch-details summary:hover {
+  text-decoration: underline;
+}
+.ch-details[open] summary {
+  margin-bottom: 12px;
+}
+.ch-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--t2);
+  margin: 0 0 14px;
+}
+.ch-changes {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ch-changes li {
+  margin-bottom: 6px;
+}
+.ch-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 14px 0 0;
+}
+.ch-tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  color: var(--t2);
+}
+.ch-commit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--bd);
+  font-size: 12px;
+  color: var(--mu);
+}
+.ch-commit code {
+  font-size: 12px;
+}
+
+</style>
+</head><body>
+<header class="hd"><button id="menu" class="b" aria-expanded="false" aria-controls="side">Menu</button><b>IDEO Website Design System</b><span class="tag">Typography Â· Color Â· Components Â· Patterns Â· Changelog</span><span class="sp"></span><button class="b" id="tt">Switch to dark</button><span class="tag">v1.1</span></header>
 <div class="wrap"><nav class="side" id="side" aria-label="Sections"></nav><main id="main">
 
 <section id="overview"><div class="in">
@@ -421,6 +641,81 @@ html[data-theme=dark] .b[aria-pressed=true]{color:#171717}html[data-theme=dark] 
   <p class="m">Global review checklist for UX patterns in Meld by IDEO. Ensure every pattern adheres to IDEO human-centered design principles, WCAG 2.2 AA accessibility, and Figma consistency.</p>
   <div id="ck5"></div>
 </div></section>
+
+<section id="ch-overview"><div class="in">
+  <p class="ey">Changelog module · 01 - Overview</p>
+  <h2 class="st">Changelog</h2>
+  <p class="lead" style="font-size:18px;margin-bottom:12px">An evolving record of everything happening across Meld Design System. Explore new components, improvements, refinements, fixes and updates as the system grows.</p>
+  <p class="m" style="margin-bottom:24px">Every meaningful update to Meld is documented, categorized, and traceable. This changelog is dynamically populated from <code>changelog.json</code> — the repository's single source of truth.</p>
+  
+  <div class="tb" style="margin-bottom:32px">
+    <table>
+      <tbody>
+        <tr><th>Latest Release</th><td id="ch-meta-latest">v1.1.0</td><th>Last Updated</th><td id="ch-meta-date">October 30, 2026</td></tr>
+        <tr><th>Data Source</th><td><code>changelog.json</code> (Single Source of Truth)</td><th>Repository Status</th><td>Actively Maintained</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>System Overview Metrics</h3>
+  <div class="ch-metrics-grid" id="ch-metrics">
+    <!-- Populated dynamically via JS -->
+  </div>
+</div></section>
+
+<section id="changelog"><div class="in">
+  <p class="ey">Changelog module · 02 - Timeline & Updates</p>
+  <h2 class="st">Release Timeline</h2>
+  <p class="lead">Browse all historical and current updates. Filter by category, release version, or search for affected components and features.</p>
+
+  <div class="ch-toolbar" role="region" aria-label="Changelog filters">
+    <div class="ch-cats" role="group" aria-label="Filter by category" id="ch-cat-filters">
+      <button class="b ch-cat-btn" data-cat="all" aria-pressed="true">All Updates</button>
+      <button class="b ch-cat-btn" data-cat="feature" aria-pressed="false">Features</button>
+      <button class="b ch-cat-btn" data-cat="improvement" aria-pressed="false">Improvements</button>
+      <button class="b ch-cat-btn" data-cat="fix" aria-pressed="false">Fixes</button>
+      <button class="b ch-cat-btn" data-cat="breaking" aria-pressed="false">Breaking Changes</button>
+      <button class="b ch-cat-btn" data-cat="docs" aria-pressed="false">Documentation</button>
+    </div>
+    
+    <div class="ch-controls">
+      <div style="flex:1;min-width:200px;position:relative">
+        <label for="ch-search-input" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Search changelog</label>
+        <input type="search" id="ch-search-input" placeholder="Search by title, description, or component..." style="padding-left:12px;padding-right:32px">
+      </div>
+      <div style="width:160px">
+        <label for="ch-version-select" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Filter by version</label>
+        <select id="ch-version-select" aria-label="Filter by version">
+          <option value="all">All Versions</option>
+        </select>
+      </div>
+      <div style="width:140px">
+        <label for="ch-year-select" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Filter by year</label>
+        <select id="ch-year-select" aria-label="Filter by year">
+          <option value="all">All Time</option>
+        </select>
+      </div>
+      <button class="b" id="ch-reset-filters" style="white-space:nowrap">Clear filters</button>
+    </div>
+    
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:8px">
+      <span class="m" id="ch-status-count" aria-live="polite">Showing all updates</span>
+      <button class="b" id="ch-toggle-all-details" style="font-size:12px;padding:4px 10px">Expand all descriptions</button>
+    </div>
+  </div>
+
+  <div id="ch-empty-state" class="card" style="display:none;text-align:center;padding:48px 24px;margin-top:24px">
+    <p style="font-size:28px;margin:0 0 8px">🔍</p>
+    <h3 style="margin:0 0 8px">No matching updates found</h3>
+    <p class="m" style="max-width:440px;margin:0 auto 16px">No changelog entries match your selected category, version, or search query. Try broadening your criteria or resetting filters.</p>
+    <button class="b" id="ch-empty-reset">Reset all filters</button>
+  </div>
+
+  <div class="ch-timeline" id="ch-timeline-container" role="feed" aria-label="Changelog updates">
+    <!-- Populated dynamically via JS -->
+  </div>
+</div></section>
+
 </main></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
@@ -8755,6 +9050,378 @@ NP.forEach(function(n) { io.observe(document.getElementById(n[0])); });
 
 /* Initialize Patterns Module */
 patInit();
-</script></body></html>
+</script>
+<script>
+/* ================= CHANGELOG MODULE SCRIPT ================= */
+(function() {
+  const CHANGELOG_FALLBACK = [
+    {
+      "id": "changelog-page",
+      "version": "1.1.0",
+      "date": "2026-10-30",
+      "category": "feature",
+      "title": "Changelog Page & Update Tracking System",
+      "summary": "Introduced a dedicated, editorial changelog page and permanent change-tracking architecture.",
+      "description": "Established an evolving record of all design system updates with multi-facet filtering, summary metrics, and strict contributor guidelines for ongoing traceability.",
+      "changes": [
+        "Introduced dedicated Changelog page and timeline interface integrated into main navigation.",
+        "Added multi-facet filtering by category (Features, Improvements, Fixes, Breaking, Docs), search, and version.",
+        "Added dynamic summary overview metrics calculated from single source of truth changelog.json.",
+        "Created CONTRIBUTING.md and AGENTS.md defining mandatory pre-commit changelog workflow.",
+        "Dual data-loading architecture supporting HTTP fetch and standalone offline file:/// execution."
+      ],
+      "affectedAreas": [
+        "Documentation",
+        "Navigation",
+        "Design System Infrastructure"
+      ],
+      "commitMessage": "feat: introduce changelog page and update tracking",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
+      "id": "initial-release",
+      "version": "1.0.0",
+      "date": "2026-10-30",
+      "category": "feature",
+      "title": "Initial Meld Design System Release",
+      "summary": "Initial baseline release of Meld Design System by IDEO.",
+      "description": "Comprehensive design system containing typography, color tokens, 18 repaired core components, and 125 UX patterns across 8 categories with AI workflows.",
+      "changes": [
+        "Introduced Space Grotesk typography system with primitive and semantic tokens.",
+        "Introduced WCAG 2.2 AA color tokens, OKLCH tonal scales, and dual light/dark themes.",
+        "Implemented and repaired 18 core UI components with full interactive states and Figma references.",
+        "Introduced 125 UX design patterns with interactive workflows including AI Content Generation and Human-in-the-Loop Approval.",
+        "Added global search, token copy utilities, and interactive preview sandbox."
+      ],
+      "affectedAreas": [
+        "Typography",
+        "Colors",
+        "Components",
+        "Patterns"
+      ],
+      "commitMessage": "Initial commit: Meld Design System",
+      "commitRef": "3646bfa",
+      "breaking": false
+    }
+  ];
+
+  let rawEntries = [];
+  let activeCategory = 'all';
+  let searchTerm = '';
+  let selectedVersion = 'all';
+  let selectedYear = 'all';
+
+  function formatDate(dStr) {
+    if (!dStr) return '';
+    try {
+      const parts = dStr.split('-');
+      if (parts.length === 3) {
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const m = parseInt(parts[1], 10) - 1;
+        const d = parseInt(parts[2], 10);
+        const y = parts[0];
+        if (m >= 0 && m < 12) return months[m] + ' ' + d + ', ' + y;
+      }
+      return dStr;
+    } catch(e) {
+      return dStr;
+    }
+  }
+
+  function renderMetrics(entries) {
+    const total = entries.length;
+    const features = entries.filter(e => e.category === 'feature').length;
+    const improvements = entries.filter(e => e.category === 'improvement').length;
+    const fixes = entries.filter(e => e.category === 'fix').length;
+    const latestRelease = entries.length > 0 ? (entries[0].version.startsWith('v') ? entries[0].version : 'v' + entries[0].version) : '—';
+    const latestDate = entries.length > 0 ? formatDate(entries[0].date) : '—';
+
+    const latestEl = document.getElementById('ch-meta-latest');
+    if (latestEl) latestEl.textContent = latestRelease;
+    const dateEl = document.getElementById('ch-meta-date');
+    if (dateEl) dateEl.textContent = latestDate;
+
+    const metricsContainer = document.getElementById('ch-metrics');
+    if (!metricsContainer) return;
+
+    metricsContainer.innerHTML = [
+      { val: total, lbl: 'Total Updates' },
+      { val: features, lbl: 'New Features' },
+      { val: improvements, lbl: 'Improvements' },
+      { val: fixes, lbl: 'Bug Fixes' },
+      { val: latestRelease, lbl: 'Latest Release' }
+    ].map(m => `
+      <div class="ch-metric-card">
+        <div class="ch-metric-val">${m.val}</div>
+        <div class="ch-metric-lbl">${m.lbl}</div>
+      </div>
+    `).join('');
+  }
+
+  function populateDropdowns(entries) {
+    const verSelect = document.getElementById('ch-version-select');
+    if (verSelect) {
+      const versions = Array.from(new Set(entries.map(e => e.version).filter(Boolean)));
+      verSelect.innerHTML = '<option value="all">All Versions</option>' + 
+        versions.map(v => `<option value="${v}">v${v.replace(/^v/, '')}</option>`).join('');
+    }
+
+    const yearSelect = document.getElementById('ch-year-select');
+    if (yearSelect) {
+      const years = Array.from(new Set(entries.map(e => (e.date || '').split('-')[0]).filter(Boolean))).sort().reverse();
+      yearSelect.innerHTML = '<option value="all">All Time</option>' +
+        years.map(y => `<option value="${y}">${y}</option>`).join('');
+    }
+  }
+
+  function getCategoryBadge(cat, breaking) {
+    const map = {
+      feature: 'Feature',
+      improvement: 'Improvement',
+      fix: 'Fix',
+      breaking: 'Breaking',
+      docs: 'Documentation',
+      deprecated: 'Deprecated'
+    };
+    const label = map[cat] || cat.toUpperCase();
+    let badges = `<span class="ch-badge ch-badge-${cat}">${label}</span>`;
+    if (breaking && cat !== 'breaking') {
+      badges += ` <span class="ch-badge ch-badge-breaking">Breaking Change</span>`;
+    }
+    return badges;
+  }
+
+  function renderTimeline() {
+    const container = document.getElementById('ch-timeline-container');
+    const emptyState = document.getElementById('ch-empty-state');
+    const statusCount = document.getElementById('ch-status-count');
+    if (!container) return;
+
+    // Filter logic
+    const term = searchTerm.toLowerCase().trim();
+    const filtered = rawEntries.filter(entry => {
+      // Category filter
+      if (activeCategory === 'breaking') {
+        if (!entry.breaking && entry.category !== 'breaking') return false;
+      } else if (activeCategory !== 'all') {
+        if (entry.category !== activeCategory) return false;
+      }
+
+      // Version filter
+      if (selectedVersion !== 'all' && entry.version !== selectedVersion) {
+        return false;
+      }
+
+      // Year filter
+      if (selectedYear !== 'all') {
+        const y = (entry.date || '').split('-')[0];
+        if (y !== selectedYear) return false;
+      }
+
+      // Search term
+      if (term) {
+        const title = (entry.title || '').toLowerCase();
+        const summary = (entry.summary || '').toLowerCase();
+        const desc = (entry.description || '').toLowerCase();
+        const changes = (entry.changes || []).join(' ').toLowerCase();
+        const areas = (entry.affectedAreas || []).join(' ').toLowerCase();
+        const commit = (entry.commitMessage || '').toLowerCase();
+
+        const match = title.includes(term) || summary.includes(term) || desc.includes(term) ||
+                      changes.includes(term) || areas.includes(term) || commit.includes(term);
+        if (!match) return false;
+      }
+
+      return true;
+    });
+
+    if (statusCount) {
+      statusCount.textContent = `Showing ${filtered.length} of ${rawEntries.length} updates`;
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = '';
+      if (emptyState) emptyState.style.display = 'block';
+      return;
+    }
+
+    if (emptyState) emptyState.style.display = 'none';
+
+    container.innerHTML = filtered.map((entry, idx) => {
+      const ver = entry.version ? (entry.version.startsWith('v') ? entry.version : 'v' + entry.version) : '';
+      const dateFmt = formatDate(entry.date);
+      const badges = getCategoryBadge(entry.category, entry.breaking);
+      const changesHtml = (entry.changes && entry.changes.length > 0)
+        ? `<h4 style="font-size:13px;font-weight:600;margin:12px 0 6px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu)">Changes:</h4>
+           <ul class="ch-changes">${entry.changes.map(c => `<li>${c}</li>`).join('')}</ul>`
+        : '';
+      const tagsHtml = (entry.affectedAreas && entry.affectedAreas.length > 0)
+        ? `<div class="ch-tags"><span class="m" style="font-weight:600">Affected areas:</span> ${entry.affectedAreas.map(a => `<span class="ch-tag">${a}</span>`).join('')}</div>`
+        : '';
+      const commitHtml = entry.commitMessage
+        ? `<div class="ch-commit">
+            <span style="font-weight:600">Commit:</span> <code>${entry.commitMessage}</code>
+            ${entry.commitRef ? `<span class="ch-tag" style="font-family:monospace">${entry.commitRef}</span>` : ''}
+          </div>`
+        : '';
+
+      return `
+        <article class="ch-item" data-cat="${entry.category}" id="entry-${entry.id || idx}">
+          <div class="ch-node" aria-hidden="true"></div>
+          <div class="ch-card">
+            <div class="ch-header">
+              ${ver ? `<span class="ch-ver">${ver}</span>` : ''}
+              <time class="ch-date" datetime="${entry.date}">${dateFmt}</time>
+              ${badges}
+            </div>
+            <h3 class="ch-title">${entry.title}</h3>
+            <p class="ch-summary">${entry.summary}</p>
+            <details class="ch-details" ${idx === 0 ? 'open' : ''}>
+              <summary><span>Detailed update notes</span></summary>
+              ${entry.description ? `<p class="ch-desc">${entry.description}</p>` : ''}
+              ${changesHtml}
+              ${tagsHtml}
+              ${commitHtml}
+            </details>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  function resetAllFilters() {
+    activeCategory = 'all';
+    searchTerm = '';
+    selectedVersion = 'all';
+    selectedYear = 'all';
+
+    const searchInput = document.getElementById('ch-search-input');
+    if (searchInput) searchInput.value = '';
+
+    const verSelect = document.getElementById('ch-version-select');
+    if (verSelect) verSelect.value = 'all';
+
+    const yearSelect = document.getElementById('ch-year-select');
+    if (yearSelect) yearSelect.value = 'all';
+
+    document.querySelectorAll('.ch-cat-btn').forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-cat') === 'all');
+    });
+
+    renderTimeline();
+  }
+
+  async function initChangelog() {
+    try {
+      const res = await fetch('./changelog.json', { cache: 'no-cache' });
+      if (res.ok) {
+        const json = await res.json();
+        if (json && Array.isArray(json.entries) && json.entries.length > 0) {
+          rawEntries = json.entries;
+        } else {
+          rawEntries = CHANGELOG_FALLBACK;
+        }
+      } else {
+        rawEntries = CHANGELOG_FALLBACK;
+      }
+    } catch(err) {
+      console.info('Meld Changelog: Offline/file mode active, using fallback data.', err);
+      rawEntries = CHANGELOG_FALLBACK;
+    }
+
+    renderMetrics(rawEntries);
+    populateDropdowns(rawEntries);
+    renderTimeline();
+
+    // Bind category buttons
+    document.querySelectorAll('.ch-cat-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        activeCategory = this.getAttribute('data-cat');
+        document.querySelectorAll('.ch-cat-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        this.setAttribute('aria-pressed', 'true');
+        renderTimeline();
+      });
+    });
+
+    // Bind search input
+    const searchInput = document.getElementById('ch-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        searchTerm = this.value;
+        renderTimeline();
+      });
+    }
+
+    // Bind version select
+    const verSelect = document.getElementById('ch-version-select');
+    if (verSelect) {
+      verSelect.addEventListener('change', function() {
+        selectedVersion = this.value;
+        renderTimeline();
+      });
+    }
+
+    // Bind year select
+    const yearSelect = document.getElementById('ch-year-select');
+    if (yearSelect) {
+      yearSelect.addEventListener('change', function() {
+        selectedYear = this.value;
+        renderTimeline();
+      });
+    }
+
+    // Bind resets
+    const resetBtn = document.getElementById('ch-reset-filters');
+    if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+
+    const emptyReset = document.getElementById('ch-empty-reset');
+    if (emptyReset) emptyReset.addEventListener('click', resetAllFilters);
+
+    // Toggle all details
+    const toggleDetailsBtn = document.getElementById('ch-toggle-all-details');
+    if (toggleDetailsBtn) {
+      let allExpanded = false;
+      toggleDetailsBtn.addEventListener('click', function() {
+        allExpanded = !allExpanded;
+        document.querySelectorAll('#ch-timeline-container details').forEach(d => {
+          d.open = allExpanded;
+        });
+        this.textContent = allExpanded ? 'Collapse all descriptions' : 'Expand all descriptions';
+      });
+    }
+
+    // Register Navigation
+    const sd = document.getElementById('side');
+    if (sd) {
+      const NCH = [
+        ['ch-overview', '01 Overview'],
+        ['changelog', '02 Timeline & Updates']
+      ];
+      // Helper gl or fallback
+      const sectionLabel = (typeof gl === 'function') ? gl('Changelog module') : '<p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin:24px 0 6px 12px">Changelog module</p>';
+      sd.insertAdjacentHTML('beforeend', sectionLabel + NCH.map(function(n) {
+        return '<a href="#' + n[0] + '">' + n[1] + '</a>';
+      }).join(''));
+
+      if (typeof io !== 'undefined' && io && io.observe) {
+        NCH.forEach(function(n) {
+          const el = document.getElementById(n[0]);
+          if (el) io.observe(el);
+        });
+      }
+    }
+  }
+
+  // Initialize once DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChangelog);
+  } else {
+    initChangelog();
+  }
+})();
+
+</script>
+</body></html>
 
 

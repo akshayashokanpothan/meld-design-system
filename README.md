@@ -1,4 +1,4 @@
-﻿# Meld by IDEO â€” Design System
+# Meld by IDEO — Design System
 
 A comprehensive, reusable design system reference built for IDEO digital products and human-centered design workflows.
 
@@ -6,23 +6,24 @@ A comprehensive, reusable design system reference built for IDEO digital product
 [![WCAG](https://img.shields.io/badge/WCAG-2.2%20AA%20Verified-blue)]()
 [![Components](https://img.shields.io/badge/Components-18%20Repaired%20P0%2FP1-purple)]()
 [![Patterns](https://img.shields.io/badge/Patterns-125%20UX%20Patterns-pink)]()
+[![Changelog](https://img.shields.io/badge/Changelog-v1.1.0%20Tracked-success)]()
 
 ---
 
-## ðŸŒ Live Interactive Demos
+## 🌐 Live Interactive Demos
 
 * **GitHub Pages:** [https://akshayashokanpothan.github.io/meld-design-system/](https://akshayashokanpothan.github.io/meld-design-system/)
 * **Direct Web View (jsDelivr / raw.githack):** [https://raw.githack.com/akshayashokanpothan/meld-design-system/main/index.html](https://raw.githack.com/akshayashokanpothan/meld-design-system/main/index.html)
 
 ---
 
-## ðŸ“¦ What's Inside
+## 📦 What's Inside
 
-Meld brings together four unified design system modules in a single interactive artifact:
+Meld brings together five unified design system modules in a single interactive artifact:
 
 ### 01. Typography
 * Primary typeface: **Space Grotesk** (600, 500, 400).
-* Primitive and semantic typography scales (`type.heading.h1`â€“`h4`, `type.body.default`, `type.label.eyebrow`, `type.caption.default`).
+* Primitive and semantic typography scales (`type.heading.h1`–`h4`, `type.body.default`, `type.label.eyebrow`, `type.caption.default`).
 * Responsive fluid typography rules and fallback font stack.
 
 ### 02. Colors
@@ -37,7 +38,7 @@ Meld brings together four unified design system modules in a single interactive 
   * **Containers & Content:** Panel / Surface, Well / Inset Container, Section Header, Media Object, Card Header / Footer.
   * **Overlays:** Tooltip with keyboard focus, hover delay, and edge collision flipping.
 
-### 04. Patterns (New!)
+### 04. Patterns
 * **125 Fully Documented UX Patterns** across 8 strategic categories:
   1. **Authentication Patterns (12):** Sign In, Sign Up, OTP Verification (auto-advance), Password Reset, Strength Validation, Session Expiration (live countdown), Account Lockout.
   2. **Onboarding Patterns (12):** Guided Setup Wizard (multi-step progress), Welcome Screens, Product Tours (interactive beacon & anchored callout), Progressive Disclosure.
@@ -47,13 +48,19 @@ Meld brings together four unified design system modules in a single interactive 
   6. **Navigation & IA (14):** Global & Side Navigation, Command Palette (`Cmd/Ctrl+K` simulation), Accessible Tabs, Breadcrumbs.
   7. **Files and Media (14):** Drag-and-Drop Dropzone, Multi-File Upload Queue (progress tracking), Media Gallery, File Preview Lightbox.
   8. **AI Interaction Patterns (24):**
-     * **Workflow A â€” Content Generation:** Prompt composer with suggestion pills, streaming token typewriter animation, confidence scoring, source citations, inline editing, and accept/reject decision bar.
-     * **Workflow B â€” Human-in-the-Loop Approval:** Action proposals, risk badges, impact diff table, explicit approval barriers, and 10s timed undo rollback.
-     * **Workflow C â€” Agentic Task Execution:** Autonomous task planning, permission matrix, multi-step execution stepper, and human intervention points.
+     * **Workflow A — Content Generation:** Prompt composer with suggestion pills, streaming token typewriter animation, confidence scoring, source citations, inline editing, and accept/reject decision bar.
+     * **Workflow B — Human-in-the-Loop Approval:** Action proposals, risk badges, impact diff table, explicit approval barriers, and 10s timed undo rollback.
+     * **Workflow C — Agentic Task Execution:** Autonomous task planning, permission matrix, multi-step execution stepper, and human intervention points.
+
+### 05. Changelog (New in v1.1.0!)
+* **Single Source of Truth (`changelog.json`):** Centralized structured data feed powering the public Changelog page.
+* **Editorial Timeline:** Interactive chronological updates with category badges, granular changes, affected areas, and commit references.
+* **Dynamic Summary Metrics:** Real-time calculation of total releases, features, improvements, and bug fixes.
+* **Multi-Facet Search & Filtering:** Filter by update category (`feature`, `improvement`, `fix`, `breaking`, `docs`), search query, and version tag.
 
 ---
 
-## ðŸ›  Local Setup
+## 🛠 Local Setup
 
 Clone the repository and open `index.html` in any modern web browser:
 
@@ -66,7 +73,16 @@ start index.html
 
 ---
 
-## â™¿ Accessibility & Standards
+## 🤝 Contributing & Changelog Guidelines
+
+To maintain full auditability, every commit must document its changes in `changelog.json`.
+Please review:
+- [Contributing Guidelines (`CONTRIBUTING.md`)](./CONTRIBUTING.md) for category taxonomy and PR requirements.
+- [Agent Instructions (`AGENTS.md`)](./AGENTS.md) for autonomous agent pre-commit protocols.
+
+---
+
+## ♿ Accessibility & Standards
 
 * **WCAG 2.2 AA:** Verified 4.5:1 text contrast and 3:1 graphical control contrast.
 * **Semantic HTML:** `<dialog>`, `<nav>`, `<main>`, `<dl>`, `<ol>`, `<ul>`, `<table>`.
@@ -75,4 +91,4 @@ start index.html
 
 ---
 
-Â© 2026 IDEO Design Systems. Built with Meld by IDEO.
+© 2026 IDEO Design Systems. Built with Meld by IDEO.

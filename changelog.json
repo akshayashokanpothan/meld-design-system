@@ -1,0 +1,53 @@
+{
+  "entries": [
+    {
+      "id": "changelog-page",
+      "version": "1.1.0",
+      "date": "2026-10-30",
+      "category": "feature",
+      "title": "Changelog Page & Update Tracking System",
+      "summary": "Introduced a dedicated, editorial changelog page and permanent change-tracking architecture.",
+      "description": "Established an evolving record of all design system updates with multi-facet filtering, summary metrics, and strict contributor guidelines for ongoing traceability.",
+      "changes": [
+        "Introduced dedicated Changelog page and timeline interface integrated into main navigation.",
+        "Added multi-facet filtering by category (Features, Improvements, Fixes, Breaking, Docs), search, and version.",
+        "Added dynamic summary overview metrics calculated from single source of truth changelog.json.",
+        "Created CONTRIBUTING.md and AGENTS.md defining mandatory pre-commit changelog workflow.",
+        "Dual data-loading architecture supporting HTTP fetch and standalone offline file:/// execution."
+      ],
+      "affectedAreas": [
+        "Documentation",
+        "Navigation",
+        "Design System Infrastructure"
+      ],
+      "commitMessage": "feat: introduce changelog page and update tracking",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
+      "id": "initial-release",
+      "version": "1.0.0",
+      "date": "2026-10-30",
+      "category": "feature",
+      "title": "Initial Meld Design System Release",
+      "summary": "Initial baseline release of Meld Design System by IDEO.",
+      "description": "Comprehensive design system containing typography, color tokens, 18 repaired core components, and 125 UX patterns across 8 categories with AI workflows.",
+      "changes": [
+        "Introduced Space Grotesk typography system with primitive and semantic tokens.",
+        "Introduced WCAG 2.2 AA color tokens, OKLCH tonal scales, and dual light/dark themes.",
+        "Implemented and repaired 18 core UI components with full interactive states and Figma references.",
+        "Introduced 125 UX design patterns with interactive workflows including AI Content Generation and Human-in-the-Loop Approval.",
+        "Added global search, token copy utilities, and interactive preview sandbox."
+      ],
+      "affectedAreas": [
+        "Typography",
+        "Colors",
+        "Components",
+        "Patterns"
+      ],
+      "commitMessage": "Initial commit: Meld Design System",
+      "commitRef": "3646bfa",
+      "breaking": false
+    }
+  ]
+}
