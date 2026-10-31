@@ -1,104 +1,136 @@
 ﻿{
-    "entries":  [
-                    {
-                        "id":  "responsive-multi-device-standardisation",
-                        "version":  "1.2.0",
-                        "date":  "2026-11-01",
-                        "category":  "improvement",
-                        "title":  "Updated Behaviours for Multi-Device Responsiveness",
-                        "summary":  "Full responsive audit, layout repair, and mobile/tablet standardisation across all 9 target viewports (320px - 1920px).",
-                        "description":  "Resolved all root-cause layout overflow and mobile clipping defects across Overview, Typography, Colors, Components, Patterns, and Changelog modules. Established unified responsive standards with fluid container clamping, mobile navigation drawer ergonomics, single-column preview reflow, and WCAG 2.2 AA target size compliance.",
-                        "changes":  [
-                                        "Audited and verified 0 horizontal overflow across all 9 target viewports from 320px small mobile to 1920px wide desktop.",
-                                        "Repaired global header overflow by adding responsive breakpoint rules, compact logo handling, and hiding oversized taglines on mobile.",
-                                        "Standardised fluid section padding clamp(28px, 5vw, 64px) clamp(16px, 4vw, 40px) and flexible container constraints (.in).",
-                                        "Refactored component and pattern explorer previews to automatically stack to single-column on screens \u003c= 768px with full width containment.",
-                                        "Enclosed category architecture tables and data grids in touch-friendly horizontal scroll containers (.tb) preventing container blowout.",
-                                        "Updated touch target sizes to minimum 40px for mobile buttons, drawer navigation links, and interactive controls matching WCAG 2.2 AA."
-                                    ],
-                        "affectedAreas":  [
-                                              "Global Architecture",
-                                              "Header \u0026 Navigation",
-                                              "Components",
-                                              "Patterns",
-                                              "Typography",
-                                              "Changelog"
-                                          ],
-                        "commitMessage":  "feat(responsive): updated behaviours for multi device responsiveness",
-                        "commitRef":  null,
-                        "breaking":  false
-                    },
-                    {
-                        "id":  "fix-complex-data-components",
-                        "version":  "1.1.1",
-                        "date":  "2026-10-30",
-                        "category":  "fix",
-                        "title":  "Repair Complex Data Components \u0026 Interaction Lifecycle",
-                        "summary":  "Repaired behaviour, state lifecycles, and visual representations for Column Visibility Menu, Editable Cell, Filter Builder, and Data Grid.",
-                        "description":  "Resolved root-cause generic table fallback by implementing dedicated component controllers, type-aware query builders, in-place cell editing state machines, and a unified Phase 3 integrated scenario workflow.",
-                        "changes":  [
-                                        "Implemented dedicated Column Visibility Menu with real-time column search, locked identifier protection, and live grid synchronization.",
-                                        "Implemented Editable Cell with complete lifecycle (View, Hover, Focus, Edit, Dirty, Saving, Saved, Validation Error) across 5 data types.",
-                                        "Implemented Filter Builder featuring type-aware operators, dynamic value inputs (between, enum, text), and AND/OR logic conjunctions.",
-                                        "Implemented Data Grid composite architecture with sorting, row selection, bulk actions, density switcher, pagination, and a 7-step integrated workflow scenario.",
-                                        "Added WCAG 2.2 AA compliant token bindings and side-by-side light and dark preview modes."
-                                    ],
-                        "affectedAreas":  [
-                                              "Components",
-                                              "Tables and Complex Data"
-                                          ],
-                        "commitMessage":  "fix(components): repair behaviour, states, and integration for complex data components",
-                        "commitRef":  null,
-                        "breaking":  false
-                    },
-                    {
-                        "id":  "changelog-page",
-                        "version":  "1.1.0",
-                        "date":  "2026-10-30",
-                        "category":  "feature",
-                        "title":  "Changelog Page \u0026 Update Tracking System",
-                        "summary":  "Introduced a dedicated, editorial changelog page and permanent change-tracking architecture.",
-                        "description":  "Established an evolving record of all design system updates with multi-facet filtering, summary metrics, and strict contributor guidelines for ongoing traceability.",
-                        "changes":  [
-                                        "Introduced dedicated Changelog page and timeline interface integrated into main navigation.",
-                                        "Added multi-facet filtering by category (Features, Improvements, Fixes, Breaking, Docs), search, and version.",
-                                        "Added dynamic summary overview metrics calculated from single source of truth changelog.json.",
-                                        "Created CONTRIBUTING.md and AGENTS.md defining mandatory pre-commit changelog workflow.",
-                                        "Dual data-loading architecture supporting HTTP fetch and standalone offline file:/// execution."
-                                    ],
-                        "affectedAreas":  [
-                                              "Documentation",
-                                              "Navigation",
-                                              "Design System Infrastructure"
-                                          ],
-                        "commitMessage":  "feat: introduce changelog page and update tracking",
-                        "commitRef":  "ec5aead",
-                        "breaking":  false
-                    },
-                    {
-                        "id":  "initial-release",
-                        "version":  "1.0.0",
-                        "date":  "2026-10-30",
-                        "category":  "feature",
-                        "title":  "Initial Meld Design System Release",
-                        "summary":  "Initial baseline release of Meld Design System by IDEO.",
-                        "description":  "Comprehensive design system containing typography, color tokens, 18 repaired core components, and 125 UX patterns across 8 categories with AI workflows.",
-                        "changes":  [
-                                        "Introduced Space Grotesk typography system with primitive and semantic tokens.",
-                                        "Introduced WCAG 2.2 AA color tokens, OKLCH tonal scales, and dual light/dark themes.",
-                                        "Implemented and repaired 18 core UI components with full interactive states and Figma references.",
-                                        "Introduced 125 UX design patterns with interactive workflows including AI Content Generation and Human-in-the-Loop Approval.",
-                                        "Added global search, token copy utilities, and interactive preview sandbox."
-                                    ],
-                        "affectedAreas":  [
-                                              "Typography",
-                                              "Colors",
-                                              "Components",
-                                              "Patterns"
-                                          ],
-                        "commitMessage":  "Initial commit: Meld Design System",
-                        "commitRef":  "3646bfa",
-                        "breaking":  false
-                    }
-                ]
+  "entries": [
+    {
+      "id": "homepage-portal-navigation",
+      "version": "1.3.0",
+      "date": "2026-11-01",
+      "timestamp": "00:48:46 IST",
+      "category": "feature",
+      "title": "Homepage, Landing Experience & Complete Design System Navigation Portal",
+      "summary": "Introduced a dedicated homepage, modular blueprint composition, full information architecture with category accordions, and global ⌘K search.",
+      "description": "Transformed Meld by IDEO into a complete design system portal inspired by IBM Carbon, Google Material Design 3, and Microsoft Fluent 2. Added root landing experience at /, tailored entry points for designers and developers, five architectural pillars, featured resources, editorial design principles, global Cmd+K search modal, and expandable sidebar navigation.",
+      "changes": [
+        "Created dedicated Homepage at / featuring hero typography, key metrics, and an interactive modular blueprint visual canvas.",
+        "Added dual quick entry points for Designers (Figma kits, Space Grotesk, OKLCH scales) and Developers (semantic tokens, APIs, WCAG 2.2 touch targets).",
+        "Implemented Global Search modal (Cmd/Ctrl + K) with instant typeahead across Foundations, Components, Patterns, Guidelines, and Resources.",
+        "Enhanced left navigation with collapsible category accordions, active scroll synchronization, and mobile slide-out drawer.",
+        "Integrated editorial Design Principles section, Get Started guide, About portal, and comprehensive 5-column global footer.",
+        "Preserved 100% of existing Typography, Colors, Components (100+), and Patterns (125) with zero horizontal overflow across 9 viewports."
+      ],
+      "affectedAreas": [
+        "Homepage",
+        "Navigation",
+        "Global Search",
+        "Guidelines",
+        "Portal Architecture"
+      ],
+      "commitMessage": "feat(portal): introduce homepage, complete navigation architecture, and global search",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
+      "id": "responsive-multi-device-standardisation",
+      "version": "1.2.0",
+      "date": "2026-11-01",
+      "timestamp": "00:28:01 IST",
+      "category": "improvement",
+      "title": "Updated Behaviours for Multi-Device Responsiveness",
+      "summary": "Full responsive audit, layout repair, and mobile/tablet standardisation across all 9 target viewports (320px - 1920px).",
+      "description": "Resolved all root-cause layout overflow and mobile clipping defects across Overview, Typography, Colors, Components, Patterns, and Changelog modules. Established unified responsive standards with fluid container clamping, mobile navigation drawer ergonomics, single-column preview reflow, and WCAG 2.2 AA target size compliance.",
+      "changes": [
+        "Audited and verified 0 horizontal overflow across all 9 target viewports from 320px small mobile to 1920px wide desktop.",
+        "Repaired global header overflow by adding responsive breakpoint rules, compact logo handling, and hiding oversized taglines on mobile.",
+        "Standardised fluid section padding clamp(28px, 5vw, 64px) clamp(16px, 4vw, 40px) and flexible container constraints (.in).",
+        "Refactored component and pattern explorer previews to automatically stack to single-column on screens <= 768px with full width containment.",
+        "Enclosed category architecture tables and data grids in touch-friendly horizontal scroll containers (.tb) preventing container blowout.",
+        "Updated touch target sizes to minimum 40px for mobile buttons, drawer navigation links, and interactive controls matching WCAG 2.2 AA."
+      ],
+      "affectedAreas": [
+        "Global Architecture",
+        "Header & Navigation",
+        "Components",
+        "Patterns",
+        "Typography",
+        "Changelog"
+      ],
+      "commitMessage": "feat(responsive): updated behaviours for multi device responsiveness",
+      "commitRef": "9b2ffe0",
+      "breaking": false
+    },
+    {
+      "id": "fix-complex-data-components",
+      "version": "1.1.1",
+      "date": "2026-10-30",
+      "timestamp": "18:24:00 IST",
+      "category": "fix",
+      "title": "Repair Complex Data Components & Interaction Lifecycle",
+      "summary": "Repaired behaviour, state lifecycles, and visual representations for Column Visibility Menu, Editable Cell, Filter Builder, and Data Grid.",
+      "description": "Resolved root-cause generic table fallback by implementing dedicated component controllers, type-aware query builders, in-place cell editing state machines, and a unified Phase 3 integrated scenario workflow.",
+      "changes": [
+        "Implemented dedicated Column Visibility Menu with real-time column search, locked identifier protection, and live grid synchronization.",
+        "Implemented Editable Cell with complete lifecycle (View, Hover, Focus, Edit, Dirty, Saving, Saved, Validation Error) across 5 data types.",
+        "Implemented Filter Builder featuring type-aware operators, dynamic value inputs (between, enum, text), and AND/OR logic conjunctions.",
+        "Implemented Data Grid composite architecture with sorting, row selection, bulk actions, density switcher, pagination, and a 7-step integrated workflow scenario.",
+        "Added WCAG 2.2 AA compliant token bindings and side-by-side light and dark preview modes."
+      ],
+      "affectedAreas": [
+        "Components",
+        "Tables and Complex Data"
+      ],
+      "commitMessage": "fix(components): repair behaviour, states, and integration for complex data components",
+      "commitRef": "4995295",
+      "breaking": false
+    },
+    {
+      "id": "changelog-page",
+      "version": "1.1.0",
+      "date": "2026-10-30",
+      "timestamp": "17:15:00 IST",
+      "category": "feature",
+      "title": "Changelog Page & Update Tracking System",
+      "summary": "Introduced a dedicated, editorial changelog page and permanent change-tracking architecture.",
+      "description": "Established an evolving record of all design system updates with multi-facet filtering, summary metrics, and strict contributor guidelines for ongoing traceability.",
+      "changes": [
+        "Introduced dedicated Changelog page and timeline interface integrated into main navigation.",
+        "Added multi-facet filtering by category (Features, Improvements, Fixes, Breaking, Docs), search, and version.",
+        "Added dynamic summary overview metrics calculated from single source of truth changelog.json.",
+        "Created CONTRIBUTING.md and AGENTS.md defining mandatory pre-commit changelog workflow.",
+        "Dual data-loading architecture supporting HTTP fetch and standalone offline file:/// execution."
+      ],
+      "affectedAreas": [
+        "Documentation",
+        "Navigation",
+        "Design System Infrastructure"
+      ],
+      "commitMessage": "feat: introduce changelog page and update tracking",
+      "commitRef": "ec5aead",
+      "breaking": false
+    },
+    {
+      "id": "initial-release",
+      "version": "1.0.0",
+      "date": "2026-10-30",
+      "timestamp": "12:00:00 IST",
+      "category": "feature",
+      "title": "Initial Meld Design System Release",
+      "summary": "Initial baseline release of Meld Design System by IDEO.",
+      "description": "Comprehensive design system containing typography, color tokens, 18 repaired core components, and 125 UX patterns across 8 categories with AI workflows.",
+      "changes": [
+        "Introduced Space Grotesk typography system with primitive and semantic tokens.",
+        "Introduced WCAG 2.2 AA color tokens, OKLCH tonal scales, and dual light/dark themes.",
+        "Implemented and repaired 18 core UI components with full interactive states and Figma references.",
+        "Introduced 125 UX design patterns with interactive workflows including AI Content Generation and Human-in-the-Loop Approval.",
+        "Added global search, token copy utilities, and interactive preview sandbox."
+      ],
+      "affectedAreas": [
+        "Typography",
+        "Colors",
+        "Components",
+        "Patterns"
+      ],
+      "commitMessage": "Initial commit: Meld Design System",
+      "commitRef": "3646bfa",
+      "breaking": false
+    }
+  ]
 }
