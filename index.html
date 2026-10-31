@@ -2210,7 +2210,1442 @@ nav.side a.side-link.on .side-badge {
 }
 
 </style>
+<style id="meld-reworked-landing-styles">
+/* ==========================================================================
+   MELD BY IDEO — DEDICATED LANDING SHELL & PORTAL STYLES (REFERENCE REWORK)
+   Inspired by Microsoft Fluent 2, Google Material Design 3, and IBM Carbon
+   ========================================================================== */
+
+:root {
+  --meld-primary: #BC4989;
+  --meld-primary-rgb: 188, 73, 137;
+  --meld-secondary: #39409A;
+  --meld-secondary-rgb: 57, 64, 154;
+  --meld-gradient: linear-gradient(135deg, #BC4989 0%, #39409A 100%);
+  --meld-gradient-radial: radial-gradient(circle at 70% 30%, rgba(188, 73, 137, 0.15) 0%, rgba(57, 64, 154, 0.18) 50%, transparent 80%);
+  --landing-bg: #FFFFFF;
+  --landing-surface: #F8F9FC;
+  --landing-surface-elevated: #FFFFFF;
+  --landing-border: rgba(0, 0, 0, 0.08);
+  --landing-text-primary: #0F1117;
+  --landing-text-secondary: #5A6072;
+  --landing-text-muted: #8C93A4;
+  --landing-glass: rgba(255, 255, 255, 0.85);
+  --landing-glass-border: rgba(0, 0, 0, 0.06);
+  --landing-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] {
+  --landing-bg: #0B0C12;
+  --landing-surface: #12141F;
+  --landing-surface-elevated: #171A29;
+  --landing-border: rgba(255, 255, 255, 0.08);
+  --landing-text-primary: #F4F5F8;
+  --landing-text-secondary: #9DA4B9;
+  --landing-text-muted: #646B82;
+  --landing-glass: rgba(23, 26, 41, 0.75);
+  --landing-glass-border: rgba(255, 255, 255, 0.1);
+  --landing-gradient-radial: radial-gradient(circle at 70% 30%, rgba(188, 73, 137, 0.22) 0%, rgba(57, 64, 154, 0.25) 50%, transparent 80%);
+  --landing-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* 1. Shell Switching Architecture */
+body.is-landing {
+  background: var(--landing-bg) !important;
+  color: var(--landing-text-primary) !important;
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body.is-landing nav.side,
+body.is-landing header.hd,
+body.is-landing .wrap {
+  display: none !important;
+}
+
+body.is-landing #landing-shell {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: clip;
+}
+
+body.is-landing .doc-section {
+  display: none !important;
+}
+
+body.is-doc #landing-shell {
+  display: none !important;
+}
+
+body.is-doc nav.side {
+  display: block !important;
+}
+
+body.is-doc .wrap {
+  display: grid !important;
+  grid-template-columns: 270px minmax(0, 1fr) !important;
+}
+
+body.is-doc .doc-section {
+  display: block !important;
+}
+
+/* 2. Dedicated Minimal Landing Header */
+.landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: 100vw;
+  height: 64px;
+  background: var(--landing-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--landing-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 3vw, 40px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--landing-text-primary);
+  flex-shrink: 0;
+}
+
+.landing-brand-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--meld-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  box-shadow: 0 4px 14px rgba(188, 73, 137, 0.4);
+  flex-shrink: 0;
+}
+
+.landing-brand-text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.landing-brand-sub {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--landing-text-muted);
+  margin-left: 4px;
+}
+
+.landing-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.landing-nav-item {
+  padding: 6px 10px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-item:hover {
+  color: var(--landing-text-primary);
+  background: rgba(188, 73, 137, 0.08);
+}
+
+.landing-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.landing-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-muted);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-search-btn:hover {
+  border-color: var(--meld-primary);
+  color: var(--landing-text-primary);
+}
+
+.landing-gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-gh-link:hover {
+  border-color: var(--meld-secondary);
+  background: var(--landing-surface-elevated);
+}
+
+/* 3. Immersive Hero (85vh desktop presence) */
+.immersive-hero {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: calc(88vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(36px, 5vw, 80px) clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+  overflow: clip;
+  background: var(--meld-gradient-radial), var(--landing-bg);
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.hero-ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--landing-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--landing-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 75%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.glow-magenta {
+  top: 10%;
+  right: 15%;
+  background: #BC4989;
+}
+
+.glow-indigo {
+  bottom: 10%;
+  right: 35%;
+  background: #39409A;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  min-width: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Hero Typography & Left Side */
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(188, 73, 137, 0.1);
+  border: 1px solid rgba(188, 73, 137, 0.25);
+  color: var(--meld-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hero-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--meld-primary);
+  box-shadow: 0 0 8px var(--meld-primary);
+}
+
+.hero-headline {
+  font-size: clamp(34px, 4.8vw, 64px);
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--landing-text-primary);
+  margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.headline-gradient {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.hero-supporting {
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.55;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 520px;
+  width: 100%;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--meld-gradient);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(188, 73, 137, 0.35);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(188, 73, 137, 0.5);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--landing-surface);
+  color: var(--landing-text-primary) !important;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid var(--landing-border);
+  transition: all 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: var(--landing-surface-elevated);
+  border-color: var(--meld-primary);
+}
+
+.hero-metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--landing-border);
+  margin-top: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hero-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-number {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+}
+
+.metric-label {
+  font-size: 11.5px;
+  color: var(--landing-text-muted);
+}
+
+/* 4. Custom Meld Ecosystem Artwork (Right Column) */
+.hero-ecosystem-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 13;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Central Geometric Emblem Prism */
+.central-prism-monogram {
+  position: relative;
+  z-index: 5;
+  width: 130px;
+  height: 130px;
+  border-radius: 26px;
+  background: linear-gradient(145deg, rgba(188, 73, 137, 0.85) 0%, rgba(57, 64, 154, 0.95) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 24px 60px rgba(188, 73, 137, 0.45),
+    0 10px 30px rgba(57, 64, 154, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: float-prism 6s ease-in-out infinite;
+}
+
+@keyframes float-prism {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.prism-letter {
+  font-size: 64px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.prism-outer-ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px dashed rgba(188, 73, 137, 0.35);
+  animation: rotate-ring 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating Satellite UI Artifacts */
+.satellite-artifact {
+  position: absolute;
+  z-index: 6;
+  background: var(--landing-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--landing-glass-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: var(--landing-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.satellite-artifact:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--meld-primary);
+}
+
+/* Satellite 1: Color Tokens Sphere (Top Left) */
+.sat-colors {
+  top: 4%;
+  left: 0%;
+  width: 190px;
+}
+
+.sat-header {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sat-chips-row {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.sat-color-chip {
+  flex: 1;
+  height: 20px;
+  border-radius: 4px;
+}
+
+/* Satellite 2: Micro Data Grid Fragment (Top Right) */
+.sat-data-grid {
+  top: 2%;
+  right: 0%;
+  width: 210px;
+}
+
+.sat-mini-table {
+  width: 100%;
+  font-size: 10.5px;
+  border-collapse: collapse;
+}
+
+.sat-mini-table th {
+  text-align: left;
+  color: var(--landing-text-muted);
+  padding: 3px 0;
+  border-bottom: 1px solid var(--landing-border);
+  font-weight: 600;
+}
+
+.sat-mini-table td {
+  padding: 4px 0;
+  color: var(--landing-text-primary);
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.sat-status-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+/* Satellite 3: Space Grotesk Specimen (Bottom Left) */
+.sat-typography {
+  bottom: 6%;
+  left: 0%;
+  width: 200px;
+}
+
+.sat-specimen-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 3px 0 2px 0;
+  line-height: 1.1;
+}
+
+/* Satellite 4: AI Supervisory Copilot (Bottom Right) */
+.sat-ai-workflow {
+  bottom: 4%;
+  right: 0%;
+  width: 200px;
+}
+
+.sat-ai-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sat-ai-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+/* 5. Substantial Design and Develop Entry Points */
+.pathways-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: -36px auto 64px auto;
+  position: relative;
+  z-index: 10;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.pathway-card {
+  position: relative;
+  border-radius: 14px;
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  box-shadow: var(--landing-shadow);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.pathway-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--path-accent, var(--meld-primary));
+  opacity: 0.8;
+  transition: height 0.2s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.12);
+  border-color: var(--path-accent, var(--meld-primary));
+}
+
+.pathway-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.pathway-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--path-accent, var(--meld-primary));
+}
+
+.pathway-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--path-accent, var(--meld-primary));
+}
+
+.pathway-title {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.pathway-desc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--landing-text-secondary);
+  margin: 0 0 20px 0;
+}
+
+.pathway-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.pathway-chip {
+  font-size: 11.5px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-secondary);
+  font-weight: 500;
+}
+
+.pathway-action {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--path-accent, var(--meld-primary));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.pathway-card:hover .pathway-action {
+  gap: 12px;
+}
+
+/* 6. Featured Ecosystem Showcase (Asymmetric & Editorial) */
+.ecosystem-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.section-eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--meld-primary);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--landing-text-secondary);
+  max-width: 600px;
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+}
+
+.ecosystem-asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+}
+
+.eco-card-large {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 32px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.eco-card-large:hover {
+  border-color: var(--meld-primary);
+  transform: translateY(-2px);
+}
+
+.eco-stack-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eco-card-medium {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--landing-shadow);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.eco-card-medium:hover {
+  border-color: var(--meld-secondary);
+  transform: translateY(-2px);
+}
+
+/* 7. Design Principles Horizontal Editorial Spread */
+.principles-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.principles-spread {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.principle-box {
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  border-radius: 10px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.principle-num-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--meld-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.principle-box-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 8px 0;
+}
+
+.principle-box-desc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0;
+}
+
+/* 8. Closing CTA Banner & Full Width Footer */
+.landing-closing-cta {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 72px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.closing-banner-card {
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(188, 73, 137, 0.1) 0%, rgba(57, 64, 154, 0.12) 100%);
+  border: 1px solid rgba(188, 73, 137, 0.25);
+  padding: clamp(36px, 5vw, 56px) clamp(20px, 4vw, 40px);
+  text-align: center;
+}
+
+.closing-banner-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px 0;
+  color: var(--landing-text-primary);
+}
+
+.closing-banner-desc {
+  font-size: 16px;
+  color: var(--landing-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 24px auto;
+  line-height: 1.55;
+}
+
+.landing-footer-wrapper {
+  width: 100%;
+  border-top: 1px solid var(--landing-border);
+  background: var(--landing-surface);
+  padding: 56px clamp(16px, 4vw, 48px) 36px clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.landing-footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.landing-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1120px) {
+  .landing-nav-center {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-text-block {
+    align-items: center;
+  }
+  .hero-supporting {
+    margin: 0 auto;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .hero-metrics-strip {
+    justify-content: center;
+  }
+  .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+  .ecosystem-asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+  .landing-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-search-btn span,
+  .landing-search-btn kbd,
+  .landing-gh-link span,
+  .landing-header .v-tag {
+    display: none !important;
+  }
+  .landing-header {
+    padding: 0 12px;
+  }
+  .hero-ecosystem-stage {
+    min-height: 260px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .central-prism-monogram {
+    width: 110px;
+    height: 110px;
+    border-radius: 22px;
+  }
+  .prism-letter {
+    font-size: 56px;
+  }
+  .prism-outer-ring {
+    width: 170px;
+    height: 170px;
+  }
+  .sat-colors, .sat-data-grid, .sat-typography, .sat-ai-workflow {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-brand-sub {
+    display: none;
+  }
+  .landing-header-right {
+    gap: 6px;
+  }
+  #landing-theme-toggle {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+  .landing-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.is-landing header.hd, body.is-landing .wrap {
+  display: none !important;
+}
+body.is-doc #landing-shell {
+  display: none !important;
+}
+</style>
 </head><body>
+<!-- ==========================================================================
+     MELD BY IDEO — DEDICATED LANDING SHELL MARKUP (REFERENCE REWORK)
+     ========================================================================== -->
+
+<!-- ==========================================================================
+     MELD BY IDEO — DEDICATED LANDING SHELL MARKUP (REFERENCE REWORK)
+     ========================================================================== -->
+
+<div id="landing-shell">
+  <!-- A. DEDICATED MINIMAL LANDING HEADER -->
+  <header class="landing-header">
+    <a href="#home" class="landing-brand">
+      <div class="landing-brand-logo">M</div>
+      <div class="landing-brand-text">
+        Meld<span class="landing-brand-sub">by IDEO</span>
+      </div>
+    </a>
+
+    <nav class="landing-nav-center" aria-label="Landing navigation">
+      <a href="#home" class="landing-nav-item">Home</a>
+      <a href="#foundations" class="landing-nav-item">Foundations</a>
+      <a href="#m-browser" class="landing-nav-item">Components</a>
+      <a href="#p-browser" class="landing-nav-item">Patterns</a>
+      <a href="#principles" class="landing-nav-item">Guidelines</a>
+      <a href="#changelog" class="landing-nav-item">Changelog</a>
+    </nav>
+
+    <div class="landing-header-right">
+      <button class="landing-search-btn" id="landing-search-trigger" aria-label="Search Meld documentation" title="Search documentation (⌘K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Search Meld...</span>
+        <kbd style="font-size:11px;padding:2px 5px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--landing-text-muted);font-family:ui-monospace,Menlo,monospace">⌘K</kbd>
+      </button>
+
+      <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="landing-gh-link" aria-label="GitHub Repository">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub</span>
+      </a>
+
+      <button class="b" id="landing-theme-toggle" aria-label="Toggle theme">Switch to dark</button>
+      <span class="tag v-tag" style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--meld-primary)">v1.3.0</span>
+    </div>
+  </header>
+
+  <!-- B. IMMERSIVE HERO SECTION (85VH DESKTOP PRESENCE) -->
+  <section class="immersive-hero">
+    <div class="hero-ambient-grid"></div>
+    <div class="hero-ambient-glow glow-magenta"></div>
+    <div class="hero-ambient-glow glow-indigo"></div>
+
+    <div class="hero-container">
+      <!-- Left Column: Typography & CTAs -->
+      <div class="hero-text-block">
+        <div class="hero-pill-tag">
+          <span class="hero-pill-dot"></span>
+          INTRODUCING MELD BY IDEO
+        </div>
+        <h1 class="hero-headline">
+          Design systems that bring <span class="headline-gradient">people, products and ideas</span> together.
+        </h1>
+        <p class="hero-supporting">
+          An open-source design system for creating consistent, accessible and meaningful digital experiences across products and platforms.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#m-browser" class="btn-hero-primary">
+            Explore Meld
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#get-started" class="btn-hero-secondary">
+            Start building
+          </a>
+        </div>
+
+        <div class="hero-metrics-strip">
+          <div class="hero-metric-item">
+            <span class="metric-number">100+</span>
+            <span class="metric-label">Audited Components</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-number">125</span>
+            <span class="metric-label">UX & AI Patterns</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-number">WCAG 2.2</span>
+            <span class="metric-label">Level AA Contrast</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-number">320px–1920px</span>
+            <span class="metric-label">Zero-Overflow Standard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Custom Meld Ecosystem Artwork -->
+      <div class="hero-ecosystem-stage" aria-label="Meld Connected Design System Artwork">
+        <!-- Orbit lines -->
+        <div class="prism-outer-ring"></div>
+
+        <!-- Central Glowing Geometric Monogram Prism (Inspired by Fluent 2 Prism) -->
+        <div class="central-prism-monogram">
+          <span class="prism-letter">M</span>
+        </div>
+
+        <!-- Satellite 1: Color Tokens Sphere (Top Left) -->
+        <div class="satellite-artifact sat-colors">
+          <div class="sat-header">
+            <span>Color Tokens</span>
+            <span style="color:#10B981;font-size:9.5px;font-weight:700">4.5:1 AA Pass</span>
+          </div>
+          <div class="sat-chips-row">
+            <div class="sat-color-chip" style="background:#BC4989" title="Primary #BC4989"></div>
+            <div class="sat-color-chip" style="background:#39409A" title="Secondary #39409A"></div>
+            <div class="sat-color-chip" style="background:#6366F1" title="Interactive"></div>
+            <div class="sat-color-chip" style="background:#F2EDF3" title="Surface Light"></div>
+          </div>
+          <div style="font-size:11px;color:var(--landing-text-muted);display:flex;justify-content:space-between">
+            <span>Primary Magenta</span>
+            <span>Deep Indigo</span>
+          </div>
+        </div>
+
+        <!-- Satellite 2: Micro Data Grid Fragment (Top Right) -->
+        <div class="satellite-artifact sat-data-grid">
+          <div class="sat-header">
+            <span>Data Grid · Lifecycle</span>
+            <span style="font-size:10px;color:var(--meld-primary)">Active</span>
+          </div>
+          <table class="sat-mini-table">
+            <thead>
+              <tr><th>Identifier</th><th>Role</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Component M.01</td><td>Data Table</td><td><span class="sat-status-badge">Live</span></td></tr>
+              <tr><td>Editable Cell</td><td>In-Place</td><td><span class="sat-status-badge">Ready</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Satellite 3: Space Grotesk Specimen (Bottom Left) -->
+        <div class="satellite-artifact sat-typography">
+          <div class="sat-header">
+            <span>Typography Specimen</span>
+            <span style="font-size:10px;color:var(--landing-text-muted)">Space Grotesk</span>
+          </div>
+          <div class="sat-specimen-text">Ideas into impact.</div>
+          <div style="font-size:10.5px;color:var(--landing-text-muted)">Display Hero · 72px / 1.05 lh</div>
+        </div>
+
+        <!-- Satellite 4: AI Supervisory Copilot (Bottom Right) -->
+        <div class="satellite-artifact sat-ai-workflow">
+          <div class="sat-header">
+            <span>AI Interaction · Pattern 08</span>
+            <span style="color:var(--meld-secondary);font-weight:700">P-AI-01</span>
+          </div>
+          <div class="sat-ai-indicator">
+            <span class="sat-ai-pulse"></span>
+            <span style="font-size:12px;font-weight:600;color:var(--landing-text-primary)">Human-in-the-Loop Review</span>
+          </div>
+          <div style="font-size:11px;color:var(--landing-text-muted);margin-top:4px">Supervisory feedback active</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. DEDICATED DESIGN AND DEVELOP ENTRY POINTS (PROMINENT PATHWAYS) -->
+  <section class="pathways-section">
+    <div class="pathways-grid">
+      <!-- 01 · Design Pathway -->
+      <a href="#foundations" class="pathway-card" style="--path-accent:#BC4989">
+        <div>
+          <div class="pathway-top">
+            <div class="pathway-badge">01 · Designers</div>
+            <div class="pathway-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <h2 class="pathway-title">Design with Meld</h2>
+          <p class="pathway-desc">Explore the visual language, typography foundations, Figma libraries, responsive layouts, and cross-platform design guidelines.</p>
+          <div class="pathway-chips">
+            <span class="pathway-chip">Figma UI Kit</span>
+            <span class="pathway-chip">Space Grotesk</span>
+            <span class="pathway-chip">OKLCH Colors</span>
+            <span class="pathway-chip">8px Spatial Grid</span>
+          </div>
+        </div>
+        <div class="pathway-action">
+          <span>Explore design resources</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 02 · Develop Pathway -->
+      <a href="#get-started" class="pathway-card" style="--path-accent:#39409A">
+        <div>
+          <div class="pathway-top">
+            <div class="pathway-badge">02 · Developers</div>
+            <div class="pathway-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+          </div>
+          <h2 class="pathway-title">Develop with Meld</h2>
+          <p class="pathway-desc">Explore semantic CSS tokens, component lifecycles, accessible keyboard models, data grid APIs, and 9-viewport responsive implementations.</p>
+          <div class="pathway-chips">
+            <span class="pathway-chip">CSS Variables</span>
+            <span class="pathway-chip">WCAG 2.2 AA</span>
+            <span class="pathway-chip">Data Grid API</span>
+            <span class="pathway-chip">Zero-Overflow</span>
+          </div>
+        </div>
+        <div class="pathway-action">
+          <span>Explore developer resources</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- D. FEATURED ECOSYSTEM SHOWCASE (ASYMMETRIC EDITORIAL LAYOUT) -->
+  <section class="ecosystem-section">
+    <div class="section-eyebrow">The Complete Ecosystem</div>
+    <h2 class="section-title">Built for craft, engineered for scale</h2>
+    <p class="section-desc">Meld unifies visual design, engineering primitives, and complex user interaction patterns into one connected ecosystem.</p>
+
+    <div class="ecosystem-asymmetric-grid">
+      <!-- Large Card: 100+ Components Showcase -->
+      <a href="#m-browser" class="eco-card-large">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+            <span style="font-size:11px;font-weight:700;color:var(--meld-primary);letter-spacing:0.08em;text-transform:uppercase">01 · COMPONENTS</span>
+            <span style="font-size:11.5px;padding:2px 8px;border-radius:12px;background:rgba(188,73,137,0.1);color:var(--meld-primary);font-weight:600">100+ Production UI</span>
+          </div>
+          <h3 style="font-size:26px;font-weight:700;letter-spacing:-0.02em;margin:0 0 10px 0;color:var(--landing-text-primary)">Component Library & Dense Data</h3>
+          <p style="font-size:15px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 24px 0">
+            A comprehensive inventory of over 100 interactive UI components across 16 categories. Features advanced tabular data grids with in-place cell editing, multi-facet filter builders, and column visibility controllers.
+          </p>
+
+          <!-- Component Visual Specimen Preview -->
+          <div style="background:var(--landing-surface);border:1px solid var(--landing-border);border-radius:10px;padding:20px;margin-bottom:24px">
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+              <button class="b" style="background:var(--meld-primary);color:#fff;border:none;padding:8px 16px;border-radius:4px;font-weight:600;cursor:default">Primary Action</button>
+              <button class="b" style="background:var(--landing-surface-elevated);border:1px solid var(--landing-border);color:var(--landing-text-primary);padding:8px 16px;border-radius:4px;cursor:default">Secondary</button>
+              <span style="font-size:11.5px;padding:4px 8px;border-radius:4px;background:rgba(16,185,129,0.15);color:#10B981;font-weight:600">Status: Verified</span>
+            </div>
+            <div style="font-size:12px;color:var(--landing-text-muted);display:flex;justify-content:space-between">
+              <span>Data Grid · Editable Cell · Tooltip · Modal</span>
+              <span style="color:var(--meld-primary);font-weight:600">Inspect in Explorer →</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--meld-primary)">
+          <span>Explore 100+ Components in Explorer</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Stacked Right Cards -->
+      <div class="eco-stack-right">
+        <!-- Medium Card 1: 125 UX Patterns & AI Workflows -->
+        <a href="#p-browser" class="eco-card-medium">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <span style="font-size:11px;font-weight:700;color:var(--meld-secondary);letter-spacing:0.08em;text-transform:uppercase">02 · PATTERNS</span>
+              <span style="font-size:11px;font-weight:700;color:#10B981">8 Categories</span>
+            </div>
+            <h3 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px 0;color:var(--landing-text-primary)">125 UX & Agentic AI Patterns</h3>
+            <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 16px 0">
+              Standardised user experience patterns for generative models, streaming responses, Human-in-the-Loop approval, wizards, and complex intake flows.
+            </p>
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--meld-secondary)">
+            <span>Inspect Pattern Library</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- Medium Card 2: Foundations & 9-Viewport Zero-Overflow -->
+        <a href="#changelog" class="eco-card-medium">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+              <span style="font-size:11px;font-weight:700;color:var(--meld-primary);letter-spacing:0.08em;text-transform:uppercase">03 · ARCHITECTURE</span>
+              <span style="font-size:11px;font-weight:700;color:var(--meld-primary)">v1.3.0 Live</span>
+            </div>
+            <h3 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px 0;color:var(--landing-text-primary)">Multi-Device Zero-Overflow Standard</h3>
+            <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 16px 0">
+              Audited and verified across all 9 target viewports (320px–1920px). Fluid container clamping, touch targets, and single source of truth tracking.
+            </p>
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--meld-primary)">
+            <span>View System Changelog</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- E. EDITORIAL DESIGN PRINCIPLES SPREAD -->
+  <section class="principles-section">
+    <div class="section-eyebrow">IDEO Foundations</div>
+    <h2 class="section-title">Design Principles that guide Meld</h2>
+    <p class="section-desc">Five core tenets shaping every token, component, and interaction model in the system.</p>
+
+    <div class="principles-spread">
+      <div class="principle-box">
+        <span class="principle-num-badge">01 · Cohesion</span>
+        <h3 class="principle-box-title">Consistency</h3>
+        <p class="principle-box-desc">Create predictable, intuitive experiences across products and platforms. Shared token semantics guarantee cohesive behavior everywhere.</p>
+      </div>
+      <div class="principle-box">
+        <span class="principle-num-badge">02 · Inclusion</span>
+        <h3 class="principle-box-title">Accessibility</h3>
+        <p class="principle-box-desc">Make experiences usable by people with diverse abilities. WCAG 2.2 AA contrast, 40px touch minimums, and keyboard accessibility by default.</p>
+      </div>
+      <div class="principle-box">
+        <span class="principle-num-badge">03 · Purpose</span>
+        <h3 class="principle-box-title">Clarity</h3>
+        <p class="principle-box-desc">Prioritise understandable interfaces and meaningful interactions. Remove visual clutter and make interactive states unambiguous.</p>
+      </div>
+      <div class="principle-box">
+        <span class="principle-num-badge">04 · Scale</span>
+        <h3 class="principle-box-title">Flexibility</h3>
+        <p class="principle-box-desc">Support varying product domains from consumer apps to high-density enterprise data grids without compromising design integrity.</p>
+      </div>
+      <div class="principle-box">
+        <span class="principle-num-badge">05 · Future</span>
+        <h3 class="principle-box-title">Scalability</h3>
+        <p class="principle-box-desc">Build enduring architectural foundations that evolve seamlessly with teams, products, and new technology paradigms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- F. CLOSING CTA BANNER -->
+  <div class="landing-closing-cta">
+    <div class="closing-banner-card">
+      <h2 class="closing-banner-title">Ready to build with Meld?</h2>
+      <p class="closing-banner-desc">
+        Join the IDEO open-source design system community. Explore our Figma component kits, inspect semantic design tokens, or contribute components on GitHub.
+      </p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap">
+        <a href="#m-figma" class="btn-hero-primary">
+          Explore Figma Library
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- G. COMPREHENSIVE FULL WIDTH FOOTER -->
+  <footer class="landing-footer-wrapper">
+    <div class="landing-footer-container">
+      <div class="landing-footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <div class="landing-brand-logo">M</div>
+            <span style="font-size:17px;font-weight:700;color:var(--landing-text-primary)">Meld by IDEO</span>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);max-width:320px;margin:0 0 16px 0">
+            An open-source design system connecting typography, color tokens, 100+ UI components, and 125 UX patterns into cohesive digital experiences.
+          </p>
+          <div style="font-size:12.5px;color:var(--landing-text-muted)">
+            Released under MIT License.
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Foundations</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="#foundations" style="color:var(--landing-text-secondary);text-decoration:none">Overview</a>
+            <a href="#c-overview" style="color:var(--landing-text-secondary);text-decoration:none">Color System</a>
+            <a href="#overview" style="color:var(--landing-text-secondary);text-decoration:none">Typography</a>
+            <a href="#primitives" style="color:var(--landing-text-secondary);text-decoration:none">Primitive Tokens</a>
+            <a href="#architecture" style="color:var(--landing-text-secondary);text-decoration:none">Grid & Spacing</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Components</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="#m-overview" style="color:var(--landing-text-secondary);text-decoration:none">Overview</a>
+            <a href="#m-browser" style="color:var(--landing-text-secondary);text-decoration:none">Component Explorer</a>
+            <a href="#m-browser" style="color:var(--landing-text-secondary);text-decoration:none">Data Grid & Complex</a>
+            <a href="#m-figma" style="color:var(--landing-text-secondary);text-decoration:none">Figma Library</a>
+            <a href="#m-qa" style="color:var(--landing-text-secondary);text-decoration:none">Checklist & QA</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Patterns</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="#p-overview" style="color:var(--landing-text-secondary);text-decoration:none">Pattern Overview</a>
+            <a href="#p-browser" style="color:var(--landing-text-secondary);text-decoration:none">125 UX Patterns</a>
+            <a href="#p-browser" style="color:var(--landing-text-secondary);text-decoration:none">AI Workflows</a>
+            <a href="#p-figma" style="color:var(--landing-text-secondary);text-decoration:none">Figma Blueprints</a>
+            <a href="#p-qa" style="color:var(--landing-text-secondary);text-decoration:none">Quality Checklist</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Resources</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="#get-started" style="color:var(--landing-text-secondary);text-decoration:none">Get Started</a>
+            <a href="#principles" style="color:var(--landing-text-secondary);text-decoration:none">Design Principles</a>
+            <a href="#changelog" style="color:var(--landing-text-secondary);text-decoration:none">Changelog v1.3.0</a>
+            <a href="#about" style="color:var(--landing-text-secondary);text-decoration:none">About Meld</a>
+            <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--landing-text-secondary);text-decoration:none">GitHub Repository ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--landing-border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--landing-text-muted);flex-wrap:wrap;gap:12px">
+        <div>© 2026 Meld by IDEO. An open-source design system.</div>
+        <a href="#home" style="color:var(--landing-text-muted);text-decoration:none">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- /landing-shell -->
+
 <header class="hd">
   <div class="hd-left">
     <button id="menu" class="b" aria-expanded="false" aria-controls="side">Menu</button>
@@ -2249,592 +3684,6 @@ nav.side a.side-link.on .side-badge {
      ========================================================================== -->
 
 <!-- SECTION 00: HOMEPAGE / ROOT ROUTE -->
-<section id="home" class="hero-section" style="border-bottom:1px solid var(--bd);padding-bottom:64px">
-  <div class="in">
-    <!-- Hero / Introduction -->
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          INTRODUCING MELD BY IDEO
-        </div>
-        <h1 class="hero-title">
-          Design systems that bring <span class="hero-title-accent">people, products and ideas</span> together.
-        </h1>
-        <p class="hero-lead">
-          Meld is an open-source design system built to help teams create consistent, accessible and meaningful digital experiences. Explore its foundations, components, patterns and implementation guidelines.
-        </p>
-        <div class="hero-actions">
-          <a href="#m-browser" class="hero-btn-primary">
-            Explore the design system
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#get-started" class="hero-btn-secondary">
-            Start building
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <span class="hero-stat-num">100+</span>
-            <span class="hero-stat-lbl">Audited Components</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num">125</span>
-            <span class="hero-stat-lbl">UX & AI Patterns</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num">WCAG 2.2</span>
-            <span class="hero-stat-lbl">Level AA Contrast</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num">9 Viewports</span>
-            <span class="hero-stat-lbl">Zero-Overflow Standard</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero Visual Composition: The Modular System Blueprint -->
-      <div class="hero-visual-canvas" aria-label="Meld Modular System Interactive Canvas">
-        <div class="hero-blueprint-grid"></div>
-        <div class="hero-blueprint-badge">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          Meld Architectural System · Blueprint
-        </div>
-
-        <div class="hero-blueprint-cards">
-          <!-- Card 1: Token Palette -->
-          <div class="hero-bcard">
-            <div class="hero-bcard-title">Token Palette · OKLCH</div>
-            <div class="hero-swatch-row">
-              <div class="hero-swatch" style="background:#BC4989" title="Primary Brand: #BC4989"></div>
-              <div class="hero-swatch" style="background:#39409A" title="Secondary Brand: #39409A"></div>
-              <div class="hero-swatch" style="background:#5B3B70" title="Neutral Accent"></div>
-              <div class="hero-swatch" style="background:#F2EDF3" title="Surface Light"></div>
-            </div>
-            <div style="font-size:11px;color:var(--mu);display:flex;justify-content:space-between">
-              <span>Primary #BC4989</span>
-              <span>AA Pass 4.5:1</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Interactive UI Controls -->
-          <div class="hero-bcard">
-            <div class="hero-bcard-title">Micro Controls</div>
-            <div class="hero-bcard-comp">
-              <span class="hero-pill-badge">Active Pill</span>
-              <div class="hero-mini-toggle" aria-label="Toggle example"></div>
-            </div>
-            <div style="font-size:11px;color:var(--mu);display:flex;justify-content:space-between;margin-top:2px">
-              <span>State: Selected</span>
-              <span>Focus: Visible</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Blueprint Footer Card: AI & Workflow Indicator -->
-        <div class="hero-blueprint-footer-card">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 8px #10b981"></div>
-            <div>
-              <div style="font-size:12px;font-weight:600;color:var(--tx)">Human-in-the-Loop Supervision</div>
-              <div style="font-size:11px;color:var(--mu)">Pattern P-AI-01 · Supervisory Review Active</div>
-            </div>
-          </div>
-          <span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;background:var(--sf);border:1px solid var(--bd);color:var(--ac)">125 PATTERNS</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section C: Quick Entry Points -->
-    <div style="margin-top:64px">
-      <p class="ey">Section C · Quick Entry Points</p>
-      <h2 class="st" style="margin-bottom:8px">Tailored workflows for teams</h2>
-      <p class="lead" style="font-size:17px;margin-bottom:24px">Whether you are shaping pixels in Figma or building components in code, Meld provides unified, dedicated starting paths.</p>
-      
-      <div class="entry-points-grid">
-        <!-- 01 Design -->
-        <a href="#foundations" class="entry-card" style="--card-accent:#BC4989">
-          <div>
-            <div class="entry-card-badge">01 · Designers</div>
-            <h3 class="entry-card-title">Design</h3>
-            <p class="entry-card-desc">Explore the visual language, typography foundations, Figma resources, components, patterns and design guidelines.</p>
-            <div class="entry-card-tags">
-              <span class="entry-card-tag">Figma UI Kit</span>
-              <span class="entry-card-tag">Space Grotesk</span>
-              <span class="entry-card-tag">OKLCH Colors</span>
-              <span class="entry-card-tag">8px Grid</span>
-            </div>
-          </div>
-          <div class="entry-card-cta">
-            Explore design resources
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- 02 Develop -->
-        <a href="#get-started" class="entry-card" style="--card-accent:#39409A">
-          <div>
-            <div class="entry-card-badge">02 · Developers</div>
-            <h3 class="entry-card-title">Develop</h3>
-            <p class="entry-card-desc">Explore implementation guidelines, design tokens, component specifications, accessibility requirements and developer resources.</p>
-            <div class="entry-card-tags">
-              <span class="entry-card-tag">CSS Custom Props</span>
-              <span class="entry-card-tag">WCAG 2.2 AA</span>
-              <span class="entry-card-tag">Data Grid API</span>
-              <span class="entry-card-tag">Zero-Overflow</span>
-            </div>
-          </div>
-          <div class="entry-card-cta">
-            Explore developer resources
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Section D: Explore Meld (5 Core Pillars) -->
-    <div style="margin-top:64px">
-      <p class="ey">Section D · Explore Meld</p>
-      <h2 class="st" style="margin-bottom:8px">Five architectural pillars</h2>
-      <p class="lead" style="font-size:17px;margin-bottom:24px">A comprehensive, end-to-end design system architecture structured for consistency and scale.</p>
-
-      <div class="pillars-grid">
-        <!-- 1. Foundations -->
-        <a href="#foundations" class="pillar-card">
-          <div class="pillar-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M4 4h16M12 4v16"/></svg>
-          </div>
-          <h3 class="pillar-card-title">Foundations</h3>
-          <p class="pillar-card-desc">Space Grotesk typography, OKLCH brand color scales, elevation, spacing grid, motion tokens, and iconography.</p>
-          <div class="pillar-card-footer">
-            <span>Explore foundations</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- 2. Components -->
-        <a href="#m-browser" class="pillar-card">
-          <div class="pillar-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          </div>
-          <h3 class="pillar-card-title">Components</h3>
-          <p class="pillar-card-desc">100+ audited UI components across 16 categories: form controls, modals, dense data grids, floating UI, and navigation.</p>
-          <div class="pillar-card-footer">
-            <span>Explore 100+ components</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- 3. Patterns -->
-        <a href="#p-browser" class="pillar-card">
-          <div class="pillar-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-          </div>
-          <h3 class="pillar-card-title">Patterns</h3>
-          <p class="pillar-card-desc">125 UX patterns across 8 categories: AI copilot workflows, multi-step wizards, authentication, filtering, and data intake.</p>
-          <div class="pillar-card-footer">
-            <span>Explore 125 patterns</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- 4. Guidelines -->
-        <a href="#principles" class="pillar-card">
-          <div class="pillar-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          <h3 class="pillar-card-title">Guidelines</h3>
-          <p class="pillar-card-desc">WCAG 2.2 AA accessibility checklists, multi-device responsive standards (320px–1920px), and handoff specifications.</p>
-          <div class="pillar-card-footer">
-            <span>Read guidelines</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- 5. Resources -->
-        <a href="#changelog" class="pillar-card">
-          <div class="pillar-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-          <h3 class="pillar-card-title">Resources</h3>
-          <p class="pillar-card-desc">Figma component library, changelog v1.2.0, developer documentation, and open-source contribution guidelines.</p>
-          <div class="pillar-card-footer">
-            <span>View changelog & resources</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Section E: Featured Resources -->
-    <div style="margin-top:64px">
-      <p class="ey">Section E · Featured Resources</p>
-      <h2 class="st" style="margin-bottom:8px">Latest releases and milestones</h2>
-      <p class="lead" style="font-size:17px;margin-bottom:24px">Track the newest additions, repaired architectures, and system capabilities across Meld.</p>
-
-      <div class="featured-grid">
-        <!-- Feature 1 -->
-        <a href="#m-browser" class="featured-card">
-          <div class="featured-tag">RECENT UPDATE · v1.1.1</div>
-          <h3 class="featured-title">Complex Data Components Suite</h3>
-          <p class="featured-desc">Column Visibility Menu, Editable Cell, Filter Builder, and Data Grid composite architecture with full in-place lifecycle state machines and live grid synchronization.</p>
-          <div class="featured-link">
-            <span>Inspect Data Grid</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- Feature 2 -->
-        <a href="#p-browser" class="featured-card">
-          <div class="featured-tag">NEW MODULE · 125 PATTERNS</div>
-          <h3 class="featured-title">AI & Agentic Interaction Patterns</h3>
-          <p class="featured-desc">Standardised UX patterns for generative AI models, Human-in-the-Loop supervisory review, confidence thresholds, streaming response status, and fallback models.</p>
-          <div class="featured-link">
-            <span>Explore 125 Patterns</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-
-        <!-- Feature 3 -->
-        <a href="#changelog" class="featured-card">
-          <div class="featured-tag">CORE ARCHITECTURE · v1.2.0</div>
-          <h3 class="featured-title">Multi-Device Responsive Standard</h3>
-          <p class="featured-desc">Tested across 9 target viewports (320px–1920px) ensuring 0 horizontal page overflow, fluid container clamping, mobile navigation drawers, and WCAG 2.2 AA touch targets.</p>
-          <div class="featured-link">
-            <span>View Changelog Entry</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Section F: Design Principles (Editorial Section) -->
-    <div style="margin-top:64px">
-      <p class="ey">Section F · Design Principles</p>
-      <h2 class="st" style="margin-bottom:8px">Principles that guide Meld</h2>
-      <p class="lead" style="font-size:17px;margin-bottom:24px">Five core tenets shaping every token, component, and interaction model in the system.</p>
-
-      <div class="principles-grid">
-        <div class="principle-item">
-          <div class="principle-num">Principle 01</div>
-          <h3 class="principle-name">Consistency</h3>
-          <p class="principle-desc">Create predictable, intuitive experiences across products and platforms. Shared token semantics guarantee that behaviors and visuals feel cohesive everywhere.</p>
-        </div>
-        <div class="principle-item">
-          <div class="principle-num">Principle 02</div>
-          <h3 class="principle-name">Accessibility</h3>
-          <p class="principle-desc">Make experiences usable by people with diverse abilities. Every component is built with WCAG 2.2 AA contrast, keyboard navigation models, and ARIA landmarks by default.</p>
-        </div>
-        <div class="principle-item">
-          <div class="principle-num">Principle 03</div>
-          <h3 class="principle-name">Clarity</h3>
-          <p class="principle-desc">Prioritise understandable interfaces and meaningful interactions. Remove visual clutter, make interactive states unambiguous, and communicate system status instantly.</p>
-        </div>
-        <div class="principle-item">
-          <div class="principle-num">Principle 04</div>
-          <h3 class="principle-name">Flexibility</h3>
-          <p class="principle-desc">Support varying product domains from consumer applications to high-density enterprise data grids without compromising design integrity or system speed.</p>
-        </div>
-        <div class="principle-item">
-          <div class="principle-num">Principle 05</div>
-          <h3 class="principle-name">Scalability</h3>
-          <p class="principle-desc">Build enduring architectural foundations that evolve with growing products and teams. Modular token hierarchies and systematic workflows prevent fragmentation.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section G: Closing CTA Banner -->
-    <div class="closing-cta">
-      <h2>Ready to build with Meld?</h2>
-      <p>Join the IDEO open-source design system community. Explore our Figma component kits, inspect semantic design tokens, or contribute components on GitHub.</p>
-      <div class="closing-actions">
-        <a href="#m-figma" class="hero-btn-primary">
-          Explore Figma Library
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="hero-btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          View on GitHub
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 00B: GET STARTED ROUTE -->
-<section id="get-started" style="border-bottom:1px solid var(--bd)">
-  <div class="in">
-    <div class="doc-breadcrumb">
-      <a href="#home">Home</a>
-      <span class="doc-breadcrumb-sep">/</span>
-      <span class="doc-breadcrumb-current">Get Started</span>
-    </div>
-
-    <p class="ey">Get Started · Overview & Quick Start</p>
-    <h2 class="st">Getting Started with Meld</h2>
-    <p class="lead" style="font-size:18px;margin-bottom:24px">Meld is structured to be adopted incrementally. Whether you are using raw design tokens, copy-pasting HTML/CSS primitives, or consuming Figma assets, here is how to get up and running in minutes.</p>
-
-    <div class="tb" style="margin-bottom:32px">
-      <table>
-        <tbody>
-          <tr><th>System Name</th><td>Meld by IDEO</td><th>Current Version</th><td>v1.2.0 (Actively Maintained)</td></tr>
-          <tr><th>Typeface</th><td>Space Grotesk</td><th>License</th><td>MIT Open Source</td></tr>
-          <tr><th>Figma Library</th><td>Available in Figma Community</td><th>GitHub Repo</th><td><a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--ac)">meld-design-system</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>1. Quick Start with Design Tokens</h3>
-    <p class="lead" style="font-size:15px">All Meld components and themes are powered by semantic CSS custom properties. Import Space Grotesk and link the Meld stylesheet in your document head:</p>
-    
-    <pre><code>&lt;!-- 1. Space Grotesk Typeface --&gt;
-&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
-&lt;link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"&gt;
-
-&lt;!-- 2. Meld Tokens & Primitives --&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/akshayashokanpothan/meld-design-system@main/index.html"&gt;</code></pre>
-
-    <h3 style="margin-top:32px">2. Theme Setup</h3>
-    <p class="lead" style="font-size:15px">Meld features full dual-theme support. Toggle themes simply by setting the <code>data-theme</code> attribute on the <code>&lt;html&gt;</code> root element:</p>
-
-    <pre><code>// Toggle theme programmatically
-const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');</code></pre>
-
-    <h3 style="margin-top:32px">3. Designer & Developer Workflows</h3>
-    <div class="grid" style="margin-top:16px">
-      <div class="card">
-        <h4>Designer Workflow</h4>
-        <p class="m">1. Duplicate the Meld Figma Library.</p>
-        <p class="m">2. Publish as an organization or team library.</p>
-        <p class="m">3. Use approved Space Grotesk text styles and OKLCH color styles.</p>
-        <p class="m">4. Insert components and inspect component variants.</p>
-        <a href="#m-figma" class="b" style="margin-top:12px;display:inline-block">Open Figma Specs →</a>
-      </div>
-      <div class="card">
-        <h4>Developer Workflow</h4>
-        <p class="m">1. Reference semantic tokens rather than hardcoded hex values.</p>
-        <p class="m">2. Follow WCAG 2.2 AA target size (minimum 40px touch targets).</p>
-        <p class="m">3. Test responsive behavior across all 9 viewports (320px–1920px).</p>
-        <p class="m">4. Track additions in <code>changelog.json</code>.</p>
-        <a href="#m-browser" class="b" style="margin-top:12px;display:inline-block">Open Component Explorer →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 00C: DESIGN PRINCIPLES ROUTE -->
-<section id="principles" style="border-bottom:1px solid var(--bd)">
-  <div class="in">
-    <div class="doc-breadcrumb">
-      <a href="#home">Home</a>
-      <span class="doc-breadcrumb-sep">/</span>
-      <span class="doc-breadcrumb-current">Design Principles</span>
-    </div>
-
-    <p class="ey">Guidelines · Foundations of Experience</p>
-    <h2 class="st">Design Principles</h2>
-    <p class="lead" style="font-size:18px;margin-bottom:28px">Our design principles establish clear criteria for evaluating decisions, balancing trade-offs, and maintaining high design craftsmanship across all IDEO digital touchpoints.</p>
-
-    <div style="display:flex;flex-direction:column;gap:32px">
-      <div class="card" style="padding:28px">
-        <div style="font-size:12px;font-weight:700;color:var(--meld-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Principle 01</div>
-        <h3 style="margin:0 0 10px 0;font-size:22px">Consistency</h3>
-        <p class="lead" style="font-size:15px;line-height:1.6;margin:0 0 16px 0">Create predictable, intuitive experiences across products and platforms. Shared token semantics guarantee that behaviors and visuals feel cohesive everywhere. When users learn how a button, input, or table works in one product, that knowledge transfers immediately to all other Meld experiences.</p>
-        <div class="tb"><table><tbody>
-          <tr><th>How we apply it</th><td>Unified tokens across CSS & Figma; standardised state lifecycles (Default, Hover, Active, Focus, Disabled).</td></tr>
-        </tbody></table></div>
-      </div>
-
-      <div class="card" style="padding:28px">
-        <div style="font-size:12px;font-weight:700;color:var(--meld-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Principle 02</div>
-        <h3 style="margin:0 0 10px 0;font-size:22px">Accessibility</h3>
-        <p class="lead" style="font-size:15px;line-height:1.6;margin:0 0 16px 0">Make experiences usable by people with diverse abilities. Every component is built with WCAG 2.2 AA contrast, keyboard navigation models, and ARIA landmarks by default. Accessibility is never treated as a post-launch audit; it is a core structural constraint from day one.</p>
-        <div class="tb"><table><tbody>
-          <tr><th>How we apply it</th><td>Minimum 4.5:1 text contrast in both themes; 40px minimum touch targets on mobile; visible focus rings; Escape key dismissals.</td></tr>
-        </tbody></table></div>
-      </div>
-
-      <div class="card" style="padding:28px">
-        <div style="font-size:12px;font-weight:700;color:var(--meld-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Principle 03</div>
-        <h3 style="margin:0 0 10px 0;font-size:22px">Clarity</h3>
-        <p class="lead" style="font-size:15px;line-height:1.6;margin:0 0 16px 0">Prioritise understandable interfaces and meaningful interactions. Remove visual clutter, make interactive states unambiguous, and communicate system status instantly. High information density should never mean visual chaos.</p>
-        <div class="tb"><table><tbody>
-          <tr><th>How we apply it</th><td>Space Grotesk typography hierarchy with high legibility; explicit saving/saved feedback states; unambiguous destructive action dialogs.</td></tr>
-        </tbody></table></div>
-      </div>
-
-      <div class="card" style="padding:28px">
-        <div style="font-size:12px;font-weight:700;color:var(--meld-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Principle 04</div>
-        <h3 style="margin:0 0 10px 0;font-size:22px">Flexibility</h3>
-        <p class="lead" style="font-size:15px;line-height:1.6;margin:0 0 16px 0">Support varying product domains from lightweight consumer mobile apps to high-density enterprise data grids without compromising design integrity or system performance.</p>
-        <div class="tb"><table><tbody>
-          <tr><th>How we apply it</th><td>Density switchers (Compact, Default, Relaxed); modular slot architecture; multi-device fluid layout clamping.</td></tr>
-        </tbody></table></div>
-      </div>
-
-      <div class="card" style="padding:28px">
-        <div style="font-size:12px;font-weight:700;color:var(--meld-primary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px">Principle 05</div>
-        <h3 style="margin:0 0 10px 0;font-size:22px">Scalability</h3>
-        <p class="lead" style="font-size:15px;line-height:1.6;margin:0 0 16px 0">Build enduring architectural foundations that evolve with growing products and teams. Modular token hierarchies and systematic contribution workflows prevent fragmentation as new components and patterns emerge.</p>
-        <div class="tb"><table><tbody>
-          <tr><th>How we apply it</th><td>Single source of truth <code>changelog.json</code>; automated multi-viewport testing; strict component checklist criteria.</td></tr>
-        </tbody></table></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 00D: ABOUT ROUTE -->
-<section id="about" style="border-bottom:1px solid var(--bd)">
-  <div class="in">
-    <div class="doc-breadcrumb">
-      <a href="#home">Home</a>
-      <span class="doc-breadcrumb-sep">/</span>
-      <span class="doc-breadcrumb-current">About Meld</span>
-    </div>
-
-    <p class="ey">About · Vision & Organization</p>
-    <h2 class="st">About Meld by IDEO</h2>
-    <p class="lead" style="font-size:18px;margin-bottom:24px">Meld is an open-source design system created to unify digital products, design exploration, and software engineering. It represents IDEO's belief that great design systems do not restrict creativity—they liberate teams to solve higher-order human problems.</p>
-
-    <div class="tb" style="margin-bottom:32px">
-      <table>
-        <tbody>
-          <tr><th>Project</th><td>Meld Design System</td><th>Organization</th><td>IDEO Digital & Product Engineering</td></tr>
-          <tr><th>Repository</th><td><a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--ac)">github.com/akshayashokanpothan/meld-design-system</a></td><th>License</th><td>MIT Open Source</td></tr>
-          <tr><th>Core Modules</th><td>Typography, Colors, 100+ Components, 125 UX Patterns, Changelog</td><th>Theming</th><td>Light & Dark with OKLCH Luminance</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Open Source & Community</h3>
-    <p class="lead" style="font-size:15px">Meld is fully open-source and maintained on GitHub. We invite designers, engineers, and accessibility specialists to contribute components, report defects, or propose new interaction patterns.</p>
-    
-    <div class="acts" style="margin-top:20px">
-      <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="hero-btn-primary">
-        GitHub Repository
-      </a>
-      <a href="#changelog" class="hero-btn-secondary">
-        Read System Changelog
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- GLOBAL FOOTER (Inserted at bottom of main) -->
-<footer class="global-footer">
-  <div class="in">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="hd-brand-logo">M</div>
-          <span class="footer-brand-title">Meld by IDEO</span>
-        </div>
-        <p class="footer-brand-desc">
-          An open-source, accessible design system connecting typography, color tokens, 100+ components, and 125 UX patterns into cohesive digital experiences.
-        </p>
-        <div style="font-size:12px;color:var(--mu)">
-          Released under MIT License.
-        </div>
-      </div>
-
-      <div>
-        <div class="footer-col-title">Foundations</div>
-        <ul class="footer-col-links">
-          <li><a href="#foundations">Overview</a></li>
-          <li><a href="#c-overview">Color System</a></li>
-          <li><a href="#overview">Typography</a></li>
-          <li><a href="#primitives">Primitive Tokens</a></li>
-          <li><a href="#architecture">Grid & Spacing</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-col-title">Components</div>
-        <ul class="footer-col-links">
-          <li><a href="#m-overview">Overview</a></li>
-          <li><a href="#m-browser">Component Explorer</a></li>
-          <li><a href="#m-browser">Data Grid & Complex</a></li>
-          <li><a href="#m-figma">Figma Specifications</a></li>
-          <li><a href="#m-qa">Checklist & QA</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-col-title">Patterns</div>
-        <ul class="footer-col-links">
-          <li><a href="#p-overview">Pattern Overview</a></li>
-          <li><a href="#p-browser">125 UX Patterns</a></li>
-          <li><a href="#p-browser">AI Workflows</a></li>
-          <li><a href="#p-figma">Figma Blueprints</a></li>
-          <li><a href="#p-qa">Pattern Checklist</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="footer-col-title">Resources</div>
-        <ul class="footer-col-links">
-          <li><a href="#get-started">Get Started</a></li>
-          <li><a href="#principles">Design Principles</a></li>
-          <li><a href="#changelog">Changelog v1.2.0</a></li>
-          <li><a href="#about">About Meld</a></li>
-          <li><a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank">GitHub Repository</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>
-        © 2026 Meld by IDEO. An open-source design system.
-      </div>
-      <div style="display:flex;gap:16px;align-items:center">
-        <a href="#home" style="color:var(--mu);text-decoration:none">Back to top ↑</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- GLOBAL SEARCH MODAL (Cmd+K) -->
-<div id="global-search-modal" class="search-modal-backdrop" role="dialog" aria-modal="true" aria-label="Global Search">
-  <div class="search-modal-dialog">
-    <div class="search-modal-header">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--mu)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="global-search-input" class="search-modal-input" placeholder="Search foundations, components, patterns, guidelines..." autocomplete="off">
-      <kbd class="search-modal-esc" id="search-modal-close-btn">ESC</kbd>
-    </div>
-    <div id="global-search-results" class="search-modal-results">
-      <!-- Dynamically filled by search script -->
-    </div>
-    <div class="search-modal-footer">
-      <div class="search-keys-hint">
-        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
-        <span><kbd>↵</kbd> Select</span>
-        <span><kbd>esc</kbd> Dismiss</span>
-      </div>
-      <div id="search-results-count">Type to search across Meld</div>
-    </div>
-  </div>
-</div>
-
-
-
-<section id="overview"><div class="in">
-<p class="ey">Section 01 — Overview</p>
-<h1 style="font-size:56px;line-height:1.05;letter-spacing:-.02em;font-weight:600;margin:0 0 8px">Typography</h1>
-<p class="lead" style="font-size:20px;margin-bottom:8px">IDEO Website Design System</p>
-<p class="lead">This module establishes the rules for typeface selection, hierarchy, sizing, spacing, responsive behavior, and implementation. It is a <b>proposed specification</b>, not an official IDEO brand guideline.</p>
-<div class="tb"><table><tbody>
-<tr><th>Typeface</th><td>Space Grotesk</td><th>Version</th><td>1.0</td></tr>
-<tr><th>Status</th><td>Proposed specification</td><th>Scope</th><td>Website-wide typography</td></tr>
-<tr><th>Primary goal</th><td colspan="3">Establish a consistent and reusable typography language.</td></tr></tbody></table></div>
-<p class="type-display-hero" style="margin:48px 0 16px">Ideas into impact.</p>
-<p class="type-body-large" style="color:var(--t2);max-width:640px">Typography creates clarity, establishes hierarchy, and gives every digital experience a consistent voice.</p>
-<h3>Five system layers</h3>
-<ol class="grid" style="list-style:none;padding:0;margin:0" id="layers"></ol>
-</div></section>
-
 <section id="foundations"><div class="in">
 <p class="ey">Section 02 — Typeface Foundations</p><h2 class="st">Space Grotesk</h2>
 <p class="lead">Primary typeface for the entire website. Use 400, 500 and 600 for most interface typography; reserve 700 for selected emphasis.</p>
@@ -13196,6 +14045,35 @@ patInit();
   const CHANGELOG_FALLBACK = {
   "entries": [
     {
+      "id": "homepage-visual-redesign-landing-shell",
+      "version": "1.4.0",
+      "date": "2026-11-01",
+      "timestamp": "01:18:00 IST",
+      "category": "feature",
+      "title": "Reference-Accurate Homepage Visual Rework & Dedicated Landing Shell",
+      "summary": "Transformed the Meld homepage into a reference-accurate, full-bleed immersive landing experience with a decoupled two-shell architecture, 3D iridescent monogram prism, and prominent Design & Develop pathways.",
+      "description": "Redesigned the root homepage to match the visual presence and aesthetic quality of Microsoft Fluent 2, Google Material Design 3, and IBM Carbon. Decoupled the landing experience from the persistent documentation sidebar into an expansive 100vw, ~88vh dark hero with custom 3D acrylic monogram artwork, orbital coordinate ring, 4 glassmorphic satellite micro-UI artifacts (OKLCH token sphere, Micro Data Grid specimen, Space Grotesk specimen, AI Copilot supervision chip), dual Design and Develop entry cards, and asymmetric featured ecosystem showcases.",
+      "changes": [
+        "Implemented decoupled two-shell architecture (body.is-landing vs body.is-doc) giving the homepage a 100vw full-width presentation without sidebar constraints.",
+        "Built immersive ~88vh hero stage with ambient radial glows, architectural blueprint grid backdrop, and oversized Space Grotesk headline.",
+        "Crafted floating 3D acrylic monogram prism ('M') with orbital ring and 4 glassmorphic satellite UI artifacts.",
+        "Created prominent tactile Design & Develop pathway cards with glowing glass borders and technology stack badges.",
+        "Implemented asymmetric featured ecosystem showcases for 100+ Components Suite, 125 UX & Agentic AI patterns, and multi-device standard.",
+        "Integrated editorial 5-core Design Principles spread and 5-column full-width site index footer.",
+        "Verified 0 horizontal page overflow across all 9 target viewports (320px-1920px) and seamless bidirectional hash navigation to internal documentation sections."
+      ],
+      "affectedAreas": [
+        "Homepage",
+        "Landing Shell",
+        "Navigation Router",
+        "Visual Identity",
+        "Design & Develop Pathways"
+      ],
+      "commitMessage": "feat(homepage): reference-accurate visual rework and dedicated landing shell",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
       "id": "homepage-portal-navigation",
       "version": "1.3.0",
       "date": "2026-11-01",
@@ -14023,6 +14901,91 @@ patInit();
   if (searchModal) {
     searchModal.onclick = (e) => {
       if (e.target === searchModal) closeSearchModal();
+    };
+  }
+})();
+
+</script>
+<script id="meld-landing-router-script">
+/* ==========================================================================
+   MELD BY IDEO — DEDICATED SHELL ROUTER & LANDING CONTROLLER
+   ========================================================================== */
+
+(function initMeldShellRouter() {
+  const landingShell = document.getElementById('landing-shell');
+  const docWrap = document.querySelector('.wrap');
+  const allDocSections = document.querySelectorAll('main section:not(#home)');
+
+  // Tag internal documentation sections with class
+  allDocSections.forEach(s => s.classList.add('doc-section'));
+
+  function handleRoute() {
+    const rawHash = window.location.hash.replace('#', '').trim();
+    const isLanding = !rawHash || rawHash === 'home';
+
+    if (isLanding) {
+      document.body.classList.add('is-landing');
+      document.body.classList.remove('is-doc');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      document.body.classList.remove('is-landing');
+      document.body.classList.add('is-doc');
+
+      // Scroll to target doc section
+      const targetSec = document.getElementById(rawHash);
+      if (targetSec) {
+        setTimeout(() => {
+          targetSec.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+    }
+
+    // Sync active state in sidebar if in doc mode
+    if (typeof updateActiveDocLink === 'function') {
+      updateActiveDocLink(rawHash || 'home');
+    }
+  }
+
+  window.addEventListener('hashchange', handleRoute);
+  // Initial route check on page load
+  handleRoute();
+
+  // Landing Theme Toggle Handler
+  const landingThemeBtn = document.getElementById('landing-theme-toggle');
+  const docThemeBtn = document.getElementById('tt');
+
+  function updateThemeButtonLabels(theme) {
+    const label = theme === 'dark' ? 'Switch to light' : 'Switch to dark';
+    if (landingThemeBtn) landingThemeBtn.textContent = label;
+    if (docThemeBtn) docThemeBtn.textContent = label;
+  }
+
+  if (landingThemeBtn) {
+    landingThemeBtn.onclick = () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('meld-theme', next);
+      updateThemeButtonLabels(next);
+    };
+  }
+
+  // Sync initial theme
+  const savedTheme = localStorage.getItem('meld-theme') || document.documentElement.getAttribute('data-theme') || 'light';
+  updateThemeButtonLabels(savedTheme);
+
+  // Wire Landing Search Trigger
+  const landingSearchTrigger = document.getElementById('landing-search-trigger');
+  const searchModal = document.getElementById('global-search-modal');
+  const searchInput = document.getElementById('global-search-input');
+
+  if (landingSearchTrigger && searchModal) {
+    landingSearchTrigger.onclick = () => {
+      searchModal.classList.add('open');
+      if (searchInput) {
+        searchInput.value = '';
+        setTimeout(() => searchInput.focus(), 50);
+      }
     };
   }
 })();

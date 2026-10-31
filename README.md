@@ -6,7 +6,7 @@ A comprehensive, reusable design system reference built for IDEO digital product
 [![WCAG](https://img.shields.io/badge/WCAG-2.2%20AA%20Verified-blue)]()
 [![Components](https://img.shields.io/badge/Components-18%20Repaired%20P0%2FP1-purple)]()
 [![Patterns](https://img.shields.io/badge/Patterns-125%20UX%20Patterns-pink)]()
-[![Changelog](https://img.shields.io/badge/Changelog-v1.1.0%20Tracked-success)]()
+[![Changelog](https://img.shields.io/badge/Changelog-v1.4.0%20Tracked-success)]()
 
 ---
 

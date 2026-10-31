@@ -1,6 +1,35 @@
 ﻿{
   "entries": [
     {
+      "id": "homepage-visual-redesign-landing-shell",
+      "version": "1.4.0",
+      "date": "2026-11-01",
+      "timestamp": "01:18:00 IST",
+      "category": "feature",
+      "title": "Reference-Accurate Homepage Visual Rework & Dedicated Landing Shell",
+      "summary": "Transformed the Meld homepage into a reference-accurate, full-bleed immersive landing experience with a decoupled two-shell architecture, 3D iridescent monogram prism, and prominent Design & Develop pathways.",
+      "description": "Redesigned the root homepage to match the visual presence and aesthetic quality of Microsoft Fluent 2, Google Material Design 3, and IBM Carbon. Decoupled the landing experience from the persistent documentation sidebar into an expansive 100vw, ~88vh dark hero with custom 3D acrylic monogram artwork, orbital coordinate ring, 4 glassmorphic satellite micro-UI artifacts (OKLCH token sphere, Micro Data Grid specimen, Space Grotesk specimen, AI Copilot supervision chip), dual Design and Develop entry cards, and asymmetric featured ecosystem showcases.",
+      "changes": [
+        "Implemented decoupled two-shell architecture (body.is-landing vs body.is-doc) giving the homepage a 100vw full-width presentation without sidebar constraints.",
+        "Built immersive ~88vh hero stage with ambient radial glows, architectural blueprint grid backdrop, and oversized Space Grotesk headline.",
+        "Crafted floating 3D acrylic monogram prism ('M') with orbital ring and 4 glassmorphic satellite UI artifacts.",
+        "Created prominent tactile Design & Develop pathway cards with glowing glass borders and technology stack badges.",
+        "Implemented asymmetric featured ecosystem showcases for 100+ Components Suite, 125 UX & Agentic AI patterns, and multi-device standard.",
+        "Integrated editorial 5-core Design Principles spread and 5-column full-width site index footer.",
+        "Verified 0 horizontal page overflow across all 9 target viewports (320px-1920px) and seamless bidirectional hash navigation to internal documentation sections."
+      ],
+      "affectedAreas": [
+        "Homepage",
+        "Landing Shell",
+        "Navigation Router",
+        "Visual Identity",
+        "Design & Develop Pathways"
+      ],
+      "commitMessage": "feat(homepage): reference-accurate visual rework and dedicated landing shell",
+      "commitRef": null,
+      "breaking": false
+    },
+    {
       "id": "homepage-portal-navigation",
       "version": "1.3.0",
       "date": "2026-11-01",
