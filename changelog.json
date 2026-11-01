@@ -1,5 +1,36 @@
-﻿{
+{
     "entries":  [
+                    {
+                        "id":  "figma-design-system-live-embed-responsive-reflow",
+                        "version":  "1.5.0",
+                        "date":  "2026-11-02",
+                        "timestamp":  "00:45:00 IST",
+                        "category":  "feature",
+                        "title":  "Figma Design System Live Workspace Embed \u0026 Multi-Viewport Reflow Standard",
+                        "summary":  "Integrated official Meld by IDEO Figma Design System canvas embed, fluid responsive container, design-to-code guidance cards, and multi-viewport reflow standard.",
+                        "description":  "Integrated the official Figma Design System workspace (file: Meld by IDEO, node 278-3553) into the documentation portal at section #m-figma. Replaced static recreation text with an interactive fluid Figma canvas embed, page header with official design source verification badge, and direct Open in Figma action. Added three structured guidance cards detailing library contents, designer instance workflows, and cross-links to foundations and component explorers. Preserved full 7-rule engineering handoff checklist and verified zero horizontal overflow across all 9 target viewports.",
+                        "changes":  [
+                                        "Integrated official Figma Design System file (Meld by IDEO, node 278-3553) with responsive iframe workspace replacing fixed 800x450 dimensions.",
+                                        "Engineered responsive container adapting height across Desktop (720px), Tablet Landscape (580px), Tablet Portrait (480px), and Mobile (420px) with interactive canvas zoom, pan, and fullscreen support.",
+                                        "Added page introduction with Space Grotesk heading, \u0027Official Design Source\u0027 status badge, prominent gradient \u0027Open in Figma\u0027 button, and \u0027Copy Link\u0027 button with toast notification.",
+                                        "Created three guidance cards covering Library Contents (primitive/semantic dual-mode tokens, 18+ components), Designer Usage (instances, variable mode binding, auto layout constraints), and Relationship to Documentation (links to Foundations, Component Explorer, Pattern Explorer).",
+                                        "Preserved complete 7-rule Figma Component Handoff Conventions checklist.",
+                                        "Updated sidebar navigation and breadcrumb labels from \u0027Figma Specifications\u0027 to \u0027Figma Design Library\u0027.",
+                                        "Added responsive CSS reflow for body.is-doc .wrap to automatically collapse to 1fr on viewports \u003c=900px, guaranteeing 0px horizontal overflow across all 9 viewports (320px-1920px).",
+                                        "Verified theme integration across Light and Dark themes, achieving 19/19 passing integration tests and zero console errors."
+                                    ],
+                        "affectedAreas":  [
+                                              "Figma Specifications",
+                                              "Figma Design Library",
+                                              "Components Module",
+                                              "Multi-Device Reflow",
+                                              "Navigation",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "feat(figma): integrate official Figma design system canvas embed with responsive reflow",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
                     {
                         "id":  "pattern-playground-functional-engine-badge-spacing",
                         "timestamp":  "23:07:17 IST",
