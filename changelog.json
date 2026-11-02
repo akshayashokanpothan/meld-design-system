@@ -1,6 +1,34 @@
 {
     "entries":  [
                     {
+                        "id":  "specialised-advanced-components-bespoke-engine",
+                        "version":  "1.5.1",
+                        "date":  "2026-11-02",
+                        "timestamp":  "17:55:00 IST",
+                        "category":  "fix",
+                        "title":  "Specialised \u0026 Advanced Components Functional Overhaul and Bespoke Interaction Engine",
+                        "summary":  "Major fix overhauling all 14 Specialised and Advanced components with bespoke interactive renderers, dedicated 11-section specifications, enabled preview controls, and full multi-viewport responsive reflow.",
+                        "description":  "Conducted a full functional and architectural audit of the Component Explorer, targeting Category 11 (Specialised and Advanced) and Archetype \u0027v\u0027. Replaced the generic placeholder card (\u0027Advanced, conditional pattern (P2)...\u0027) and disabled (n/a) preview controls across all 14 components with dedicated bespoke renderers (R_ADV), 11-section specifications, active variant/size/state selectors, and real interactive behaviors including HTML5 signature canvas drawing, Markdown live parsing, OTP auto-advance, credit card formatting with Luhn validation, windowed virtual scrolling calculations, and undo/redo history stacks. Repaired related archetype \u0027v\u0027 components across other categories and verified 100% pass rate across 163 unit assertions and 14 live browser tests.",
+                        "changes":  [
+                                        "Overhauled all 14 Specialised \u0026 Advanced components: Rich Text Toolbar, Markdown Editor, Command Shortcuts, Keyboard Shortcut Hint, QR Code Block, Map / Location Preview, Signature Pad, Payment / Billing Field, OTP / Verification Flow, Authentication Controls, Consent / Preference Control, Print / Export Action, Undo / Redo Control, Virtualized List Wrapper.",
+                                        "Eliminated all disabled (n/a) pills by updating effective controls EF.v = \u0027v s t b w l i\u0027 and registering comprehensive 11-section SPEC entries for each component.",
+                                        "Engineered bespoke interactive renderers (R_ADV) hooked directly into R.v, supporting distinct variants, sizes, states, and responsive styling.",
+                                        "Implemented real-time client-side interactive behaviors: HTML5 canvas drawing on Signature Pad, live markdown parser on Markdown Editor, keystroke filtering on Command Shortcuts, OTP digit auto-advance with resend timer, Luhn payment card validation with auto-detected brand glyphs, windowed virtual scroll container with 1,000-record dataset HUD, and local undo/redo history stack.",
+                                        "Repaired Archetype \u0027v\u0027 components in Category 2 (Rich Text Editor, Signature Input) and Category 4 (Code Block) with dedicated renderers, achieving 100% functional health across all 191 library components.",
+                                        "Passed 163/163 automated test assertions, 14/14 live browser end-to-end tests in headless Chrome, and verified zero horizontal overflow across 7 responsive viewports (320px-1440px)."
+                                    ],
+                        "affectedAreas":  [
+                                              "Component Explorer",
+                                              "Specialised and Advanced Components (Category 11)",
+                                              "Component Preview Renderer (R.v)",
+                                              "Interactive Controls (Variant / Size / State / Label)",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "fix(components): overhaul specialised and advanced components with bespoke interactive engine",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "figma-design-system-live-embed-responsive-reflow",
                         "version":  "1.5.0",
                         "date":  "2026-11-02",
