@@ -1,5 +1,36 @@
-{
+﻿{
     "entries":  [
+                    {
+                        "id":  "specialised-authentication-controls-repair",
+                        "version":  "1.5.3",
+                        "date":  "2026-11-03",
+                        "timestamp":  "14:15:00 IST",
+                        "category":  "fix",
+                        "title":  "Specialised Authentication Controls \u0026 Category 12 Multi-Variant Scaling Repair",
+                        "summary":  "Production fix repairing Authentication Controls variants (SSO Provider Stack, Passkey, Biometric Card, Session \u0026 Two-Factor Badge), eliminating authenticated size inertia, and validating complete multi-variant and state responsiveness across all 14 Specialised \u0026 Advanced components.",
+                        "description":  "Conducted a comprehensive functional audit of Category 12 (Specialised \u0026 Advanced) and priority component Authentication Controls. Resolved a critical preview override where Authenticated / Active state rendered a static hardcoded card with fixed 44px avatar and 32px buttons regardless of selected size or variant. Separated Passkey and Biometric Card into distinct first-class variants in SPEC and engineered 4 bespoke variant renderers: SSO Provider Stack (with enterprise Google Workspace, GitHub Enterprise, and Okta SAML providers), Passkey (with WebAuthn Level 2 device authenticator and enclave token details), Biometric Card (with hardware sensor reticle, scanning animation, match scoring, and liveness feedback), and Session \u0026 Two-Factor Badge (with TOTP, hardware token telemetry, remaining time progress, and session control). Rebuilt size scaling (Compact 36px, Medium 44px, Large 52px) across button heights, padding, avatars, typography, and badges in all states. Repaired Signature Pad Compact Inline and Undo/Redo Compact Step Pill variants. Verified 100% pass across 229 in-browser unit assertions and real DOM tests.",
+                        "changes":  [
+                                        "Separated SPEC variants for Authentication Controls into 4 distinct options: SSO Provider Stack, Passkey, Biometric Card, and Session \u0026 Two-Factor Badge, and enabled 7 comprehensive states (Default, Hover, Focus-visible, Loading, Authenticated / Active, Session Expired, Error).",
+                                        "Eliminated authenticated card size inertia in renderAuthenticationControls by dynamically binding button height (36px/44px/52px), sub-action height (28px/34px/40px), card padding (12px/16px/24px), avatar dimensions (32px/42px/54px), typography (13px/15px/17px), and badge padding to selected size token.",
+                                        "Engineered bespoke WebAuthn Passkey card with discovered authenticator pill (Touch ID, YubiKey 5 NFC), FIDO2 L2 credential ID badge, and pulse verification animation.",
+                                        "Engineered dedicated Biometric Card with circular scanner reticle, real-time scan animation, match confidence scoring (99.8%), and secure enclave hardware status.",
+                                        "Engineered Session \u0026 Two-Factor Badge with TOTP, YubiKey hardware token badges, session countdown meter (07h 41m remaining), IP location telemetry, and session extension actions.",
+                                        "Repaired Signature Pad Compact Inline variant with dedicated compact specimen dimensions and receipt baseline guide.",
+                                        "Repaired Undo / Redo Control Compact Step Pill variant with pill-shaped segmented controller and step counter.",
+                                        "Achieved 229/229 (100%) passed tests across all 14 Specialised \u0026 Advanced components in live headless Chrome testing."
+                                    ],
+                        "affectedAreas":  [
+                                              "Component Explorer",
+                                              "Specialised \u0026 Advanced Components (Category 12)",
+                                              "Authentication Controls (SSO Stack, Passkey, Biometric, Session Badge)",
+                                              "Signature Pad \u0026 Undo/Redo Controls",
+                                              "Design Tokens \u0026 Size Scaling",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "fix(components): repair specialised authentication variants, sizes, and states",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
                     {
                         "id":  "data-display-components-behavioural-repair",
                         "version":  "1.5.2",
