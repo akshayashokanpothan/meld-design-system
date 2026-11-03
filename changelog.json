@@ -1,6 +1,38 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "cross-category-behaviour-state-theme-fix",
+                        "version":  "1.5.4",
+                        "date":  "2026-11-03",
+                        "timestamp":  "16:00:00 IST",
+                        "category":  "fix",
+                        "title":  "Cross-Category Component Behaviour, State \u0026 Theme Consistency Fix",
+                        "summary":  "Comprehensive functional audit and repair across 14 components in Selection/Date/Time, Actions, Tables/Complex Data, and Navigation, enabling dynamic multi-variant rendering, fluid sizing scales, active interaction states, and WCAG 2.2 AA dark theme contrast.",
+                        "description":  "Conducted a thorough functional and visual audit across 4 component categories that were previously exhibiting preview inertia or lacking variant/size/state responsiveness. Replaced generic archetype fallbacks and static table placeholders with dedicated bespoke renderers (R_CROSS) for 14 components. Selection, Date \u0026 Time: engineered Color Picker (Single Swatch with popover, Range hue slider, and 12-token Palette Grid with eyedropper tool) and Rating Input (5-Star rating with live hover preview, 5-step Emoji mood scale, 1-10 NPS numeric scale, and Thumb Up/Down feedback). Actions: engineered Text Link (Underline, Subtle, Standalone with arrow, and Inline Body Link) with WCAG 2.2 AA compliant focus rings, and Button Group (Primary, Secondary, Outline, Ghost, Destructive) with connected border geometry and segment state tracking. Tables \u0026 Complex Data: engineered high-contrast dark mode surface tokens (#1e1e24 / #161619 / #3a3a42) for Column Visibility Menu (with synchronized data grid sync), Editable Cell (with in-place text, number, select, date, and boolean editors, error validation, and save states), Filter Builder (with AND/OR conjunction cards, between range, and real-time result syncing), and Data Grid (with sorting indicators, row selection highlighting, compact/comfortable density toggle, shimmer loading, and empty states). Navigation: engineered Breadcrumbs, Pagination, Stepper / Progress Steps, Context Menu, Link List, and Carousel Pagination Controls. Enabled all controls in EF across archetypes b, t, d, n, s, x and removed restrictions in NO.",
+                        "changes":  [
+                                        "Enabled full control configuration (v s t b w l i) in EF across archetypes \u0027b\u0027, \u0027t\u0027, \u0027d\u0027, \u0027n\u0027, \u0027s\u0027, \u0027x\u0027 and cleared restrictive entries in NO for all 14 targeted components.",
+                                        "Registered comprehensive 11-section SPEC definitions for Color Picker, Rating Input, Text Link, Button Group, Breadcrumbs, Pagination, Stepper / Progress Steps, Context Menu, Link List, and Carousel Pagination Controls.",
+                                        "Built bespoke Color Picker renderer supporting Single Color Swatch, Color Range / Slider, Palette Grid with Eyedropper, interactive popover, hex input sync, and sizes (32px/40px/48px).",
+                                        "Built bespoke Rating Input renderer supporting 5-Star, Emoji Mood Scale, Numeric Scale (1-10), and Thumb Up/Down variants with live hover preview and reset controls.",
+                                        "Built bespoke Text Link renderer supporting Underline, Subtle, Standalone, and Inline variants with 3px focus rings, visited tokens, and accessible link semantics.",
+                                        "Built bespoke Button Group renderer with connected border geometry, segment selection tracking, and sizes (32px/40px/48px).",
+                                        "Re-architected Tables \u0026 Complex Data components (Column Visibility Menu, Editable Cell, Filter Builder, Data Grid) with dedicated dark mode tokens (#1e1e24, #161619, #3a3a42, #f3f4f6), eliminating invisible text and generic table fallbacks.",
+                                        "Built bespoke Navigation renderers: Breadcrumbs (Chevron, Slash, Pill, Collapsed), Pagination (Numbered, Compact, Minimal, Counter), Stepper (Horizontal, Vertical, Dots, Badges), Context Menu (Standard, Submenus \u0026 Accelerators, Compact Icons), Link List (Descriptions, Grouped, Quick Links, Cards), and Carousel Pagination Controls.",
+                                        "Expanded automated test verification suite to cover all 28 targeted components across variants, sizes, and states with 100% test pass rate."
+                                    ],
+                        "affectedAreas":  [
+                                              "Selection, Date \u0026 Time (Color Picker, Rating Input)",
+                                              "Actions (Text Link, Button Group)",
+                                              "Tables \u0026 Complex Data (Column Visibility Menu, Editable Cell, Filter Builder, Data Grid)",
+                                              "Navigation (Breadcrumbs, Pagination, Stepper, Context Menu, Link List, Carousel Pagination)",
+                                              "Dark Theme Surface \u0026 Contrast Tokens",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "fix(components): repair cross-category variants, states, and theme behaviour",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "specialised-authentication-controls-repair",
                         "version":  "1.5.3",
                         "date":  "2026-11-03",
