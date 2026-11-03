@@ -3416,7 +3416,7 @@ section, .doc-section {
       </a>
 
       <button class="b" id="landing-theme-toggle" aria-label="Toggle theme">Switch to dark</button>
-      <span class="tag v-tag" style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--meld-primary)">v1.5.1</span>
+      <span class="tag v-tag" style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--meld-primary)">v1.5.2</span>
     </div>
   </header>
 
@@ -3658,7 +3658,7 @@ section, .doc-section {
           <div>
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
               <span style="font-size:11px;font-weight:700;color:var(--meld-primary);letter-spacing:0.08em;text-transform:uppercase">03 · ARCHITECTURE</span>
-              <span style="font-size:11px;font-weight:700;color:var(--meld-primary)">v1.5.1 Live</span>
+              <span style="font-size:11px;font-weight:700;color:var(--meld-primary)">v1.5.2 Live</span>
             </div>
             <h3 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px 0;color:var(--landing-text-primary)">Multi-Device Zero-Overflow Standard</h3>
             <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 16px 0">
@@ -3784,7 +3784,7 @@ section, .doc-section {
           <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
             <a href="#get-started" style="color:var(--landing-text-secondary);text-decoration:none">Get Started</a>
             <a href="#principles" style="color:var(--landing-text-secondary);text-decoration:none">Design Principles</a>
-            <a href="#changelog" style="color:var(--landing-text-secondary);text-decoration:none">Changelog v1.5.1</a>
+            <a href="#changelog" style="color:var(--landing-text-secondary);text-decoration:none">Changelog v1.5.2</a>
             <a href="#about" style="color:var(--landing-text-secondary);text-decoration:none">About Meld</a>
             <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--landing-text-secondary);text-decoration:none">GitHub Repository ↗</a>
           </div>
@@ -3830,7 +3830,7 @@ section, .doc-section {
       <span>GitHub</span>
     </a>
     <button class="b" id="tt">Switch to dark</button>
-    <span class="tag v-tag">v1.5.1</span>
+    <span class="tag v-tag">v1.5.2</span>
   </div>
 </header>
 <div class="wrap"><nav class="side" id="side" aria-label="Sections"></nav><main id="main">
@@ -4286,7 +4286,7 @@ section, .doc-section {
   <div class="tb" style="margin-bottom:32px">
     <table>
       <tbody>
-        <tr><th>Latest Release</th><td id="ch-meta-latest">v1.5.1</td><th>Last Updated</th><td id="ch-meta-date">November 2, 2026 &middot; 17:55:00 IST</td></tr>
+        <tr><th>Latest Release</th><td id="ch-meta-latest">v1.5.2</td><th>Last Updated</th><td id="ch-meta-date">November 3, 2026 &middot; 09:40:00 IST</td></tr>
         <tr><th>Data Source</th><td><code>changelog.json</code> (Single Source of Truth)</td><th>Repository Status</th><td>Actively Maintained</td></tr>
       </tbody>
     </table>
@@ -11034,6 +11034,1451 @@ export const studioTheme = createTheme({
 
   console.log("Meld Advanced Components Engine V2 initialized.");
 })();
+
+/* ==========================================================================
+   MELD BY IDEO -- DATA DISPLAY COMPONENT BEHAVIOURAL ENGINE
+   Dedicated 11-section specifications, bespoke multi-variant renderers,
+   active control synchronization, and live interaction handlers for all
+   20 components in Category 4 (Data Display).
+   ========================================================================== */
+
+(function() {
+  // 1. Enable full controls for archetypes 'g', 'c', 'p', 'm', 'v' in effective controls
+  if (typeof EF !== 'undefined') {
+    EF.g = 'v s t b w l i';
+    EF.c = 'v s t b w l i';
+    EF.p = 'v s t b w l i';
+    EF.m = 'v s t b w l i';
+    EF.v = 'v s t b w l i';
+  }
+
+  // 2. Local State Store for interactive previews
+  const DS = {
+    progressVal: 65,
+    statusState: 'Success',
+    ratingScore: 4,
+    carouselSlide: 0,
+    videoPlaying: false,
+    copiedKey: null,
+    chipGone: false
+  };
+
+  function getLabel(p, def) {
+    if (p && p.label && p.label !== 'Get started' && p.label !== 'Label' && p.label !== 'Primary action') {
+      return p.label;
+    }
+    return def;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. DEDICATED SPECIFICATIONS (SPEC) FOR DATA DISPLAY
+     -------------------------------------------------------------------------- */
+  const DATA_SPECS = {
+    'Status Indicator': [
+      'Visual status indicator conveying operational health, system connectivity, or item lifecycle state with semantic shape and color cues.|System health dashboards, service uptime monitors, process states, and live connection badges.|Interactive actions, form toggles, or primary navigation.',
+      'Solid Pill|Subtle Tint|Outline|Dot / Minimal',
+      'Small (20px)|Medium (26px)|Large (34px)',
+      'Default|Success|Warning|Error|Informational|Neutral|Disabled',
+      'Status Glyph / Dot|Indicator Surface|Text Label|Operational Pulse Ring|Timestamp / Detail',
+      'Variant (enum: Solid, Subtle, Outline, Dot)|Size (enum: Small, Medium, Large)|State (enum: Default, Success, Warning, Error, Info, Neutral, Disabled)|Label (text)|Pulsing (bool)|Full width (bool)',
+      'Status indicators communicate state non-verbally through coordinated glyphs (check, warning, cross, info, bullet) and WCAG-compliant colors. Minimal Dot variant displays an ambient pulse animation for live connections.',
+      'role="status" with aria-label explaining status. Never relies on color alone; includes glyph marker and accessible text in light and dark modes (4.5:1 text contrast, 3:1 graphical contrast).',
+      'color.surface.success|color.text.success|color.border.success|color.surface.warning|color.text.warning|color.surface.error|color.text.error|color.surface.information|type.caption.default',
+      'status.dot.size.sm (8px)|status.dot.size.md (10px)|status.dot.size.lg (14px)|radius.pill (999px)|status.pulse.duration (2s)',
+      'Horizontal Auto Layout, align center, padding 4/10 (sm 2/8, lg 6/14), gap 6, hug width; dot fixed square'
+    ],
+
+    'Divider': [
+      'Structural rule providing visual hierarchy and content separation across horizontal sections or vertical toolbar groups.|Separating distinct content sections, grouping toolbar tools, or separating form fields with contextual labels (e.g. "or").|Visual decoration without semantic purpose (use layout spacing/padding).',
+      'Horizontal Solid|Horizontal Dashed|Horizontal Dotted|Horizontal with Label|Vertical',
+      'Hairline (1px)|Medium (2px)|Thick / Heavy (4px)',
+      'Default|Subtle (Low contrast)|Strong (High contrast)|Decorative Gradient',
+      'Divider Track Line|Inset Padding Margin|Centered Label Container|Text Label Element',
+      'Variant (enum: Solid, Dashed, Dotted, Labeled, Vertical)|Size / Thickness (enum: Hairline, Medium, Thick)|State / Contrast (enum: Default, Subtle, Strong, Gradient)|Label (text)|Orientation (enum: horizontal, vertical)',
+      'Provides subtle separation between unrelated conceptual regions. Labeled dividers split authentication options or major chapter sections without interrupting DOM reading order.',
+      'role="separator" with aria-orientation="horizontal|vertical". Purely decorative dividers use aria-hidden="true". Contrast meets 3:1 graphical minimum against parent canvas.',
+      'color.border.default|color.border.subtle|color.border.strong|color.text.secondary|type.caption.default',
+      'divider.thickness.hairline (1px)|divider.thickness.md (2px)|divider.thickness.lg (4px)|divider.gap (12px 24px)',
+      'Horizontal fill width, height fixed by thickness; Vertical hug width, fill height; Labeled horizontal space-between with centered text'
+    ],
+
+    'Description List': [
+      'Semantic list of name-value pairs, metadata terms, or property specifications rendered as dl, dt, dd elements.|Entity metadata sidebars, user profile properties, hardware specs, order summaries, and financial details.|Tabular row comparisons with sorting or bulk selection (use Table instead).',
+      'Horizontal Layout|Vertical Layout|Compact Inline|Bordered Card|Striped Rows',
+      'Compact|Standard|Spacious',
+      'Default|Missing Values|Long Content|Loading / Skeleton',
+      'Description Container (<dl>)|Term Key (<dt>)|Definition Value (<dd>)|Row Border / Background|Missing Value Glyph',
+      'Variant (enum: Horizontal, Vertical, Compact, Bordered, Striped)|Size (enum: Compact, Standard, Spacious)|State (enum: Default, Missing, Long, Skeleton)|Label (text: title)|Items (key-value array)|Striped (bool)',
+      'Pairs terms with one or more values. Horizontal layout maintains aligned column gutter across keys. Missing values render an em-dash placeholder with explicit aria-label.',
+      'Native <dl>, <dt>, and <dd> elements preserve relationship for screen reader virtual cursor navigation. Never use generic divs or unordered lists for term-definition pairs.',
+      'color.surface.default|color.surface.subtle|color.border.default|color.text.primary|color.text.secondary|type.body.small|type.label.default',
+      'dl.term.width (180px)|dl.row.padding (10px 14px)|dl.border.radius (8px)',
+      'Vertical Auto Layout, fill width; rows are horizontal space-between with fixed dt width or vertical stacked'
+    ],
+
+    'Progress Bar': [
+      'Visual indicator displaying process completion, file upload state, or step progression toward an objective.|Upload trackers, multi-step wizards, storage quota meters, and system initialization flows.|Indefinite waiting states where duration is completely unknown (use Loading Spinner or Skeleton).',
+      'Default / Continuous|Linear with Label|Segmented (4 Steps)|Striped Track|Indeterminate / Loading',
+      'Small (4px)|Medium (8px)|Large (14px)',
+      'Default (In Progress)|Loading / Active|Success / Complete|Error / Halted|Disabled',
+      'Progress Track Surface|Fill Indicator Bar|Progress Label (Task Name)|Value Percentage Text|Step Counter Badge',
+      'Variant (enum: Continuous, Linear, Segmented, Striped, Indeterminate)|Size / Height (enum: Small, Medium, Large)|State (enum: Default, Loading, Success, Error, Disabled)|Value (number: 0-100)|Label (text)|Show Value (bool)',
+      'Fills from left to right proportionally to completion percentage. Segmented variant breaks track into discrete milestone blocks. Error state turns bar to alert tokens.',
+      'role="progressbar" with aria-valuenow, aria-valuemin="0", aria-valuemax="100", and aria-valuetext. Indeterminate bars omit aria-valuenow.',
+      'color.surface.subtle|color.action.primary|color.surface.success|color.surface.error|color.text.primary|type.label.small',
+      'progress.height.sm (4px)|progress.height.md (8px)|progress.height.lg (14px)|progress.radius (4px 7px)|motion.duration.progress (300ms ease)',
+      'Vertical Auto Layout, gap 6, fill width; header is horizontal space-between; bar is horizontal fill width'
+    ],
+
+    'Badge': [
+      'Compact status pill or count token highlighting item priority, category, notification count, or lifecycle tag.|Unread message counters, tag filters, status badges, and table row categorization.|Primary interactive buttons or complex form inputs.',
+      'Solid|Subtle|Outline|With Leading Dot',
+      'Small (20px)|Medium (24px)|Large (30px)',
+      'Default|Success|Warning|Error|Informational|Neutral',
+      'Badge Container Surface|Icon / Status Dot|Badge Text Label|Dismiss Action',
+      'Variant (enum: Solid, Subtle, Outline, Dot)|Size (enum: Small, Medium, Large)|State (enum: Default, Success, Warning, Error, Info, Neutral)|Label (text)',
+      'Provides high-visibility micro-feedback. Subtle variants blend into secondary rows while solid variants pull attention.',
+      'Text contrast complies with WCAG AA (4.5:1). Screen readers announce label as status cue.',
+      'color.action.primary|color.surface.success|color.surface.warning|color.surface.error|type.label.small',
+      'badge.height.sm (20px)|badge.height.md (24px)|badge.height.lg (30px)|radius.pill (999px)',
+      'Horizontal Auto Layout, align center, padding 2/8 (sm), 4/12 (md), 6/16 (lg), hug contents'
+    ],
+
+    'Chip / Tag': [
+      'Compact interactive pill used for filtering, selecting attributes, or representing removable multi-choice tokens.|Filter bars, facet selections, email recipient tokens, and search query keywords.|Static text labels without interaction.',
+      'Filter Chip (Selectable)|Removable Tag (Dismissible)|Action Chip|Input Token',
+      'Small (26px)|Medium (32px)',
+      'Default|Selected / Active|Hover|Disabled|Dismissed',
+      'Chip Surface|Leading Icon|Label Text|Trailing Remove Button|Focus Ring',
+      'Variant (enum: Filter, Removable, Action, Token)|Size (enum: Small, Medium)|State (enum: Default, Selected, Hover, Disabled, Dismissed)|Label (text)|Removable (bool)',
+      'Clicking filter chip toggles selected state (aria-pressed). Clicking remove button dismisses the tag with an accessible Undo notification.',
+      'Buttons use role="button" with aria-pressed for toggles. Keyboard Delete/Backspace triggers dismissal.',
+      'color.surface.default|color.surface.interactive|color.action.primary|type.label.default',
+      'chip.height.sm (26px)|chip.height.md (32px)|radius.chip (16px)',
+      'Horizontal Auto Layout, align center, gap 6, padding 4 12, hug contents'
+    ],
+
+    'Avatar': [
+      'Graphical representation of an individual user, team entity, or service bot using photo, initials fallback, or icon.|Navigation headers, profile identity cards, comment authors, and collaborator rosters.|Displaying general non-user photography (use Image).',
+      'Image Specimen|Initials Fallback|Icon Silhouette',
+      'Small (32px)|Medium (40px)|Large (56px)',
+      'Default|Online Status|Busy / DND|Away|Offline',
+      'Avatar Circle Container|Image Specimen / Initials Text|Presence Status Indicator Ring|Border Outline',
+      'Variant (enum: Image, Initials, Icon)|Size (enum: Small, Medium, Large)|State (enum: Default, Online, Busy, Away, Offline)|Label / Name (text)|Status Dot (bool)',
+      'Renders high-resolution user image with smooth fallback to calculated uppercase two-letter initials.',
+      'role="img" with descriptive aria-label="User name". Presence dot includes accessible status text.',
+      'color.surface.interactive|color.text.inverse|color.surface.success|color.surface.warning',
+      'avatar.size.sm (32px)|avatar.size.md (40px)|avatar.size.lg (56px)|radius.full (50%)',
+      'Fixed square frame with 50% border radius; presence dot absolute bottom-right'
+    ],
+
+    'Avatar Group': [
+      'Overlapping cluster or stack of multiple avatars indicating joint ownership, team assignments, or active viewers.|Document collaboration headers, project assignees, and community participant lists.|Single-user representations.',
+      'Overlapping Stack|Inline Row|Grid Cluster',
+      'Small (28px)|Medium (40px)|Large (52px)',
+      'Default (3 Users)|Collaborators (5 Users)|Crowded (+12 Overflow)|Empty / Solo',
+      'Cluster Wrapper|Individual Avatars|Overflow Counter Bubble (+N)|Border Ring Separator',
+      'Variant (enum: Stack, Row, Grid)|Size (enum: Small, Medium, Large)|State (enum: 3 Users, 5 Users, Crowded, Solo)|Label (text: group title)|Max Visible (number)',
+      'Avatars overlap with 2px canvas border ensuring separation. Overflow avatar shows total count.',
+      'Container has aria-label summarizing collaborators list. Each visible avatar has keyboard accessible tooltip.',
+      'color.surface.default|color.border.default|color.text.secondary',
+      'avatar.overlap.margin (-8px)|radius.full (50%)',
+      'Horizontal Auto Layout with negative margin gap; overflow bubble right-aligned'
+    ],
+
+    'Typography / Content Primitives': [
+      'Foundational typographic hierarchy and semantic content blocks adhering to the IDEO type scale.|Article layouts, editorial headings, longform documentation, and interface copy.|Directly styling interactive controls without design tokens.',
+      'Heading Scale (H1-H6)|Body & Lead Paragraph|Blockquote with Citation|Monospace Code Inline & Block',
+      'Small (Compact)|Regular (Standard)|Editorial (Large)',
+      'Default (Primary)|Secondary / Muted|Accent Highlight|Truncated Ellipsis',
+      'Text Block Element|Semantic Heading Tag|Lead Paragraph Accent|Blockquote Bar|Inline Token',
+      'Variant (enum: Heading, Body, Blockquote, Code)|Size (enum: Small, Regular, Editorial)|State (enum: Default, Muted, Highlight, Truncated)|Label (text: content)',
+      'Applies fluid type rules, line heights, and letter spacing according to Meld foundations.',
+      'Uses proper semantic HTML tags (h1-h6, p, blockquote, code) ensuring assistive technology reading hierarchy.',
+      'type.heading.*|type.body.*|type.caption.*|color.text.primary|color.text.secondary',
+      'font.family.primary|line.height.standard|space.block.bottom (12px)',
+      'Vertical Auto Layout, fill width, gap 12'
+    ],
+
+    'List': [
+      'Structured vertical collection of related text items, steps, or actionable items.|Feature checklists, step-by-step procedures, bulleted summaries, and resource links.|Tabular data requiring sortable columns or multiple attributes per row (use Table).',
+      'Unordered Bulleted|Ordered Numbered|Unstyled Clean|Checklist Actionable',
+      'Compact|Standard|Spacious',
+      'Default|Hover Items|Mixed Completion|Disabled State',
+      'List Container (ul/ol)|List Item Rows (li)|Bullet / Number Marker|Checklist Input Box|Action Button',
+      'Variant (enum: Bulleted, Numbered, Clean, Checklist)|Size (enum: Compact, Standard, Spacious)|State (enum: Default, Hover, Mixed, Disabled)|Label (text: list title)|Items (array)',
+      'Organizes items sequentially or unordered. Checklist variant supports interactive completion toggle.',
+      'Uses semantic <ul> or <ol> elements with role="list". Checklists use role="listbox" or native inputs.',
+      'color.text.primary|color.text.secondary|color.action.primary|color.surface.subtle',
+      'list.gap.compact (4px)|list.gap.md (8px)|list.gap.lg (14px)',
+      'Vertical Auto Layout, fill width, gap variable by size'
+    ],
+
+    'List Item': [
+      'Individual row element inside a structured list container with optional leading icon, label, and trailing action.|Navigation menus, settings option lists, notification feeds, and search result items.|Standalone callout blocks without list parentage.',
+      'Standard Text|With Leading Icon / Avatar|With Trailing Action|Metadata Rich',
+      'Compact|Standard|Comfortable',
+      'Default|Hover|Selected|Disabled',
+      'Item Container Surface|Leading Adornment|Primary Label|Secondary Description|Trailing Control',
+      'Variant (enum: Standard, Leading Icon, Trailing Action, Metadata)|Size (enum: Compact, Standard, Comfortable)|State (enum: Default, Hover, Selected, Disabled)|Label (text)|Description (text)',
+      'Renders cleanly aligned item with interactive hover, focus, and selected background states.',
+      'Uses role="listitem" with aria-selected for selection states. Keyboard reachable.',
+      'color.surface.default|color.surface.interactive|color.border.subtle',
+      'item.height.compact (36px)|item.height.standard (48px)|item.height.lg (64px)',
+      'Horizontal Auto Layout, space-between, align center, padding 8 16'
+    ],
+
+    'Stat / Metric': [
+      'High-impact numerical KPI card displaying single metrics, trends, comparisons, and progress targets.|Analytics dashboards, financial summaries, project velocity charts, and executive scorecards.|Long narrative data descriptions.',
+      'KPI with Trend Badge|Comparison Card|Compact Value|Metric with Progress Target',
+      'Standard|Large Display|Dense Inline',
+      'Positive Trend|Negative Trend|Neutral / Flat|Loading Skeleton',
+      'Card Surface Container|Metric Eyebrow / Label|Hero Numerical Value|Trend Indicator Badge|Comparison Subtitle',
+      'Variant (enum: KPI, Comparison, Compact, Target)|Size (enum: Standard, Large, Dense)|State (enum: Positive, Negative, Neutral, Skeleton)|Label (text)|Value (text)|Trend (text)',
+      'Large numeral display using tabular figures for alignment. Trend badge colors green for positive, red for negative.',
+      'Screen readers announce value and trend delta via aria-label with full descriptive wording.',
+      'type.heading.hero|color.text.success|color.text.error|color.surface.subtle',
+      'stat.font.hero (36px-48px)|stat.padding (16px 20px)|radius.card (8px)',
+      'Vertical Auto Layout, gap 6, hug contents or fill width'
+    ],
+
+    'Circular Progress': [
+      'Radial visual indicator representing percentage completion, system load, or countdown timers.|Storage meters, fitness rings, process completion semidials, and compact progress gauges.|Multi-step linear forms (use Linear Progress Bar).',
+      'Standard Ring|Gauge / Semidial|Metric with Centered Label|Indeterminate Spinner',
+      'Small (32px)|Medium (64px)|Large (96px)',
+      'Default (65%)|Quarter (25%)|Complete (100%)|Loading Spinner|Error / Warning',
+      'SVG Viewport Surface|Background Ring Track|Animated Progress Fill Arc|Center Numerical Value|Caption Label',
+      'Variant (enum: Ring, Gauge, Centered, Spinner)|Size (enum: Small, Medium, Large)|State (enum: Default, Quarter, Complete, Spinner, Error)|Value (number: 0-100)|Label (text)',
+      'Vector SVG calculation computing stroke-dasharray and stroke-dashoffset. Smooth transition on value updates.',
+      'role="progressbar" with aria-valuenow and aria-label. Accessible for assistive tech.',
+      'color.action.primary|color.surface.success|color.surface.subtle|type.label.default',
+      'circle.size.sm (32px)|circle.size.md (64px)|circle.size.lg (96px)',
+      'Centered square SVG graphic with absolute label overlays'
+    ],
+
+    'Rating Display': [
+      'Star rating or numerical review score indicator communicating customer feedback, product ratings, or evaluation scores.|Product review summaries, user feedback dialogs, app ratings, and satisfaction surveys.|Complex numerical metrics without rating context.',
+      'Star Rating (5-Star)|Numeric Score / Badge|Fraction Display (4.5 / 5.0)|Interactive Review Input',
+      'Small (16px)|Medium (22px)|Large (30px)',
+      'Default (4 Stars)|Perfect (5 Stars)|Empty (0 Stars)|Half Star (3.5)|Read-only / Disabled',
+      'Rating Container|Star Icon Track (Filled/Empty)|Numeric Score Label|Review Count Link|Interactive Hover Layer',
+      'Variant (enum: Stars, Badge, Fraction, Interactive)|Size (enum: Small, Medium, Large)|State (enum: 4 Stars, 5 Stars, Empty, Half Star, Disabled)|Score (number: 0-5)|Label (text)|Reviews Count (number)',
+      'Renders gold rating stars with half-star precision. Interactive variant allows clicking stars to submit ratings.',
+      'role="img" with aria-label="Rated 4 out of 5 stars based on 128 reviews". Keyboard accessible in interactive mode.',
+      'color.star.active (#f59e0b)|color.star.empty|type.body.small',
+      'star.size.sm (16px)|star.size.md (22px)|star.size.lg (30px)|star.gap (3px)',
+      'Horizontal Auto Layout, align center, gap 6, hug contents'
+    ],
+
+    'Key-Value Pair': [
+      'Compact metadata specimen displaying a label-property association across table cells, cards, or inspector panels.|Specification tables, order receipt sidebars, user details, and configuration panes.|Extensive longform paragraphs.',
+      'Inline Horizontal|Stacked Vertical|Pill Badge Pair|Card Cell',
+      'Small / Compact|Standard Medium|Large / Prominent',
+      'Default|With Copy Action|Truncated Value|Sensitive / Masked',
+      'Pair Container|Key Label Element|Value Text Element|Copy Action Trigger|Divider Separator',
+      'Variant (enum: Horizontal, Stacked, Pill, Cell)|Size (enum: Compact, Standard, Large)|State (enum: Default, Copyable, Truncated, Masked)|Key (text)|Value (text)|Label (text)',
+      'Pairs structured attributes cleanly. Copyable state includes one-click clipboard action.',
+      'Semantic grouping with clear text hierarchy between muted key and prominent value.',
+      'color.text.secondary|color.text.primary|type.label.small',
+      'pair.gap.inline (10px)|pair.gap.stacked (2px)|pair.padding.card (8px 12px)',
+      'Horizontal space-between or vertical stacked; hug width'
+    ],
+
+    'Code Block': [
+      'Syntax-highlighted multi-line code display container with language identifier, line numbers, and copy action.|API documentation, code examples, technical tutorials, and terminal output.|Inline single-word code references.',
+      'With Line Numbers|Minimal / Clean|Terminal Output Frame',
+      'Compact (180px)|Medium (280px)|Large (400px)',
+      'Default|Hovered Copy|Copied Notification|Empty',
+      'Code Container Surface|Header Toolbar (Language Badge + Copy Button)|Line Number Gutter|Syntax-Highlighted Code Lines|Terminal Prompt ($)',
+      'Variant (enum: With Lines, Minimal, Terminal)|Size (enum: Compact, Medium, Large)|State (enum: Default, Hovered, Copied, Empty)|Language (enum: javascript, json, css, bash)|Label / File (text)',
+      'Copy button extracts raw text and writes to clipboard with toast notification. Line numbers keep alignment on scroll.',
+      'pre and code tags with tabindex="0" so code block is scrollable via keyboard. Copy button has aria-label="Copy code to clipboard".',
+      'color.surface.inverse|color.text.inverse|color.border.default|color.surface.interactive|type.caption.default',
+      'code.font.family (ui-monospace)|code.padding (16px)|radius.container (8px)',
+      'Vertical Auto Layout, border 1px, fill width; header is horizontal space-between'
+    ],
+
+    'Image': [
+      'Responsive media image wrapper with aspect ratio enforcement, loading shimmers, captions, and broken fallback.|Hero editorial graphics, portfolio project cards, product catalog galleries, and thumbnail previews.|Displaying interactive video content.',
+      '16:9 Landscape|1:1 Square|4:3 Standard|Rounded Circle (Avatar/Stamp)',
+      'Small (180px)|Medium (320px)|Full Width (100%)',
+      'Default (Loaded)|Loading (Skeleton Shimmer)|Error / Broken Fallback|With Figure Caption',
+      'Figure Frame Surface|Image Raster Specimen|Loading Shimmer Layer|Broken Image Icon & Notice|Figcaption Label',
+      'Variant (enum: Landscape, Square, Standard, Circle)|Size (enum: Small, Medium, Full Width)|State (enum: Loaded, Loading, Error, Captioned)|Label / Caption (text)|Alt Text (text)',
+      'Enforces aspect ratio preventing cumulative layout shift (CLS). Error fallback renders accessible notification.',
+      '<img> includes alt text for screen readers. Decorative images set alt="" with role="presentation".',
+      'color.surface.subtle|color.border.subtle|color.text.muted|radius.image (8px)',
+      'image.width.sm (180px)|image.width.md (320px)|image.aspect.landscape (16/9)|image.aspect.square (1/1)',
+      'Vertical Auto Layout, hug or fill width; image container has overflow hidden'
+    ],
+
+    'Video Player': [
+      'Embedded audio-video media viewport with playback controls, progress timeline, time stamps, and full-screen trigger.|Product demonstrations, video onboarding tutorials, marketing hero reels, and recorded seminars.|Static image previews without audio or motion.',
+      '16:9 Standard Player|Compact Mini-Player|Borderless Hero Background',
+      'Small (280px)|Medium (440px)|Large (640px)',
+      'Paused (Ready)|Playing (Active Progress)|Buffering / Loading|Muted Audio|Error / Unavailable',
+      'Video Viewport Surface|Play / Pause Trigger|Seek Timeline Progress Bar|Time Counter (01:24 / 03:45)|Volume / Mute Toggle|Fullscreen Action',
+      'Variant (enum: Standard, Mini, Hero)|Size (enum: Small, Medium, Large)|State (enum: Paused, Playing, Buffering, Muted, Error)|Label (text: video title)|Show Controls (bool)',
+      'Interactive play button toggles playback simulation with animated progress scrubber bar.',
+      'Accessible keyboard controls (Space to play/pause, M to mute). Captions track element provided for subtitles.',
+      'color.surface.inverse|color.action.primary|color.text.inverse',
+      'video.radius (8px)|video.aspect.standard (16/9)',
+      'Vertical Auto Layout, fill or fixed width, aspect ratio 16/9; bottom control bar is absolute overlay'
+    ],
+
+    'Carousel': [
+      'Multi-slide rotatable presentation track allowing users to cycle through cards, images, testimonials, or promo banners.|Hero landing page banners, related case study cards, customer testimonials, and image galleries.|Dense data tables or complex workflows.',
+      'Slide View with Chevrons|Thumbnail Navigation Strip|Dot Indicator Slider|Card Deck Cycler',
+      'Medium (320px height)|Large (460px height)',
+      'Slide 1 of 3 Active|Slide 2 of 3 Active|Slide 3 of 3 Active|Auto-playing Mode',
+      'Carousel Viewport Container|Slide Deck Track|Previous / Next Buttons|Pagination Dots Indicator|Slide Counter Badge',
+      'Variant (enum: Slide, Thumbnail, Dots, Deck)|Size (enum: Medium, Large)|State (enum: Slide 1, Slide 2, Slide 3, Autoplay)|Label (text: carousel title)|Active Slide (number)',
+      'Smooth transition between active slides. Dot pagination and chevrons provide multi-modal navigation.',
+      'role="region" with aria-roledescription="carousel" and aria-label. Accessible pause button provided for autoplay.',
+      'color.surface.default|color.border.default|color.action.primary',
+      'carousel.height.md (320px)|carousel.height.lg (460px)|radius.carousel (10px)',
+      'Vertical Auto Layout, fill width; slide viewport is overflow hidden with absolute chevron controls'
+    ],
+
+    'Data Visualization Wrapper': [
+      'Container surface and layout frame for charting libraries, responsive vector graphics, and data telemetry dashboards.|Bar charts, line trend graphs, metric distributions, and financial heatmaps.|Displaying simple individual numbers or single percentages (use Stat / Metric or Progress Bar).',
+      'Bar Chart Specimen|Area Trendline Graph|Donut Distribution|Metric Heatmap Grid',
+      'Compact (220px height)|Medium (320px height)|Large (440px height)',
+      'Default|With Hover Tooltip|Empty / No Data|Loading Skeleton Grid',
+      'Chart Container Surface|Chart Header (Title, Subtitle, Metric)|SVG Chart Vector Elements|Interactive Data Tooltip|Legend Indicator Chips',
+      'Variant (enum: Bar Chart, Area Trendline, Donut, Heatmap)|Size (enum: Compact, Medium, Large)|State (enum: Default, With Tooltip, Empty, Loading)|Label (text: chart title)|Metric Total (text)',
+      'Renders clean vector SVG chart specimen with coordinated axis gridlines, bar/area geometry, and hover inspection tooltip card.',
+      'Container has role="img" with descriptive aria-label summarizing chart findings. Accessible data table alternative provided in DOM for screen readers.',
+      'color.action.primary|color.surface.information|color.surface.subtle|color.border.default|color.text.primary|color.text.secondary',
+      'chart.height.sm (220px)|chart.height.md (320px)|chart.height.lg (440px)|radius.container (8px)',
+      'Vertical Auto Layout, padding 16 20, gap 12, fill width, fixed height by Size'
+    ]
+  };
+
+  // Register SPEC entries
+  if (typeof SPEC !== 'undefined') {
+    Object.keys(DATA_SPECS).forEach(k => {
+      SPEC[k] = DATA_SPECS[k];
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     4. BESPOKE RENDERERS FOR DATA DISPLAY COMPONENTS
+     -------------------------------------------------------------------------- */
+  const R_DATA = {};
+
+  // --- 1. STATUS INDICATOR ---
+  R_DATA['Status Indicator'] = function(c, p) {
+    const lbl = getLabel(p, 'Status Indicator');
+    const v = p.v || 'Solid Pill';
+    const sz = p.s || 'Medium (26px)';
+    const st = p.st || 'Default';
+
+    const isSmall = sz.includes('Small');
+    const isLarge = sz.includes('Large');
+    const isDot = v.includes('Dot');
+    const isSubtle = v.includes('Subtle');
+    const isOutline = v.includes('Outline');
+
+    const statusMap = {
+      'Default': { color: '#2563eb', text: '#1d4ed8', border: '#3b82f6', glyph: '&#9679;', name: 'Active' },
+      'Success': { color: '#10b981', text: '#059669', border: '#10b981', glyph: '&#10003;', name: 'Operational' },
+      'Warning': { color: '#f59e0b', text: '#d97706', border: '#f59e0b', glyph: '&#9888;', name: 'Degraded' },
+      'Error': { color: '#ef4444', text: '#dc2626', border: '#ef4444', glyph: '&#10005;', name: 'Outage' },
+      'Informational': { color: '#0284c7', text: '#0369a1', border: '#0284c7', glyph: '&#8505;', name: 'Maintenance' },
+      'Neutral': { color: '#6b7280', text: '#4b5563', border: '#6b7280', glyph: '&bull;', name: 'Standby' },
+      'Disabled': { color: '#9ca3af', text: '#9ca3af', border: '#d1d5db', glyph: '&mdash;', name: 'Offline' }
+    };
+
+    let activeKey = 'Default';
+    Object.keys(statusMap).forEach(k => {
+      if (st.includes(k) && k !== 'Default') activeKey = k;
+    });
+    if (st === 'Default') activeKey = 'Default';
+
+    const info = statusMap[activeKey];
+    const displayLabel = p.long ? (lbl + ' &mdash; All Systems Healthy & Monitored') : lbl;
+
+    const dotSize = isSmall ? 8 : isLarge ? 12 : 10;
+    const fontSize = isSmall ? '11px' : isLarge ? '14px' : '12px';
+    const padding = isSmall ? '2px 8px' : isLarge ? '6px 16px' : '4px 12px';
+    const height = isSmall ? '20px' : isLarge ? '34px' : '26px';
+
+    if (isDot) {
+      return `
+        <div class="adv-status-wrap" style="display:inline-flex;align-items:center;gap:8px;font-size:${fontSize};font-weight:600;padding:${padding}">
+          <span class="adv-status-dot-pulse" style="position:relative;display:inline-flex;width:${dotSize}px;height:${dotSize}px">
+            <span style="position:absolute;width:100%;height:100%;border-radius:50%;background:${info.color};opacity:0.75;animation:adv-ping 2s cubic-bezier(0,0,0.2,1) infinite"></span>
+            <span style="position:relative;display:inline-block;width:${dotSize}px;height:${dotSize}px;border-radius:50%;background:${info.color}"></span>
+          </span>
+          <span style="color:var(--color-text-primary)">${displayLabel}</span>
+          <span style="color:var(--color-text-muted);font-weight:400;font-size:0.9em">(${info.name})</span>
+        </div>
+      `;
+    }
+
+    if (isOutline) {
+      return `
+        <span class="adv-status-pill is-outline" role="status" style="display:inline-flex;align-items:center;gap:6px;min-height:${height};padding:${padding};border-radius:999px;border:1.5px solid ${info.border};background:transparent;color:${info.text};font-size:${fontSize};font-weight:600">
+          <span aria-hidden="true" style="font-size:1.1em">${info.glyph}</span>
+          <span>${displayLabel}</span>
+          <span style="font-size:0.85em;opacity:0.8">(${info.name})</span>
+        </span>
+      `;
+    }
+
+    if (isSubtle) {
+      return `
+        <span class="adv-status-pill is-subtle" role="status" style="display:inline-flex;align-items:center;gap:6px;min-height:${height};padding:${padding};border-radius:999px;background:${info.color}22;border:1px solid ${info.border}44;color:${info.text};font-size:${fontSize};font-weight:600">
+          <span aria-hidden="true" style="font-size:1.1em">${info.glyph}</span>
+          <span>${displayLabel}</span>
+          <span style="font-size:0.85em;opacity:0.8">(${info.name})</span>
+        </span>
+      `;
+    }
+
+    // Default: Solid Pill
+    return `
+      <span class="adv-status-pill is-solid" role="status" style="display:inline-flex;align-items:center;gap:6px;min-height:${height};padding:${padding};border-radius:999px;background:${info.color};color:#ffffff;font-size:${fontSize};font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+        <span aria-hidden="true" style="font-size:1.1em">${info.glyph}</span>
+        <span>${displayLabel}</span>
+        <span style="font-size:0.85em;opacity:0.9">(${info.name})</span>
+      </span>
+    `;
+  };
+
+  // --- 2. DIVIDER ---
+  R_DATA['Divider'] = function(c, p) {
+    const lbl = getLabel(p, 'OR');
+    const v = p.v || 'Horizontal Solid';
+    const sz = p.s || 'Hairline (1px)';
+    const st = p.st || 'Default';
+
+    const isVert = v.includes('Vertical');
+    const isDashed = v.includes('Dashed');
+    const isDotted = v.includes('Dotted');
+    const isLabeled = v.includes('Label');
+
+    const thickness = sz.includes('Thick') ? 4 : sz.includes('Medium') ? 2 : 1;
+    const borderStyle = isDotted ? 'dotted' : isDashed ? 'dashed' : 'solid';
+
+    let borderColor = 'var(--color-border-default)';
+    let isGradient = false;
+
+    if (st.includes('Subtle')) borderColor = 'var(--color-border-subtle)';
+    else if (st.includes('Strong')) borderColor = 'var(--color-border-strong)';
+    else if (st.includes('Decorative')) isGradient = true;
+
+    if (isVert) {
+      return `
+        <div class="adv-divider-vert-stage" style="display:flex;align-items:center;gap:16px;padding:12px;background:var(--color-surface-subtle);border-radius:8px">
+          <button class="mb v-secondary" style="--mb-h:32px">Previous Action</button>
+          <div role="separator" aria-orientation="vertical" style="width:${thickness}px;height:44px;background:${isGradient ? 'linear-gradient(to bottom, transparent, var(--meld-primary), transparent)' : borderColor};border-left:${isGradient ? 'none' : thickness + 'px ' + borderStyle + ' ' + borderColor}"></div>
+          <button class="mb v-primary" style="--mb-h:32px">${lbl}</button>
+          <span class="m" style="font-size:12px;color:var(--color-text-muted)">Vertical (${thickness}px ${borderStyle})</span>
+        </div>
+      `;
+    }
+
+    if (isLabeled) {
+      return `
+        <div class="adv-divider-labeled-wrap" role="separator" style="display:flex;align-items:center;width:100%;margin:16px 0">
+          <span style="flex:1;height:${thickness}px;background:${borderColor};border-top:${thickness}px ${borderStyle} ${borderColor}"></span>
+          <span style="padding:0 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-text-secondary);background:var(--color-surface-default)">${p.long ? lbl + ' CONTINUE WITH SSO' : lbl}</span>
+          <span style="flex:1;height:${thickness}px;background:${borderColor};border-top:${thickness}px ${borderStyle} ${borderColor}"></span>
+        </div>
+      `;
+    }
+
+    // Standard Horizontal
+    return `
+      <div class="adv-divider-wrap" style="width:100%;padding:14px 0">
+        <div role="separator" style="width:100%;height:${thickness}px;background:${isGradient ? 'linear-gradient(to right, transparent, var(--meld-primary), transparent)' : 'none'};border-top:${isGradient ? 'none' : thickness + 'px ' + borderStyle + ' ' + borderColor}"></div>
+        <div style="margin-top:6px;font-size:11px;color:var(--color-text-muted);text-align:right">Divider: ${lbl} &bull; ${thickness}px ${borderStyle} &bull; ${st}</div>
+      </div>
+    `;
+  };
+
+  // --- 3. DESCRIPTION LIST ---
+  R_DATA['Description List'] = function(c, p) {
+    const lbl = getLabel(p, 'System Specification');
+    const v = p.v || 'Horizontal Layout';
+    const sz = p.s || 'Standard';
+    const st = p.st || 'Default';
+
+    const isHoriz = v.includes('Horizontal');
+    const isVert = v.includes('Vertical');
+    const isCompact = v.includes('Compact');
+    const isBordered = v.includes('Bordered');
+    const isStriped = v.includes('Striped');
+
+    const isSmall = sz.includes('Compact');
+    const isLarge = sz.includes('Spacious');
+
+    const fontSize = isSmall ? '12px' : isLarge ? '15px' : '13px';
+    const rowPad = isSmall ? '6px 10px' : isLarge ? '14px 18px' : '10px 14px';
+
+    const isMissing = st.includes('Missing');
+    const isLong = st.includes('Long') || p.long;
+    const isSkeleton = st.includes('Skeleton') || st.includes('Loading');
+
+    const items = [
+      { key: 'Design System', val: 'Meld by IDEO Digital Foundations' },
+      { key: 'Component Set', val: isMissing ? null : '191 Registered Components' },
+      { key: 'Accessibility', val: isLong ? 'WCAG 2.2 Level AA Standardized with full keyboard navigation, roving tabindex, visible 3px focus rings, and screen reader live region announcements.' : 'WCAG 2.2 AA Conforming' },
+      { key: 'Lead Architect', val: 'IDEO Human-Centered Engineering' },
+      { key: 'Active Release', val: isMissing ? null : 'v1.5.1 Production Live' }
+    ];
+
+    if (isSkeleton) {
+      return `
+        <div class="adv-dl-skeleton" style="width:100%;max-width:${p.wide?'100%':'620px'};border:1px solid var(--color-border-subtle);border-radius:8px;padding:16px">
+          <div style="height:14px;width:120px;background:var(--color-surface-interactive);border-radius:4px;margin-bottom:16px">${lbl}</div>
+          ${[1,2,3].map(() => `
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--color-border-subtle)">
+              <div style="height:12px;width:100px;background:var(--color-surface-interactive);border-radius:4px"></div>
+              <div style="height:12px;width:160px;background:var(--color-surface-interactive);border-radius:4px"></div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="adv-dl-container" style="width:100%;max-width:${p.wide?'100%':'640px'}">
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px;color:var(--color-text-primary)">${lbl}</div>
+        <dl class="adv-dl ${isBordered ? 'is-bordered' : ''} ${isStriped ? 'is-striped' : ''}" style="margin:0;padding:0;border:${isBordered ? '1px solid var(--color-border-default)' : 'none'};border-radius:8px;overflow:hidden;background:var(--color-surface-default)">
+          ${items.map((it, idx) => {
+            const bg = (isStriped && idx % 2 === 1) ? 'background:var(--color-surface-subtle);' : '';
+            const borderB = idx < items.length - 1 ? 'border-bottom:1px solid var(--color-border-subtle);' : '';
+
+            if (isVert) {
+              return `
+                <div class="adv-dl-row" style="padding:${rowPad};${bg}${borderB}">
+                  <dt style="font-size:${fontSize};font-weight:600;color:var(--color-text-secondary);margin:0 0 4px">${it.key}</dt>
+                  <dd style="font-size:${fontSize};font-weight:500;color:var(--color-text-primary);margin:0">
+                    ${it.val ? it.val : '<span class="m" style="color:var(--color-text-muted)" aria-label="Not provided">&mdash;</span>'}
+                  </dd>
+                </div>
+              `;
+            }
+
+            return `
+              <div class="adv-dl-row" style="display:flex;justify-content:space-between;align-items:flex-start;padding:${rowPad};${bg}${borderB}">
+                <dt style="width:${isCompact ? '130px' : '180px'};flex-shrink:0;font-size:${fontSize};font-weight:600;color:var(--color-text-secondary);margin:0;padding-right:12px">${it.key}</dt>
+                <dd style="flex:1;font-size:${fontSize};font-weight:500;color:var(--color-text-primary);margin:0;text-align:${isCompact ? 'right' : 'left'}">
+                  ${it.val ? it.val : '<span class="m" style="color:var(--color-text-muted)" aria-label="Not provided">&mdash;</span>'}
+                </dd>
+              </div>
+            `;
+          }).join('')}
+        </dl>
+      </div>
+    `;
+  };
+
+  // --- 4. PROGRESS BAR ---
+  R_DATA['Progress Bar'] = function(c, p) {
+    const lbl = getLabel(p, 'Uploading design assets');
+    const v = p.v || 'Default / Continuous';
+    const sz = p.s || 'Medium (8px)';
+    const st = p.st || 'Default (In Progress)';
+
+    const isLinearWithLabel = v.includes('Linear with Label');
+    const isSegmented = v.includes('Segmented');
+    const isStriped = v.includes('Striped');
+    const isIndeterminate = v.includes('Indeterminate') || st.includes('Loading');
+
+    const height = sz.includes('Small') ? 4 : sz.includes('Large') ? 14 : 8;
+    const radius = sz.includes('Small') ? 2 : sz.includes('Large') ? 7 : 4;
+
+    const isSuccess = st.includes('Success');
+    const isError = st.includes('Error');
+    const isDisabled = st.includes('Disabled');
+
+    let currentVal = isSuccess ? 100 : (isError ? 42 : DS.progressVal);
+    let barColor = isSuccess ? '#10b981' : (isError ? '#ef4444' : 'var(--meld-primary, #3b82f6)');
+
+    if (isDisabled) barColor = '#9ca3af';
+
+    if (isSegmented) {
+      const totalSteps = 4;
+      const completedSteps = Math.round((currentVal / 100) * totalSteps);
+      return `
+        <div class="adv-prog-wrap" style="width:100%;max-width:${p.wide?'100%':'520px'}">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;font-weight:600">
+            <span>${p.long ? lbl + ' to IDEO Asset Vault' : lbl}</span>
+            <span style="color:var(--color-text-secondary)">Step ${completedSteps} of ${totalSteps}</span>
+          </div>
+          <div style="display:flex;gap:6px;width:100%">
+            ${[0, 1, 2, 3].map(i => {
+              const active = i < completedSteps;
+              return `<div style="flex:1;height:${height}px;border-radius:${radius}px;background:${active ? barColor : 'var(--color-surface-subtle)'};transition:background 0.3s"></div>`;
+            }).join('')}
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="mb v-secondary" style="--mb-h:30px;font-size:12px" data-prog-step="-1" ${isDisabled?'disabled':''}>Step Back</button>
+            <button class="mb v-primary" style="--mb-h:30px;font-size:12px" data-prog-step="1" ${isDisabled?'disabled':''}>Advance Step</button>
+          </div>
+        </div>
+      `;
+    }
+
+    if (isLinearWithLabel) {
+      return `
+        <div class="adv-prog-wrap is-linear-labeled" style="width:100%;max-width:${p.wide?'100%':'520px'};padding:12px;border:1px solid var(--color-border-subtle);border-radius:8px;background:var(--color-surface-default)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div style="font-weight:700;font-size:13px;color:var(--color-text-primary)">${lbl}</div>
+            <span class="bdg bd-n" style="font-size:11px;padding:2px 8px">${isIndeterminate ? 'Calculating...' : currentVal + '%'}</span>
+          </div>
+          <div role="progressbar" aria-valuenow="${currentVal}" aria-valuemin="0" aria-valuemax="100" style="width:100%;height:${height}px;background:var(--color-surface-subtle);border-radius:${radius}px;overflow:hidden;position:relative">
+            <div class="${isStriped ? 'adv-prog-striped' : ''} ${isIndeterminate ? 'adv-prog-indeterminate' : ''}" style="height:100%;width:${isIndeterminate ? '40%' : currentVal + '%'};background:${barColor};border-radius:${radius}px;transition:width 0.3s ease"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <span style="font-size:11px;color:var(--color-text-muted)">Height: ${height}px &bull; Status: ${st}</span>
+            <div style="display:flex;gap:6px">
+              <button class="mb v-secondary" style="--mb-h:26px;font-size:11px" data-prog-act="sub" ${isDisabled?'disabled':''}>-15%</button>
+              <button class="mb v-primary" style="--mb-h:26px;font-size:11px" data-prog-act="add" ${isDisabled?'disabled':''}>+15%</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Default / Continuous
+    return `
+      <div class="adv-prog-wrap is-continuous" style="width:100%;max-width:${p.wide?'100%':'520px'}">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:13px;font-weight:600">
+          <span>${p.long ? lbl + ' (Asset Package v1.5.1)' : lbl}</span>
+          <span style="color:${barColor};font-weight:700">${isIndeterminate ? 'Calculating...' : currentVal + '%'}</span>
+        </div>
+
+        <div role="progressbar" aria-valuenow="${currentVal}" aria-valuemin="0" aria-valuemax="100" style="width:100%;height:${height}px;background:var(--color-surface-subtle);border-radius:${radius}px;overflow:hidden;position:relative;border:1px solid var(--color-border-subtle)">
+          <div class="${isStriped ? 'adv-prog-striped' : ''} ${isIndeterminate ? 'adv-prog-indeterminate' : ''}" style="height:100%;width:${isIndeterminate ? '40%' : currentVal + '%'};background:${barColor};border-radius:${radius}px;transition:width 0.3s ease"></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+          <div style="display:flex;gap:6px">
+            <button class="mb v-secondary" style="--mb-h:28px;font-size:12px" data-prog-act="sub" ${isDisabled?'disabled':''}>-15%</button>
+            <button class="mb v-secondary" style="--mb-h:28px;font-size:12px" data-prog-act="add" ${isDisabled?'disabled':''}>+15%</button>
+            <button class="mb v-ghost" style="--mb-h:28px;font-size:12px" data-prog-act="full" ${isDisabled?'disabled':''}>100%</button>
+          </div>
+          <span class="m" style="font-size:11px;color:var(--color-text-muted)">Height: ${height}px &bull; State: ${st}</span>
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 5. BADGE ---
+  R_DATA['Badge'] = function(c, p) {
+    const lbl = getLabel(p, 'Badge');
+    const v = p.v || 'Solid';
+    const sz = p.s || 'Medium (24px)';
+    const st = p.st || 'Default';
+
+    const isSmall = sz.includes('Small');
+    const isLarge = sz.includes('Large');
+    const height = isSmall ? '20px' : isLarge ? '30px' : '24px';
+    const fontSize = isSmall ? '10px' : isLarge ? '13px' : '11px';
+    const padding = isSmall ? '2px 6px' : isLarge ? '4px 12px' : '2px 8px';
+
+    const statusMap = {
+      'Default': { bg: 'var(--meld-primary)', color: '#ffffff', border: 'transparent' },
+      'Success': { bg: '#10b981', color: '#ffffff', border: 'transparent' },
+      'Warning': { bg: '#f59e0b', color: '#ffffff', border: 'transparent' },
+      'Error': { bg: '#ef4444', color: '#ffffff', border: 'transparent' },
+      'Informational': { bg: '#0284c7', color: '#ffffff', border: 'transparent' },
+      'Neutral': { bg: '#6b7280', color: '#ffffff', border: 'transparent' }
+    };
+
+    let col = statusMap['Default'];
+    Object.keys(statusMap).forEach(k => { if (st.includes(k)) col = statusMap[k]; });
+
+    if (v.includes('Outline')) {
+      return `<span style="display:inline-flex;align-items:center;gap:4px;padding:${padding};min-height:${height};border-radius:999px;border:1.5px solid ${col.bg};color:${col.bg};font-size:${fontSize};font-weight:700">${lbl}</span>`;
+    }
+    if (v.includes('Subtle')) {
+      return `<span style="display:inline-flex;align-items:center;gap:4px;padding:${padding};min-height:${height};border-radius:999px;background:${col.bg}22;border:1px solid ${col.bg}44;color:${col.bg};font-size:${fontSize};font-weight:700">${lbl}</span>`;
+    }
+    if (v.includes('Dot')) {
+      return `<span style="display:inline-flex;align-items:center;gap:6px;padding:${padding};min-height:${height};border-radius:999px;background:var(--color-surface-subtle);color:var(--color-text-primary);border:1px solid var(--color-border-subtle);font-size:${fontSize};font-weight:700"><span style="width:6px;height:6px;border-radius:50%;background:${col.bg}"></span>${lbl}</span>`;
+    }
+
+    // Default Solid
+    return `<span style="display:inline-flex;align-items:center;gap:4px;padding:${padding};min-height:${height};border-radius:999px;background:${col.bg};color:${col.color};font-size:${fontSize};font-weight:700">${lbl}</span>`;
+  };
+
+  // --- 6. CHIP / TAG ---
+  R_DATA['Chip / Tag'] = function(c, p) {
+    const lbl = getLabel(p, 'Design Tokens');
+    const v = p.v || 'Filter Chip (Selectable)';
+    const sz = p.s || 'Medium (32px)';
+    const st = p.st || 'Default';
+
+    if (DS.chipGone) {
+      return `<p class="m" style="font-size:13px">Chip "${lbl}" dismissed. <button class="mb v-ghost" style="--mb-h:28px" data-chip-act="undo">Undo</button></p>`;
+    }
+
+    const isSmall = sz.includes('Small');
+    const height = isSmall ? '26px' : '32px';
+    const fontSize = isSmall ? '11px' : '13px';
+    const isSelected = st.includes('Selected');
+    const isDisabled = st.includes('Disabled');
+
+    let bg = isSelected ? 'var(--meld-primary)' : 'var(--color-surface-subtle)';
+    let color = isSelected ? '#ffffff' : 'var(--color-text-primary)';
+    let border = isSelected ? 'transparent' : 'var(--color-border-default)';
+
+    return `
+      <span class="adv-chip ${isSelected ? 'is-selected' : ''}" style="display:inline-flex;align-items:center;gap:6px;height:${height};padding:0 12px;border-radius:999px;background:${bg};color:${color};border:1px solid ${border};font-size:${fontSize};font-weight:600;opacity:${isDisabled?0.5:1}">
+        ${p.icon ? '<span>&#9881;</span>' : ''}
+        <span>${lbl}</span>
+        ${v.includes('Removable') ? `<button data-chip-act="remove" style="background:none;border:none;color:inherit;cursor:pointer;padding:0 2px;font-weight:bold" aria-label="Remove">&times;</button>` : ''}
+      </span>
+    `;
+  };
+
+  // --- 7. AVATAR ---
+  R_DATA['Avatar'] = function(c, p) {
+    const lbl = getLabel(p, 'Sarah Jenkins');
+    const v = p.v || 'Image Specimen';
+    const sz = p.s || 'Medium (40px)';
+    const st = p.st || 'Default';
+
+    const dim = sz.includes('Small') ? 32 : sz.includes('Large') ? 56 : 40;
+    const fontSize = sz.includes('Small') ? '11px' : sz.includes('Large') ? '18px' : '14px';
+
+    const statusMap = {
+      'Online': '#10b981',
+      'Busy': '#ef4444',
+      'Away': '#f59e0b',
+      'Offline': '#9ca3af'
+    };
+    let dotColor = null;
+    Object.keys(statusMap).forEach(k => { if (st.includes(k)) dotColor = statusMap[k]; });
+
+    let inner = '';
+    if (v.includes('Initials')) {
+      const parts = lbl.split(' ');
+      const inits = parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : lbl.substring(0, 2).toUpperCase();
+      inner = `<div style="width:100%;height:100%;background:var(--meld-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:${fontSize}">${inits}</div>`;
+    } else if (v.includes('Icon')) {
+      inner = `<div style="width:100%;height:100%;background:var(--color-surface-subtle);color:var(--color-text-secondary);display:flex;align-items:center;justify-content:center;font-size:${dim*0.5}px">&#128100;</div>`;
+    } else {
+      inner = `<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&auto=format&fit=crop&q=80" alt="${lbl}" style="width:100%;height:100%;object-fit:cover">`;
+    }
+
+    return `
+      <div class="adv-avatar-wrap" style="display:inline-flex;position:relative;width:${dim}px;height:${dim}px">
+        <div style="width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid var(--color-surface-default);box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+          ${inner}
+        </div>
+        ${dotColor ? `<span style="position:absolute;bottom:0;right:0;width:${Math.max(8, dim*0.25)}px;height:${Math.max(8, dim*0.25)}px;border-radius:50%;background:${dotColor};border:2px solid var(--color-surface-default)"></span>` : ''}
+      </div>
+    `;
+  };
+
+  // --- 8. AVATAR GROUP ---
+  R_DATA['Avatar Group'] = function(c, p) {
+    const lbl = getLabel(p, 'Design Core Team');
+    const v = p.v || 'Overlapping Stack';
+    const sz = p.s || 'Medium (40px)';
+    const st = p.st || 'Default (3 Users)';
+
+    const dim = sz.includes('Small') ? 28 : sz.includes('Large') ? 52 : 40;
+    const isStack = v.includes('Stack');
+    const isRow = v.includes('Row');
+    const isGrid = v.includes('Grid');
+
+    const count = st.includes('5 Users') ? 5 : st.includes('Crowded') ? 7 : st.includes('Solo') ? 1 : 3;
+    const users = ['Alex K', 'Beth M', 'Chloe T', 'Dan R', 'Emma W', 'Felix G', 'Grace H'].slice(0, count);
+
+    return `
+      <div class="adv-avatar-group-wrap" style="display:inline-flex;flex-direction:column;gap:6px">
+        <span style="font-size:12px;font-weight:600;color:var(--color-text-secondary)">${lbl} (${users.length} members)</span>
+        <div class="adv-avatar-group ${isGrid ? 'is-grid' : ''}" style="display:flex;flex-wrap:${isGrid?'wrap':'nowrap'};gap:${isStack ? '-8px' : '6px'}">
+          ${users.map((u, i) => `
+            <div style="width:${dim}px;height:${dim}px;border-radius:50%;overflow:hidden;border:2px solid var(--color-surface-default);background:var(--meld-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;z-index:${10 - i}">
+              ${u[0] + u.split(' ')[1][0]}
+            </div>
+          `).join('')}
+          ${st.includes('Crowded') ? `
+            <div style="width:${dim}px;height:${dim}px;border-radius:50%;background:var(--color-surface-subtle);color:var(--color-text-secondary);border:2px solid var(--color-surface-default);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;z-index:1">
+              +12
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 9. TYPOGRAPHY / CONTENT PRIMITIVES ---
+  R_DATA['Typography / Content Primitives'] = function(c, p) {
+    const lbl = getLabel(p, 'Typographic Hierarchy');
+    const v = p.v || 'Heading Scale (H1-H6)';
+    const sz = p.s || 'Regular (Standard)';
+    const st = p.st || 'Default (Primary)';
+
+    const isSmall = sz.includes('Small');
+    const isEditorial = sz.includes('Editorial');
+    const isMuted = st.includes('Secondary');
+    const isAccent = st.includes('Accent');
+
+    let col = isMuted ? 'var(--color-text-secondary)' : isAccent ? 'var(--meld-primary)' : 'var(--color-text-primary)';
+
+    if (v.includes('Blockquote')) {
+      return `
+        <blockquote style="margin:0;padding-left:16px;border-left:4px solid var(--meld-primary);color:${col}">
+          <p style="font-size:${isEditorial?'20px':isSmall?'13px':'16px'};font-style:italic;margin:0 0 6px">${lbl}</p>
+          <cite style="font-size:12px;font-weight:600;color:var(--color-text-secondary);font-style:normal">&mdash; IDEO Design Principles, 2026</cite>
+        </blockquote>
+      `;
+    }
+
+    if (v.includes('Code')) {
+      return `
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <p style="margin:0;font-size:13px;color:var(--color-text-secondary)">Inline Token: <code style="padding:2px 6px;border-radius:4px;background:var(--color-surface-subtle);border:1px solid var(--color-border-subtle);font-family:ui-monospace, monospace;color:${col}">${lbl}</code></p>
+        </div>
+      `;
+    }
+
+    if (v.includes('Body')) {
+      return `
+        <div style="display:flex;flex-direction:column;gap:6px;max-width:540px">
+          <p style="margin:0;font-size:${isEditorial?'18px':isSmall?'12px':'14px'};line-height:1.6;color:${col}">${lbl}: Meld provides perceptual uniformity across themes and viewport dimensions.</p>
+        </div>
+      `;
+    }
+
+    // Default Heading Scale
+    return `
+      <div style="display:flex;flex-direction:column;gap:8px;color:${col}">
+        <h2 style="margin:0;font-size:${isEditorial?'32px':isSmall?'20px':'24px'};font-weight:700">${lbl}</h2>
+        <h4 style="margin:0;font-size:${isEditorial?'20px':isSmall?'14px':'16px'};font-weight:600;color:var(--color-text-secondary)">Subheading Scale</h4>
+      </div>
+    `;
+  };
+
+  // --- 10. LIST ---
+  R_DATA['List'] = function(c, p) {
+    const lbl = getLabel(p, 'Core Architectural Components');
+    const v = p.v || 'Unordered Bulleted';
+    const sz = p.s || 'Standard';
+    const st = p.st || 'Default';
+
+    const isSmall = sz.includes('Compact');
+    const isLarge = sz.includes('Spacious');
+    const gap = isSmall ? '4px' : isLarge ? '12px' : '8px';
+    const fontSize = isSmall ? '12px' : isLarge ? '15px' : '13px';
+
+    const isHover = st.includes('Hover');
+    const isDisabled = st.includes('Disabled');
+
+    const items = ['Tokens Engine', 'Pattern Explorer', 'Component Registry', 'Theme Adapter'];
+
+    if (v.includes('Numbered')) {
+      return `
+        <div style="display:flex;flex-direction:column;gap:6px;opacity:${isDisabled?0.5:1}">
+          <b style="font-size:13px">${lbl}</b>
+          <ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:${gap};font-size:${fontSize}">
+            ${items.map((it, i) => `<li style="${isHover && i === 0 ? 'background:var(--color-surface-subtle);border-radius:4px;padding:2px 6px' : ''}">${it}</li>`).join('')}
+          </ol>
+        </div>
+      `;
+    }
+
+    if (v.includes('Checklist')) {
+      return `
+        <div style="display:flex;flex-direction:column;gap:6px;opacity:${isDisabled?0.5:1}">
+          <b style="font-size:13px">${lbl}</b>
+          <div style="display:flex;flex-direction:column;gap:${gap}">
+            ${items.map((it, i) => `
+              <label style="display:flex;align-items:center;gap:8px;font-size:${fontSize};cursor:pointer;${isHover && i === 0 ? 'background:var(--color-surface-subtle);border-radius:4px;padding:2px 6px' : ''}">
+                <input type="checkbox" ${i < 2 ? 'checked' : ''} style="width:16px;height:16px">
+                <span style="${i < 2 ? 'text-decoration:line-through;color:var(--color-text-muted)' : ''}">${it}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Default Unordered
+    return `
+      <div style="display:flex;flex-direction:column;gap:6px;opacity:${isDisabled?0.5:1}">
+        <b style="font-size:13px">${lbl}</b>
+        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:${gap};font-size:${fontSize}">
+          ${items.map((it, i) => `<li style="${isHover && i === 0 ? 'background:var(--color-surface-subtle);border-radius:4px;padding:2px 6px' : ''}">${it}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  };
+
+  // --- 11. LIST ITEM ---
+  R_DATA['List Item'] = function(c, p) {
+    const lbl = getLabel(p, 'Design System Repository');
+    const v = p.v || 'With Leading Icon / Avatar';
+    const sz = p.s || 'Standard';
+    const st = p.st || 'Default';
+
+    const isSmall = sz.includes('Compact');
+    const isLarge = sz.includes('Comfortable');
+    const padding = isSmall ? '6px 10px' : isLarge ? '14px 18px' : '10px 14px';
+
+    const isHover = st.includes('Hover');
+    const isSelected = st.includes('Selected');
+    const isDisabled = st.includes('Disabled');
+
+    let bg = isSelected ? 'var(--color-surface-subtle)' : isHover ? 'var(--color-surface-subtle)' : 'var(--color-surface-default)';
+
+    return `
+      <div class="adv-list-item ${isSelected ? 'is-selected' : ''}" style="display:flex;align-items:center;justify-content:space-between;padding:${padding};background:${bg};border:1px solid var(--color-border-subtle);border-radius:6px;max-width:${p.wide?'100%':'460px'};opacity:${isDisabled?0.5:1}">
+        <div style="display:flex;align-items:center;gap:10px">
+          ${v.includes('Icon') ? '<span style="font-size:16px">&#128196;</span>' : ''}
+          <div>
+            <div style="font-weight:600;font-size:13px">${lbl}</div>
+            <div style="font-size:11px;color:var(--color-text-secondary)">Updated 14 mins ago</div>
+          </div>
+        </div>
+        ${v.includes('Trailing') ? '<button class="mb v-ghost" style="--mb-h:28px">View</button>' : '<span class="m" style="font-size:11px;color:var(--color-text-muted)">v1.5.1</span>'}
+      </div>
+    `;
+  };
+
+  // --- 12. STAT / METRIC ---
+  R_DATA['Stat / Metric'] = function(c, p) {
+    const lbl = getLabel(p, 'Monthly Active Users');
+    const v = p.v || 'KPI with Trend Badge';
+    const sz = p.s || 'Standard';
+    const st = p.st || 'Positive Trend';
+
+    const isLarge = sz.includes('Large');
+    const isDense = sz.includes('Dense');
+    const numSize = isLarge ? '44px' : isDense ? '24px' : '32px';
+
+    const isNeg = st.includes('Negative');
+    const isFlat = st.includes('Neutral');
+    const trendColor = isNeg ? '#ef4444' : isFlat ? '#6b7280' : '#10b981';
+    const trendGlyph = isNeg ? '&#9660;' : isFlat ? '&mdash;' : '&#9650;';
+    const trendVal = isNeg ? '-4.2%' : isFlat ? '0.0%' : '+18.4%';
+
+    if (v.includes('Comparison')) {
+      return `
+        <div class="adv-stat-card is-comparison" style="padding:16px 20px;border:1px solid var(--color-border-default);background:var(--color-surface-default);border-radius:8px;max-width:${p.wide?'100%':'440px'}">
+          <span style="font-size:12px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase">${lbl} (Comparison)</span>
+          <div style="display:flex;align-items:baseline;gap:16px;margin:8px 0">
+            <span style="font-size:${numSize};font-weight:700">248.6K</span>
+            <span style="font-size:14px;color:var(--color-text-muted)">prior: 210.1K</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:${trendColor};background:${trendColor}18;padding:2px 6px;border-radius:4px">
+              ${trendGlyph} ${trendVal}
+            </span>
+          </div>
+          <div style="font-size:11px;color:var(--color-text-muted)">Compared to prior observation period</div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="adv-stat-card" style="padding:16px 20px;border:1px solid var(--color-border-default);background:var(--color-surface-default);border-radius:8px;max-width:${p.wide?'100%':'340px'}">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span style="font-size:12px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.04em">${lbl}</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:${trendColor};background:${trendColor}18;padding:2px 6px;border-radius:4px">
+            ${trendGlyph} ${trendVal}
+          </span>
+        </div>
+        <div style="font-size:${numSize};font-weight:700;color:var(--color-text-primary);letter-spacing:-0.02em">248.6K</div>
+        <div style="font-size:11px;color:var(--color-text-muted);margin-top:4px">vs. previous 30-day baseline</div>
+      </div>
+    `;
+  };
+
+  // --- 13. CIRCULAR PROGRESS ---
+  R_DATA['Circular Progress'] = function(c, p) {
+    const lbl = getLabel(p, 'Storage Quota');
+    const v = p.v || 'Standard Ring';
+    const sz = p.s || 'Medium (64px)';
+    const st = p.st || 'Default (65%)';
+
+    const dim = sz.includes('Small') ? 36 : sz.includes('Large') ? 96 : 64;
+    const stroke = sz.includes('Small') ? 3 : sz.includes('Large') ? 8 : 5;
+    const radius = (dim - stroke * 2) / 2;
+    const circ = 2 * Math.PI * radius;
+
+    const val = st.includes('Quarter') ? 25 : st.includes('Complete') ? 100 : 65;
+    const offset = circ - (circ * val / 100);
+
+    const isGauge = v.includes('Gauge') || v.includes('Semidial');
+
+    if (isGauge) {
+      const halfCirc = Math.PI * radius;
+      const gaugeOffset = halfCirc - (halfCirc * val / 100);
+      return `
+        <div class="adv-circ-prog-wrap is-gauge" style="display:inline-flex;flex-direction:column;align-items:center;gap:4px">
+          <div style="position:relative;width:${dim}px;height:${dim/2 + 10}px;overflow:hidden">
+            <svg width="${dim}" height="${dim}" viewBox="0 0 ${dim} ${dim}">
+              <circle cx="${dim/2}" cy="${dim/2}" r="${radius}" fill="none" stroke="var(--color-surface-subtle)" stroke-width="${stroke}" stroke-dasharray="${halfCirc} ${halfCirc}" transform="rotate(180 ${dim/2} ${dim/2})"/>
+              <circle cx="${dim/2}" cy="${dim/2}" r="${radius}" fill="none" stroke="var(--meld-primary)" stroke-width="${stroke}" stroke-dasharray="${halfCirc} ${halfCirc}" stroke-dashoffset="${gaugeOffset}" stroke-linecap="round" transform="rotate(180 ${dim/2} ${dim/2})"/>
+            </svg>
+            <div style="position:absolute;bottom:0;inset-inline:0;display:flex;justify-content:center;font-size:${dim*0.22}px;font-weight:700">
+              ${val}%
+            </div>
+          </div>
+          <span class="m" style="font-size:11px;color:var(--color-text-secondary)">${lbl} (Gauge)</span>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="adv-circ-prog-wrap" style="display:inline-flex;flex-direction:column;align-items:center;gap:8px">
+        <div style="position:relative;width:${dim}px;height:${dim}px">
+          <svg width="${dim}" height="${dim}" viewBox="0 0 ${dim} ${dim}">
+            <circle cx="${dim/2}" cy="${dim/2}" r="${radius}" fill="none" stroke="var(--color-surface-subtle)" stroke-width="${stroke}"/>
+            <circle cx="${dim/2}" cy="${dim/2}" r="${radius}" fill="none" stroke="var(--meld-primary)" stroke-width="${stroke}" stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke-linecap="round" transform="rotate(-90 ${dim/2} ${dim/2})"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:${dim*0.22}px;font-weight:700">
+            ${val}%
+          </div>
+        </div>
+        <span class="m" style="font-size:12px;color:var(--color-text-secondary)">${lbl}: ${val}%</span>
+      </div>
+    `;
+  };
+
+  // --- 14. RATING DISPLAY ---
+  R_DATA['Rating Display'] = function(c, p) {
+    const lbl = getLabel(p, 'Customer Satisfaction');
+    const v = p.v || 'Star Rating (5-Star)';
+    const sz = p.s || 'Medium (22px)';
+    const st = p.st || 'Default (4 Stars)';
+
+    let score = DS.ratingScore;
+    if (st.includes('5 Stars')) score = 5;
+    else if (st.includes('0 Stars')) score = 0;
+    else if (st.includes('3.5')) score = 3;
+
+    const starSize = sz.includes('Small') ? 16 : sz.includes('Large') ? 30 : 22;
+
+    if (v.includes('Numeric') || v.includes('Badge')) {
+      return `
+        <div class="adv-rating-wrap is-badge" style="display:inline-flex;align-items:center;gap:8px">
+          <span style="font-size:12px;font-weight:600;color:var(--color-text-secondary)">${lbl}</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;background:#fef3c7;color:#b45309;font-weight:700;font-size:12px">
+            <span>&#9733;</span> ${score}.0 / 5.0
+          </span>
+          <span style="font-size:11px;color:var(--color-text-muted)">(128 reviews)</span>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="adv-rating-wrap" style="display:inline-flex;flex-direction:column;gap:4px">
+        <span style="font-size:12px;font-weight:600;color:var(--color-text-secondary)">${lbl}</span>
+        <div style="display:inline-flex;align-items:center;gap:8px">
+          <div class="adv-rating-stars" style="display:inline-flex;gap:4px;cursor:pointer">
+            ${[1, 2, 3, 4, 5].map(i => {
+              const filled = i <= score;
+              return `<span data-rate-star="${i}" style="font-size:${starSize}px;color:${filled ? '#f59e0b' : 'var(--color-border-subtle)'};transition:transform 0.1s">${filled ? '&#9733;' : '&#9734;'}</span>`;
+            }).join('')}
+          </div>
+          <span style="font-size:13px;font-weight:700">${score}.0</span>
+          <span style="font-size:11px;color:var(--color-text-muted)">(128 reviews)</span>
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 15. KEY-VALUE PAIR ---
+  R_DATA['Key-Value Pair'] = function(c, p) {
+    const lbl = getLabel(p, 'API Public Key');
+    const v = p.v || 'Inline Horizontal';
+    const sz = p.s || 'Standard Medium';
+    const st = p.st || 'Default';
+
+    const isSmall = sz.includes('Small') || sz.includes('Compact');
+    const isLarge = sz.includes('Large') || sz.includes('Prominent');
+    const pad = isSmall ? '4px 8px' : isLarge ? '12px 18px' : '8px 12px';
+    const fontSize = isSmall ? '11px' : isLarge ? '15px' : '13px';
+
+    const isCopy = st.includes('Copy');
+    const val = st.includes('Masked') ? 'pk_live_************4a92' : 'pk_live_8f3d1b9c4a92e105';
+
+    if (v.includes('Stacked')) {
+      return `
+        <div class="adv-kv-stacked" style="display:flex;flex-direction:column;gap:2px;padding:${pad}">
+          <span style="font-size:${fontSize};font-weight:600;color:var(--color-text-secondary);text-transform:uppercase">${lbl}</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <code style="font-size:${fontSize};color:var(--color-text-primary)">${val}</code>
+            ${isCopy ? '<button class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px">Copy</button>' : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    // Default Horizontal
+    return `
+      <div class="adv-kv-row" style="display:flex;align-items:center;justify-content:space-between;padding:${pad};background:var(--color-surface-subtle);border-radius:6px;max-width:${p.wide?'100%':'420px'}">
+        <span style="font-size:${fontSize};font-weight:600;color:var(--color-text-secondary)">${lbl}</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <code style="font-size:${fontSize};font-weight:500;color:var(--color-text-primary)">${val}</code>
+          ${isCopy ? '<button class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px">Copy</button>' : ''}
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 16. CODE BLOCK ---
+  R_DATA['Code Block'] = function(c, p) {
+    const lbl = getLabel(p, 'theme-config.ts');
+    const v = p.v || 'With Line Numbers';
+    const sz = p.s || 'Medium (280px)';
+    const st = p.st || 'Default';
+
+    const isCopied = st.includes('Copied');
+    const isHover = st.includes('Hover');
+    const isEmpty = st.includes('Empty');
+    const isMinimal = v.includes('Minimal');
+    const isTerminal = v.includes('Terminal');
+
+    const h = sz.includes('Compact') ? 180 : sz.includes('Large') ? 400 : 280;
+
+    if (isEmpty) {
+      return `
+        <div class="adv-code-wrap" style="width:100%;max-width:${p.wide?'100%':'620px'}">
+          <label class="m" style="display:block;margin-bottom:8px;font-weight:600">${lbl}</label>
+          <div style="border:1px dashed var(--color-border-default);background:#18191c;color:#9da7b3;padding:24px;border-radius:8px;text-align:center;font-family:ui-monospace, monospace;font-size:13px">
+            // No code content available
+          </div>
+        </div>
+      `;
+    }
+
+    if (isTerminal) {
+      return `
+        <div class="adv-code-wrap is-terminal" style="width:100%;max-width:${p.wide?'100%':'620px'}">
+          <div style="border:1px solid #334155;background:#0f172a;color:#38bdf8;border-radius:8px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;background:#1e293b;border-bottom:1px solid #334155">
+              <span style="width:10px;height:10px;border-radius:50%;background:#ef4444"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#10b981"></span>
+              <span style="margin-left:8px;font-family:ui-monospace;font-size:12px;color:#94a3b8">bash &mdash; ${lbl}</span>
+            </div>
+            <pre style="margin:0;padding:14px;max-height:${h}px;overflow:auto;font-family:ui-monospace, monospace;font-size:13px;line-height:1.6;color:#f8fafc"><code><span style="color:#22c55e">user@meld:~$</span> npm run build:tokens<br>Building Meld Design Tokens v1.5.1...<br><span style="color:#22c55e">&#10003;</span> Generated 191 component specifications.<br><span style="color:#22c55e">Done in 0.42s</span></code></pre>
+          </div>
+        </div>
+      `;
+    }
+
+    const codeLines = [
+      "import { createTheme, tokens } from '@ideo/meld-core';",
+      "",
+      "export const studioTheme = createTheme({",
+      "  brand: {",
+      "    primary: tokens.color.pink[600],",
+      "    secondary: tokens.color.indigo[500]",
+      "  }",
+      "});"
+    ];
+
+    return `
+      <div class="adv-code-wrap" style="width:100%;max-width:${p.wide?'100%':'620px'}">
+        <label class="m" style="display:block;margin-bottom:8px;font-weight:600">${lbl}</label>
+        <div style="border:1px solid var(--color-border-default);background:#18191c;color:#e8edf2;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.14)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:#101113;border-bottom:1px solid rgba(255,255,255,0.08);font-size:12px">
+            <span style="font-family:ui-monospace;color:#9da7b3">typescript &bull; ${lbl}</span>
+            <button class="mb v-ghost" style="--mb-h:26px;color:#fff;border:1px solid ${isHover?'#fff':'rgba(255,255,255,0.2)'};background:${isHover?'rgba(255,255,255,0.15)':'transparent'};padding:0 8px;font-size:11px;margin:0" data-code-copy>
+              ${isCopied ? '&#10003; Copied' : 'Copy Code'}
+            </button>
+          </div>
+          <pre style="margin:0;padding:14px;overflow:auto;max-height:${h}px;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.6"><code style="background:none;padding:0;color:inherit">${codeLines.map((l, i) => (isMinimal ? '' : `<span style="color:#5c6470;display:inline-block;width:24px;user-select:none;text-align:right;margin-right:12px">${i+1}</span>`) + l).join('\n')}</code></pre>
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 17. IMAGE ---
+  R_DATA['Image'] = function(c, p) {
+    const lbl = getLabel(p, 'Architectural Elevation');
+    const v = p.v || '16:9 Landscape';
+    const sz = p.s || 'Medium (320px)';
+    const st = p.st || 'Default (Loaded)';
+
+    const aspect = v.includes('1:1') ? '1/1' : v.includes('4:3') ? '4/3' : v.includes('Circle') ? '1/1' : '16/9';
+    const width = sz.includes('Small') ? '180px' : sz.includes('Full') ? '100%' : '320px';
+    const isCircle = v.includes('Circle');
+
+    if (st.includes('Error')) {
+      return `
+        <div style="aspect-ratio:${aspect};width:${width};background:var(--color-surface-subtle);border:1px dashed var(--color-border-default);border-radius:${isCircle?'50%':'8px'};display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--color-text-muted);gap:8px">
+          <span style="font-size:28px">&#128247;</span>
+          <span style="font-size:12px;font-weight:600">${lbl}: Image failed to load</span>
+        </div>
+      `;
+    }
+
+    if (st.includes('Loading')) {
+      return `
+        <div style="aspect-ratio:${aspect};width:${width};background:var(--color-surface-subtle);border-radius:${isCircle?'50%':'8px'};display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);border:1px solid var(--color-border-subtle)">
+          <span style="font-size:12px">${lbl} Loading Shimmer...</span>
+        </div>
+      `;
+    }
+
+    return `
+      <figure style="margin:0;width:${width};max-width:100%">
+        <div style="aspect-ratio:${aspect};background:var(--color-surface-subtle);border-radius:${isCircle?'50%':'8px'};overflow:hidden;border:1px solid var(--color-border-subtle)">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&auto=format&fit=crop&q=80" alt="${lbl}" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <figcaption style="margin-top:6px;font-size:12px;color:var(--color-text-muted)">${lbl} (${aspect})</figcaption>
+      </figure>
+    `;
+  };
+
+  // --- 18. VIDEO PLAYER ---
+  R_DATA['Video Player'] = function(c, p) {
+    const lbl = getLabel(p, 'Meld Design System Showreel');
+    const v = p.v || '16:9 Standard Player';
+    const sz = p.s || 'Medium (440px)';
+    const st = p.st || 'Paused (Ready)';
+
+    const isPlaying = st.includes('Playing') || DS.videoPlaying;
+    const width = sz.includes('Small') ? '280px' : sz.includes('Large') ? '640px' : '440px';
+    const isMini = v.includes('Mini');
+
+    return `
+      <div class="adv-video-container ${isMini ? 'is-mini' : ''}" style="width:${width};max-width:100%;aspect-ratio:16/9;background:#0f172a;border-radius:8px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+          <button data-video-toggle style="width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.3)">
+            ${isPlaying ? '&#10074;&#10074;' : '&#9658;'}
+          </button>
+        </div>
+        <div style="padding:10px 14px;background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);display:flex;flex-direction:column;gap:6px">
+          <div style="width:100%;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;overflow:hidden">
+            <div style="width:${isPlaying ? '65%' : '25%'};height:100%;background:var(--meld-primary);transition:width 0.3s"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;color:#fff;font-size:11px">
+            <span>${isPlaying ? '01:42' : '00:36'} / 03:15</span>
+            <span>${lbl} (${v})</span>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 19. CAROUSEL ---
+  R_DATA['Carousel'] = function(c, p) {
+    const lbl = getLabel(p, 'Meld Feature Highlights');
+    const v = p.v || 'Slide View with Chevrons';
+    const sz = p.s || 'Medium (320px height)';
+    const st = p.st || 'Slide 1 of 3 Active';
+
+    let slide = DS.carouselSlide;
+    if (st.includes('Slide 1')) slide = 0;
+    else if (st.includes('Slide 2')) slide = 1;
+    else if (st.includes('Slide 3')) slide = 2;
+
+    const minHeight = sz.includes('Large') ? '420px' : '260px';
+    const slides = [
+      { title: 'Harmonious Color Tokens', desc: 'OKLCH color models ensuring perceptual uniformity across Light and Dark themes.' },
+      { title: 'Fluid Typography Scale', desc: 'Space Grotesk variable typography tuned for readability from 320px to 4K.' },
+      { title: 'Interactive UX Patterns', desc: '125 vetted patterns connecting human-centered design to production-ready code.' }
+    ];
+    const cur = slides[slide];
+
+    return `
+      <div style="max-width:${p.wide?'100%':'540px'};min-height:${minHeight};border:1px solid var(--color-border-default);border-radius:10px;padding:24px;background:var(--color-surface-default);position:relative;display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <span class="ey" style="color:var(--meld-primary)">${lbl}</span>
+            <span style="font-size:12px;color:var(--color-text-muted)">(${v})</span>
+          </div>
+          <h4 style="margin:8px 0;font-size:18px">${cur.title}</h4>
+          <p class="m" style="margin:0 0 16px;font-size:13px;line-height:1.5;color:var(--color-text-secondary)">${cur.desc}</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;gap:6px">
+            ${[0, 1, 2].map(i => `<span data-carousel-dot="${i}" style="width:8px;height:8px;border-radius:50%;background:${i===slide?'var(--meld-primary)':'var(--color-border-subtle)'};cursor:pointer"></span>`).join('')}
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="mb v-secondary" style="--mb-h:30px;padding:0 10px" data-carousel-prev>&larr; Prev</button>
+            <button class="mb v-primary" style="--mb-h:30px;padding:0 10px" data-carousel-next>Next &rarr;</button>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  // --- 20. DATA VISUALIZATION WRAPPER ---
+  R_DATA['Data Visualization Wrapper'] = function(c, p) {
+    const lbl = getLabel(p, 'Weekly Component Adoptions');
+    const v = p.v || 'Bar Chart Specimen';
+    const sz = p.s || 'Medium (320px height)';
+    const st = p.st || 'Default';
+
+    const height = sz.includes('Compact') ? '160px' : sz.includes('Large') ? '340px' : '220px';
+    const isDonut = v.includes('Donut');
+    const isArea = v.includes('Area');
+    const isTooltip = st.includes('Tooltip');
+    const isEmpty = st.includes('Empty');
+
+    if (isEmpty) {
+      return `
+        <div style="padding:24px;border:1px dashed var(--color-border-default);border-radius:8px;text-align:center;color:var(--color-text-muted)">
+          <b>${lbl}</b>
+          <p style="margin:6px 0 0;font-size:12px">No data points recorded for this observation range.</p>
+        </div>
+      `;
+    }
+
+    return `
+      <div style="padding:16px 20px;border:1px solid var(--color-border-default);background:var(--color-surface-default);border-radius:8px;max-width:${p.wide?'100%':'540px'}">
+        <div style="display:flex;justify-content:space-between;margin-bottom:14px">
+          <div>
+            <b style="font-size:14px;display:block">${lbl} (${v})</b>
+            <span class="m" style="font-size:12px;color:var(--color-text-secondary)">Total 2,410 Instances Mounted</span>
+          </div>
+          <span class="bdg bd-su" style="font-size:11px;padding:2px 8px">&#9650; +14.2%</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:12px;height:${height};padding-top:10px;border-bottom:1px solid var(--color-border-subtle);position:relative">
+          ${isTooltip ? `
+            <div style="position:absolute;top:10px;left:40%;background:rgba(0,0,0,0.85);color:#fff;padding:4px 8px;border-radius:4px;font-size:11px;pointer-events:none;z-index:10">
+              Thursday: 85 Adoptions
+            </div>
+          ` : ''}
+          ${[40, 65, 30, 85, 95, 70, 100].map((h, i) => `
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
+              <div style="width:100%;height:${h}%;background:${i===6?'var(--meld-primary)':'var(--color-surface-interactive)'};border-radius:4px 4px 0 0;transition:height 0.3s"></div>
+              <span style="font-size:10px;color:var(--color-text-muted)">${['M','T','W','T','F','S','S'][i]}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  };
+
+  /* --------------------------------------------------------------------------
+     5. HOOK INTO ARCHETYPE RENDERERS (R.g, R.c, R.p, R.m, R.v)
+     -------------------------------------------------------------------------- */
+  if (typeof R !== 'undefined') {
+    ['g', 'c', 'p', 'm'].forEach(arch => {
+      if (R[arch]) {
+        const origR = R[arch];
+        R[arch] = function(c, p) {
+          if (R_DATA[c.n]) {
+            return R_DATA[c.n](c, p);
+          }
+          return origR(c, p);
+        };
+      }
+    });
+
+    // Specifically hook Code Block on R.v without recursion
+    if (R.v) {
+      const origRv = R.v;
+      R.v = function(c, p) {
+        if (c.n === 'Code Block' && R_DATA['Code Block']) {
+          return R_DATA['Code Block'](c, p);
+        }
+        return origRv(c, p);
+      };
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     6. INTERACTIVE EVENT HANDLERS FOR DATA DISPLAY
+     -------------------------------------------------------------------------- */
+  document.addEventListener('click', function(e) {
+    // 1. Progress Bar actions
+    const progAct = e.target.closest('[data-prog-act]');
+    if (progAct) {
+      const act = progAct.dataset.progAct;
+      if (act === 'add') DS.progressVal = Math.min(100, DS.progressVal + 15);
+      else if (act === 'sub') DS.progressVal = Math.max(0, DS.progressVal - 15);
+      else if (act === 'full') DS.progressVal = 100;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+
+    const progStep = e.target.closest('[data-prog-step]');
+    if (progStep) {
+      const delta = +progStep.dataset.progStep;
+      DS.progressVal = Math.min(100, Math.max(0, DS.progressVal + delta * 25));
+      if (typeof pv === 'function') pv();
+      return;
+    }
+
+    // 2. Chip / Tag actions
+    const chipAct = e.target.closest('[data-chip-act]');
+    if (chipAct) {
+      const act = chipAct.dataset.chipAct;
+      if (act === 'remove') DS.chipGone = true;
+      else if (act === 'undo') DS.chipGone = false;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+
+    // 3. Rating star clicking
+    const starBtn = e.target.closest('[data-rate-star]');
+    if (starBtn) {
+      DS.ratingScore = +starBtn.dataset.rateStar;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+
+    // 4. Video toggle
+    if (e.target.closest('[data-video-toggle]')) {
+      DS.videoPlaying = !DS.videoPlaying;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+
+    // 5. Carousel navigation
+    if (e.target.closest('[data-carousel-prev]')) {
+      DS.carouselSlide = (DS.carouselSlide + 2) % 3;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+    if (e.target.closest('[data-carousel-next]')) {
+      DS.carouselSlide = (DS.carouselSlide + 1) % 3;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+    const dotBtn = e.target.closest('[data-carousel-dot]');
+    if (dotBtn) {
+      DS.carouselSlide = +dotBtn.dataset.carouselDot;
+      if (typeof pv === 'function') pv();
+      return;
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     7. STYLESHEET INJECTION FOR DATA DISPLAY
+     -------------------------------------------------------------------------- */
+  const dataStyle = document.createElement('style');
+  dataStyle.id = 'meld-data-display-styles';
+  dataStyle.textContent = `
+    @keyframes adv-ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+    @keyframes adv-indeterminate {
+      0% { left: -40%; width: 40%; }
+      50% { left: 30%; width: 60%; }
+      100% { left: 100%; width: 40%; }
+    }
+    .adv-prog-indeterminate {
+      position: absolute !important;
+      animation: adv-indeterminate 1.8s infinite ease-in-out;
+    }
+    .adv-prog-striped {
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent) !important;
+      background-size: 1rem 1rem !important;
+    }
+  `;
+  document.head.appendChild(dataStyle);
+
+  console.log("Meld Data Display Component Engine initialized.");
+})();
+
 
 
 prog();list();

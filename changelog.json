@@ -1,6 +1,35 @@
 {
     "entries":  [
                     {
+                        "id":  "data-display-components-behavioural-repair",
+                        "version":  "1.5.2",
+                        "date":  "2026-11-03",
+                        "timestamp":  "09:40:00 IST",
+                        "category":  "fix",
+                        "title":  "Data Display Components Behavioural Repair \u0026 Interactive Multi-Variant Engine",
+                        "summary":  "Major fix resolving preview inertia and control masking across all 20 Data Display components, repairing Status Indicator regex collision, implementing semantic Description List and Divider renderers, and introducing live interactive Progress Bar and Rating controls.",
+                        "description":  "Completed a full functional audit and behavioural repair of Category 4 (Data Display). Fixed a critical regex matching order defect in R.g where /Stat/ intercepted \u0027Status Indicator\u0027 with the Stat/Metric card. Replaced hardcoded static previews with bespoke multi-variant renderers (R_DATA) across all 20 Data Display components including Status Indicator, Divider, Description List, Progress Bar, Badge, Chip / Tag, Avatar, Avatar Group, Typography / Content Primitives, List, List Item, Stat / Metric, Circular Progress, Rating Display, Key-Value Pair, Code Block, Image, Video Player, Carousel, and Data Visualization Wrapper. Enabled full interactive preview controls (EF.g, EF.c, EF.p, EF.m = \u0027v s t b w l i\u0027) and verified 100% pass across 206 automated test assertions and 140 live browser DOM tests.",
+                        "changes":  [
+                                        "Fixed critical regex ordering defect in R.g where /Stat/.test(n) preceded /Status/.test(n), incorrectly rendering \u0027Active projects 128\u0027 Stat card for Status Indicator.",
+                                        "Engineered dedicated 11-section specifications (SPEC) and bespoke renderers (R_DATA) across all 20 Data Display components, eliminating fallback inertia across Variant, Size, State, and Label controls.",
+                                        "Rebuilt Divider with horizontal solid, dashed, dotted, labeled (\u0027OR\u0027 / custom), and bilateral vertical layouts with true role=\u0027separator\u0027 semantics and thickness scaling.",
+                                        "Rebuilt Description List using semantic \u003cdl\u003e, \u003cdt\u003e, \u003cdd\u003e elements supporting Horizontal (180px term width), Vertical stacked, Compact, Bordered, Striped, and accessible Missing Values (em-dash) states.",
+                                        "Rebuilt Progress Bar with Continuous Linear, Linear with Label, Segmented (4-step), Striped, and Indeterminate shimmer modes, supporting interactive step advance/decrement (-15%, +15%, 100%) and height scaling (4px, 8px, 14px).",
+                                        "Added interactive micro-behaviors across Data Display: live rating star selection, chip dismissal with undo toast, play/pause showreel toggle, carousel slide cycling with dot pagination, and key-value pair clipboard copying.",
+                                        "Passed 206/206 automated unit test assertions and 140/140 live browser end-to-end DOM tests in headless Chrome with zero horizontal overflow across 7 viewports (320px-1440px)."
+                                    ],
+                        "affectedAreas":  [
+                                              "Component Explorer",
+                                              "Data Display Components (Category 4)",
+                                              "Archetype Renderers (R.g, R.c, R.p, R.m, R.v)",
+                                              "Preview Control Synchronization (EF)",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "fix(components): repair data display variants, sizes, and state behaviours",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "specialised-advanced-components-bespoke-engine",
                         "version":  "1.5.1",
                         "date":  "2026-11-02",
