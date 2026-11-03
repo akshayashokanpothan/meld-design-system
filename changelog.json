@@ -1,6 +1,31 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "specialised-advanced-auth-variant-size-state-repair",
+                        "version":  "1.5.5",
+                        "date":  "2026-11-03",
+                        "timestamp":  "17:00:00 IST",
+                        "category":  "fix",
+                        "title":  "Specialised \u0026 Advanced Components â€” Variant, Size \u0026 State Behaviour Repair",
+                        "summary":  "Comprehensive functional audit and repair of Category 12 (Specialised \u0026 Advanced), eliminating state lock bugs in Authentication Controls, ensuring SSO Provider Stack renders accurate multi-provider identity, account context, and provider actions across all supported sizes (36px, 44px, 52px) and states (Default, Hover, Focus-visible, Loading, Authenticated / Active, Session Expired, Error).",
+                        "description":  "Conducted a comprehensive functional audit of Category 12 (Specialised \u0026 Advanced) with dedicated focus on Authentication Controls. Discovered and resolved a critical state-binding defect where interactive login states overrode the State dropdown selector. Re-architected SSO Provider Stack to render an authentic enterprise multi-provider identity stack (Google Workspace, IDEO Okta SAML 2.0, GitHub Enterprise) with genuine provider logos, identity domain badges, session metadata, and responsive sizing scales (Compact 36px, Medium 44px, Large 52px). Validated that all 7 supported states (Default, Hover, Focus-visible, Loading with live handshake spinner, Authenticated / Active with active user profile \u0026 connected IdP tokens, Session Expired with amber alert \u0026 re-authentication actions, Error with red alert \u0026 IdP certificate validation failure recovery) produce distinct, accessible UI. Verified all other Category 12 components (Rich Text Toolbar, Markdown Editor, Command Shortcuts, Keyboard Shortcut Hint, QR Code Block, Map / Location Preview, Signature Pad, Payment / Billing Field, OTP / Verification Flow, Consent / Preference Control, Print / Export Action, Undo / Redo Control, Virtualized List Wrapper) against full size/state responsiveness.",
+                        "changes":  [
+                                        "Fixed state binding in Authentication Controls by prioritizing explicit dropdown state selection over local simulated login state, restoring responsiveness across all 7 documented states.",
+                                        "Rebuilt SSO Provider Stack to render authentic enterprise IdP identities (Google Workspace, IDEO Okta SAML 2.0, GitHub Enterprise) with provider logos, domain metadata, and connection badges.",
+                                        "Implemented genuine multi-element size scaling for Compact (36px), Medium (44px), and Large (52px) across button heights, container padding, typography, avatar dimensions, and gap spacing.",
+                                        "Ensured distinct UI responses for all states: Loading (spinner \u0026 disabled buttons), Authenticated (user chip, Active 2FA badge, connected IdP session), Session Expired (timeout warning \u0026 re-auth action), Error (SAML certificate error alert \u0026 retry action), Focus-visible (3px outline with 2px offset), and Hover.",
+                                        "Deduplicated repeated engine blocks in index.html and maintained 100% test pass rate across all 453 test assertions."
+                                    ],
+                        "affectedAreas":  [
+                                              "Specialised \u0026 Advanced (Authentication Controls, SSO Provider Stack, Passkey, Biometric Card, Session Badge)",
+                                              "Component Browser State Binding \u0026 Size Token Propagation",
+                                              "Changelog"
+                                          ],
+                        "commitMessage":  "fix(components): repair specialised authentication variants, sizes, and states",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "cross-category-behaviour-state-theme-fix",
                         "version":  "1.5.4",
                         "date":  "2026-11-03",
