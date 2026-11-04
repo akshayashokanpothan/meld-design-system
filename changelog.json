@@ -1,6 +1,40 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "specialised-components-functional-audit-repair-v157",
+                        "version":  "1.5.7",
+                        "date":  "2026-11-04",
+                        "timestamp":  "16:15:00 IST",
+                        "category":  "fix",
+                        "title":  "Specialised Components Functional Audit \u0026 Behaviour Repair",
+                        "summary":  "Comprehensive functional and visual repair of Category 12 (Specialised \u0026 Advanced) components: Consent / Preference Control, Print \u0026 Export Action, and Virtualized List Wrapper, establishing authentic multi-category privacy configuration, independent browser print execution and authentic multi-format data file export downloads (CSV, JSON, SVG, PDF), and a high-performance 1,000-record virtualized scrolling engine with dynamic filtering and selection persistence.",
+                        "description":  "Fixed documented variant, size, state and interaction behavior across Consent Preference Control, Print \u0026 Export Action, and Virtualized List Wrapper. Improved functional reliability, theme consistency, accessibility and regression coverage. Repaired Consent Preference Control to support all 4 privacy categories (Strictly Necessary locked with badge, Functional, Analytics, Marketing), accordion cookie disclosures, persist/save feedback, and custom notice banners. Separated Print and Export into distinct operations, providing a native print spooler trigger with @media print stylesheets and real file download generation for CSV, JSON, SVG, and PDF exports. Re-engineered Virtualized List Wrapper with a 1,000-item canonical dataset, real windowed DOM mounting (~0.8% DOM overhead), live HUD telemetry, search filtering, empty states, and selection persistence across scrolling.",
+                        "changes":  [
+                                        "Consent / Preference Control: Implemented all 4 documented categories (Strictly Necessary permanently locked, Functional \u0026 Preferences, Analytics \u0026 Telemetry, Marketing \u0026 Partner Insights) with WAI-ARIA role=\u0027switch\u0027 and aria-checked states.",
+                                        "Consent / Preference Control: Added expandable accordion detail panels disclosing cookie names, retention durations, host domains, and GDPR Art. 6 legal grounds.",
+                                        "Consent / Preference Control: Added Accept All, Reject Non-Essential, Customize Preferences, Save Preferences with persistent workspace confirmation banner, and Reset Defaults across Granular Checklist, Cookie Notice Banner, and Compact Switch Card variants.",
+                                        "Print \u0026 Export Action: Decoupled Print and Export into independent operations, implementing dedicated Print action button with browser window.print() dispatch and @media print stylesheet layout.",
+                                        "Print \u0026 Export Action: Engineered authentic file generation and download engine producing genuine RFC-4180 CSV tables, structured JSON manifests, vector SVG badges, and printable documents with genuine browser download triggers.",
+                                        "Print \u0026 Export Action: Implemented generation progress indicator (0% -\u003e 100%), download completion banner with file size and timestamp, and retry error handling across Split Button, Action Bar, and Floating Pill variants.",
+                                        "Virtualized List Wrapper: Re-engineered virtualization engine managing 1,000 canonical component items, maintaining phantom spacer height (48,000px-50,000px) while mounting only 6-12 visible DOM nodes.",
+                                        "Virtualized List Wrapper: Implemented multi-select engine with Set-based selection persistence across scrolling and jumping, dynamic search filter input, empty state handling, and live HUD telemetry.",
+                                        "Virtualized List Wrapper: Added bespoke variant renderers for Standard Virtualized Rows, Card Grid View, and Windowed Message Feed.",
+                                        "Theme \u0026 Contrast: Bound all components to Meld semantic tokens (--surface-card, --surface-subtle, --surface-page, --text-primary, --text-secondary, --border-default, --interactive-primary), guaranteeing WCAG 2.2 AA contrast compliance across Light and Dark themes.",
+                                        "Regression Suite: Expanded automated verification suite from 453 to 588 assertions covering all variants, sizes, states, disclosures, and virtualization metrics with a 100% pass rate (588/588)."
+                                    ],
+                        "affectedAreas":  [
+                                              "Components â†’ Specialised \u0026 Advanced",
+                                              "Consent / Preference Control",
+                                              "Print / Export Action",
+                                              "Virtualized List Wrapper",
+                                              "Automated Test Suite (runAutomatedAdvancedSuite)",
+                                              "Changelog (v1.5.7)"
+                                          ],
+                        "commitMessage":  "fix(components): repair consent, print-export, and virtualized list behavior",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "base-level-theme-architecture-dark-mode-accessibility-repair",
                         "version":  "1.5.6",
                         "date":  "2026-11-03",
