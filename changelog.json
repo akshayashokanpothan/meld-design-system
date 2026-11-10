@@ -1,6 +1,35 @@
 {
     "entries":  [
                     {
+                        "id":  "data-feedback-nav-ai-pattern-fix-v159",
+                        "version":  "1.5.9",
+                        "date":  "2026-11-10",
+                        "timestamp":  "18:58:00 IST",
+                        "category":  "fix",
+                        "title":  "Pattern fix",
+                        "summary":  "Completed architectural audit and functional repair across 72 Pattern Explorer patterns spanning Data Interaction (17), Feedback and System Status (17), Navigation \u0026 IA (14), and AI Interaction (24), replacing shared generic placeholders with bespoke interactive engines, semantic Light/Dark tokenization, and zero-overflow responsive layouts (320px-1440px).",
+                        "description":  "Eliminated category-level fallback stubs and duplicate boilerplate metadata across four Pattern Explorer categories (72 patterns total). Engineered dedicated state-driven renderers PAT_DATA, PAT_FEEDBACK, PAT_NAV, and PAT_AI with synchronized PAT_SPEC documentation while preserving authentic maturity tiers (P0-P3). Fixed semantic visual distinction across alert severities (Success, Error, Warning, Info), Confirmation vs DELETE-gated Destructive modals, Undo queues, Skeleton/Retry/Offline telemetry, distinct Global/Side/Top/Breadcrumb/Tabs/Tree/Master-Detail/Stepper/TOC/Omnibox/Cmd+K/Drawer/Workspace navigation shells, and authentic multi-turn AI Chat, Prompt Suggestions, Streaming, Thinking, Diff Review, HITL Governance, Citations, Agent Steppers, Memory Controls, CSV Analysis, and Human Handoff workflows.",
+                        "changes":  [
+                                        "Patterns -\u003e Data Interaction (17 patterns): Implemented PAT_DATA engines for Data Table, Search and Filtering, Advanced Filtering, Sorting, Pagination, Bulk Selection, Bulk Actions, Inline Editing, Row Expansion, Column Customization, Saved Views, Empty Data States, Data Export (genuine CSV/JSON Blob triggers), Import Data (staged preview + validation), Master-Detail Views, Dashboard Filtering (synced KPI + inline SVG chart), and Data Comparison.",
+                                        "Patterns -\u003e Feedback and System Status (17 patterns): Implemented PAT_FEEDBACK with true semantic differentiation across Success Feedback, Error Feedback (expandable diagnostics), Warning Feedback, Informational Feedback, Toast Notifications, Inline Alerts, Confirmation Dialogs, Destructive Action Confirmation (typed DELETE safety lock), Undo Actions, Background Processing, Long-Running Operations, Progress Tracking (Linear, SVG Ring, Stepped, Indeterminate), Network Error and Recovery, Offline Status, Empty States, Skeleton Loading, and Retry Mechanisms.",
+                                        "Patterns -\u003e Navigation \u0026 IA (14 patterns): Replaced shared breadcrumb-only stubs with distinct PAT_NAV structures for Global Navigation, Side Navigation, Top Navigation, Breadcrumb Navigation (overflow ellipsis popover), Tabs (ARIA ArrowLeft/ArrowRight keyboard nav), Nested Navigation, Master-Detail Navigation, Step Navigation, Contextual Navigation, Search-Based Navigation, Command Palette (Cmd+K arrow + Enter execution), Back Navigation, Responsive Navigation (Desktop/Mobile Drawer + Bottom Bar), and Navigation Between Workspaces.",
+                                        "Patterns -\u003e AI Interaction (24 patterns): Built PAT_AI stateful workflows covering Conversational AI Interface, AI Prompt Input, Prompt Suggestions (category filtering + append/replace modes), AI Response Presentation, Streaming Response (chunked playback + timer cleanup on switch), AI Thinking and Processing, AI-Generated Content Review (per-hunk diff accept/discard), Accept / Reject AI Suggestions, Human-in-the-Loop Approval, AI Confidence and Uncertainty, Source and Citation Disclosure, AI Regeneration, AI Response Editing, AI Workflow Automation, Agent Action Confirmation, Agent Permission Requests, Multi-Step Agent Execution, Agent Progress Tracking, Agent Error and Recovery, AI Undo and Rollback, AI Conversation History, Context and Memory Controls, AI File and Data Analysis, and Human Handoff.",
+                                        "Accessibility, Encoding \u0026 Responsive Hardening: Restored 36 double-encoded UTF-8 mojibake sequences across UI headers and specs, improved Dark Mode disabled control contrast, clamped grid minmax(min(100%, 300px), 1fr) rules to achieve zero horizontal overflow across 320px-1440px viewports, and verified 100% pass rates across automated (1560/1560) and live headless Chromium E2E checks (148/148) plus Forms (15) and Files \u0026 Media (14) regressions."
+                                    ],
+                        "affectedAreas":  [
+                                              "Patterns -\u003e Data Interaction (17 patterns)",
+                                              "Patterns -\u003e Feedback and System Status (17 patterns)",
+                                              "Patterns -\u003e Navigation \u0026 IA (14 patterns)",
+                                              "Patterns -\u003e AI Interaction (24 patterns)",
+                                              "PAT_SPEC Specifications \u0026 Pattern Controllers",
+                                              "Responsive CSS Grid Clamps \u0026 UTF-8 Token Polish",
+                                              "Changelog (v1.5.9)"
+                                          ],
+                        "commitMessage":  "fix(patterns): repair data feedback navigation and AI interaction patterns",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "forms-files-media-pattern-fix-v158",
                         "version":  "1.5.8",
                         "date":  "2026-11-10",
