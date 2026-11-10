@@ -1,5 +1,33 @@
-﻿{
+{
     "entries":  [
+                    {
+                        "id":  "forms-files-media-pattern-fix-v158",
+                        "version":  "1.5.8",
+                        "date":  "2026-11-10",
+                        "timestamp":  "17:40:00 IST",
+                        "category":  "fix",
+                        "title":  "Pattern fix",
+                        "summary":  "Replaced identical boilerplate previews across Patterns -\u003e Forms (15 patterns) and Patterns -\u003e Files and Media (14 patterns) with 29 distinct, interactive workflow implementations, updated per-pattern specifications, semantic Light/Dark tokenization, and responsive reflow.",
+                        "description":  "Audited and repaired Pattern Explorer rendering across Category 2 (Forms: 15 patterns) and Category 6 (Files and Media: 14 patterns). Removed category-wide hardcoded placeholder blocks and homogenized boilerplate metadata in PAT_SPEC. Built PAT_FORMS and PAT_FILES dedicated pattern engines covering multi-step wizards, branching conditional logic, inline and real-time validation, cascading dependent fields, searchable select comboboxes, repeating sections, embedded file upload validation, review attestation, draft persistence, unsaved navigation guards, HTTP 503 retry recovery, editable bulk data tables, single/multi/drag-and-drop intake dropzones, cropped image uploads, safe file versioning replacement, confirmation/undo removal guards, filterable attachment workspaces, document preview viewers, multi-image lightbox galleries, real Blob file downloads, policy validation matrices, live pause/resume progress telemetry, network failure recovery, and unsupported binary fallback handling.",
+                        "changes":  [
+                                        "Patterns -\u003e Forms (15 patterns): Implemented individual PAT_FORMS state models and interactive renderers for Simple Forms, Multi-Step Forms, Dynamic Forms, Conditional Fields, Inline Validation, Real-Time Validation, Dependent Fields, Searchable Select Forms, Repeating Form Sections, File Upload Forms, Review and Confirmation, Save as Draft, Unsaved Changes, Form Submission and Recovery, and Bulk Data Entry.",
+                                        "Patterns -\u003e Files and Media (14 patterns): Implemented distinct PAT_FILES workflows for Single File Upload, Multiple File Upload, Drag-and-Drop Upload, Image Upload (local FileReader thumbnail preview \u0026 aspect fit), File Replacement (version diff staging), File Removal (confirmation modal + Undo restoration), Attachment Management (filtering, multi-select, inline rename), File Preview (zoom 75%-150%, pagination, metadata inspector, zero upload dropzones), Image Gallery (thumbnails + accessible Lightbox modal), File Download (genuine Blob downloads \u0026 batch ZIP manifest), File Validation (policy rule toggles \u0026 oversized/MIME checks), Upload Progress (pause/resume, speed/ETA), Failed Upload Recovery (HTTP 504 diagnostic retry), and Unsupported File Handling.",
+                                        "Pattern Explorer Controller \u0026 Event Dispatch: Fixed patAttachHandlers() event wiring (handleChange, handleInput, handleClick, file input change, drag/drop), added cursor focus/selection preservation across patDraw() re-renders, enforced patNormalizeSelection(pat) on pattern switches to stop stale variant/state leakage, and added disabled (n/a) handling on Clear Form Inputs for non-editable Files patterns.",
+                                        "Documentation \u0026 Contrast Fixes: Updated PAT_SPEC anatomy, dependencies, layouts, variants, states, interactions, edge cases, WCAG 2.2 AA notes, responsive rules, and Figma paths across all 29 patterns while keeping original P0/P1/P2 maturity tiers; removed horizontal .flow overlap and duplicate numbering in D. ANATOMY lists; upgraded subtle prefix/secondary text contrast above 4.5:1 across Light and Dark previews.",
+                                        "Regression \u0026 Verification: Expanded runAutomatedAdvancedSuite() to 892 assertions (892/892 passing) and validated interactive E2E state transitions, Light/Dark contrast, 768px Tablet reflow, and 390px Mobile reflow with zero horizontal overflow across all 29 patterns (123/123 passing)."
+                                    ],
+                        "affectedAreas":  [
+                                              "Patterns -\u003e Forms (15 patterns)",
+                                              "Patterns -\u003e Files and Media (14 patterns)",
+                                              "PAT_SPEC Specifications \u0026 Anatomy List",
+                                              "PAT_ENGINE / patAttachHandlers / patDraw",
+                                              "Automated Test Suite (runAutomatedAdvancedSuite)",
+                                              "Changelog (v1.5.8)"
+                                          ],
+                        "commitMessage":  "fix(patterns): implement distinct forms and files media pattern behaviors",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
                     {
                         "id":  "specialised-components-functional-audit-repair-v157",
                         "version":  "1.5.7",
