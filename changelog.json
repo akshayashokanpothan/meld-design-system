@@ -1,6 +1,37 @@
 {
     "entries":  [
                     {
+                        "id":  "global-pattern-dimensions-auth-variants-v160",
+                        "version":  "1.6.0",
+                        "date":  "2026-11-11",
+                        "timestamp":  "12:35:16 IST",
+                        "category":  "fix",
+                        "title":  "Pattern Dimension Documentation \u0026 Authorization Variant Behaviour Fixes",
+                        "summary":  "Added exact designer-facing Dimensions \u0026 Layout Specifications (visual SVG blueprints, component/instance tables, responsive Desktop/Tablet/Mobile specs, and reusable Meld tokens) to all 125 registered patterns across all 8 categories, and audited/repaired Authentication/Authorization variants (Standard / Default, Compact / Inline, Modal / Dialog Sheet, Full-Page / Workspace) plus Onboarding renderers.",
+                        "description":  "Implemented PAT_DIMS and PAT_DIM_RENDER inside Pattern Explorer detail views across all 8 categories (Authentication 12, Onboarding 12, Forms 15, Data Interaction 17, Feedback \u0026 System Status 17, Navigation \u0026 IA 14, Files \u0026 Media 14, AI Interaction 24 = 125 patterns covering 407 individual component instances). Built dedicated PAT_AUTH and PAT_ONBOARD engines fixing shared fallbacks and variant behavior so Compact / Inline renders genuine horizontal dense 32px controls and 12px padding while preserving user inputs and ensuring explicit Playground state selections override transient local flags.",
+                        "changes":  [
+                                        "Added exact pixel dimension specifications to all 125 registered patterns across all 8 Pattern Explorer categories inside PAT_DIMS.",
+                                        "Added designer-friendly component and instance-level dimension breakdowns covering 407 component instances (width x height, padding, gap, radius, typography, and variant overrides) directly within every pattern detail page.",
+                                        "Added Desktop (100%), Tablet (768px), and Mobile (390px / 320px) responsive dimension comparisons alongside Meld token mapping and Fixed vs Fluid design notes.",
+                                        "Added visual SVG dimension diagrams (PAT_DIM_RENDER.renderBlueprintSvg) inside pattern documentation showing container width rails, inset padding guides, radii, and annotated component slots.",
+                                        "Fixed Compact / Inline, Standard / Default, Modal / Dialog Sheet, and Full-Page / Workspace variant rendering and interactive behavior across Authentication / Authorization (PAT_AUTH, 12 patterns), Onboarding (PAT_ONBOARD, 12 patterns), and AI Human-in-the-Loop Authorization Compact Split Decision Strip.",
+                                        "Improved variant state resolution, input preservation across variant switches, explicit Playground control precedence, Clear Form Inputs (n/a) accuracy, and UTF-8 token consistency across Light and Dark modes.",
+                                        "Expanded regression coverage to 2,301 assertions in runAutomatedAdvancedSuite and 270 live headless Chromium E2E checks across all 125 patterns with zero contrast or horizontal overflow failures."
+                                    ],
+                        "affectedAreas":  [
+                                              "PAT_DIMS \u0026 PAT_DIM_RENDER (All 125 Patterns / 407 Instances)",
+                                              "Patterns -\u003e Authentication / Authorization (PAT_AUTH: 12 patterns)",
+                                              "Patterns -\u003e Onboarding (PAT_ONBOARD: 12 patterns)",
+                                              "PAT_SPEC Specifications \u0026 patDet Layout",
+                                              "PAT_ENGINE / wrapVariant / Compact Inline CSS",
+                                              "Automated \u0026 Live E2E Regression Suites",
+                                              "Changelog (v1.6.0)"
+                                          ],
+                        "commitMessage":  "fix(patterns): resolve dimension documentation and authorization variant behaviour",
+                        "commitRef":  null,
+                        "breaking":  false
+                    },
+                    {
                         "id":  "data-feedback-nav-ai-pattern-fix-v159",
                         "version":  "1.5.9",
                         "date":  "2026-11-10",
