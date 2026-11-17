@@ -1,6 +1,35 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "fluent-inspired-global-navigation-hero-v190",
+                        "version":  "1.9.0",
+                        "date":  "2026-11-17",
+                        "timestamp":  "18:45:00 IST",
+                        "category":  "feature",
+                        "title":  "Fluent-Inspired Global Navigation \u0026 Hero Experience",
+                        "summary":  "Introduced a unified Fluent-inspired navigation architecture across the Meld Design System, including a persistent expandable sidebar, integrated search, global utility controls and a redesigned immersive homepage hero. Added a distinctive 3D visual composition and prominent Design and Develop entry points while preserving all existing documentation modules and playground functionality.",
+                        "description":  "Redesigned the Meld Design System interface architecture to match the structural format and visual hierarchy of Microsoft Fluent 2. Features a persistent 320px left navigation sidebar with expandable groups, search shortcut, and active state containers across all platform routes; a streamlined top utility bar with theme switcher, GitHub link, and version access; and an immersive dark homepage hero with oversized brand typography (Meld), the signature \u0027Let the [design] flow\u0027 headline, a dimensional 3D geometric visual, and dual prominent Design and Develop entry cards.",
+                        "changes":  [
+                                        "Implemented persistent 320px Fluent-style left sidebar across the entire platform, featuring fixed brand header, search shortcut (\u0027/\u0027), and expandable navigation tree across Get Started, Design Language, Components, Patterns, Templates \u0026 Layouts, Content Design, Resources, and Changelog.",
+                                        "Constructed streamlined top-right global utility header with animated theme switcher (sun/moon switch), GitHub repository link, and version badge, removing duplicate horizontal navbar in the main canvas.",
+                                        "Recreated the Fluent 2 hero composition: upper-left eyebrow (\u0027WELCOME TO\u0027), oversized display typography (\u0027Meld\u0027), signature pill highlight headline (\u0027Let the [design] flow\u0027), concise supporting text, and dual CTAs.",
+                                        "Created an original 3D sculptural artwork on the right side of the hero featuring translucent geometric crystals, iridescent chromatic dispersion in Meld colors (#BC4989, #39409A), and soft atmospheric depth.",
+                                        "Implemented two horizontally arranged bottom feature cards for Design and Develop with dimensional icons and direct pathways, followed by secondary discovery for Templates \u0026 Layouts and Content Design.",
+                                        "Unified the application shell so the persistent sidebar, utility header, and main canvas operate synchronously across Homepage, Foundations, Components, Patterns, Templates \u0026 Layouts, Content Design, and all interactive playgrounds.",
+                                        "Implemented responsive off-canvas drawer navigation for mobile and tablet viewports (\u003c1024px) with keyboard accessibility, escape handling, and zero horizontal overflow across 320px-1440px."
+                                    ],
+                        "affectedAreas":  [
+                                              "Global Layout Shell (.fluent-shell, .fluent-sidebar, .wrap)",
+                                              "Persistent Left Sidebar (nav.side, NAV_TREE)",
+                                              "Top Utility Header (header.hd, .fluent-utility-header)",
+                                              "Homepage Hero Canvas (#home, .fluent-hero-canvas)",
+                                              "Bottom Feature Cards (Design \u0026 Develop, .pathways-grid)",
+                                              "Documentation Shell \u0026 Navigation Synchronization",
+                                              "Changelog (v1.9.0)"
+                                          ],
+                        "commitMessage":  "feat: introduce unified sidebar navigation and immersive hero"
+                    },
+                    {
                         "id":  "homepage-hero-redesign-global-navigation-v180",
                         "version":  "1.8.0",
                         "date":  "2026-11-17",
