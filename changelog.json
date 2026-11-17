@@ -1,6 +1,35 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "homepage-hero-redesign-global-navigation-v180",
+                        "version":  "1.8.0",
+                        "date":  "2026-11-17",
+                        "timestamp":  "16:15:00 IST",
+                        "category":  "feature",
+                        "title":  "Homepage Hero Redesign \u0026 Global Navigation Enhancement",
+                        "summary":  "Introduced a redesigned Meld homepage inspired by modern design-system landing experiences, featuring a new editorial hero, simplified global navigation, dedicated entry points for design and development resources, and improved discovery of the five core Meld modules. Preserved the existing documentation navigation and functionality.",
+                        "description":  "Redesigned and implemented the Meld Design System homepage and global navigation inspired by modern editorial design system compositions (taking inspiration from Microsoft Fluent), emphasizing visual hierarchy, an immersive hero section, generous negative space, minimal horizontal navigation, prominent entry-point cards for Design, Develop, Templates \u0026 Layouts, and Content Design, and a cohesive five-module ecosystem showcase. Preserved all existing documentation navigation, playgrounds, registries, and routes.",
+                        "changes":  [
+                                        "Redesigned the global navigation into a clean, minimal horizontal navigation bar separating primary destinations (Home, Foundations, Components, Patterns, Templates \u0026 Layouts, Content Design) from utility actions (Search, Theme switcher, Changelog, GitHub, Version indicator).",
+                                        "Built an accessible mobile navigation drawer with backdrop blur, smooth slide transition, and keyboard escape handling for mobile and tablet viewports.",
+                                        "Redesigned the homepage hero section with an editorial display headline in Space Grotesk featuring word-highlight styling, small uppercase eyebrow, concise supporting description, and dual CTAs.",
+                                        "Implemented 4 prominent entry-point cards below the hero: Card 01 (Design), Card 02 (Develop), Card 03 (Templates \u0026 Layouts), and Card 04 (Content Design), each with distinct accent tokens, feature pills, and hover/focus transitions.",
+                                        "Added The Meld Ecosystem section highlighting the connected five core modules with direct exploration links.",
+                                        "Implemented Design \u0026 Development Philosophy section featuring Meld core principles (Consistency, Accessibility, Reusability, Scalability, Collaboration).",
+                                        "Added dynamic Latest Updates showcase reading directly from changelog data.",
+                                        "Preserved the existing documentation sidebar, Omnisearch (Cmd+K), light/dark theme switching, and all 100+ components and 125 patterns intact."
+                                    ],
+                        "affectedAreas":  [
+                                              "Homepage Hero (.immersive-hero)",
+                                              "Global Navigation (.landing-header, .hd-nav, #landing-nav-drawer)",
+                                              "Entry Points Grid (.pathways-grid, 4 cards)",
+                                              "Ecosystem \u0026 Philosophy Sections (.ecosystem-section, .principles-section)",
+                                              "Version Indicator (v1.8.0)",
+                                              "Changelog (changelog.json \u0026 CHANGELOG_FALLBACK)"
+                                          ],
+                        "commitMessage":  "feat: redesign homepage hero and global navigation"
+                    },
+                    {
                         "id":  "templates-layouts-content-design-v170",
                         "version":  "1.7.0",
                         "date":  "2026-11-17",

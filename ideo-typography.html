@@ -5,7 +5,366 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Variable font: supports every weight 300–700 used below -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-<style id="tok"></style>
+<style id="tok">/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
+</style>
 <style id="meld-theme-architecture">
 /* ==========================================================================
    MELD BY IDEO — CENTRAL UNIFIED SEMANTIC THEME ARCHITECTURE (WCAG 2.2 AA)
@@ -308,6 +667,365 @@ html[data-theme="dark"] {
   border-left-color: var(--border-focus);
   color: var(--text-secondary);
 }
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style>
 /* Documentation-interface tokens (NOT the IDEO website colour tokens) */
@@ -378,6 +1096,365 @@ nav.side.open{display:block}section{padding:48px 20px}
 [data-theme="dark"], html[data-theme=dark]{--bg:var(--surface-page);--sf:var(--surface-subtle);--tx:var(--text-primary);--t2:var(--text-secondary);--mu:var(--text-muted);--bd:var(--border-default);--ac:var(--border-focus);color-scheme:dark}
 [data-theme="dark"] .fr,html[data-theme=dark] .fr,[data-theme="dark"] select,html[data-theme=dark] select,[data-theme="dark"] textarea,html[data-theme=dark] textarea,[data-theme="dark"] input:not(.fi),html[data-theme=dark] input:not(.fi){background:var(--control-background);color:var(--control-text);border-color:var(--control-border)}
 [data-theme="dark"] .b[aria-pressed=true],html[data-theme=dark] .b[aria-pressed=true]{background:var(--interactive-primary);color:#fff;border-color:var(--interactive-primary)}[data-theme="dark"] .btnx,html[data-theme=dark] .btnx,[data-theme="dark"] #toast,html[data-theme=dark] #toast{color:var(--bg)}
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="ch-styles">
 /* ===== CHANGELOG MODULE STYLES ===== */
@@ -597,6 +1674,365 @@ nav.side.open{display:block}section{padding:48px 20px}
   font-size: 12px;
 }
 
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="md-complex-data-styles">
 /* ===== COMPLEX DATA COMPONENTS STYLES (Meld Design System) ===== */
@@ -925,6 +2361,365 @@ nav.side.open{display:block}section{padding:48px 20px}
   color: var(--text-secondary);
   flex-wrap: wrap;
   gap: 12px;
+}
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
 }
 </style>
 <style id="meld-responsive-standards">
@@ -1316,6 +3111,365 @@ pre {
   word-break: break-all !important;
 }
 
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="meld-homepage-portal-styles">
 /* ==========================================================================
@@ -2524,6 +4678,365 @@ nav.side a.side-link.on .side-badge {
   }
 }
 
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="meld-reworked-landing-styles">
 /* ==========================================================================
@@ -3534,6 +6047,365 @@ body.is-landing header.hd, body.is-landing .wrap {
 body.is-doc #landing-shell {
   display: none !important;
 }
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="meld-badge-and-pattern-styles">
 /* ==========================================================================
@@ -3687,6 +6559,365 @@ section, .doc-section {
   }
 }
 /* Responsive Figma Design System Embed Workspace End */
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 <style id="meld-templates-and-content-styles">
 /* ==========================================================================
@@ -4077,6 +7308,365 @@ section, .doc-section {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 </head><body>
 <!-- ==========================================================================
@@ -4088,44 +7678,89 @@ section, .doc-section {
      ========================================================================== -->
 
 <div id="landing-shell">
-  <!-- A. DEDICATED MINIMAL LANDING HEADER -->
+  <!-- A. DEDICATED MINIMAL GLOBAL LANDING HEADER -->
   <header class="landing-header">
-    <a href="#home" class="landing-brand">
-      <div class="landing-brand-logo">M</div>
-      <div class="landing-brand-text">
-        Meld<span class="landing-brand-sub">by IDEO</span>
-      </div>
-    </a>
+    <div class="landing-header-left">
+      <button class="landing-menu-toggle" id="landing-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="landing-nav-drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="#home" class="landing-brand">
+        <div class="landing-brand-logo">M</div>
+        <div class="landing-brand-text">
+          Meld<span class="landing-brand-sub">by IDEO</span>
+        </div>
+      </a>
+    </div>
 
-    <nav class="landing-nav-center" aria-label="Landing navigation">
-      <a href="#home" class="landing-nav-item">Home</a>
-      <a href="#foundations" class="landing-nav-item">Foundations</a>
-      <a href="#m-browser" class="landing-nav-item">Components</a>
-      <a href="#p-browser" class="landing-nav-item">Patterns</a>
-      <a href="#t-browser" class="landing-nav-item">Templates &amp; Layouts</a>
-      <a href="#cd-browser" class="landing-nav-item">Content Design</a>
-      <a href="#principles" class="landing-nav-item">Guidelines</a>
-      <a href="#changelog" class="landing-nav-item">Changelog</a>
+    <!-- Primary Navigation: 6 Core Destinations -->
+    <nav class="landing-nav-center" aria-label="Primary navigation">
+      <a href="#home" class="landing-nav-item active" data-nav="home">Home</a>
+      <a href="#foundations" class="landing-nav-item" data-nav="foundations">Foundations</a>
+      <a href="#m-browser" class="landing-nav-item" data-nav="components">Components</a>
+      <a href="#p-browser" class="landing-nav-item" data-nav="patterns">Patterns</a>
+      <a href="#t-browser" class="landing-nav-item" data-nav="templates">Templates &amp; Layouts</a>
+      <a href="#cd-browser" class="landing-nav-item" data-nav="content">Content Design</a>
     </nav>
 
+    <!-- Utility Navigation -->
     <div class="landing-header-right">
-      <button class="landing-search-btn" id="landing-search-trigger" aria-label="Search Meld documentation" title="Search documentation (⌘K)">
+      <button class="landing-search-btn" id="landing-search-trigger" aria-label="Search Meld documentation" title="Search documentation (Ctrl+K)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <span>Search Meld...</span>
-        <kbd style="font-size:11px;padding:2px 5px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--landing-text-muted);font-family:ui-monospace,Menlo,monospace">⌘K</kbd>
+        <kbd class="landing-search-kbd">&#8984;K</kbd>
       </button>
+
+      <a href="#changelog" class="landing-util-link" title="Release history">Changelog</a>
 
       <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="landing-gh-link" aria-label="GitHub Repository">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         <span>GitHub</span>
       </a>
 
-      <button class="b" id="landing-theme-toggle" aria-label="Toggle theme">Switch to dark</button>
-      <span class="tag v-tag" style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--meld-primary)">v1.7.0</span>
+      <button class="b landing-theme-btn" id="landing-theme-toggle" aria-label="Toggle theme">Switch to dark</button>
+      <span class="tag v-tag">v1.8.0</span>
     </div>
   </header>
 
-  <!-- B. IMMERSIVE HERO SECTION (85VH DESKTOP PRESENCE) -->
+  <!-- ACCESSIBLE MOBILE NAVIGATION DRAWER -->
+  <div id="landing-nav-drawer" class="landing-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="landing-drawer-header">
+      <a href="#home" class="landing-brand">
+        <div class="landing-brand-logo">M</div>
+        <div class="landing-brand-text">Meld<span class="landing-brand-sub">by IDEO</span></div>
+      </a>
+      <button class="landing-drawer-close" id="landing-menu-close" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="landing-drawer-body">
+      <div class="landing-drawer-group-title">Primary Destinations</div>
+      <nav class="landing-drawer-nav">
+        <a href="#home" class="drawer-nav-item active">Home</a>
+        <a href="#foundations" class="drawer-nav-item">Foundations</a>
+        <a href="#m-browser" class="drawer-nav-item">Components</a>
+        <a href="#p-browser" class="drawer-nav-item">Patterns</a>
+        <a href="#t-browser" class="drawer-nav-item">Templates &amp; Layouts</a>
+        <a href="#cd-browser" class="drawer-nav-item">Content Design</a>
+      </nav>
+      <div class="landing-drawer-group-title">Utilities &amp; Resources</div>
+      <div class="landing-drawer-utils">
+        <button class="drawer-util-btn" id="drawer-search-trigger">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search Meld...</span>
+          <kbd>&#8984;K</kbd>
+        </button>
+        <a href="#changelog" class="drawer-util-link">Changelog &amp; Release History</a>
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="drawer-util-link">GitHub Repository &#8599;</a>
+      </div>
+    </div>
+    <div class="landing-drawer-footer">
+      <button class="b drawer-theme-btn" id="drawer-theme-toggle">Switch to dark</button>
+      <span class="tag v-tag">v1.8.0</span>
+    </div>
+  </div>
+
+  <!-- B. IMMERSIVE HERO SECTION (MICROSOFT FLUENT-INSPIRED EDITORIAL COMPOSITION) -->
   <section class="immersive-hero">
     <div class="hero-ambient-grid"></div>
     <div class="hero-ambient-glow glow-magenta"></div>
@@ -4136,51 +7771,53 @@ section, .doc-section {
       <div class="hero-text-block">
         <div class="hero-pill-tag">
           <span class="hero-pill-dot"></span>
-          INTRODUCING MELD BY IDEO
+          MELD BY IDEO
         </div>
         <h1 class="hero-headline">
-          Design systems that bring <span class="headline-gradient">people, products and ideas</span> together.
+          Design with <span class="hero-word-pill">clarity</span>.<br>
+          Build with <span class="hero-word-accent">consistency</span>.
         </h1>
         <p class="hero-supporting">
-          An open-source design system for creating consistent, accessible and meaningful digital experiences across products and platforms.
+          A unified design system for building consistent, accessible and scalable digital experiences.
         </p>
 
         <div class="hero-cta-group">
-          <a href="#m-browser" class="btn-hero-primary">
-            Explore Meld
+          <a href="#foundations" class="btn-hero-primary">
+            <span>Explore the design system</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#get-started" class="btn-hero-secondary">
-            Start building
+          <a href="#primitives" class="btn-hero-secondary">
+            Explore developer resources
           </a>
         </div>
 
         <div class="hero-metrics-strip">
+          <div class="hero-metric-item">
+            <span class="metric-number">5</span>
+            <span class="metric-label">Core Modules</span>
+          </div>
           <div class="hero-metric-item">
             <span class="metric-number">100+</span>
             <span class="metric-label">Audited Components</span>
           </div>
           <div class="hero-metric-item">
             <span class="metric-number">125</span>
-            <span class="metric-label">UX & AI Patterns</span>
+            <span class="metric-label">UX &amp; AI Patterns</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-number">64</span>
+            <span class="metric-label">Page Templates</span>
           </div>
           <div class="hero-metric-item">
             <span class="metric-number">WCAG 2.2</span>
-            <span class="metric-label">Level AA Contrast</span>
-          </div>
-          <div class="hero-metric-item">
-            <span class="metric-number">320px–1920px</span>
-            <span class="metric-label">Zero-Overflow Standard</span>
+            <span class="metric-label">Level AA Standard</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Custom Meld Ecosystem Artwork -->
+      <!-- Right Column: Sculptural Studio Artwork -->
       <div class="hero-ecosystem-stage" aria-label="Meld Connected Design System Artwork">
-        <!-- Orbit lines -->
         <div class="prism-outer-ring"></div>
-
-        <!-- Central Glowing Geometric Monogram Prism (Inspired by Fluent 2 Prism) -->
         <div class="central-prism-monogram">
           <span class="prism-letter">M</span>
         </div>
@@ -4192,13 +7829,13 @@ section, .doc-section {
             <span style="color:#10B981;font-size:9.5px;font-weight:700">4.5:1 AA Pass</span>
           </div>
           <div class="sat-chips-row">
-            <div class="sat-color-chip" style="background:#BC4989" title="Primary #BC4989"></div>
-            <div class="sat-color-chip" style="background:#39409A" title="Secondary #39409A"></div>
-            <div class="sat-color-chip" style="background:#6366F1" title="Interactive"></div>
-            <div class="sat-color-chip" style="background:#F2EDF3" title="Surface Light"></div>
+            <div class="sat-color-chip" style="background:#BC4989" title="Primary Magenta #BC4989"></div>
+            <div class="sat-color-chip" style="background:#39409A" title="Secondary Indigo #39409A"></div>
+            <div class="sat-color-chip" style="background:#0284C7" title="Templates Cyan #0284C7"></div>
+            <div class="sat-color-chip" style="background:#E11D48" title="Content Rose #E11D48"></div>
           </div>
           <div style="font-size:11px;color:var(--landing-text-muted);display:flex;justify-content:space-between">
-            <span>Primary Magenta</span>
+            <span>Berry Magenta</span>
             <span>Deep Indigo</span>
           </div>
         </div>
@@ -4206,7 +7843,7 @@ section, .doc-section {
         <!-- Satellite 2: Micro Data Grid Fragment (Top Right) -->
         <div class="satellite-artifact sat-data-grid">
           <div class="sat-header">
-            <span>Data Grid · Lifecycle</span>
+            <span>Data Grid &middot; Lifecycle</span>
             <span style="font-size:10px;color:var(--meld-primary)">Active</span>
           </div>
           <table class="sat-mini-table">
@@ -4227,18 +7864,18 @@ section, .doc-section {
             <span style="font-size:10px;color:var(--landing-text-muted)">Space Grotesk</span>
           </div>
           <div class="sat-specimen-text">Ideas into impact.</div>
-          <div style="font-size:10.5px;color:var(--landing-text-muted)">Display Hero · 72px / 1.05 lh</div>
+          <div style="font-size:10.5px;color:var(--landing-text-muted)">Display Hero &middot; 72px / 1.05 lh</div>
         </div>
 
         <!-- Satellite 4: AI Supervisory Copilot (Bottom Right) -->
         <div class="satellite-artifact sat-ai-workflow">
           <div class="sat-header">
-            <span>AI Interaction · Pattern 08</span>
+            <span>AI Interaction &middot; Pattern 08</span>
             <span style="color:var(--meld-secondary);font-weight:700">P-AI-01</span>
           </div>
           <div class="sat-ai-indicator">
             <span class="sat-ai-pulse"></span>
-            <span style="font-size:12px;font-weight:600;color:var(--landing-text-primary)">Human-in-the-Loop Review</span>
+            <span style="font-size:12px;font-weight:600;color:var(--landing-text-primary)">Human-in-the-Loop</span>
           </div>
           <div style="font-size:11px;color:var(--landing-text-muted);margin-top:4px">Supervisory feedback active</div>
         </div>
@@ -4246,25 +7883,24 @@ section, .doc-section {
     </div>
   </section>
 
-  <!-- C. DEDICATED DESIGN AND DEVELOP ENTRY POINTS (PROMINENT PATHWAYS) -->
+  <!-- C. DEDICATED 4 HOMEPAGE ENTRY POINTS (DESIGN, DEVELOP, TEMPLATES, CONTENT) -->
   <section class="pathways-section">
     <div class="pathways-grid">
-      <!-- 01 · Design Pathway -->
-      <a href="#foundations" class="pathway-card" style="--path-accent:#BC4989">
-        <div>
-          <div class="pathway-top">
-            <div class="pathway-badge">01 · Designers</div>
-            <div class="pathway-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
+      <!-- Card 01: Design -->
+      <a href="#foundations" class="pathway-card pathway-design" style="--path-accent: #BC4989">
+        <div class="pathway-top">
+          <span class="pathway-badge">01 / DESIGN</span>
+          <div class="pathway-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
-          <h2 class="pathway-title">Design with Meld</h2>
-          <p class="pathway-desc">Explore the visual language, typography foundations, Figma libraries, responsive layouts, and cross-platform design guidelines.</p>
+        </div>
+        <div>
+          <h3 class="pathway-title">Design</h3>
+          <p class="pathway-desc">Explore foundations, reusable components and interface patterns.</p>
           <div class="pathway-chips">
-            <span class="pathway-chip">Figma UI Kit</span>
-            <span class="pathway-chip">Space Grotesk</span>
-            <span class="pathway-chip">OKLCH Colors</span>
-            <span class="pathway-chip">8px Spatial Grid</span>
+            <span class="pathway-chip">Figma UI Kits</span>
+            <span class="pathway-chip">100+ Components</span>
+            <span class="pathway-chip">125 UX Patterns</span>
           </div>
         </div>
         <div class="pathway-action">
@@ -4273,237 +7909,284 @@ section, .doc-section {
         </div>
       </a>
 
-      <!-- 02 · Develop Pathway -->
-      <a href="#get-started" class="pathway-card" style="--path-accent:#39409A">
-        <div>
-          <div class="pathway-top">
-            <div class="pathway-badge">02 · Developers</div>
-            <div class="pathway-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
+      <!-- Card 02: Develop -->
+      <a href="#primitives" class="pathway-card pathway-develop" style="--path-accent: #39409A">
+        <div class="pathway-top">
+          <span class="pathway-badge">02 / DEVELOP</span>
+          <div class="pathway-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h2 class="pathway-title">Develop with Meld</h2>
-          <p class="pathway-desc">Explore semantic CSS tokens, component lifecycles, accessible keyboard models, data grid APIs, and 9-viewport responsive implementations.</p>
+        </div>
+        <div>
+          <h3 class="pathway-title">Develop</h3>
+          <p class="pathway-desc">Discover implementation resources, component behaviour and development guidance.</p>
           <div class="pathway-chips">
-            <span class="pathway-chip">CSS Variables</span>
-            <span class="pathway-chip">WCAG 2.2 AA</span>
+            <span class="pathway-chip">CSS Tokens</span>
+            <span class="pathway-chip">Layout Primitives</span>
             <span class="pathway-chip">Data Grid API</span>
-            <span class="pathway-chip">Zero-Overflow</span>
           </div>
         </div>
         <div class="pathway-action">
-          <span>Explore developer resources</span>
+          <span>Explore development resources</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Card 03: Templates & Layouts -->
+      <a href="#t-browser" class="pathway-card pathway-templates" style="--path-accent: #0284C7">
+        <div class="pathway-top">
+          <span class="pathway-badge">03 / TEMPLATES &amp; LAYOUTS</span>
+          <div class="pathway-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+        </div>
+        <div>
+          <h3 class="pathway-title">Templates &amp; Layouts</h3>
+          <p class="pathway-desc">Explore reusable page structures and responsive application layouts.</p>
+          <div class="pathway-chips">
+            <span class="pathway-chip">64 Page Templates</span>
+            <span class="pathway-chip">12 Primitives</span>
+            <span class="pathway-chip">5 Viewports</span>
+          </div>
+        </div>
+        <div class="pathway-action">
+          <span>Explore templates</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- Card 04: Content Design -->
+      <a href="#cd-browser" class="pathway-card pathway-content" style="--path-accent: #E11D48">
+        <div class="pathway-top">
+          <span class="pathway-badge">04 / CONTENT DESIGN</span>
+          <div class="pathway-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+        </div>
+        <div>
+          <h3 class="pathway-title">Content Design</h3>
+          <p class="pathway-desc">Create clearer, more consistent and accessible product experiences through thoughtful interface content.</p>
+          <div class="pathway-chips">
+            <span class="pathway-chip">Copywriting Playground</span>
+            <span class="pathway-chip">Voice &amp; Tone</span>
+            <span class="pathway-chip">Localization +35%</span>
+          </div>
+        </div>
+        <div class="pathway-action">
+          <span>Explore content guidelines</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- D. FEATURED ECOSYSTEM SHOWCASE (ASYMMETRIC EDITORIAL LAYOUT) -->
+  <!-- D. THE MELD ECOSYSTEM (5 CONNECTED MODULES) -->
   <section class="ecosystem-section">
-    <div class="section-eyebrow">The Complete Ecosystem</div>
-    <h2 class="section-title">Built for craft, engineered for scale</h2>
-    <p class="section-desc">Meld unifies visual design, engineering primitives, and complex user interaction patterns into one connected ecosystem.</p>
+    <div class="section-eyebrow">05 / The Meld Ecosystem</div>
+    <h2 class="section-title">One connected system. Five core modules.</h2>
+    <p class="section-desc">Meld unifies visual design, engineering primitives, complex interaction patterns, full-page templates, and content design into one seamless workflow.</p>
 
-    <div class="ecosystem-asymmetric-grid">
-      <!-- Large Card: 100+ Components Showcase -->
-      <a href="#m-browser" class="eco-card-large">
-        <div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-            <span style="font-size:11px;font-weight:700;color:var(--meld-primary);letter-spacing:0.08em;text-transform:uppercase">01 · COMPONENTS</span>
-            <span style="font-size:11.5px;padding:2px 8px;border-radius:12px;background:rgba(188,73,137,0.1);color:var(--meld-primary);font-weight:600">100+ Production UI</span>
-          </div>
-          <h3 style="font-size:26px;font-weight:700;letter-spacing:-0.02em;margin:0 0 10px 0;color:var(--landing-text-primary)">Component Library & Dense Data</h3>
-          <p style="font-size:15px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 24px 0">
-            A comprehensive inventory of over 100 interactive UI components across 16 categories. Features advanced tabular data grids with in-place cell editing, multi-facet filter builders, and column visibility controllers.
-          </p>
-
-          <!-- Component Visual Specimen Preview -->
-          <div style="background:var(--landing-surface);border:1px solid var(--landing-border);border-radius:10px;padding:20px;margin-bottom:24px">
-            <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
-              <button class="b" style="background:var(--meld-primary);color:#fff;border:none;padding:8px 16px;border-radius:4px;font-weight:600;cursor:default">Primary Action</button>
-              <button class="b" style="background:var(--landing-surface-elevated);border:1px solid var(--landing-border);color:var(--landing-text-primary);padding:8px 16px;border-radius:4px;cursor:default">Secondary</button>
-              <span style="font-size:11.5px;padding:4px 8px;border-radius:4px;background:rgba(16,185,129,0.15);color:#10B981;font-weight:600">Status: Verified</span>
-            </div>
-            <div style="font-size:12px;color:var(--landing-text-muted);display:flex;justify-content:space-between">
-              <span>Data Grid · Editable Cell · Tooltip · Modal</span>
-              <span style="color:var(--meld-primary);font-weight:600">Inspect in Explorer →</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--meld-primary)">
-          <span>Explore 100+ Components in Explorer</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="ecosystem-modules-grid">
+      <!-- 01 Foundations -->
+      <a href="#foundations" class="eco-module-card">
+        <div class="eco-module-num">01</div>
+        <h3 class="eco-module-name">Foundations</h3>
+        <p class="eco-module-text">Design tokens, Space Grotesk typography, color system, spacing scales, and elevation layers.</p>
+        <div class="eco-module-foot">
+          <span>Explore Foundations</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
 
-      <!-- Stacked Right Cards -->
-      <div class="eco-stack-right">
-        <!-- Medium Card 1: 125 UX Patterns & AI Workflows -->
-        <a href="#p-browser" class="eco-card-medium">
-          <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-              <span style="font-size:11px;font-weight:700;color:var(--meld-secondary);letter-spacing:0.08em;text-transform:uppercase">02 · PATTERNS</span>
-              <span style="font-size:11px;font-weight:700;color:#10B981">8 Categories</span>
-            </div>
-            <h3 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px 0;color:var(--landing-text-primary)">125 UX & Agentic AI Patterns</h3>
-            <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 16px 0">
-              Standardised user experience patterns for generative models, streaming responses, Human-in-the-Loop approval, wizards, and complex intake flows.
-            </p>
-          </div>
-          <div style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--meld-secondary)">
-            <span>Inspect Pattern Library</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
+      <!-- 02 Components -->
+      <a href="#m-browser" class="eco-module-card eco-card-large">
+        <div class="eco-module-num">02</div>
+        <h3 class="eco-module-name">Components</h3>
+        <p class="eco-module-text">Over 100 production-ready UI components across 16 categories, including advanced editable data grids.</p>
+        <div class="eco-module-foot">
+          <span>Component Explorer</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
 
-        <!-- Medium Card 2: Foundations & 9-Viewport Zero-Overflow -->
-        <a href="#changelog" class="eco-card-medium">
-          <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-              <span style="font-size:11px;font-weight:700;color:var(--meld-primary);letter-spacing:0.08em;text-transform:uppercase">03 · ARCHITECTURE</span>
-              <span style="font-size:11px;font-weight:700;color:var(--meld-primary)">v1.7.0 Live</span>
-            </div>
-            <h3 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px 0;color:var(--landing-text-primary)">Multi-Device Zero-Overflow Standard</h3>
-            <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);margin:0 0 16px 0">
-              Audited and verified across all 9 target viewports (320px–1920px). Fluid container clamping, touch targets, and single source of truth tracking.
-            </p>
-          </div>
-          <div style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--meld-primary)">
-            <span>View System Changelog</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </a>
-      </div>
+      <!-- 03 Patterns -->
+      <a href="#p-browser" class="eco-module-card eco-card-medium">
+        <div class="eco-module-num">03</div>
+        <h3 class="eco-module-name">Patterns</h3>
+        <p class="eco-module-text">125 UX &amp; AI patterns with responsive layout specs (Desktop, Tablet, Mobile) and WCAG 2.2 AA validation.</p>
+        <div class="eco-module-foot">
+          <span>125 UX Patterns</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 04 Templates & Layouts -->
+      <a href="#t-browser" class="eco-module-card eco-card-medium">
+        <div class="eco-module-num">04</div>
+        <h3 class="eco-module-name">Templates &amp; Layouts</h3>
+        <p class="eco-module-text">64 interactive application templates across 8 categories with 12 foundational layout primitives.</p>
+        <div class="eco-module-foot">
+          <span>64 Templates Stage</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 05 Content Design -->
+      <a href="#cd-browser" class="eco-module-card">
+        <div class="eco-module-num">05</div>
+        <h3 class="eco-module-name">Content Design</h3>
+        <p class="eco-module-text">Standardized copywriting guidelines, Do/Don't matrices, and interactive UX copywriting playground.</p>
+        <div class="eco-module-foot">
+          <span>Content Guidelines</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- E. EDITORIAL DESIGN PRINCIPLES SPREAD -->
+  <!-- E. DESIGN & DEVELOPMENT PHILOSOPHY (5 PRINCIPLES) -->
   <section class="principles-section">
-    <div class="section-eyebrow">IDEO Foundations</div>
-    <h2 class="section-title">Design Principles that guide Meld</h2>
-    <p class="section-desc">Five core tenets shaping every token, component, and interaction model in the system.</p>
+    <div class="section-eyebrow">06 / Guiding Principles</div>
+    <h2 class="section-title">Engineered with intention and craft</h2>
+    <p class="section-desc">Meld's architectural principles guide every decision across design and engineering.</p>
 
     <div class="principles-spread">
       <div class="principle-box">
-        <span class="principle-num-badge">01 · Cohesion</span>
+        <div class="principle-num-badge">01 / Principle</div>
         <h3 class="principle-box-title">Consistency</h3>
-        <p class="principle-box-desc">Create predictable, intuitive experiences across products and platforms. Shared token semantics guarantee cohesive behavior everywhere.</p>
+        <p class="principle-box-desc">Unified design language, atomic tokens, and shared primitives that behave predictably across platforms.</p>
       </div>
       <div class="principle-box">
-        <span class="principle-num-badge">02 · Inclusion</span>
+        <div class="principle-num-badge">02 / Principle</div>
         <h3 class="principle-box-title">Accessibility</h3>
-        <p class="principle-box-desc">Make experiences usable by people with diverse abilities. WCAG 2.2 AA contrast, 40px touch minimums, and keyboard accessibility by default.</p>
+        <p class="principle-box-desc">WCAG 2.2 Level AA compliance built-in from the ground up, with 4.5:1 text contrast and full keyboard control.</p>
       </div>
       <div class="principle-box">
-        <span class="principle-num-badge">03 · Purpose</span>
-        <h3 class="principle-box-title">Clarity</h3>
-        <p class="principle-box-desc">Prioritise understandable interfaces and meaningful interactions. Remove visual clutter and make interactive states unambiguous.</p>
+        <div class="principle-num-badge">03 / Principle</div>
+        <h3 class="principle-box-title">Reusability</h3>
+        <p class="principle-box-desc">Composable components, responsive patterns, and layout foundations designed to assemble into complex products.</p>
       </div>
       <div class="principle-box">
-        <span class="principle-num-badge">04 · Scale</span>
-        <h3 class="principle-box-title">Flexibility</h3>
-        <p class="principle-box-desc">Support varying product domains from consumer apps to high-density enterprise data grids without compromising design integrity.</p>
-      </div>
-      <div class="principle-box">
-        <span class="principle-num-badge">05 · Future</span>
+        <div class="principle-num-badge">04 / Principle</div>
         <h3 class="principle-box-title">Scalability</h3>
-        <p class="principle-box-desc">Build enduring architectural foundations that evolve seamlessly with teams, products, and new technology paradigms.</p>
+        <p class="principle-box-desc">High-density data tables, responsive reflow across 320px&ndash;1920px viewports, and zero horizontal overflow.</p>
+      </div>
+      <div class="principle-box">
+        <div class="principle-num-badge">05 / Principle</div>
+        <h3 class="principle-box-title">Collaboration</h3>
+        <p class="principle-box-desc">A single source of truth bridging product designers and software engineers with synchronized contracts.</p>
       </div>
     </div>
   </section>
 
-  <!-- F. CLOSING CTA BANNER -->
-  <div class="landing-closing-cta">
-    <div class="closing-banner-card">
-      <h2 class="closing-banner-title">Ready to build with Meld?</h2>
-      <p class="closing-banner-desc">
-        Join the IDEO open-source design system community. Explore our Figma component kits, inspect semantic design tokens, or contribute components on GitHub.
-      </p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap">
-        <a href="#m-figma" class="btn-hero-primary">
-          Explore Figma Library
+  <!-- F. LATEST UPDATES (DYNAMIC CHANGELOG HIGHLIGHT) -->
+  <section class="landing-updates-section">
+    <div class="section-eyebrow">07 / Latest Updates</div>
+    <div class="update-card-featured">
+      <div class="update-card-content">
+        <div class="update-badge-row">
+          <span class="tag" style="background:rgba(188,73,137,0.12);color:var(--meld-primary);font-weight:700">v1.8.0</span>
+          <span class="update-category-tag">Feature Addition</span>
+          <span class="update-date-tag">November 17, 2026</span>
+        </div>
+        <h3 class="update-card-title">Homepage Hero Redesign &amp; Global Navigation Enhancement</h3>
+        <p class="update-card-desc">
+          Introduced a redesigned Meld homepage inspired by modern design-system landing experiences, featuring a new editorial hero, simplified global navigation, dedicated entry points for design and development resources, and improved discovery of the five core Meld modules. Preserved the existing documentation navigation and functionality.
+        </p>
+      </div>
+      <div class="update-card-action">
+        <a href="#changelog" class="btn-hero-secondary">
+          <span>View full changelog history</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          View on GitHub
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- G. COMPREHENSIVE FULL WIDTH FOOTER -->
+  <!-- G. CLOSING CTA BANNER -->
+  <section class="landing-closing-cta">
+    <div class="closing-banner-card">
+      <h2 class="closing-banner-title">Ready to build with Meld?</h2>
+      <p class="closing-banner-desc">Explore the complete component catalog, UX patterns, page templates, and content design guidelines.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="#foundations" class="btn-hero-primary">
+          <span>Explore the design system</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+          <span>View on GitHub</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- H. EDITORIAL FULL WIDTH FOOTER -->
   <footer class="landing-footer-wrapper">
     <div class="landing-footer-container">
       <div class="landing-footer-grid">
         <div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
             <div class="landing-brand-logo">M</div>
-            <span style="font-size:17px;font-weight:700;color:var(--landing-text-primary)">Meld by IDEO</span>
+            <div style="font-size:18px;font-weight:700;color:var(--landing-text-primary)">Meld <span style="font-size:12px;font-weight:400;color:var(--landing-text-muted)">by IDEO</span></div>
           </div>
-          <p style="font-size:14px;line-height:1.55;color:var(--landing-text-secondary);max-width:320px;margin:0 0 16px 0">
-            An open-source design system connecting typography, color tokens, 100+ UI components, and 125 UX patterns into cohesive digital experiences.
+          <p style="font-size:14px;line-height:1.6;color:var(--landing-text-secondary);margin:0 0 16px 0;max-width:320px">
+            An open-source design system for creating consistent, accessible, and scalable digital experiences across products and platforms.
           </p>
-          <div style="font-size:12.5px;color:var(--landing-text-muted)">
-            Released under MIT License.
+          <div style="display:inline-flex;align-items:center;gap:8px">
+            <span class="tag v-tag" style="background:var(--landing-surface);border:1px solid var(--landing-border);color:var(--meld-primary);font-weight:700">Meld v1.8.0</span>
+            <span style="font-size:12px;color:var(--landing-text-muted)">MIT License</span>
           </div>
         </div>
 
         <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Foundations</div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Ecosystem</div>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
-            <a href="#foundations" style="color:var(--landing-text-secondary);text-decoration:none">Overview</a>
-            <a href="#c-overview" style="color:var(--landing-text-secondary);text-decoration:none">Color System</a>
-            <a href="#overview" style="color:var(--landing-text-secondary);text-decoration:none">Typography</a>
-            <a href="#primitives" style="color:var(--landing-text-secondary);text-decoration:none">Primitive Tokens</a>
-            <a href="#architecture" style="color:var(--landing-text-secondary);text-decoration:none">Grid & Spacing</a>
-          </div>
-        </div>
-
-        <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Components</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
-            <a href="#m-overview" style="color:var(--landing-text-secondary);text-decoration:none">Overview</a>
-            <a href="#m-browser" style="color:var(--landing-text-secondary);text-decoration:none">Component Explorer</a>
-            <a href="#m-browser" style="color:var(--landing-text-secondary);text-decoration:none">Data Grid & Complex</a>
-            <a href="#m-figma" style="color:var(--landing-text-secondary);text-decoration:none">Figma Library</a>
-            <a href="#m-qa" style="color:var(--landing-text-secondary);text-decoration:none">Checklist & QA</a>
-          </div>
-        </div>
-
-        <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Patterns</div>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
-            <a href="#p-overview" style="color:var(--landing-text-secondary);text-decoration:none">Pattern Overview</a>
-            <a href="#p-browser" style="color:var(--landing-text-secondary);text-decoration:none">125 UX Patterns</a>
-            <a href="#p-browser" style="color:var(--landing-text-secondary);text-decoration:none">AI Workflows</a>
-            <a href="#p-figma" style="color:var(--landing-text-secondary);text-decoration:none">Figma Blueprints</a>
-            <a href="#p-qa" style="color:var(--landing-text-secondary);text-decoration:none">Quality Checklist</a>
+            <a href="#foundations" style="color:var(--landing-text-secondary);text-decoration:none">01. Foundations</a>
+            <a href="#m-browser" style="color:var(--landing-text-secondary);text-decoration:none">02. Components</a>
+            <a href="#p-browser" style="color:var(--landing-text-secondary);text-decoration:none">03. Patterns</a>
+            <a href="#t-browser" style="color:var(--landing-text-secondary);text-decoration:none">04. Templates &amp; Layouts</a>
+            <a href="#cd-browser" style="color:var(--landing-text-secondary);text-decoration:none">05. Content Design</a>
           </div>
         </div>
 
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Resources</div>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
-            <a href="#get-started" style="color:var(--landing-text-secondary);text-decoration:none">Get Started</a>
+            <a href="#primitives" style="color:var(--landing-text-secondary);text-decoration:none">Primitive Tokens</a>
+            <a href="#architecture" style="color:var(--landing-text-secondary);text-decoration:none">Grid &amp; Spacing</a>
             <a href="#principles" style="color:var(--landing-text-secondary);text-decoration:none">Design Principles</a>
-            <a href="#changelog" style="color:var(--landing-text-secondary);text-decoration:none">Changelog v1.5.8</a>
-            <a href="#about" style="color:var(--landing-text-secondary);text-decoration:none">About Meld</a>
-            <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--landing-text-secondary);text-decoration:none">GitHub Repository ↗</a>
+            <a href="#changelog" style="color:var(--landing-text-secondary);text-decoration:none">Changelog (v1.8.0)</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Interactive Tools</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="#cd-playground" style="color:var(--landing-text-secondary);text-decoration:none">Copywriting Playground</a>
+            <a href="#t-browser" style="color:var(--landing-text-secondary);text-decoration:none">Template Viewport Stage</a>
+            <a href="#t-primitives" style="color:var(--landing-text-secondary);text-decoration:none">Layout Primitives Spec</a>
+            <a href="#m-qa" style="color:var(--landing-text-secondary);text-decoration:none">Component QA Matrix</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--landing-text-muted);margin-bottom:14px">Community</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+            <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" style="color:var(--landing-text-secondary);text-decoration:none">GitHub Repository &#8599;</a>
+            <a href="https://github.com/akshayashokanpothan/meld-design-system/issues" target="_blank" rel="noopener noreferrer" style="color:var(--landing-text-secondary);text-decoration:none">Issue Tracker &#8599;</a>
+            <a href="#home" style="color:var(--landing-text-secondary);text-decoration:none">IDEO Design Specification</a>
           </div>
         </div>
       </div>
 
       <div style="border-top:1px solid var(--landing-border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--landing-text-muted);flex-wrap:wrap;gap:12px">
-        <div>© 2026 Meld by IDEO. An open-source design system.</div>
-        <a href="#home" style="color:var(--landing-text-muted);text-decoration:none">Back to top ↑</a>
+        <div>&copy; 2026 Meld by IDEO. An open-source design system.</div>
+        <a href="#home" style="color:var(--landing-text-muted);text-decoration:none">Back to top &uarr;</a>
       </div>
     </div>
   </footer>
 </div>
-
 <!-- /landing-shell -->
 
 <header class="hd">
@@ -4516,28 +8199,28 @@ section, .doc-section {
         <span class="hd-brand-sub">by IDEO</span>
       </div>
     </a>
+  </div>
+  <nav class="hd-nav" aria-label="Primary navigation">
+    <a href="#home" class="hd-nav-link" data-nav="home">Home</a>
+    <a href="#foundations" class="hd-nav-link" data-nav="foundations">Foundations</a>
+    <a href="#m-browser" class="hd-nav-link" data-nav="components">Components</a>
+    <a href="#p-browser" class="hd-nav-link" data-nav="patterns">Patterns</a>
+    <a href="#t-browser" class="hd-nav-link" data-nav="templates">Templates &amp; Layouts</a>
+    <a href="#cd-browser" class="hd-nav-link" data-nav="content">Content Design</a>
+  </nav>
+  <div class="hd-right">
     <button class="hd-search-trigger" id="global-search-trigger" aria-label="Search documentation" title="Search documentation (Ctrl+K)">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <span>Search Meld...</span>
-      <kbd class="hd-search-kbd">⌘K</kbd>
+      <kbd class="hd-search-kbd">&#8984;K</kbd>
     </button>
-  </div>
-  <div class="hd-right">
-    <nav class="hd-nav" aria-label="Global navigation">
-      <a href="#home" class="hd-nav-link">Home</a>
-      <a href="#foundations" class="hd-nav-link">Foundations</a>
-      <a href="#m-browser" class="hd-nav-link">Components</a>
-      <a href="#p-browser" class="hd-nav-link">Patterns</a>
-      <a href="#t-browser" class="hd-nav-link">Templates &amp; Layouts</a>
-      <a href="#cd-browser" class="hd-nav-link">Content Design</a>
-      <a href="#changelog" class="hd-nav-link">Changelog</a>
-    </nav>
+    <a href="#changelog" class="hd-nav-util" title="Release history">Changelog</a>
     <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="hd-btn-gh" aria-label="GitHub Repository">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       <span>GitHub</span>
     </a>
     <button class="b" id="tt">Switch to dark</button>
-    <span class="tag v-tag">v1.7.0</span>
+    <span class="tag v-tag">v1.8.0</span>
   </div>
 </header>
 <div class="wrap"><nav class="side" id="side" aria-label="Sections"></nav><main id="main">
@@ -5242,7 +8925,7 @@ section, .doc-section {
   <div class="tb" style="margin-bottom:32px">
     <table>
       <tbody>
-        <tr><th>Latest Release</th><td id="ch-meta-latest">v1.7.0</td><th>Last Updated</th><td id="ch-meta-date">November 11, 2026 &middot; 12:35:16 IST</td></tr>
+        <tr><th>Latest Release</th><td id="ch-meta-latest">v1.8.0</td><th>Last Updated</th><td id="ch-meta-date">November 11, 2026 &middot; 12:35:16 IST</td></tr>
         <tr><th>Data Source</th><td><code>changelog.json</code> (Single Source of Truth)</td><th>Repository Status</th><td>Actively Maintained</td></tr>
       </tbody>
     </table>
@@ -12714,7 +16397,366 @@ export const studioTheme = createTheme({
     table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 13px; }
     th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
     th { background: #f5f5f5; font-weight: 700; }
-  </style>
+  /* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
+</style>
 <style id="meld-templates-and-content-styles">
 /* ==========================================================================
    MELD BY IDEO — MODULE 04 (TEMPLATES & LAYOUTS) & MODULE 05 (CONTENT DESIGN) STYLES
@@ -13104,6 +17146,365 @@ export const studioTheme = createTheme({
   font-weight: 600;
 }
 
+/* ==========================================================================
+   MELD BY IDEO - REDESIGNED HOMEPAGE & GLOBAL NAVIGATION STYLES (v1.8.0)
+   ========================================================================== */
+
+/* Header brand left wrapper */
+.landing-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--landing-text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-menu-toggle:hover {
+  background: var(--landing-surface);
+}
+
+.landing-nav-util, .hd-nav-util {
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.landing-nav-util:hover, .hd-nav-util:hover {
+  color: var(--landing-text-primary);
+  background: var(--landing-surface);
+}
+
+/* Nav Item Active State */
+.landing-nav-item.active, .hd-nav-link.active {
+  color: var(--meld-primary) !important;
+  font-weight: 600;
+  background: rgba(188, 73, 137, 0.08);
+}
+
+/* Microsoft Fluent-inspired Hero Word Highlights */
+.hero-word-pill {
+  display: inline-block;
+  padding: 2px 16px;
+  margin: 0 4px;
+  border-radius: 9999px;
+  background: rgba(188, 73, 137, 0.12);
+  border: 1px solid rgba(188, 73, 137, 0.35);
+  color: var(--meld-primary);
+  position: relative;
+  vertical-align: baseline;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(188, 73, 137, 0.15);
+}
+
+.hero-word-accent {
+  background: var(--meld-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* 4 Primary Pathways Grid */
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+@media (max-width: 1180px) {
+  .pathways-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pathways-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Connected Ecosystem 5-Module Grid */
+.ecosystem-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecosystem-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-module-card {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--landing-shadow);
+  transition: all 0.2s ease;
+}
+
+.eco-module-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--meld-primary);
+}
+
+.eco-module-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--meld-primary);
+  margin-bottom: 8px;
+}
+
+.eco-module-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  color: var(--landing-text-primary);
+}
+
+.eco-module-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--landing-text-secondary);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.eco-module-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--meld-primary);
+}
+
+/* Latest Updates Section */
+.landing-updates-section {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto 80px auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.update-card-featured {
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--landing-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.update-category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--meld-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.update-date-tag {
+  font-size: 12px;
+  color: var(--landing-text-muted);
+}
+
+.update-card-title {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--landing-text-primary);
+  margin: 0 0 10px 0;
+}
+
+.update-card-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--landing-text-secondary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Mobile Drawer Overlay */
+.landing-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 15, 20, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.landing-drawer.open {
+  display: flex !important;
+}
+
+[data-theme="light"] .landing-drawer {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.landing-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.landing-drawer-close {
+  background: transparent;
+  border: 1px solid var(--landing-border);
+  border-radius: 8px;
+  color: var(--landing-text-primary);
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-drawer-body {
+  padding: 24px 0;
+  flex: 1;
+}
+
+.landing-drawer-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--landing-text-muted);
+  margin: 0 0 12px 0;
+}
+
+.landing-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.drawer-nav-item {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--landing-text-primary);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background: rgba(188, 73, 137, 0.12);
+  color: var(--meld-primary);
+}
+
+.landing-drawer-utils {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--landing-surface);
+  border: 1px solid var(--landing-border);
+  color: var(--landing-text-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.drawer-util-btn kbd {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--landing-surface-elevated);
+  border: 1px solid var(--landing-border);
+}
+
+.drawer-util-link {
+  font-size: 14px;
+  color: var(--landing-text-secondary);
+  text-decoration: none;
+  padding: 8px 14px;
+}
+
+.landing-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--landing-border);
+}
+
+@media (max-width: 1024px) {
+  .landing-nav-center {
+    display: none !important;
+  }
+  .landing-menu-toggle {
+    display: inline-flex !important;
+  }
+  .hd-nav {
+    display: none !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -17457,7 +21858,7 @@ PAT_SPEC['onb-discovery'] = {
   cat: 'Onboarding',
   p: 2,
   priLabel: 'P2 Specialized',
-  overview: 'Non-blocking spotlight callout announcing newly shipped capabilities with NEW v1.7.0 pill, Try Now CTA, and instant Dismiss control.',
+  overview: 'Non-blocking spotlight callout announcing newly shipped capabilities with NEW v1.8.0 pill, Try Now CTA, and instant Dismiss control.',
   whenToUse: 'Use inline inside existing workspaces to highlight major shipped features directly where practitioners benefit.',
   whenNotToUse: 'Avoid full-screen celebratory overlays blocking urgent active tasks.',
   anatomy: ['Accent-Bordered Discovery Subbox', 'Header Bar (NEW Pill + 22px Dismiss Button)', 'Feature Title & Benefit Description', '30px Try Now CTA'],
@@ -17465,7 +21866,7 @@ PAT_SPEC['onb-discovery'] = {
   layout: 'Left-accented subtle callout card with 3px primary indicator, top pill + dismiss row, and 30px action button',
   variants: ['Standard / Default', 'Compact / Inline', 'Modal / Dialog Sheet', 'Full-Page / Workspace'],
   states: ['Default / Initial', 'Input / Focused', 'Loading / Processing', 'Success / Verified', 'Error / Corrective', 'Disabled / Read-only'],
-  flow: '1. Spot NEW v1.7.0 feature card -> 2. Click Try Now to test capability -> 3. Or click Dismiss to hide card quietly.',
+  flow: '1. Spot NEW v1.8.0 feature card -> 2. Click Try Now to test capability -> 3. Or click Dismiss to hide card quietly.',
   edgeCases: 'Dismissal collapses cleanly into unobtrusive status notice without layout jump.',
   a11y: 'Clear button label ("Dismiss", "Try Now") with strong contrast on both Light and Dark subtle cards.',
   resp: 'Desktop/Tablet/Mobile: Fluid container scaling across all breakpoints cleanly.',
@@ -21670,7 +26071,7 @@ const PAT_ONBOARD = {
       return `${errB}<h4 style="margin:0 0 6px;font-size:16px">Enable Release Notifications?</h4><p class="m" style="margin:0 0 12px;font-size:12px">Explain value before OS prompt: receive instant alerts when Figma token syncs finish or audits fail.</p>${s.status!=='prompt'?`<div class="msg ${s.status==='allow'?'su':'inf'}" style="font-size:12px">Permission decision: <b>${s.status==='allow'?'Notifications Enabled':'Deferred cleanly (re-ask later)'}</b></div>`:`<div style="display:flex;gap:8px"><button type="button" class="mb v-primary" style="--mb-h:36px" data-pat-act="ob-perm" data-val="allow" ${disAttr}>Enable Alerts</button><button type="button" class="mb v-secondary" style="--mb-h:36px" data-pat-act="ob-perm" data-val="defer" ${disAttr}>Not Now</button></div>`}`;
     }
     if (id === 'onb-discovery') {
-      return s.dismissed ? `<div class="pat-hint">Feature announcement dismissed quietly.</div>` : `${errB}<div class="pat-subbox" style="border-left:3px solid var(--color-action-primary)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="bdg bd-inf" style="font-size:10px">NEW &middot; v1.7.0</span><button type="button" class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px" data-pat-act="ob-disc-dis">Dismiss</button></div><b style="font-size:14px;display:block;margin-bottom:4px">Interactive Figma Dimension Inspector</b><p class="m" style="margin:0 0 10px;font-size:12px">Inspect exact container widths, padding, and instance dimensions on all 125 UX patterns.</p><button type="button" class="mb v-primary" style="--mb-h:30px;font-size:12px" data-pat-act="ob-disc-try" ${disAttr}>${s.tried?'&#10003; Opened Inspector':'Try Now'}</button></div>`;
+      return s.dismissed ? `<div class="pat-hint">Feature announcement dismissed quietly.</div>` : `${errB}<div class="pat-subbox" style="border-left:3px solid var(--color-action-primary)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="bdg bd-inf" style="font-size:10px">NEW &middot; v1.8.0</span><button type="button" class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px" data-pat-act="ob-disc-dis">Dismiss</button></div><b style="font-size:14px;display:block;margin-bottom:4px">Interactive Figma Dimension Inspector</b><p class="m" style="margin:0 0 10px;font-size:12px">Inspect exact container widths, padding, and instance dimensions on all 125 UX patterns.</p><button type="button" class="mb v-primary" style="--mb-h:30px;font-size:12px" data-pat-act="ob-disc-try" ${disAttr}>${s.tried?'&#10003; Opened Inspector':'Try Now'}</button></div>`;
     }
     // onb-guidance
     return `${errB}<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><label class="pat-lbl" style="margin:0">Base Grid Unit</label><button type="button" class="mb v-secondary" style="--mb-h:20px;padding:0 6px;font-size:10px;border-radius:999px" data-pat-act="ob-guide-tip" ${disAttr}>?</button></div><input type="text" class="pat-ctrl ${focCls}" data-pat-field="param" value="${E(s.param)}" ${disAttr}>${s.openTip?`<div class="pat-subbox" style="margin-top:8px;padding:8px 10px;font-size:11px"><b>Micro-Guidance:</b> Use multiples of <code>4px</code> or <code>8px</code> for padding and layout gaps so Figma Auto Layout frames align cleanly.</div>`:''}`;
@@ -34393,7 +38794,7 @@ cdInit();
                                               "PAT_SPEC Specifications \u0026 patDet Layout",
                                               "PAT_ENGINE / wrapVariant / Compact Inline CSS",
                                               "Automated \u0026 Live E2E Regression Suites",
-                                              "Changelog (v1.7.0)"
+                                              "Changelog (v1.8.0)"
                                           ],
                         "commitMessage":  "fix(patterns): resolve dimension documentation and authorization variant behaviour",
                         "commitRef":  null,
@@ -35310,7 +39711,7 @@ cdInit();
       id: 'grp-resources',
       title: 'Resources',
       links: [
-        { id: 'changelog', label: 'Changelog', badge: 'v1.7.0' },
+        { id: 'changelog', label: 'Changelog', badge: 'v1.8.0' },
         { id: 'c-sem', label: 'Design Tokens' },
         { id: 'c-figma', label: 'Figma Library' },
         { id: 'about', label: 'About Meld' }
@@ -35363,7 +39764,7 @@ cdInit();
 
     sideHtml += `
       <div class="side-footer">
-        <div>Meld by IDEO · v1.7.0</div>
+        <div>Meld by IDEO · v1.8.0</div>
         <div style="margin-top:4px"><a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" style="color:var(--mu);text-decoration:none">GitHub Repository ↗</a></div>
       </div>
     `;
@@ -35487,7 +39888,7 @@ cdInit();
     { title: 'Accessibility Standards (WCAG 2.2 AA)', category: 'Guidelines', desc: 'Contrast rules, keyboard tab models, ARIA announcements, and screen-reader standards', href: '#a11y' },
     { title: 'Multi-Device Responsive Standard', category: 'Guidelines', desc: 'Tested across 9 viewports (320px–1920px) with 0-overflow guarantee', href: '#responsive' },
     { title: 'Get Started Guide', category: 'Resources', desc: 'Installation, token imports, Space Grotesk font linking, and workflow setup', href: '#get-started' },
-    { title: 'Changelog (v1.7.0)', category: 'Resources', desc: 'Complete traceable record of all updates, features, repairs, and releases', href: '#changelog' },
+    { title: 'Changelog (v1.8.0)', category: 'Resources', desc: 'Complete traceable record of all updates, features, repairs, and releases', href: '#changelog' },
     { title: 'Figma Design System Library', category: 'Resources', desc: 'Figma UI kits, component variants, auto-layout frames, and design tokens', href: '#m-figma' },
     { title: 'About Meld & IDEO', category: 'Resources', desc: 'Open-source design system bringing people, products, and ideas together', href: '#about' }
   ];
@@ -35643,8 +40044,9 @@ cdInit();
   // Tag internal documentation sections with class
   allDocSections.forEach(s => s.classList.add('doc-section'));
 
-  function handleRoute() {
+    function handleRoute() {
     const rawHash = window.location.hash.replace('#', '').trim();
+    syncActiveNavLinks(rawHash);
     const isLanding = !rawHash || rawHash === 'home';
 
     if (isLanding) {
@@ -35670,6 +40072,95 @@ cdInit();
     }
   }
 
+    // Synchronize Active Nav Links across Landing & Doc Headers
+  function syncActiveNavLinks(activeRoute) {
+    const raw = (activeRoute || '').toLowerCase().replace('#', '').trim();
+    let currentModule = 'home';
+    if (!raw || raw === 'home') currentModule = 'home';
+    else if (raw.startsWith('f-') || raw === 'foundations' || raw === 'architecture' || raw === 'overview' || raw === 'primitives' || raw === 'c-overview') currentModule = 'foundations';
+    else if (raw.startsWith('m-') || raw === 'components') currentModule = 'components';
+    else if (raw.startsWith('p-') || raw === 'patterns') currentModule = 'patterns';
+    else if (raw.startsWith('t-') || raw === 'templates') currentModule = 'templates';
+    else if (raw.startsWith('cd-') || raw === 'content') currentModule = 'content';
+    else if (raw.startsWith('ch-') || raw === 'changelog') currentModule = 'changelog';
+
+    const allNavLinks = document.querySelectorAll('.landing-nav-item, .hd-nav-link, .drawer-nav-item');
+    allNavLinks.forEach(link => {
+      const navTarget = link.getAttribute('data-nav') || '';
+      const href = link.getAttribute('href') || '';
+      const isMatch = (navTarget === currentModule) || 
+                      (currentModule === 'home' && href === '#home') ||
+                      (currentModule === 'foundations' && href.includes('foundations')) ||
+                      (currentModule === 'components' && href.includes('m-browser')) ||
+                      (currentModule === 'patterns' && href.includes('p-browser')) ||
+                      (currentModule === 'templates' && href.includes('t-browser')) ||
+                      (currentModule === 'content' && href.includes('cd-browser')) ||
+                      (currentModule === 'changelog' && href.includes('changelog'));
+      link.classList.toggle('active', isMatch);
+      if (isMatch) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  // Mobile Drawer Toggle Handlers
+  const landingMenuToggle = document.getElementById('landing-menu-toggle');
+  const landingNavDrawer = document.getElementById('landing-nav-drawer');
+  const landingMenuClose = document.getElementById('landing-menu-close');
+  const drawerThemeToggle = document.getElementById('drawer-theme-toggle');
+  const drawerSearchTrigger = document.getElementById('drawer-search-trigger');
+
+  function openLandingDrawer() {
+    if (landingNavDrawer) {
+      landingNavDrawer.classList.add('open');
+      landingNavDrawer.setAttribute('aria-hidden', 'false');
+      if (landingMenuToggle) landingMenuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLandingDrawer() {
+    if (landingNavDrawer) {
+      landingNavDrawer.classList.remove('open');
+      landingNavDrawer.setAttribute('aria-hidden', 'true');
+      if (landingMenuToggle) landingMenuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (landingMenuToggle) landingMenuToggle.onclick = openLandingDrawer;
+  if (landingMenuClose) landingMenuClose.onclick = closeLandingDrawer;
+
+  if (landingNavDrawer) {
+    landingNavDrawer.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        closeLandingDrawer();
+      }
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && landingNavDrawer && landingNavDrawer.classList.contains('open')) {
+      closeLandingDrawer();
+    }
+  });
+
+  if (drawerSearchTrigger) {
+    drawerSearchTrigger.onclick = () => {
+      closeLandingDrawer();
+      const st = document.getElementById('landing-search-trigger') || document.getElementById('global-search-trigger');
+      if (st) st.click();
+    };
+  }
+
+  if (drawerThemeToggle) {
+    drawerThemeToggle.onclick = () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('meld-theme', next);
+      updateThemeButtonLabels(next);
+    };
+  }
   window.addEventListener('hashchange', handleRoute);
   // Initial route check on page load
   handleRoute();
@@ -35678,8 +40169,10 @@ cdInit();
   const landingThemeBtn = document.getElementById('landing-theme-toggle');
   const docThemeBtn = document.getElementById('tt');
 
-  function updateThemeButtonLabels(theme) {
+    function updateThemeButtonLabels(theme) {
     const label = theme === 'dark' ? 'Switch to light' : 'Switch to dark';
+    const drawerThemeBtn = document.getElementById('drawer-theme-toggle');
+    if (drawerThemeBtn) drawerThemeBtn.textContent = label;
     if (landingThemeBtn) landingThemeBtn.textContent = label;
     if (docThemeBtn) docThemeBtn.textContent = label;
   }
@@ -36104,7 +40597,7 @@ cdInit();
       PAT_FEEDBACK.render(pFbInfo, PAT_SPEC['fb-info'].variants[0], PAT_SPEC['fb-info'].states[0], 'light').includes('Remind Me'));
 
     // =========================================================================
-    // GLOBAL 125-PATTERN DIMENSIONS + AUTH / AUTHORIZATION VARIANT SUITE (v1.7.0)
+    // GLOBAL 125-PATTERN DIMENSIONS + AUTH / AUTHORIZATION VARIANT SUITE (v1.8.0)
     // =========================================================================
     assert('PATTERNS Total Registry == 125', PATTERNS.length === 125, 'found=' + PATTERNS.length);
     const dimSigSet = new Set();
