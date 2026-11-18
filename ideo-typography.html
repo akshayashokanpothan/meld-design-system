@@ -17693,6 +17693,588 @@ html[data-theme="dark"] .meld-mark-for-dark  { display: inline !important; }
   .mx-skel-line, .mx-spinner, .mx-prog-bar { animation: none !important; }
 }
 </style>
+<style id="meld-floating-nav-styles">
+/* ==========================================================================
+   MELD BY IDEO — COLLAPSIBLE FLOATING NAVIGATION BAR & RAIL (v1.12.0)
+   Expanded Panel (~268px) | Collapsed Icon Rail (~68px) | Adaptive Canvas
+   ========================================================================== */
+:root {
+  --f2-float-inset: 16px;
+  --f2-expanded-w: 268px;
+  --f2-collapsed-w: 68px;
+  --f2-canvas-offset-exp: 300px;  /* 16px + 268px + 16px */
+  --f2-canvas-offset-col: 100px;  /* 16px + 68px + 16px */
+  --f2-float-radius: 16px;
+  --f2-float-bg: #FFFFFF;
+  --f2-float-bd: rgba(15, 23, 42, 0.09);
+  --f2-float-shadow: 0 8px 30px rgba(15, 23, 42, 0.075), 0 1px 3px rgba(15, 23, 42, 0.05);
+  --f2-tip-bg: #18181B;
+  --f2-tip-tx: #FFFFFF;
+}
+
+[data-theme="dark"] {
+  --f2-float-bg: rgba(24, 24, 28, 0.94);
+  --f2-float-bd: rgba(255, 255, 255, 0.10);
+  --f2-float-shadow: 0 16px 42px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.35);
+  --f2-tip-bg: #F4F4F5;
+  --f2-tip-tx: #141416;
+}
+
+/* Desktop & Tablet Unified Wrapper (Block layout — Floating Sidebar is position: fixed) */
+body.is-landing .wrap,
+body.is-doc .wrap,
+.wrap {
+  display: block !important;
+  grid-template-columns: none !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  background: var(--f2-hero-bg) !important;
+}
+
+body.is-doc .wrap {
+  background: var(--bg) !important;
+}
+
+/* Floating Navigation Panel — Desktop (>= 1024px) */
+body.is-landing nav.side,
+body.is-doc nav.side,
+nav.side, #side {
+  position: fixed !important;
+  top: var(--f2-float-inset) !important;
+  left: var(--f2-float-inset) !important;
+  bottom: var(--f2-float-inset) !important;
+  height: calc(100vh - 32px) !important;
+  max-height: calc(100vh - 32px) !important;
+  width: var(--f2-expanded-w) !important;
+  min-width: var(--f2-collapsed-w) !important;
+  max-width: var(--f2-expanded-w) !important;
+  border-radius: var(--f2-float-radius) !important;
+  background: var(--f2-float-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--f2-float-bd) !important;
+  box-shadow: var(--f2-float-shadow) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  z-index: 200 !important;
+  transition: width 240ms cubic-bezier(0.22, 1, 0.36, 1),
+              max-width 240ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 240ms ease !important;
+}
+
+/* Header inside Expanded Floating Panel */
+.fluent-sidebar-header-box.f2-float-header {
+  height: auto !important;
+  min-height: 60px !important;
+  padding: 12px 12px 12px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 6px !important;
+  background: transparent !important;
+  border-bottom: 1px solid var(--f2-float-bd) !important;
+}
+
+.f2-header-controls {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  flex-shrink: 0 !important;
+}
+
+.fluent-sidebar-search-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  height: 30px !important;
+  padding: 0 7px 0 8px !important;
+  border-radius: 8px !important;
+}
+.fluent-sidebar-search-btn .f2-search-rail-svg {
+  display: none !important;
+}
+
+.f2-collapse-toggle-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--f2-float-bd) !important;
+  background: var(--f2-link-hover-bg) !important;
+  color: var(--f2-hero-title) !important;
+  cursor: pointer !important;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease !important;
+  flex-shrink: 0 !important;
+}
+.f2-collapse-toggle-btn:hover {
+  border-color: var(--f2-link-active-bd) !important;
+  color: var(--f2-link-active-tx) !important;
+  background: var(--f2-link-active-bg) !important;
+}
+.f2-collapse-toggle-btn:focus-visible,
+.f2-rail-btn:focus-visible,
+.f2-rail-gh-btn:focus-visible,
+.fluent-sidebar-search-btn:focus-visible {
+  outline: 3px solid var(--ac, #BC4989) !important;
+  outline-offset: 2px !important;
+}
+
+.f2-collapse-toggle-btn .f2-ico-collapse { display: block !important; }
+.f2-collapse-toggle-btn .f2-ico-expand   { display: none !important; }
+
+/* Collapsed Rail Body hidden in Expanded Mode */
+.f2-rail-nav { display: none !important; }
+.f2-rail-gh-btn { display: none !important; }
+
+.fluent-sidebar-footer {
+  background: transparent !important;
+  border-top: 1px solid var(--f2-float-bd) !important;
+  padding: 12px 14px !important;
+}
+
+/* ==========================================================================
+   DESKTOP COLLAPSED ICON RAIL STATE (68px) — body.nav-collapsed
+   ========================================================================== */
+@media (min-width: 1024px) {
+  body.nav-collapsed nav.side,
+  body.nav-collapsed #side {
+    width: var(--f2-collapsed-w) !important;
+    max-width: var(--f2-collapsed-w) !important;
+  }
+
+  body.nav-collapsed .fluent-sidebar-header-box.f2-float-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 8px 12px 8px !important;
+    gap: 10px !important;
+  }
+
+  body.nav-collapsed .fluent-brand-text {
+    display: none !important;
+  }
+
+  body.nav-collapsed .fluent-sidebar-brand {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    justify-content: center !important;
+    background: var(--f2-link-hover-bg) !important;
+  }
+
+  body.nav-collapsed .f2-header-controls {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  body.nav-collapsed .f2-collapse-toggle-btn {
+    order: 1 !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+  }
+  body.nav-collapsed .f2-collapse-toggle-btn .f2-ico-collapse { display: none !important; }
+  body.nav-collapsed .f2-collapse-toggle-btn .f2-ico-expand   { display: block !important; }
+
+  body.nav-collapsed .fluent-sidebar-search-btn {
+    order: 2 !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--f2-hero-title) !important;
+  }
+  body.nav-collapsed .fluent-sidebar-search-btn:hover {
+    background: var(--f2-link-hover-bg) !important;
+    border-color: var(--f2-float-bd) !important;
+  }
+  body.nav-collapsed .fluent-sidebar-search-btn .f2-search-label,
+  body.nav-collapsed .fluent-sidebar-search-btn .f2-search-kbd {
+    display: none !important;
+  }
+  body.nav-collapsed .fluent-sidebar-search-btn .f2-search-rail-svg {
+    display: block !important;
+  }
+
+  body.nav-collapsed .fluent-sidebar-nav-scroll {
+    display: none !important;
+  }
+
+  body.nav-collapsed .f2-rail-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 12px 0 !important;
+    scrollbar-width: none !important;
+  }
+  body.nav-collapsed .f2-rail-nav::-webkit-scrollbar { display: none; }
+
+  body.nav-collapsed .fluent-sidebar-footer {
+    padding: 10px 8px 12px 8px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  body.nav-collapsed .f2-footer-expanded-only {
+    display: none !important;
+  }
+  body.nav-collapsed .f2-rail-gh-btn {
+    display: inline-flex !important;
+  }
+
+  /* ADAPTIVE MAIN CONTENT CANVAS OFFSET (Smoothly reclaims ~200px when collapsed!) */
+  main#main {
+    margin-left: var(--f2-canvas-offset-exp) !important;
+    width: calc(100% - var(--f2-canvas-offset-exp)) !important;
+    max-width: calc(100% - var(--f2-canvas-offset-exp)) !important;
+    transition: margin-left 240ms cubic-bezier(0.22, 1, 0.36, 1),
+                width 240ms cubic-bezier(0.22, 1, 0.36, 1),
+                max-width 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  body.nav-collapsed main#main {
+    margin-left: var(--f2-canvas-offset-col) !important;
+    width: calc(100% - var(--f2-canvas-offset-col)) !important;
+    max-width: calc(100% - var(--f2-canvas-offset-col)) !important;
+  }
+
+  body.is-landing header.hd.fluent-utility-header,
+  body.is-doc header.hd.fluent-utility-header,
+  header.hd.fluent-utility-header {
+    left: var(--f2-canvas-offset-exp) !important;
+    right: 0 !important;
+    transition: left 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  body.nav-collapsed.is-landing header.hd.fluent-utility-header,
+  body.nav-collapsed.is-doc header.hd.fluent-utility-header,
+  body.nav-collapsed header.hd.fluent-utility-header {
+    left: var(--f2-canvas-offset-col) !important;
+  }
+}
+
+/* Rail Icon Buttons & GitHub Rail Icon */
+.f2-rail-btn,
+.f2-rail-gh-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--f2-link-text) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease !important;
+}
+
+.f2-rail-btn:hover,
+.f2-rail-gh-btn:hover {
+  background: var(--f2-link-hover-bg) !important;
+  color: var(--f2-hero-title) !important;
+}
+
+.f2-rail-btn.active {
+  background: var(--f2-link-active-bg) !important;
+  border-color: var(--f2-link-active-bd) !important;
+  color: var(--f2-link-active-tx) !important;
+}
+
+/* Non-Clipping Floating Tooltip */
+.f2-rail-tooltip {
+  position: fixed !important;
+  z-index: 2500 !important;
+  transform: translateY(-50%) !important;
+  padding: 6px 11px !important;
+  border-radius: 8px !important;
+  background: var(--f2-tip-bg) !important;
+  color: var(--f2-tip-tx) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22) !important;
+  transition: opacity 120ms ease !important;
+}
+.f2-rail-tooltip.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Floating Sub-Page Flyout Panel (Opened from Collapsed Icon Rail) */
+.f2-rail-flyout {
+  position: fixed !important;
+  z-index: 2400 !important;
+  width: 248px !important;
+  max-height: min(380px, calc(100vh - 32px)) !important;
+  border-radius: 14px !important;
+  background: var(--f2-float-bg) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid var(--f2-float-bd) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24) !important;
+  display: none !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+.f2-rail-flyout.open {
+  display: flex !important;
+}
+.f2-flyout-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--f2-float-bd) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--f2-hero-title) !important;
+}
+.f2-flyout-close {
+  border: none !important;
+  background: transparent !important;
+  color: var(--f2-hero-desc) !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+}
+.f2-flyout-close:hover {
+  background: var(--f2-link-hover-bg) !important;
+  color: var(--f2-hero-title) !important;
+}
+.f2-flyout-list {
+  overflow-y: auto !important;
+  padding: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+.f2-flyout-link {
+  display: block !important;
+  padding: 7px 10px !important;
+  border-radius: 7px !important;
+  font-size: 13px !important;
+  color: var(--f2-link-text) !important;
+  text-decoration: none !important;
+}
+.f2-flyout-link:hover {
+  background: var(--f2-link-active-bg) !important;
+  color: var(--f2-link-active-tx) !important;
+}
+
+/* ==========================================================================
+   TABLET (768px - 1023px): Default 68px Floating Rail + Overlay Expansion
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fluent-header-left {
+    display: none !important;
+  }
+
+  body.is-landing header.hd.fluent-utility-header,
+  body.is-doc header.hd.fluent-utility-header,
+  header.hd.fluent-utility-header {
+    left: var(--f2-canvas-offset-col) !important;
+    right: 0 !important;
+    justify-content: flex-end !important;
+    padding: 0 24px !important;
+  }
+
+  main#main {
+    margin-left: var(--f2-canvas-offset-col) !important;
+    width: calc(100% - var(--f2-canvas-offset-col)) !important;
+    max-width: calc(100% - var(--f2-canvas-offset-col)) !important;
+  }
+
+  /* Tablet Default: 68px Collapsed Rail */
+  body:not(.tablet-nav-expanded) nav.side,
+  body:not(.tablet-nav-expanded) #side {
+    transform: none !important;
+    position: fixed !important;
+    top: 16px !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    height: calc(100vh - 32px) !important;
+    width: var(--f2-collapsed-w) !important;
+    max-width: var(--f2-collapsed-w) !important;
+    z-index: 200 !important;
+  }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-header-box.f2-float-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 14px 8px 12px 8px !important;
+    gap: 10px !important;
+  }
+  body:not(.tablet-nav-expanded) .fluent-brand-text { display: none !important; }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-brand {
+    width: 40px !important; height: 40px !important; border-radius: 10px !important;
+    justify-content: center !important; background: var(--f2-link-hover-bg) !important;
+  }
+  body:not(.tablet-nav-expanded) .f2-header-controls {
+    flex-direction: column !important; gap: 8px !important; align-items: center !important;
+  }
+  body:not(.tablet-nav-expanded) .f2-collapse-toggle-btn {
+    order: 1 !important; width: 38px !important; height: 38px !important; border-radius: 10px !important;
+  }
+  body:not(.tablet-nav-expanded) .f2-collapse-toggle-btn .f2-ico-collapse { display: none !important; }
+  body:not(.tablet-nav-expanded) .f2-collapse-toggle-btn .f2-ico-expand   { display: block !important; }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-search-btn {
+    order: 2 !important; width: 38px !important; height: 38px !important; padding: 0 !important;
+    justify-content: center !important; border-radius: 10px !important; background: transparent !important; border-color: transparent !important;
+  }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-search-btn .f2-search-label,
+  body:not(.tablet-nav-expanded) .fluent-sidebar-search-btn .f2-search-kbd { display: none !important; }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-search-btn .f2-search-rail-svg { display: block !important; }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-nav-scroll { display: none !important; }
+  body:not(.tablet-nav-expanded) .f2-rail-nav {
+    display: flex !important; flex-direction: column !important; align-items: center !important;
+    gap: 6px !important; flex: 1 1 auto !important; overflow-y: auto !important; padding: 12px 0 !important;
+  }
+  body:not(.tablet-nav-expanded) .fluent-sidebar-footer { padding: 10px 8px 12px 8px !important; display: flex !important; justify-content: center !important; }
+  body:not(.tablet-nav-expanded) .f2-footer-expanded-only { display: none !important; }
+  body:not(.tablet-nav-expanded) .f2-rail-gh-btn { display: inline-flex !important; }
+
+  /* Tablet Expanded Overlay (floats over canvas with backdrop without compressing page grids!) */
+  body.tablet-nav-expanded nav.side,
+  body.tablet-nav-expanded #side {
+    transform: none !important;
+    position: fixed !important;
+    top: 16px !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    height: calc(100vh - 32px) !important;
+    width: var(--f2-expanded-w) !important;
+    max-width: var(--f2-expanded-w) !important;
+    z-index: 1000 !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35) !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE (< 768px): Clean Header + Floating Inset Off-Canvas Drawer
+   ========================================================================== */
+@media (max-width: 767px) {
+  main#main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .f2-collapse-toggle-btn {
+    display: none !important;
+  }
+
+  body.is-landing nav.side,
+  body.is-doc nav.side,
+  nav.side, #side {
+    top: 12px !important;
+    left: 12px !important;
+    bottom: 12px !important;
+    height: calc(100vh - 24px) !important;
+    max-height: calc(100vh - 24px) !important;
+    width: min(296px, calc(100vw - 24px)) !important;
+    max-width: calc(100vw - 24px) !important;
+    border-radius: 16px !important;
+    transform: translateX(-115%) !important;
+    z-index: 1000 !important;
+  }
+
+  html body.is-landing nav.side.open,
+  html body.is-doc nav.side.open,
+  html nav.side.open,
+  html #side.open {
+    transform: translateX(0) !important;
+    left: 12px !important;
+  }
+}
+
+/* v1.12.0 Micro-Polish: Hide rail GitHub icon in expanded/mobile modes + crisp dark-mode collapse toggle fit */
+.f2-rail-gh-btn {
+  display: none !important;
+}
+@media (min-width: 1024px) {
+  body.nav-collapsed .f2-rail-gh-btn {
+    display: inline-flex !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body:not(.tablet-nav-expanded) .f2-rail-gh-btn {
+    display: inline-flex !important;
+  }
+}
+
+.fluent-sidebar-header-box.f2-float-header {
+  padding: 12px 10px 12px 12px !important;
+  gap: 6px !important;
+}
+.fluent-sidebar-brand {
+  gap: 8px !important;
+}
+.fluent-brand-title {
+  font-size: 15.5px !important;
+}
+.fluent-sidebar-search-btn {
+  padding: 0 6px 0 7px !important;
+  font-size: 11.5px !important;
+}
+html[data-theme="dark"] .f2-collapse-toggle-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #F4F4F5 !important;
+}
+html[data-theme="dark"] .f2-collapse-toggle-btn:hover {
+  background: rgba(188, 73, 137, 0.22) !important;
+  border-color: rgba(244, 114, 182, 0.55) !important;
+  color: #F472B6 !important;
+}
+/* v1.12.0 Dark Rail Icon Contrast */
+html[data-theme="dark"] .f2-collapse-toggle-btn {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
+  color: #F4F4F5 !important;
+}
+html[data-theme="dark"] .f2-collapse-toggle-btn:hover {
+  background: rgba(188, 73, 137, 0.24) !important;
+  border-color: rgba(244, 114, 182, 0.60) !important;
+  color: #F472B6 !important;
+}
+html[data-theme="dark"] body.nav-collapsed .fluent-sidebar-search-btn,
+html[data-theme="dark"] body:not(.tablet-nav-expanded) .fluent-sidebar-search-btn {
+  color: #E4E4E7 !important;
+}
+html[data-theme="dark"] .f2-rail-btn,
+html[data-theme="dark"] .f2-rail-gh-btn {
+  color: #D4D4D8 !important;
+}
+html[data-theme="dark"] .f2-rail-btn:hover,
+html[data-theme="dark"] .f2-rail-gh-btn:hover {
+  color: #FFFFFF !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  nav.side, #side, main#main, header.hd.fluent-utility-header, .f2-rail-tooltip {
+    transition: none !important;
+  }
+}
+</style>
 </head><body>
 <svg id="meld-brand-sprite" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -17767,7 +18349,7 @@ html[data-theme="dark"] .meld-mark-for-dark  { display: inline !important; }
 
     <a href="#changelog" class="fluent-util-btn fluent-version-badge" title="View changelog history">
       <span class="v-dot"></span>
-      <span>v1.11.0</span>
+      <span>v1.12.0</span>
     </a>
 
     <!-- Legacy compatibility handles -->
@@ -17896,7 +18478,7 @@ html[data-theme="dark"] .meld-mark-for-dark  { display: inline !important; }
     <div class="f2-footer-inner">
       <div class="f2-footer-brand">
         <span class="f2-footer-mark meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></span>
-        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.11.0</span>
+        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.12.0</span>
       </div>
       <div class="f2-footer-links" aria-label="Meld 11-Module Platform Index">
         <a href="#foundations">01. Foundations</a>
@@ -51261,29 +51843,91 @@ cdInit();
     }
   ];
 
-  // 2. Render Persistent Fluent 2 Sidebar (Flush at top:0, Left Chevrons, Clean Dividers)
+    // 2. Render Collapsible Floating Navigation Bar (268px Expanded Panel + 68px Collapsed Rail)
+  const RAIL_ICONS = {
+    'grp-get-started':   '<circle cx="12" cy="12" r="9"/><polygon points="16.2 7.8 14.1 14.1 7.8 16.2 9.9 9.9 16.2 7.8"/>',
+    'grp-foundations':   '<polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/>',
+    'grp-components':    '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    'grp-patterns':      '<circle cx="12" cy="5" r="2.3"/><circle cx="5.5" cy="18" r="2.3"/><circle cx="18.5" cy="18" r="2.3"/><line x1="10.8" y1="7" x2="6.6" y2="15.8"/><line x1="13.2" y1="7" x2="17.4" y2="15.8"/><line x1="7.8" y1="18" x2="16.2" y2="18"/>',
+    'grp-templates':     '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>',
+    'grp-content':       '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+    'grp-accessibility': '<circle cx="12" cy="4.5" r="2"/><path d="M5 8.5h14"/><path d="M12 8.5v5.5"/><path d="M9 21l3-7 3 7"/>',
+    'grp-motion':        '<polyline points="2 12 6 12 9 4 15 20 18 12 22 12"/>',
+    'grp-iconography':   '<circle cx="7.5" cy="8" r="3.5"/><rect x="12.5" y="12.5" width="7.5" height="7.5" rx="1.5"/><polygon points="16.5 4 20 10 13 10"/>',
+    'grp-dataviz':       '<line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="9"/>',
+    'grp-governance':    '<path d="M12 2l8 3.5V11c0 5-3.4 9.2-8 10.5C7.4 20.2 4 16 4 11V5.5L12 2Z"/><polyline points="9 12 11 14 15 10"/>',
+    'grp-developer':     '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    'grp-changelog':     '<circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>'
+  };
+
+  // Ensure floating portal tooltip & flyout exist cleanly at body level (never clipped by scroll containers)
+  let railTooltip = document.getElementById('f2-rail-tooltip');
+  if (!railTooltip) {
+    railTooltip = document.createElement('div');
+    railTooltip.id = 'f2-rail-tooltip';
+    railTooltip.className = 'f2-rail-tooltip';
+    railTooltip.setAttribute('role', 'tooltip');
+    railTooltip.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(railTooltip);
+  }
+  let railFlyout = document.getElementById('f2-rail-flyout');
+  if (!railFlyout) {
+    railFlyout = document.createElement('div');
+    railFlyout.id = 'f2-rail-flyout';
+    railFlyout.className = 'f2-rail-flyout';
+    railFlyout.setAttribute('role', 'dialog');
+    railFlyout.setAttribute('aria-label', 'Module sub-navigation');
+    railFlyout.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(railFlyout);
+  }
+
+  function hideRailTooltip() {
+    railTooltip.classList.remove('visible');
+    railTooltip.setAttribute('aria-hidden', 'true');
+  }
+  function showRailTooltip(el, text) {
+    const isRailMode = (window.innerWidth >= 1024 && document.body.classList.contains('nav-collapsed')) ||
+                       (window.innerWidth >= 768 && window.innerWidth < 1024 && !document.body.classList.contains('tablet-nav-expanded'));
+    if (!isRailMode) return;
+    const r = el.getBoundingClientRect();
+    railTooltip.textContent = text;
+    railTooltip.style.top = Math.round(r.top + r.height / 2) + 'px';
+    railTooltip.style.left = Math.round(r.right + 12) + 'px';
+    railTooltip.classList.add('visible');
+    railTooltip.setAttribute('aria-hidden', 'false');
+  }
+  function closeRailFlyout() {
+    railFlyout.classList.remove('open');
+    railFlyout.setAttribute('aria-hidden', 'true');
+    railFlyout.removeAttribute('data-group-id');
+  }
+
   const side = document.getElementById('side');
   if (side) {
     let sideHtml = `
-      <div class="fluent-sidebar-header-box">
-        <a href="#home" class="fluent-sidebar-brand" aria-label="Meld by IDEO Home">
-          <div class="fluent-brand-logo meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></div>
+      <!-- Floating Header: Expanded Lockup + Search '/' + Collapse Toggle | Collapsed: Symbol + Expand + Search Icon -->
+      <div class="fluent-sidebar-header-box f2-float-header">
+        <a href="#home" class="fluent-sidebar-brand f2-rail-tip-target" data-tip="Meld by IDEO — Home" aria-label="Meld by IDEO Home">
+          <div class="fluent-brand-logo meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></div>
           <div class="fluent-brand-text">
             <span class="fluent-brand-title">Meld</span>
             <span class="fluent-brand-sub">BY IDEO</span>
           </div>
         </a>
-        <div class="f2-side-search-wrap">
-          <button class="fluent-sidebar-search-btn" id="side-search-trigger" aria-label="Search Meld documentation" title="Search documentation (/ or Ctrl+K)">
-            <span>Search</span>
-            <kbd>/</kbd>
+        <div class="f2-header-controls">
+          <button type="button" class="fluent-sidebar-search-btn f2-rail-tip-target" id="side-search-trigger" data-tip="Search documentation (/)" aria-label="Search Meld documentation" title="Search documentation (/ or Ctrl+K)">
+            <svg class="f2-search-rail-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="16.5" y2="16.5"/></svg>
+            <span class="f2-search-label">Search</span>
+            <kbd class="f2-search-kbd">/</kbd>
           </button>
-          <button class="f2-side-search-icon-btn" id="side-search-icon-trigger" aria-label="Open search">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7.5"/><line x1="20.5" y1="20.5" x2="16.5" y2="16.5"/></svg>
+          <button type="button" class="f2-collapse-toggle-btn f2-rail-tip-target" id="nav-collapse-btn" data-tip="Expand navigation ([)" aria-expanded="true" aria-controls="side" aria-label="Collapse navigation panel" title="Toggle navigation bar ([)">
+            <svg class="f2-ico-collapse" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="9" y1="3" x2="9" y2="21"/><polyline points="15 9 12 12 15 15"/></svg>
+            <svg class="f2-ico-expand" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="9" y1="3" x2="9" y2="21"/><polyline points="13 9 16 12 13 15"/></svg>
           </button>
         </div>
       </div>
 
+      <!-- Expanded Accordion Body -->
       <div class="fluent-sidebar-nav-scroll" id="side-nav-scroll">
     `;
 
@@ -51291,7 +51935,7 @@ cdInit();
       const isCollapsed = !item.defaultOpen;
       sideHtml += `
         <div class="side-nav-group fluent-nav-group${isCollapsed ? ' collapsed' : ''}${item.defaultOpen ? ' is-active-group' : ''}" id="${item.id}">
-          <button class="side-group-header fluent-nav-group-header" aria-expanded="${!isCollapsed}">
+          <button type="button" class="side-group-header fluent-nav-group-header" aria-expanded="${!isCollapsed}">
             <span class="side-group-chevron fluent-group-chevron" aria-hidden="true">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
@@ -51311,30 +51955,183 @@ cdInit();
     sideHtml += `
       </div>
 
+      <!-- Collapsed Icon Rail Body (68px Mode) -->
+      <div class="f2-rail-nav" id="f2-rail-nav" aria-label="Compact module navigation">
+        ${NAV_TREE.map(item => {
+          const fullTitle = item.title + (item.status ? ` [${item.status}]` : '');
+          const iconSvg = RAIL_ICONS[item.id] || '<circle cx="12" cy="12" r="5"/>';
+          const primaryTarget = item.links[0] ? item.links[0].id : 'home';
+          return `
+            <button type="button" class="f2-rail-btn f2-rail-tip-target${item.defaultOpen ? ' active' : ''}" data-rail-group="${item.id}" data-rail-target="${primaryTarget}" data-tip="${fullTitle}" aria-label="${fullTitle}" aria-haspopup="dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconSvg}</svg>
+            </button>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- Floating Footer: Full Metadata in Expanded | Compact GitHub Icon in Collapsed -->
       <div class="side-footer fluent-sidebar-footer">
-        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-footer-gh-link">
-          <span>Meld by IDEO &middot; v1.11.0</span>
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-footer-gh-link f2-footer-expanded-only">
+          <span>Meld by IDEO &middot; v1.12.0</span>
           <span class="f2-footer-ext">GitHub &#8599;</span>
+        </a>
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-rail-gh-btn f2-rail-tip-target" data-tip="GitHub Repository (v1.12.0)" aria-label="GitHub Repository">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
     `;
 
     side.innerHTML = sideHtml;
 
-    // Expand / Collapse group handlers
+    // Collapse / Expand State Persistence (Desktop >= 1024px) & Tablet Overlay Mode (768px-1023px)
+    const collapseBtn = document.getElementById('nav-collapse-btn');
+    function syncCollapseAria() {
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      const isExpanded = isTablet
+        ? document.body.classList.contains('tablet-nav-expanded')
+        : !document.body.classList.contains('nav-collapsed');
+      if (collapseBtn) {
+        collapseBtn.setAttribute('aria-expanded', String(isExpanded));
+        collapseBtn.setAttribute('aria-label', isExpanded ? 'Collapse navigation panel' : 'Expand navigation panel');
+        collapseBtn.setAttribute('data-tip', isExpanded ? 'Collapse navigation ([)' : 'Expand navigation ([)');
+      }
+      const bd = document.getElementById('f2-drawer-backdrop');
+      if (isTablet && bd) {
+        bd.classList.toggle('open', document.body.classList.contains('tablet-nav-expanded'));
+      }
+    }
+
+    // Restore persisted desktop collapsed state
+    try {
+      if (localStorage.getItem('meld-nav-collapsed') === 'true') {
+        document.body.classList.add('nav-collapsed');
+      }
+    } catch (e) {}
+    syncCollapseAria();
+
+    function toggleFloatingNav() {
+      hideRailTooltip();
+      closeRailFlyout();
+      if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        document.body.classList.toggle('tablet-nav-expanded');
+      } else if (window.innerWidth >= 1024) {
+        const nowCollapsed = document.body.classList.toggle('nav-collapsed');
+        try { localStorage.setItem('meld-nav-collapsed', String(nowCollapsed)); } catch (e) {}
+      } else {
+        side.classList.remove('open');
+        const bd = document.getElementById('f2-drawer-backdrop');
+        if (bd) bd.classList.remove('open');
+      }
+      syncCollapseAria();
+    }
+
+    if (collapseBtn) collapseBtn.onclick = (e) => { e.stopPropagation(); toggleFloatingNav(); };
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024 || window.innerWidth < 768) {
+        document.body.classList.remove('tablet-nav-expanded');
+      }
+      hideRailTooltip();
+      closeRailFlyout();
+      syncCollapseAria();
+    });
+
+    // Keyboard shortcut '[' toggles floating nav on desktop/tablet
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '[' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+        if (window.innerWidth >= 768) { e.preventDefault(); toggleFloatingNav(); }
+      } else if (e.key === 'Escape') {
+        closeRailFlyout();
+        if (document.body.classList.contains('tablet-nav-expanded')) {
+          document.body.classList.remove('tablet-nav-expanded');
+          syncCollapseAria();
+        }
+      }
+    });
+
+    // Rail tooltips (hover & keyboard focus)
+    side.querySelectorAll('.f2-rail-tip-target').forEach(el => {
+      el.addEventListener('mouseenter', () => showRailTooltip(el, el.getAttribute('data-tip') || ''));
+      el.addEventListener('focus', () => showRailTooltip(el, el.getAttribute('data-tip') || ''));
+      el.addEventListener('mouseleave', hideRailTooltip);
+      el.addEventListener('blur', hideRailTooltip);
+    });
+
+    // Rail module icon click -> navigate + open floating sub-page flyout
+    side.querySelectorAll('.f2-rail-btn').forEach(btn => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        hideRailTooltip();
+        const gid = btn.getAttribute('data-rail-group');
+        const item = NAV_TREE.find(x => x.id === gid);
+        if (!item) return;
+
+        // If clicking same already-open flyout group, toggle closed
+        if (railFlyout.classList.contains('open') && railFlyout.getAttribute('data-group-id') === gid) {
+          closeRailFlyout();
+          return;
+        }
+
+        // Navigate directly to primary module overview
+        const primaryTarget = btn.getAttribute('data-rail-target');
+        if (primaryTarget) window.location.hash = primaryTarget;
+
+        // Render sub-page flyout cleanly beside the 68px rail
+        const rect = btn.getBoundingClientRect();
+        railFlyout.setAttribute('data-group-id', gid);
+        railFlyout.innerHTML = `
+          <div class="f2-flyout-head">
+            <span>${item.title}${item.status ? ` <span class="mx-nav-status">[${item.status}]</span>` : ''}</span>
+            <button type="button" class="f2-flyout-close" aria-label="Close menu">&times;</button>
+          </div>
+          <div class="f2-flyout-list">
+            ${item.links.map(l => `
+              <a href="#${l.id}" class="f2-flyout-link"${l.catSel ? ` data-cat-sel="${l.catSel}" data-cat-val="${l.catVal}"` : ''}>${l.label}</a>
+            `).join('')}
+          </div>
+        `;
+        const maxTop = Math.max(16, Math.min(rect.top - 8, window.innerHeight - 360));
+        railFlyout.style.top = Math.round(maxTop) + 'px';
+        railFlyout.style.left = Math.round(rect.right + 12) + 'px';
+        railFlyout.classList.add('open');
+        railFlyout.setAttribute('aria-hidden', 'false');
+
+        const closeBtn = railFlyout.querySelector('.f2-flyout-close');
+        if (closeBtn) closeBtn.onclick = closeRailFlyout;
+        railFlyout.querySelectorAll('a.f2-flyout-link').forEach(a => {
+          a.onclick = () => {
+            const cSel = a.getAttribute('data-cat-sel');
+            const cVal = a.getAttribute('data-cat-val');
+            if (cSel && cVal !== null) {
+              setTimeout(() => {
+                const s = document.getElementById(cSel);
+                if (s) { s.value = cVal; s.dispatchEvent(new Event('change', { bubbles: true })); }
+              }, 90);
+            }
+            closeRailFlyout();
+          };
+        });
+      };
+    });
+
+    document.addEventListener('click', (e) => {
+      if (railFlyout.classList.contains('open') && !railFlyout.contains(e.target) && !e.target.closest('.f2-rail-btn')) {
+        closeRailFlyout();
+      }
+    });
+
+    // Expand / Collapse accordion group handlers
     side.querySelectorAll('.side-group-header').forEach(btn => {
       btn.onclick = (e) => {
         e.preventDefault();
         const grp = btn.closest('.side-nav-group');
         const isCollapsed = grp.classList.toggle('collapsed');
         btn.setAttribute('aria-expanded', String(!isCollapsed));
-        // Move active focus outline to clicked group
         side.querySelectorAll('.side-nav-group').forEach(g => g.classList.remove('is-active-group'));
         grp.classList.add('is-active-group');
       };
     });
 
-    // Link click handlers with deep-category filtering & mobile drawer close
+    // Link click handlers with deep-category filtering & tablet/mobile auto-close
     side.querySelectorAll('a.side-link').forEach(a => {
       a.onclick = () => {
         const catSelId = a.getAttribute('data-cat-sel');
@@ -51348,7 +52145,6 @@ cdInit();
             }
           }, 80);
         }
-        // Highlight exact clicked link
         side.querySelectorAll('a.side-link').forEach(l => {
           l.classList.remove('on', 'active');
           l.removeAttribute('aria-current');
@@ -51360,21 +52156,18 @@ cdInit();
           side.querySelectorAll('.side-nav-group').forEach(g => g.classList.remove('is-active-group'));
           grp.classList.add('is-active-group');
           grp.classList.remove('collapsed');
+          side.querySelectorAll('.f2-rail-btn').forEach(rb => rb.classList.toggle('active', rb.getAttribute('data-rail-group') === grp.id));
         }
-        // Close mobile drawer
+        // Close mobile drawer or tablet overlay
         side.classList.remove('open');
+        document.body.classList.remove('tablet-nav-expanded');
         const bd = document.getElementById('f2-drawer-backdrop');
         if (bd) bd.classList.remove('open');
         const mb = document.getElementById('menu');
         if (mb) mb.setAttribute('aria-expanded', 'false');
+        syncCollapseAria();
       };
     });
-
-    const sideSearchIcon = document.getElementById('side-search-icon-trigger');
-    if (sideSearchIcon) sideSearchIcon.onclick = () => {
-      const t = document.getElementById('side-search-trigger');
-      if (t) t.click();
-    };
   }
 
   // Restrained Fluent 2 Hero Word Highlight Cycling (Default: 'work', respects prefers-reduced-motion)
@@ -51408,6 +52201,7 @@ cdInit();
     drawerBackdrop.onclick = () => {
       const s = document.getElementById('side');
       if (s) s.classList.remove('open');
+      document.body.classList.remove('tablet-nav-expanded');
       drawerBackdrop.classList.remove('open');
       const mb = document.getElementById('menu');
       if (mb) mb.setAttribute('aria-expanded', 'false');
@@ -51436,6 +52230,7 @@ cdInit();
       if (grp) {
         sideEl.querySelectorAll('.side-nav-group').forEach(g => g.classList.remove('is-active-group'));
         grp.classList.add('is-active-group');
+        sideEl.querySelectorAll('.f2-rail-btn').forEach(rb => rb.classList.toggle('active', rb.getAttribute('data-rail-group') === grp.id));
         if (grp.classList.contains('collapsed')) {
           grp.classList.remove('collapsed');
           const hdr = grp.querySelector('.side-group-header');
@@ -51446,6 +52241,7 @@ cdInit();
   }
   window.updateActiveLink = updateActiveLink;
   window.updateActiveDocLink = updateActiveLink;
+  updateActiveLink((window.location.hash || '#home').replace('#', ''));
 
   // Handle URL hash changes
   window.addEventListener('hashchange', () => {

@@ -1,6 +1,32 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "collapsible-floating-navigation-bar-v1120",
+                        "version":  "1.12.0",
+                        "date":  "2026-11-18",
+                        "timestamp":  "13:40:00 IST",
+                        "category":  "feature",
+                        "title":  "Collapsible Floating Navigation Bar (Expanded Panel \u0026 Icon Rail)",
+                        "summary":  "Introduced an inset, floating collapsible navigation bar across desktop and tablet viewports with an expanded 268px accordion panel and a compact 68px icon rail, reclaiming ~200px of horizontal content workspace with persistent user state.",
+                        "description":  "Replaced the full-height flush left sidebar with a refined inset floating navigation container (16px viewport margin, rounded 16px corners, subtle border, and layered Meld elevation shadow) that smoothly toggles between a 268px expanded panel and a 68px collapsed icon rail persisted in localStorage. Includes accessible hover tooltips, interactive module flyout menus for sub-page discovery while collapsed, adaptive main-canvas margin transitions (300px expanded vs. 100px collapsed), tablet 68px rail default with overlay expansion, and mobile floating off-canvas drawer.",
+                        "changes":  [
+                                        "Converted the desktop left sidebar into an inset floating navigation panel positioned 16px from top, left, and bottom viewport edges (height: calc(100vh - 32px)) with 16px rounded corners and canonical Light/Dark elevation shadows.",
+                                        "Implemented Expanded State (268px) with full Meld by IDEO horizontal lockup, compact Search (\u0027/\u0027) trigger, accessible collapse button (shortcut \u0027[\u0027), independently scrollable 11-module accordion tree, and version/GitHub footer.",
+                                        "Implemented Collapsed Icon Rail State (68px) with standalone Meld symbol mark, expand toggle, magnifying-glass search trigger, centered module icon rail with active-state pill highlight, non-clipping hover tooltips, floating sub-page flyouts, and bottom GitHub icon.",
+                                        "Implemented dynamic main content canvas offset (300px expanded -\u003e 100px collapsed) with smooth 240ms cubic-bezier transitions so documentation, explorers, and playgrounds expand cleanly into the reclaimed ~200px horizontal space.",
+                                        "Added tablet (768px-1023px) 68px collapsed floating rail default with non-compressing overlay expansion and backdrop scrim, plus mobile (\u003c768px) floating off-canvas drawer.",
+                                        "Persisted collapsed/expanded preference via localStorage (\u0027meld-nav-collapsed\u0027) and verified full Light/Dark theme contrast, keyboard focus rings, and zero horizontal overflow across 320px-1440px."
+                                    ],
+                        "affectedAreas":  [
+                                              "Floating Navigation Shell (nav.side, body.nav-collapsed)",
+                                              "Collapsed Icon Rail, Tooltips \u0026 Sub-Page Flyout (#f2-rail-tooltip, #f2-rail-flyout)",
+                                              "Adaptive Content Canvas \u0026 Top Utility Header (main#main, header.hd)",
+                                              "Tablet Overlay Mode \u0026 Mobile Floating Drawer (768px-1023px, \u003c768px)",
+                                              "Changelog (v1.12.0)"
+                                          ],
+                        "commitMessage":  "feat(navigation): introduce collapsible floating navigation bar (v1.12.0)"
+                    },
+                    {
                         "id":  "design-system-expansion-modules-06-11-v1110",
                         "version":  "1.11.0",
                         "date":  "2026-11-18",
