@@ -1,6 +1,37 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "design-system-expansion-modules-06-11-v1110",
+                        "version":  "1.11.0",
+                        "date":  "2026-11-18",
+                        "timestamp":  "11:50:00 IST",
+                        "category":  "feature",
+                        "title":  "Design System Expansion - New Documentation Modules",
+                        "summary":  "Expanded Meld by IDEO with six new documentation modules: Accessibility [Beta], Motion \u0026 Interaction [Beta], Iconography \u0026 Assets [Beta], Data Visualization [Beta], Design Governance [Beta], and Developer Resources [Beta]. Also refined navigation and structured documentation for Templates \u0026 Layouts [Ongoing] and Content Design [Ongoing].",
+                        "description":  "Expanded Meld by IDEO into a comprehensive 11-module enterprise design-system documentation platform while preserving all existing audited Foundations, 100+ Components, and 125 UX Patterns. Added six new [Beta] modules with 76 structured sections and five new interactive tools (WCAG 2.2 Colour Contrast Checker, Roving Keyboard Focus Demo, Motion \u0026 Easing Playground, Searchable 32-Icon SVG Library, and Interactive SVG Data Visualization Playground), refined [Ongoing] architecture for Modules 04 and 05, updated global sidebar hierarchy with consistent 01-11 numbering and subtle status indicators, and indexed all new modules in global search.",
+                        "changes":  [
+                                        "Added Module 06. Accessibility [Beta] (13 sections) featuring an interactive WCAG 2.2 Colour Contrast Checker (W3C relative luminance math + Meld presets), roving-tabindex keyboard toolbar demo, accessible vs. inaccessible form comparisons, ARIA guidelines, and interactive 10-point audit checklist.",
+                                        "Added Module 07. Motion \u0026 Interaction [Beta] (13 sections) featuring semantic motion duration and cubic-bezier easing tokens, SVG easing diagrams, GPU-composited transition guidance, skeleton/spinner loading specimens, reduced-motion standards, and an interactive Motion Playground.",
+                                        "Added Module 08. Iconography \u0026 Assets [Beta] (11 sections) featuring a searchable and filterable 32-icon Meld SVG Library with live size (16-40px), stroke (1.5-2.5px), and one-click SVG copy, optical keyline grid, official Meld Brand Assets showcase, and SVG export checklist.",
+                                        "Added Module 09. Data Visualization [Beta] (13 sections) featuring a 6-series categorical chart palette, live SVG Bar, Line, Area, and Donut chart specs, accessible chart guidance, and an interactive Visualization Playground with editable data, colorblind-safe palette, and empty/loading states.",
+                                        "Added Module 10. Design Governance [Beta] (13 sections) featuring a 6-stage contribution workflow diagram, contribution tiers, component lifecycle \u0026 deprecation policy, semantic versioning examples, RACI ownership matrix, and interactive release-readiness checklist.",
+                                        "Added Module 11. Developer Resources [Beta] (13 sections) with truthful repository setup instructions, copyable CSS token \u0026 theming code, window.MeldLogo API reference, responsive patterns, troubleshooting guide, and transparent Available vs. Planned roadmap status.",
+                                        "Preserved and refined Module 04. Templates \u0026 Layouts [Ongoing] (64 templates, 12 primitives, 11-topic navigation) and Module 05. Content Design [Ongoing] (9 categories, Copywriting Playground, 13-topic navigation).",
+                                        "Updated persistent Fluent 2 sidebar, global omnisearch index, breadcrumbs, and homepage platform index to reflect all 11 numbered modules with subtle [Ongoing] and [Beta] labels."
+                                    ],
+                        "affectedAreas":  [
+                                              "Global 11-Module Sidebar Navigation \u0026 Search Index",
+                                              "04. Templates \u0026 Layouts [Ongoing] \u0026 05. Content Design [Ongoing]",
+                                              "06. Accessibility [Beta] \u0026 Interactive WCAG Contrast Checker",
+                                              "07. Motion \u0026 Interaction [Beta] \u0026 Interactive Motion Playground",
+                                              "08. Iconography \u0026 Assets [Beta] \u0026 Searchable 32-Icon Library",
+                                              "09. Data Visualization [Beta] \u0026 Interactive Chart Playground",
+                                              "10. Design Governance [Beta] \u0026 11. Developer Resources [Beta]",
+                                              "Changelog (v1.11.0)"
+                                          ],
+                        "commitMessage":  "feat(design-system): expand Meld documentation modules"
+                    },
+                    {
                         "id":  "fluent-2-reference-accurate-redesign-v1100",
                         "version":  "1.10.0",
                         "date":  "2026-11-18",
