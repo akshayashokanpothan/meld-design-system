@@ -1,6 +1,30 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "ux-draftsman-hero-switcher-v1122",
+                        "version":  "1.12.2",
+                        "date":  "2026-11-18",
+                        "timestamp":  "17:20:00 IST",
+                        "category":  "feature",
+                        "title":  "Add animated 4-state UX draftsman illustration switcher to homepage hero",
+                        "summary":  "Upgraded the Technical Blueprint homepage hero with 4 custom theme-agnostic UX draftsman SVG illustrations (UX User Journey, Interactive Wireframe, Component Ecosystem, Product Discovery Map) synchronized with a rotating outlined \u0027{keyword}\u0027 headline and interactive pill switcher.",
+                        "description":  "Replaced the static hero diagram with an animated, accessible 4-state UX illustration showcase built entirely from responsive inline SVGs using canonical Meld Light/Dark semantic tokens (#111111 ink on warm paper grid in Light mode; #F4F4F6 blueprint linework on deep charcoal slate in Dark mode; #BC4989 Berry Magenta and #39409A Deep Indigo focal highlights). Synchronized headline keywords ({journeys} -\u003e UX User Journey, {systems} -\u003e Interactive Wireframe, {tokens} -\u003e Component Ecosystem, {ideas} -\u003e Product Discovery Map) auto-cycle smoothly every 4.5s with opacity/translateY transitions, animated dotted SVG connectors, manual pill controls (01 Journey, 02 Wireframe, 03 Ecosystem, 04 Discovery), hover/focus/click pause handling, and full prefers-reduced-motion compliance.",
+                        "changes":  [
+                                        "Built 4 custom inline UX Technical Draftsman SVG illustrations (01 UX User Journey, 02 Interactive Wireframe, 03 Component Ecosystem, 04 Product Discovery Map) with crisp legible labels, stipple shading, and subtle animated dashed connectors.",
+                                        "Synchronized the outlined curly-brace headline keyword (\u0027Let the {journeys|systems|tokens|ideas} flow\u0027) with the active UX illustration using smooth 400ms cubic-bezier(0.22, 1, 0.36, 1) cross-fade and subtle vertical entrance transitions.",
+                                        "Added an accessible draftsman segmented pill switcher (01 Journey · 02 Wireframe · 03 Ecosystem · 04 Discovery) beneath the illustration with keyboard ArrowLeft/ArrowRight navigation and aria-selected state.",
+                                        "Implemented 4.5s auto-cycling with automatic pause on hover, keyboard focus, or manual tab selection, plus full prefers-reduced-motion compliance disabling auto-rotation and animations.",
+                                        "Preserved the floating collapsible navigation rail (68px/268px), top-right utility bar, Design \u0026 Develop draftsman entry cards, platform footer, and zero horizontal overflow across 320px-1440px in Light and Dark modes."
+                                    ],
+                        "affectedAreas":  [
+                                              "Homepage Hero Synchronized Headline \u0026 4-State UX SVG Switcher (#home)",
+                                              "Technical Blueprint Light \u0026 Dark Styles (\u003cstyle id=\u0027meld-blueprint-hero-styles\u0027\u003e)",
+                                              "Hero Switcher Controller (initBlueprintHeroSwitcher)",
+                                              "Changelog (v1.12.2)"
+                                          ],
+                        "commitMessage":  "feat(home): add animated 4-state UX draftsman illustration switcher to homepage hero (v1.12.2)"
+                    },
+                    {
                         "id":  "homepage-hero-technical-blueprint-v1121",
                         "version":  "1.12.1",
                         "date":  "2026-11-18",

@@ -18277,36 +18277,48 @@ html[data-theme="dark"] .f2-rail-gh-btn:hover {
 </style>
 <style id="meld-blueprint-hero-styles">
 /* ==========================================================================
-   MELD BY IDEO — HOMEPAGE HERO: TECHNICAL BLUEPRINT / DRAFTSMAN STYLE (v1.12.1)
+   MELD BY IDEO — ANIMATED 4-STATE UX DRAFTSMAN HERO SWITCHER (v1.12.2)
    Strictly scoped to #home above the fold — preserves floating nav & all modules
    ========================================================================== */
 :root,
 [data-theme="light"] {
   --bp-bg: #F6F5F1;
-  --bp-ink: #0E0E0E;
+  --bp-ink: #111111;
   --bp-desc: #3A3A3A;
-  --bp-grid-minor: rgba(14, 14, 14, 0.045);
-  --bp-grid-major: rgba(14, 14, 14, 0.088);
+  --bp-accent-mag: #BC4989;
+  --bp-accent-ind: #39409A;
+  --bp-grid-minor: rgba(17, 17, 17, 0.045);
+  --bp-grid-major: rgba(17, 17, 17, 0.088);
   --bp-card-bg: rgba(249, 248, 245, 0.92);
   --bp-card-bg-hover: #FFFFFF;
   --bp-card-border: #1A1A1A;
-  --bp-card-shadow: 0 2px 10px rgba(14, 14, 14, 0.045);
-  --bp-card-shadow-hover: 0 10px 24px rgba(14, 14, 14, 0.09);
+  --bp-card-shadow: 0 2px 10px rgba(17, 17, 17, 0.045);
+  --bp-card-shadow-hover: 0 10px 24px rgba(17, 17, 17, 0.09);
+  --bp-pill-bg: rgba(255, 255, 255, 0.78);
+  --bp-pill-bd: rgba(17, 17, 17, 0.16);
+  --bp-pill-active-bg: #111111;
+  --bp-pill-active-tx: #FFFFFF;
   --f2-hero-bg: var(--bp-bg);
 }
 
 [data-theme="dark"],
 html[data-theme="dark"] {
   --bp-bg: #0E1217;
-  --bp-ink: #FFFFFF;
-  --bp-desc: #CCCCCC;
+  --bp-ink: #F4F4F6;
+  --bp-desc: #C8CDD6;
+  --bp-accent-mag: #F472B6;
+  --bp-accent-ind: #818CF8;
   --bp-grid-minor: rgba(148, 163, 184, 0.062);
   --bp-grid-major: rgba(148, 163, 184, 0.125);
   --bp-card-bg: rgba(20, 25, 32, 0.84);
   --bp-card-bg-hover: rgba(26, 33, 43, 0.96);
-  --bp-card-border: rgba(255, 255, 255, 0.62);
-  --bp-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.32);
+  --bp-card-border: rgba(244, 244, 246, 0.56);
+  --bp-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.34);
   --bp-card-shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.52);
+  --bp-pill-bg: rgba(20, 25, 32, 0.78);
+  --bp-pill-bd: rgba(244, 244, 246, 0.18);
+  --bp-pill-active-bg: #F4F4F6;
+  --bp-pill-active-tx: #0E1217;
   --f2-hero-bg: var(--bp-bg);
 }
 
@@ -18339,7 +18351,7 @@ body.is-landing .wrap,
   pointer-events: none !important;
   z-index: 0 !important;
   background: radial-gradient(circle at 74% 48%, transparent 0%, transparent 56%, var(--bp-bg) 110%) !important;
-  opacity: 0.42 !important;
+  opacity: 0.38 !important;
 }
 
 /* Responsive 2-Column Hero Container clearing the floating nav smoothly */
@@ -18347,13 +18359,13 @@ body.is-landing .wrap,
   position: relative !important;
   z-index: 2 !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr) !important;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr) !important;
   align-items: center !important;
-  gap: clamp(24px, 3.6vw, 56px) !important;
+  gap: clamp(24px, 3.4vw, 52px) !important;
   width: 100% !important;
   max-width: 1320px !important;
   margin: 0 auto !important;
-  padding: clamp(78px, 10vh, 112px) clamp(24px, 4vw, 56px) clamp(36px, 5vh, 56px) clamp(24px, 4vw, 56px) !important;
+  padding: clamp(76px, 9.5vh, 108px) clamp(24px, 4vw, 54px) clamp(34px, 4.5vh, 52px) clamp(24px, 4vw, 54px) !important;
   box-sizing: border-box !important;
 }
 
@@ -18365,11 +18377,11 @@ body.is-landing .wrap,
 }
 
 #home .bp-hero-copy {
-  max-width: 560px !important;
-  margin-bottom: clamp(26px, 3.6vh, 40px) !important;
+  max-width: 570px !important;
+  margin-bottom: clamp(24px, 3.2vh, 36px) !important;
 }
 
-/* Typography Hierarchy — Pure Space Grotesk */
+/* Typography Hierarchy — Space Grotesk */
 #home .bp-eyebrow {
   font-family: "Space Grotesk", sans-serif !important;
   margin: 0 0 8px 2px !important;
@@ -18385,7 +18397,7 @@ body.is-landing .wrap,
   font-family: "Space Grotesk", sans-serif !important;
   margin: 0 !important;
   padding: 0 !important;
-  font-size: clamp(68px, 8.2vw, 112px) !important;
+  font-size: clamp(66px, 7.8vw, 108px) !important;
   font-weight: 700 !important;
   line-height: 0.94 !important;
   letter-spacing: -0.042em !important;
@@ -18395,9 +18407,9 @@ body.is-landing .wrap,
 #home .bp-sub-headline {
   font-family: "Space Grotesk", sans-serif !important;
   margin: 14px 0 0 0 !important;
-  font-size: clamp(36px, 4.5vw, 62px) !important;
+  font-size: clamp(32px, 4.1vw, 56px) !important;
   font-weight: 700 !important;
-  line-height: 1.06 !important;
+  line-height: 1.08 !important;
   letter-spacing: -0.032em !important;
   color: var(--bp-ink) !important;
   display: flex !important;
@@ -18410,7 +18422,7 @@ body.is-landing .wrap,
   display: inline-flex !important;
   align-items: center !important;
   flex-wrap: wrap !important;
-  gap: 0.22em !important;
+  gap: 0.20em !important;
 }
 
 #home .bp-headline-solid,
@@ -18419,10 +18431,12 @@ body.is-landing .wrap,
   font-weight: 700 !important;
 }
 
-/* Outlined Hand-Drawn Curly Braces + Hollow '{ideas}' Highlight */
-#home .bp-ideas-token {
-  display: inline-flex !important;
+/* Synchronized Rotating Outlined '{keyword}' Container */
+#home .bp-ideas-token.bp-kw-switcher {
+  position: relative !important;
+  display: inline-grid !important;
   align-items: center !important;
+  justify-items: start !important;
   padding: 0 !important;
   margin: 0 !important;
   background: transparent !important;
@@ -18430,16 +18444,27 @@ body.is-landing .wrap,
   border: none !important;
   line-height: 1 !important;
   transform: translateY(0.04em) !important;
-  transition: transform 180ms ease, color 180ms ease !important;
 }
 
-#home .bp-ideas-token:hover {
-  transform: translateY(-1px) !important;
-  color: var(--color-action-primary, #BC4989) !important;
+#home .bp-kw-item {
+  grid-area: 1 / 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  opacity: 0 !important;
+  transform: translateY(8px) scale(0.985) !important;
+  pointer-events: none !important;
+  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 400ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+#home .bp-kw-item.is-active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
 }
 
 #home .bp-ideas-svg {
-  height: 1.16em !important;
+  height: 1.15em !important;
   width: auto !important;
   display: block !important;
   overflow: visible !important;
@@ -18447,21 +18472,21 @@ body.is-landing .wrap,
 
 #home .bp-ideas-text {
   font-family: "Space Grotesk", sans-serif !important;
-  font-size: 60px !important;
+  font-size: 56px !important;
   font-weight: 700 !important;
   letter-spacing: -0.025em !important;
   fill: none !important;
   stroke: currentColor !important;
-  stroke-width: 2.15 !important;
+  stroke-width: 2.1 !important;
   stroke-linejoin: round !important;
   paint-order: stroke fill !important;
 }
 
 #home .bp-hero-desc {
   font-family: "Space Grotesk", sans-serif !important;
-  margin: 20px 0 0 2px !important;
+  margin: 18px 0 0 2px !important;
   max-width: 470px !important;
-  font-size: clamp(16px, 1.35vw, 19px) !important;
+  font-size: clamp(15.5px, 1.3vw, 18.5px) !important;
   line-height: 1.48 !important;
   font-weight: 400 !important;
   color: var(--bp-desc) !important;
@@ -18484,7 +18509,7 @@ body.is-landing .wrap,
   align-items: flex-start !important;
   justify-content: space-between !important;
   gap: 10px !important;
-  padding: 20px 20px 18px 20px !important;
+  padding: 19px 19px 17px 19px !important;
   border-radius: 12px !important;
   background: var(--bp-card-bg) !important;
   border: 1.5px solid var(--bp-card-border) !important;
@@ -18493,7 +18518,7 @@ body.is-landing .wrap,
   -webkit-backdrop-filter: blur(6px) !important;
   color: var(--bp-ink) !important;
   text-decoration: none !important;
-  min-height: 164px !important;
+  min-height: 160px !important;
   transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
               background-color 180ms ease,
               border-color 180ms ease,
@@ -18503,18 +18528,17 @@ body.is-landing .wrap,
 #home .bp-entry-card:hover {
   transform: translateY(-3px) !important;
   background: var(--bp-card-bg-hover) !important;
-  border-color: var(--color-action-primary, #BC4989) !important;
+  border-color: var(--bp-accent-mag) !important;
   box-shadow: var(--bp-card-shadow-hover) !important;
 }
 
 #home .bp-entry-card.f2-card-develop:hover {
-  border-color: var(--color-border-focus, #39409A) !important;
+  border-color: var(--bp-accent-ind) !important;
 }
 
 #home .bp-entry-card:focus-visible {
-  outline: 3px solid var(--color-border-focus, #39409A) !important;
+  outline: 3px solid var(--bp-accent-ind) !important;
   outline-offset: 3px !important;
-  transform: translateY(-2px) !important;
 }
 
 #home .bp-card-head {
@@ -18570,73 +18594,199 @@ body.is-landing .wrap,
   text-decoration-thickness: 1.5px !important;
 }
 
-#home .bp-entry-card:hover .bp-card-cta {
-  color: var(--color-action-primary, #BC4989) !important;
-}
+#home .bp-entry-card:hover .bp-card-cta { color: var(--bp-accent-mag) !important; }
+#home .bp-entry-card.f2-card-develop:hover .bp-card-cta { color: var(--bp-accent-ind) !important; }
+#home .bp-entry-card .f2-arrow { display: inline-block !important; transition: transform 180ms ease !important; }
+#home .bp-entry-card:hover .f2-arrow { transform: translateX(4px) !important; }
 
-#home .bp-entry-card.f2-card-develop:hover .bp-card-cta {
-  color: var(--color-border-focus, #39409A) !important;
-}
-
-[data-theme="dark"] #home .bp-entry-card.f2-card-develop:hover .bp-card-cta {
-  color: #A5B4FC !important;
-}
-
-#home .bp-entry-card .f2-arrow {
-  display: inline-block !important;
-  transition: transform 180ms ease !important;
-}
-
-#home .bp-entry-card:hover .f2-arrow {
-  transform: translateX(4px) !important;
-}
-
-/* Right Column: Isometric Technical Blueprint SVG Artwork */
-#home .bp-hero-right {
+/* RIGHT COLUMN: 4-Illustration Animated UX Draftsman Stage + Pill Switcher */
+#home .bp-hero-right.bp-switcher-root {
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
+  gap: 14px !important;
   width: 100% !important;
   min-width: 0 !important;
 }
 
+#home .bp-stage-frame {
+  position: relative !important;
+  display: grid !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  aspect-ratio: 600 / 490 !important;
+  align-items: center !important;
+  justify-items: center !important;
+}
+
+#home .bp-slide {
+  grid-area: 1 / 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transform: translateY(8px) scale(0.985) !important;
+  pointer-events: none !important;
+  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 400ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+#home .bp-slide.is-active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+
 #home .bp-blueprint-svg {
   width: 100% !important;
-  max-width: 575px !important;
-  height: auto !important;
+  height: 100% !important;
   display: block !important;
   color: var(--bp-ink) !important;
   overflow: visible !important;
 }
 
-#home .bp-dim-label {
+/* Crisp Legible SVG Draftsman Typography */
+#home .bp-svg-label {
   font-family: "Space Grotesk", sans-serif !important;
   font-size: 13px !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   fill: currentColor !important;
   stroke: none !important;
-  letter-spacing: 0.01em !important;
 }
 
-#home .bp-dim-micro {
+#home .bp-svg-note {
   font-family: "Space Grotesk", sans-serif !important;
-  font-size: 11px !important;
+  font-size: 11.5px !important;
   font-weight: 500 !important;
-  fill: currentColor !important;
+  fill: var(--bp-desc) !important;
   stroke: none !important;
-  opacity: 0.78 !important;
 }
 
-/* Theme-Aware Architectural Dimension Annotations (Light: 48m / 20m | Dark: 78m / 26m) */
-#home .bp-lbl-dark { display: none !important; }
-#home .bp-lbl-light { display: inline !important; }
-[data-theme="dark"] #home .bp-lbl-light { display: none !important; }
-[data-theme="dark"] #home .bp-lbl-dark { display: inline !important; }
+#home .bp-svg-micro {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+#home .bp-svg-pill {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  stroke: none !important;
+}
+
+#home .bp-svg-redline {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  fill: var(--bp-accent-mag) !important;
+  stroke: none !important;
+}
+
+/* Subtle Flowing Connector Line Animation on Active Slide */
+@keyframes bpDashFlow {
+  from { stroke-dashoffset: 36; }
+  to   { stroke-dashoffset: 0; }
+}
+#home .bp-slide.is-active .bp-flow-dash {
+  animation: bpDashFlow 3.4s linear infinite !important;
+}
+#home .bp-switcher-root[data-paused="hover"] .bp-flow-dash {
+  animation-play-state: paused !important;
+}
+
+/* Minimal Draftsman Segmented Pill Selector */
+#home .bp-switcher-bar {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 5px !important;
+  border-radius: 999px !important;
+  background: var(--bp-pill-bg) !important;
+  border: 1.25px solid var(--bp-pill-bd) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: var(--bp-card-shadow) !important;
+  max-width: 100% !important;
+}
+
+#home .bp-pill {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  height: 30px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--bp-desc) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease !important;
+}
+
+#home .bp-pill:hover {
+  color: var(--bp-ink) !important;
+  background: rgba(188, 73, 137, 0.08) !important;
+}
+
+#home .bp-pill:focus-visible {
+  outline: 3px solid var(--bp-accent-ind) !important;
+  outline-offset: 2px !important;
+}
+
+#home .bp-pill-num {
+  font-size: 10.5px !important;
+  opacity: 0.68 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+#home .bp-pill.is-active {
+  background: var(--bp-pill-active-bg) !important;
+  color: var(--bp-pill-active-tx) !important;
+  border-color: var(--bp-pill-active-bg) !important;
+}
+
+#home .bp-pill.is-active .bp-pill-num {
+  opacity: 0.85 !important;
+  color: var(--bp-accent-mag) !important;
+}
+
+#home .bp-pill-prog {
+  position: absolute !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  height: 2px !important;
+  width: 0% !important;
+  background: var(--bp-accent-mag) !important;
+  pointer-events: none !important;
+}
+
+@keyframes bpPillFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+#home .bp-switcher-root[data-paused="false"] .bp-pill.is-active .bp-pill-prog {
+  animation: bpPillFill 4.5s linear forwards !important;
+}
 
 /* Responsive Tablet & Mobile Adaptation */
 @media (max-width: 1120px) {
   #home .bp-hero-layout {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr) !important;
     gap: 24px !important;
   }
 }
@@ -18645,41 +18795,48 @@ body.is-landing .wrap,
   #home .bp-hero-layout {
     grid-template-columns: minmax(0, 1fr) !important;
     padding-top: 84px !important;
-    gap: 32px !important;
+    gap: 28px !important;
   }
   #home .bp-hero-copy,
   #home .bp-entry-grid {
     max-width: 100% !important;
   }
-  #home .bp-blueprint-svg {
-    max-width: 440px !important;
-    margin: 0 auto !important;
+  #home .bp-stage-frame {
+    max-width: 520px !important;
   }
 }
 
 @media (max-width: 560px) {
   #home .bp-hero-layout {
-    padding: 76px 16px 28px 16px !important;
-    gap: 24px !important;
+    padding: 74px 16px 28px 16px !important;
+    gap: 22px !important;
   }
   #home .bp-entry-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 12px !important;
   }
   #home .bp-entry-card {
-    min-height: 136px !important;
+    min-height: 132px !important;
     padding: 16px !important;
   }
-  #home .bp-blueprint-svg {
-    max-width: 320px !important;
+  #home .bp-pill {
+    padding: 0 9px !important;
+    font-size: 11px !important;
+    height: 28px !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #home .bp-kw-item,
+  #home .bp-slide,
   #home .bp-entry-card,
-  #home .bp-ideas-token,
-  #home .bp-entry-card .f2-arrow {
+  #home .bp-entry-card .f2-arrow,
+  #home .bp-pill {
     transition: none !important;
+  }
+  #home .bp-slide.is-active .bp-flow-dash,
+  #home .bp-pill.is-active .bp-pill-prog {
+    animation: none !important;
   }
 }
 </style>
@@ -18757,7 +18914,7 @@ body.is-landing .wrap,
 
     <a href="#changelog" class="fluent-util-btn fluent-version-badge" title="View changelog history">
       <span class="v-dot"></span>
-      <span>v1.12.1</span>
+      <span>v1.12.2</span>
     </a>
 
     <!-- Legacy compatibility handles -->
@@ -18790,9 +18947,45 @@ body.is-landing .wrap,
     <!-- Subtle Blueprint Grid Overlay Layer -->
     <div class="bp-grid-overlay" aria-hidden="true"></div>
 
+    <!-- Shared SVG Pattern & Arrowhead Definitions for all 4 UX Draftsman Illustrations -->
+    <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="uxStipple" width="5.5" height="5.5" patternUnits="userSpaceOnUse">
+          <circle cx="1.4" cy="1.4" r="0.7" fill="currentColor" fill-opacity="0.52"/>
+          <circle cx="4.1" cy="4.0" r="0.6" fill="currentColor" fill-opacity="0.38"/>
+        </pattern>
+        <pattern id="uxStippleDense" width="4" height="4" patternUnits="userSpaceOnUse">
+          <circle cx="1.1" cy="1.1" r="0.72" fill="currentColor" fill-opacity="0.72"/>
+          <circle cx="3.0" cy="3.0" r="0.62" fill="currentColor" fill-opacity="0.52"/>
+        </pattern>
+        <pattern id="uxHatch" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(42)">
+          <line x1="0" y1="0" x2="0" y2="5.5" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.48"/>
+        </pattern>
+        <pattern id="uxMagStipple" width="5" height="5" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="0.75" fill="var(--bp-accent-mag)" fill-opacity="0.55"/>
+          <circle cx="3.8" cy="3.8" r="0.65" fill="var(--bp-accent-mag)" fill-opacity="0.38"/>
+        </pattern>
+        <marker id="uxArr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <path d="M1.5 1.8 L8.5 5 L1.5 8.2" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="uxArrStart" viewBox="0 0 10 10" refX="1.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <path d="M8.5 1.8 L1.5 5 L8.5 8.2" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="uxArrMag" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <path d="M1.5 1.8 L8.5 5 L1.5 8.2" fill="none" stroke="var(--bp-accent-mag)" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="uxArrInd" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <path d="M1.5 1.8 L8.5 5 L1.5 8.2" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="uxArrIndStart" viewBox="0 0 10 10" refX="1.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+          <path d="M8.5 1.8 L1.5 5 L8.5 8.2" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+    </svg>
+
     <!-- Responsive 2-Column Technical Blueprint Hero Frame -->
     <div class="f2-hero-inner bp-hero-layout">
-      <!-- LEFT COLUMN: Brand Typography + {ideas} Highlight + Design/Develop Cards -->
+      <!-- LEFT COLUMN: Brand Typography + Synchronized {keyword} + Design/Develop Cards -->
       <div class="bp-hero-left">
         <div class="f2-hero-copy bp-hero-copy">
           <p class="f2-eyebrow bp-eyebrow">WELCOME TO</p>
@@ -18800,17 +18993,47 @@ body.is-landing .wrap,
           <p class="f2-sub-headline bp-sub-headline">
             <span class="bp-headline-row">
               <span class="bp-headline-solid">Let the</span>
-              <span class="bp-ideas-token" id="f2-word-highlight" data-variant="ideas" aria-label="ideas">
-                <svg class="bp-ideas-svg" viewBox="0 0 216 74" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                  <!-- Hand-drafted architectural left curly brace '{' hugging 'ideas' tightly -->
-                  <path class="bp-brace-path" d="M25 6 C16 6 14 11 14 19 L14 27 C14 33 10 36 4 37 C10 38 14 41 14 47 L14 55 C14 63 16 68 25 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path class="bp-brace-inner" d="M25 11 C20 11 18.8 14 18.8 19.5 L18.8 27.5 C18.8 32.5 16 35.8 11 37 C16 38.2 18.8 41.5 18.8 46.5 L18.8 54.5 C18.8 60 20 63 25 63" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
-                  <!-- Hollow technical-draftsman outlined 'ideas' wordmark in Space Grotesk -->
-                  <text class="bp-ideas-text" x="108" y="56" text-anchor="middle">ideas</text>
-                  <!-- Hand-drafted architectural right curly brace '}' hugging 'ideas' tightly -->
-                  <path class="bp-brace-path" d="M191 6 C200 6 202 11 202 19 L202 27 C202 33 206 36 212 37 C206 38 202 41 202 47 L202 55 C202 63 200 68 191 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path class="bp-brace-inner" d="M191 11 C196 11 197.2 14 197.2 19.5 L197.2 27.5 C197.2 32.5 200 35.8 205 37 C200 38.2 197.2 41.5 197.2 46.5 L197.2 54.5 C197.2 60 196 63 191 63" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <span class="bp-ideas-token bp-kw-switcher" id="f2-word-highlight" data-variant="journeys" data-active-idx="0" aria-live="polite" aria-atomic="true">
+                <!-- State 0: {journeys} -->
+                <span class="bp-kw-item is-active" data-kw-idx="0" aria-label="journeys">
+                  <svg class="bp-ideas-svg" viewBox="0 0 308 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="bp-brace-path" d="M24 6 C15 6 13 11 13 19 L13 27 C13 33 9 36 3 37 C9 38 13 41 13 47 L13 55 C13 63 15 68 24 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M24 11 C19 11 17.8 14 17.8 19.5 L17.8 27.5 C17.8 32.5 15 35.8 10 37 C15 38.2 17.8 41.5 17.8 46.5 L17.8 54.5 C17.8 60 19 63 24 63" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text class="bp-ideas-text" x="154" y="54" text-anchor="middle">journeys</text>
+                    <path class="bp-brace-path" d="M284 6 C293 6 295 11 295 19 L295 27 C295 33 299 36 305 37 C299 38 295 41 295 47 L295 55 C295 63 293 68 284 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M284 11 C289 11 290.2 14 290.2 19.5 L290.2 27.5 C290.2 32.5 293 35.8 298 37 C293 38.2 290.2 41.5 290.2 46.5 L290.2 54.5 C290.2 60 289 63 284 63" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <!-- State 1: {systems} -->
+                <span class="bp-kw-item" data-kw-idx="1" aria-label="systems" aria-hidden="true">
+                  <svg class="bp-ideas-svg" viewBox="0 0 286 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="bp-brace-path" d="M24 6 C15 6 13 11 13 19 L13 27 C13 33 9 36 3 37 C9 38 13 41 13 47 L13 55 C13 63 15 68 24 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M24 11 C19 11 17.8 14 17.8 19.5 L17.8 27.5 C17.8 32.5 15 35.8 10 37 C15 38.2 17.8 41.5 17.8 46.5 L17.8 54.5 C17.8 60 19 63 24 63" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text class="bp-ideas-text" x="143" y="54" text-anchor="middle">systems</text>
+                    <path class="bp-brace-path" d="M262 6 C271 6 273 11 273 19 L273 27 C273 33 277 36 283 37 C277 38 273 41 273 47 L273 55 C273 63 271 68 262 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M262 11 C267 11 268.2 14 268.2 19.5 L268.2 27.5 C268.2 32.5 271 35.8 276 37 C271 38.2 268.2 41.5 268.2 46.5 L268.2 54.5 C268.2 60 267 63 262 63" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <!-- State 2: {tokens} -->
+                <span class="bp-kw-item" data-kw-idx="2" aria-label="tokens" aria-hidden="true">
+                  <svg class="bp-ideas-svg" viewBox="0 0 248 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="bp-brace-path" d="M24 6 C15 6 13 11 13 19 L13 27 C13 33 9 36 3 37 C9 38 13 41 13 47 L13 55 C13 63 15 68 24 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M24 11 C19 11 17.8 14 17.8 19.5 L17.8 27.5 C17.8 32.5 15 35.8 10 37 C15 38.2 17.8 41.5 17.8 46.5 L17.8 54.5 C17.8 60 19 63 24 63" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text class="bp-ideas-text" x="124" y="54" text-anchor="middle">tokens</text>
+                    <path class="bp-brace-path" d="M224 6 C233 6 235 11 235 19 L235 27 C235 33 239 36 245 37 C239 38 235 41 235 47 L235 55 C235 63 233 68 224 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M224 11 C229 11 230.2 14 230.2 19.5 L230.2 27.5 C230.2 32.5 233 35.8 238 37 C233 38.2 230.2 41.5 230.2 46.5 L230.2 54.5 C230.2 60 229 63 224 63" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <!-- State 3: {ideas} -->
+                <span class="bp-kw-item" data-kw-idx="3" aria-label="ideas" aria-hidden="true">
+                  <svg class="bp-ideas-svg" viewBox="0 0 216 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="bp-brace-path" d="M24 6 C15 6 13 11 13 19 L13 27 C13 33 9 36 3 37 C9 38 13 41 13 47 L13 55 C13 63 15 68 24 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M24 11 C19 11 17.8 14 17.8 19.5 L17.8 27.5 C17.8 32.5 15 35.8 10 37 C15 38.2 17.8 41.5 17.8 46.5 L17.8 54.5 C17.8 60 19 63 24 63" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text class="bp-ideas-text" x="108" y="54" text-anchor="middle">ideas</text>
+                    <path class="bp-brace-path" d="M192 6 C201 6 203 11 203 19 L203 27 C203 33 207 36 213 37 C207 38 203 41 203 47 L203 55 C203 63 201 68 192 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="bp-brace-inner" d="M192 11 C197 11 198.2 14 198.2 19.5 L198.2 27.5 C198.2 32.5 201 35.8 206 37 C201 38.2 198.2 41.5 198.2 46.5 L198.2 54.5 C198.2 60 197 63 192 63" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
               </span>
             </span>
             <span class="bp-headline-flow">flow</span>
@@ -18820,34 +19043,22 @@ body.is-landing .wrap,
           </p>
         </div>
 
-        <!-- TWO PRIMARY ENTRY CARDS: DESIGN & DEVELOP (Draftsman Outlined Style) -->
+        <!-- TWO PRIMARY ENTRY CARDS: DESIGN & DEVELOP (Preserved Draftsman Style) -->
         <div class="f2-entry-grid bp-entry-grid" role="navigation" aria-label="Primary pathways">
           <!-- Card 01: DESIGN -->
           <a href="#foundations" class="f2-entry-card f2-card-design bp-entry-card" data-entry="design">
             <div class="bp-card-head">
               <div class="bp-card-sketch-icon" aria-hidden="true">
                 <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <pattern id="bpCardHatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
-                      <line x1="0" y1="0" x2="0" y2="4" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.55"/>
-                    </pattern>
-                    <pattern id="bpCardDots" width="3.5" height="3.5" patternUnits="userSpaceOnUse">
-                      <circle cx="1.4" cy="1.4" r="0.65" fill="currentColor" fill-opacity="0.6"/>
-                    </pattern>
-                  </defs>
-                  <!-- Subtle drafting extension lines -->
                   <line x1="24" y1="4" x2="24" y2="10" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2" stroke-opacity="0.45"/>
                   <line x1="8" y1="36" x2="4" y2="39" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.45"/>
                   <line x1="40" y1="36" x2="44" y2="39" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.45"/>
-                  <!-- Isometric Cube Faces with Sketch Shading -->
-                  <polygon points="24,10 38,18 24,26 10,18" fill="url(#bpCardDots)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                  <polygon points="10,18 24,26 24,41 10,33" fill="url(#bpCardHatch)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <polygon points="24,10 38,18 24,26 10,18" fill="url(#uxStipple)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <polygon points="10,18 24,26 24,41 10,33" fill="url(#uxHatch)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
                   <polygon points="38,18 24,26 24,41 38,33" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                  <!-- Inner wireframe depth lines -->
                   <line x1="24" y1="10" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
                   <line x1="10" y1="33" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
                   <line x1="38" y1="33" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
-                  <!-- Diagonal drafting callout ray -->
                   <line x1="29" y1="14" x2="40" y2="6" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
                 </svg>
               </div>
@@ -18862,15 +19073,12 @@ body.is-landing .wrap,
             <div class="bp-card-head">
               <div class="bp-card-sketch-icon" aria-hidden="true">
                 <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Hand-sketched terminal frame with subtle double-stroke blueprint outline -->
                   <rect x="7" y="10" width="34" height="28" rx="3.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
                   <path d="M9 39.8 L41.5 39.8 L41.5 13" stroke="currentColor" stroke-width="1.1" stroke-opacity="0.42" stroke-linecap="round" stroke-linejoin="round"/>
-                  <!-- Window titlebar divider + 3 sketch dots -->
                   <line x1="7" y1="17.5" x2="41" y2="17.5" stroke="currentColor" stroke-width="1.35"/>
                   <circle cx="11.5" cy="13.8" r="1.2" fill="currentColor"/>
                   <circle cx="15.8" cy="13.8" r="1.2" fill="currentColor"/>
                   <circle cx="20.1" cy="13.8" r="1.2" fill="currentColor"/>
-                  <!-- Prompt >_ -->
                   <polyline points="13.5,24 19.5,28.2 13.5,32.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   <line x1="22.5" y1="32.4" x2="31.5" y2="32.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
@@ -18883,178 +19091,550 @@ body.is-landing .wrap,
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Architectural Isometric Technical Blueprint / Draftsman SVG -->
-      <div class="bp-hero-right" aria-hidden="true">
-        <svg class="bp-blueprint-svg" viewBox="0 0 600 610" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <!-- Architectural Dot-Stipple Shading Patterns (Theme-Agnostic via currentColor) -->
-            <pattern id="bpStipple" width="6" height="6" patternUnits="userSpaceOnUse">
-              <circle cx="1.5" cy="1.5" r="0.72" fill="currentColor" fill-opacity="0.58"/>
-              <circle cx="4.5" cy="4.5" r="0.65" fill="currentColor" fill-opacity="0.46"/>
-            </pattern>
-            <pattern id="bpStippleDense" width="4.5" height="4.5" patternUnits="userSpaceOnUse">
-              <circle cx="1.2" cy="1.2" r="0.72" fill="currentColor" fill-opacity="0.74"/>
-              <circle cx="3.4" cy="3.2" r="0.68" fill="currentColor" fill-opacity="0.58"/>
-            </pattern>
-            <pattern id="bpCrossHatch" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(42)">
-              <line x1="0" y1="0" x2="0" y2="5.5" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.58"/>
-              <line x1="0" y1="0" x2="5.5" y2="0" stroke="currentColor" stroke-width="0.55" stroke-opacity="0.34"/>
-            </pattern>
-            <!-- Open-Vee Architectural Draftsman Arrowheads -->
-            <marker id="bpArrEnd" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
-            </marker>
-            <marker id="bpArrStart" viewBox="0 0 10 10" refX="1.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M8.5 1.5 L1.5 5 L8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
-            </marker>
-          </defs>
+      <!-- RIGHT COLUMN: Animated 4-State UX Technical Draftsman Illustration Switcher -->
+      <div class="bp-hero-right bp-switcher-root" id="bp-hero-switcher" data-active="0" data-paused="false">
+        <div class="bp-stage-frame">
+          <!-- ===============================================================
+               STATE 01: UX USER JOURNEY ({journeys})
+               =============================================================== -->
+          <div class="bp-slide is-active" id="bp-panel-0" role="tabpanel" aria-labelledby="bp-tab-0" data-slide="0">
+            <svg class="bp-blueprint-svg" viewBox="0 0 600 490" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UX User Journey draftsman illustration with personas, storyboards, empathy touchpoints, and Yes/No decision flow">
+              <!-- Top Annotation -->
+              <text class="bp-svg-note" x="292" y="16" text-anchor="middle">User testing &amp; journey touchpoints</text>
+              <path class="bp-flow-dash" d="M88 42 C136 16 196 18 228 42" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#uxArr)"/>
+              <path class="bp-flow-dash" d="M276 58 C340 62 396 32 454 44" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-dasharray="5 4" marker-end="url(#uxArrMag)"/>
+
+              <!-- Persona Node 1 (Top-Left) -->
+              <g transform="translate(64, 52)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="0" cy="0" r="24" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <circle cx="0" cy="0" r="21" fill="url(#uxStipple)" fill-opacity="0.32" stroke="none"/>
+                <circle cx="0" cy="-5" r="7.5" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-12 16 C-10 7 10 7 12 16" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-7 -8 C-5 -14 5 -14 7 -8" stroke-width="1.4"/>
+                <circle cx="-2.5" cy="-5" r="0.9" fill="currentColor" stroke="none"/>
+                <circle cx="2.5" cy="-5" r="0.9" fill="currentColor" stroke="none"/>
+              </g>
+
+              <!-- Persona Node 2 (Top-Center) -->
+              <g transform="translate(252, 68)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="0" cy="0" r="22" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <circle cx="0" cy="-4" r="6.8" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-11 14 C-9 6 9 6 11 14" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <circle cx="-2.2" cy="-4" r="0.9" fill="currentColor" stroke="none"/>
+                <circle cx="2.2" cy="-4" r="0.9" fill="currentColor" stroke="none"/>
+              </g>
+
+              <!-- Empathy Heart Badge -->
+              <g transform="translate(364, 48)">
+                <path d="M0 7 C-8 1 -11 -6 -6 -10 C-2 -13 0 -9 0 -7 C0 -9 2 -13 6 -10 C11 -6 8 1 0 7 Z" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.6" stroke-linejoin="round"/>
+              </g>
+
+              <!-- Persona Node 3 (Top-Right) -->
+              <g transform="translate(486, 54)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="0" cy="0" r="24" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <circle cx="0" cy="0" r="21" fill="url(#uxStipple)" fill-opacity="0.28" stroke="none"/>
+                <circle cx="0" cy="-5" r="7.5" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-12 16 C-10 7 10 7 12 16" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <circle cx="-2.5" cy="-5" r="0.9" fill="currentColor" stroke="none"/>
+                <circle cx="2.5" cy="-5" r="0.9" fill="currentColor" stroke="none"/>
+              </g>
+
+              <!-- Left Mobile App Wireframe -->
+              <g transform="translate(44, 126)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="76" height="134" rx="11" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <rect x="6" y="10" width="64" height="114" rx="5" fill="none" stroke-width="1.1" stroke-opacity="0.7"/>
+                <line x1="28" y1="5" x2="48" y2="5" stroke-width="1.4"/>
+                <rect x="13" y="20" width="50" height="32" rx="3" fill="url(#uxStipple)" stroke-width="1.2"/>
+                <line x1="13" y1="62" x2="63" y2="62" stroke-width="1.4"/>
+                <line x1="13" y1="70" x2="48" y2="70" stroke-width="1.1" stroke-opacity="0.7"/>
+                <rect x="13" y="82" width="22" height="28" rx="3" fill="none" stroke-width="1.2"/>
+                <rect x="41" y="82" width="22" height="28" rx="3" fill="url(#uxHatch)" stroke-width="1.2"/>
+              </g>
+
+              <!-- Arrow Mobile -> Storyboards -->
+              <line x1="124" y1="192" x2="160" y2="192" stroke="currentColor" stroke-width="1.5" marker-end="url(#uxArr)"/>
+
+              <!-- Center Storyboards Browser Frame -->
+              <g transform="translate(166, 114)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="256" height="150" rx="8" fill="var(--bp-bg)" stroke-width="1.8"/>
+                <line x1="0" y1="24" x2="256" y2="24" stroke-width="1.3"/>
+                <circle cx="14" cy="12" r="2.6" fill="currentColor" stroke="none"/>
+                <circle cx="24" cy="12" r="2.6" fill="currentColor" stroke="none"/>
+                <circle cx="34" cy="12" r="2.6" fill="var(--bp-accent-mag)" stroke="none"/>
+                <text class="bp-svg-label" x="16" y="45">Storyboards</text>
+                <!-- 3 Storyboard Panels -->
+                <g transform="translate(16, 56)">
+                  <rect x="0" y="0" width="68" height="54" rx="4" fill="url(#uxStipple)" stroke-width="1.35"/>
+                  <line x1="0" y1="0" x2="68" y2="54" stroke-width="0.9" stroke-opacity="0.45"/>
+                  <line x1="68" y1="0" x2="0" y2="54" stroke-width="0.9" stroke-opacity="0.45"/>
+                  <line x1="4" y1="64" x2="58" y2="64" stroke-width="1.4"/>
+                  <line x1="4" y1="72" x2="42" y2="72" stroke-width="1.1" stroke-opacity="0.65"/>
+                </g>
+                <g transform="translate(94, 56)">
+                  <rect x="0" y="0" width="68" height="54" rx="4" fill="var(--bp-bg)" stroke="var(--bp-accent-mag)" stroke-width="1.5"/>
+                  <circle cx="24" cy="22" r="7" fill="none" stroke-width="1.25"/>
+                  <path d="M14 42 C16 33 32 33 34 42" stroke-width="1.25"/>
+                  <rect x="42" y="16" width="18" height="22" rx="2" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.15"/>
+                  <line x1="4" y1="64" x2="62" y2="64" stroke-width="1.4"/>
+                  <line x1="4" y1="72" x2="46" y2="72" stroke-width="1.1" stroke-opacity="0.65"/>
+                </g>
+                <g transform="translate(172, 56)">
+                  <rect x="0" y="0" width="68" height="54" rx="4" fill="none" stroke-width="1.35"/>
+                  <line x1="0" y1="0" x2="68" y2="54" stroke-width="0.9" stroke-opacity="0.45"/>
+                  <line x1="68" y1="0" x2="0" y2="54" stroke-width="0.9" stroke-opacity="0.45"/>
+                  <line x1="4" y1="64" x2="54" y2="64" stroke-width="1.4"/>
+                  <line x1="4" y1="72" x2="36" y2="72" stroke-width="1.1" stroke-opacity="0.65"/>
+                </g>
+              </g>
+
+              <!-- Speech Bubbles & Right Empathy Path -->
+              <path class="bp-flow-dash" d="M498 82 C516 122 508 168 484 198" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#uxArr)"/>
+              <g transform="translate(466, 206)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0 10 C0 3 7 0 18 0 L34 0 C45 0 52 4 52 12 C52 20 45 25 34 25 L20 25 L10 33 L12 24 C4 23 0 18 0 10 Z" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-20 30 C-20 24 -14 21 -4 21 L8 21 C18 21 24 25 24 31 C24 37 18 41 8 41 L-6 41 L-15 47 L-13 40 C-18 39 -20 35 -20 30 Z" fill="url(#uxStipple)" stroke-width="1.35"/>
+              </g>
+              <text class="bp-svg-note" x="456" y="284">User testing</text>
+              <text class="bp-svg-note" x="456" y="298">touchpoints</text>
+
+              <!-- Bottom-Left Research Insight Card & Persona 4 -->
+              <g transform="translate(42, 294)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="96" height="58" rx="6" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <text class="bp-svg-micro" x="10" y="18">User research</text>
+                <text class="bp-svg-micro" x="10" y="33">empathy &amp;</text>
+                <text class="bp-svg-micro" x="10" y="48">pain points?</text>
+              </g>
+              <g transform="translate(184, 286)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="110" height="44" rx="6" fill="var(--bp-bg)" stroke-width="1.45"/>
+                <circle cx="18" cy="22" r="10" fill="url(#uxStipple)" stroke-width="1.2"/>
+                <line x1="36" y1="16" x2="96" y2="16" stroke-width="1.3"/>
+                <line x1="36" y1="26" x2="82" y2="26" stroke-width="1.1" stroke-opacity="0.7"/>
+              </g>
+              <path d="M326 268 C322 294 314 304 298 308" stroke="currentColor" stroke-width="1.35" marker-end="url(#uxArr)"/>
+
+              <!-- Persona Node 4 (Bottom-Left) -->
+              <g transform="translate(174, 422)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="0" cy="0" r="22" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <circle cx="0" cy="-4" r="6.8" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <path d="M-11 14 C-9 6 9 6 11 14" fill="var(--bp-bg)" stroke-width="1.5"/>
+              </g>
+              <path class="bp-flow-dash" d="M84 358 C96 404 120 420 146 422" stroke="currentColor" stroke-width="1.35" stroke-dasharray="5 4" marker-end="url(#uxArr)"/>
+              <path class="bp-flow-dash" d="M200 422 C240 422 260 398 292 396" stroke="currentColor" stroke-width="1.35" stroke-dasharray="5 4" marker-end="url(#uxArr)"/>
+
+              <!-- Decision Flow Diamond (Bottom-Right) -->
+              <g transform="translate(324, 396)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Yes Pill -->
+                <rect x="-28" y="-14" width="44" height="26" rx="13" fill="var(--bp-bg)" stroke="var(--bp-accent-mag)" stroke-width="1.55"/>
+                <text class="bp-svg-pill" x="-6" y="3" text-anchor="middle" fill="var(--bp-accent-mag)">Yes</text>
+                <line x1="16" y1="-1" x2="36" y2="-1" stroke="currentColor" stroke-width="1.4" marker-end="url(#uxArr)"/>
+                <!-- Decision Diamond -->
+                <polygon points="62,-26 88,-1 62,24 36,-1" fill="url(#uxStipple)" stroke-width="1.7"/>
+                <text class="bp-svg-micro" x="62" y="3" text-anchor="middle">Flow</text>
+                <!-- Branch Up-Right -> YES -->
+                <path d="M62 -26 L62 -44 L94 -44" stroke="var(--bp-accent-mag)" stroke-width="1.45" marker-end="url(#uxArrMag)"/>
+                <rect x="98" y="-56" width="42" height="24" rx="12" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.5"/>
+                <text class="bp-svg-pill" x="119" y="-40" text-anchor="middle" fill="var(--bp-accent-mag)">YES</text>
+                <!-- Branch Right -> NO -->
+                <line x1="88" y1="-1" x2="106" y2="-1" stroke="var(--bp-accent-ind)" stroke-width="1.45" marker-end="url(#uxArrInd)"/>
+                <rect x="110" y="-13" width="38" height="24" rx="12" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.5"/>
+                <text class="bp-svg-pill" x="129" y="3" text-anchor="middle" fill="var(--bp-accent-ind)">NO</text>
+                <!-- Sentiment / Outcome Badges -->
+                <g transform="translate(174, -44)">
+                  <path d="M0 8 C-7 2 -10 -4 -5 -8 C-2 -10 0 -7 0 -5 C0 -7 2 -10 5 -8 C10 -4 7 2 0 8 Z" fill="none" stroke="var(--bp-accent-mag)" stroke-width="1.5"/>
+                </g>
+                <g transform="translate(129, 44)">
+                  <circle cx="0" cy="0" r="14" fill="var(--bp-bg)" stroke-width="1.5"/>
+                  <circle cx="-4" cy="-3" r="1.2" fill="currentColor" stroke="none"/>
+                  <circle cx="4" cy="-3" r="1.2" fill="currentColor" stroke="none"/>
+                  <path d="M-5 4 C-2 7 2 7 5 4" stroke-width="1.4"/>
+                </g>
+                <line x1="129" y1="11" x2="129" y2="27" stroke="currentColor" stroke-width="1.35" marker-end="url(#uxArr)"/>
+                <text class="bp-svg-note" x="154" y="42">Validated</text>
+                <text class="bp-svg-note" x="154" y="56">journey</text>
+              </g>
+              <path class="bp-flow-dash" d="M398 268 C422 296 428 320 432 336" stroke="var(--bp-accent-mag)" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#uxArrMag)"/>
+            </svg>
+          </div>
 
           <!-- ===============================================================
-               ELEMENT 1 (UPPER-LEFT): Isometric Wireframe Cube + Stippled Inner Chamber
+               STATE 02: INTERACTIVE WIREFRAME ({systems})
                =============================================================== -->
-          <g class="bp-el-cube" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Stippled inner chamber faces -->
-            <polygon points="88,186 154,224 206,194 140,156" fill="url(#bpStipple)" stroke="none"/>
-            <polygon points="88,128 140,158 140,218 88,188" fill="url(#bpStippleDense)" stroke="currentColor" stroke-width="1.15" stroke-opacity="0.72"/>
-            <polygon points="206,134 154,164 154,224 206,194" fill="url(#bpStipple)" stroke="currentColor" stroke-width="1.15" stroke-opacity="0.72"/>
-            <!-- Inner cutaway archway/portal detail -->
-            <polygon points="164,174 198,154 198,204 164,224" fill="var(--bp-bg)" stroke="currentColor" stroke-width="1.45"/>
-            <polygon points="164,174 198,154 198,204 164,224" fill="url(#bpStipple)" fill-opacity="0.35" stroke="none"/>
-            <!-- Outer Isometric Wireframe Cube -->
-            <polygon points="148,74 228,120 148,166 68,120" stroke-width="1.75"/>
-            <polygon points="68,120 148,166 148,266 68,220" stroke-width="1.75"/>
-            <polygon points="228,120 148,166 148,266 228,220" stroke-width="1.75"/>
-            <!-- Structural interior guide lines -->
-            <line x1="148" y1="74" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
-            <line x1="68" y1="220" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
-            <line x1="228" y1="220" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
-            <!-- Secondary nested isometric ceiling frame -->
-            <polyline points="88,132 148,98 208,132" stroke-width="1.15" stroke-opacity="0.78"/>
-            <line x1="88" y1="132" x2="88" y2="210" stroke-width="1.15" stroke-opacity="0.78"/>
-            <line x1="208" y1="132" x2="208" y2="210" stroke-width="1.15" stroke-opacity="0.78"/>
+          <div class="bp-slide" id="bp-panel-1" role="tabpanel" aria-labelledby="bp-tab-1" data-slide="1" aria-hidden="true">
+            <svg class="bp-blueprint-svg" viewBox="0 0 600 490" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive multi-device wireframe draftsman illustration with desktop dashboard, tablet modal dialog, mobile sheet, and 8px/16px spacing redlines">
+              <!-- Top Redline Callouts -->
+              <text class="bp-svg-note" x="180" y="30" text-anchor="middle">hover / click</text>
+              <line x1="180" y1="36" x2="180" y2="82" stroke="var(--bp-accent-ind)" stroke-width="1.25" stroke-dasharray="3 3" marker-end="url(#uxArrInd)"/>
+              <text class="bp-svg-note" x="318" y="30" text-anchor="middle">click handlers</text>
+              <line x1="318" y1="36" x2="318" y2="128" stroke="var(--bp-accent-ind)" stroke-width="1.25" stroke-dasharray="3 3" marker-end="url(#uxArrInd)"/>
+              <text class="bp-svg-note" x="470" y="30" text-anchor="middle">responsive grid</text>
+              <line x1="470" y1="36" x2="470" y2="82" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#uxArr)"/>
 
-            <!-- DIMENSION CALLOUTS AROUND CUBE -->
-            <!-- Top-left: 2km -->
-            <line x1="56" y1="100" x2="142" y2="50" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <text class="bp-dim-label" x="92" y="66" transform="rotate(-30 92 66)">2km</text>
-            <!-- Top-right: 48m (Light) / 78m (Dark) -->
-            <line x1="154" y1="50" x2="240" y2="100" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <text class="bp-dim-label bp-lbl-light" x="200" y="66" transform="rotate(30 200 66)">48m</text>
-            <text class="bp-dim-label bp-lbl-dark" x="200" y="66" transform="rotate(30 200 66)">78m</text>
-            <!-- Left vertical: 58m -->
-            <line x1="48" y1="114" x2="48" y2="220" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <text class="bp-dim-label" x="40" y="172" transform="rotate(-90 40 172)">58m</text>
-            <!-- Subtle bottom-left directional extension arrow -->
-            <line x1="58" y1="242" x2="128" y2="282" stroke-width="1.1" marker-start="url(#bpArrStart)"/>
-          </g>
+              <!-- 8px Spacing Redline (Top-Right) -->
+              <line x1="518" y1="68" x2="518" y2="86" stroke="var(--bp-accent-mag)" stroke-width="1.4" marker-start="url(#uxArrStart)" marker-end="url(#uxArrMag)"/>
+              <text class="bp-svg-redline" x="526" y="81">8px</text>
+
+              <!-- DESKTOP DASHBOARD WIREFRAME -->
+              <g transform="translate(52, 68)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="452" height="248" rx="9" fill="var(--bp-bg)" stroke-width="1.85"/>
+                <!-- Browser Top Bar -->
+                <line x1="0" y1="28" x2="452" y2="28" stroke-width="1.35"/>
+                <circle cx="15" cy="14" r="3" fill="currentColor" stroke="none"/>
+                <circle cx="27" cy="14" r="3" fill="currentColor" stroke="none"/>
+                <circle cx="39" cy="14" r="3" fill="var(--bp-accent-mag)" stroke="none"/>
+                <rect x="78" y="8" width="234" height="12" rx="6" fill="url(#uxStipple)" stroke-width="1.05"/>
+                <!-- Left Sidebar Rail inside Dashboard -->
+                <line x1="92" y1="28" x2="92" y2="248" stroke-width="1.3"/>
+                <rect x="12" y="42" width="68" height="14" rx="4" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                <line x1="14" y1="70" x2="68" y2="70" stroke-width="1.35"/>
+                <line x1="14" y1="86" x2="58" y2="86" stroke-width="1.2" stroke-opacity="0.72"/>
+                <line x1="14" y1="102" x2="64" y2="102" stroke-width="1.2" stroke-opacity="0.72"/>
+                <line x1="14" y1="118" x2="50" y2="118" stroke-width="1.2" stroke-opacity="0.72"/>
+
+                <!-- Dashboard Header -->
+                <text class="bp-svg-label" x="110" y="54">Dashboard</text>
+                <rect x="366" y="40" width="70" height="20" rx="5" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.45"/>
+                <text class="bp-svg-micro" x="401" y="54" text-anchor="middle" fill="var(--bp-accent-ind)">Action</text>
+
+                <!-- 3-Column Wireframe Cards with 16px Redline Gap -->
+                <g transform="translate(110, 72)">
+                  <rect x="0" y="0" width="96" height="82" rx="5" fill="url(#uxStipple)" stroke-width="1.4"/>
+                  <line x1="0" y1="0" x2="96" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <line x1="96" y1="0" x2="0" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <rect x="0" y="92" width="64" height="14" rx="3" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.35"/>
+                </g>
+                <!-- 16px Gutter Callout (cleanly positioned above card gap) -->
+                <line x1="206" y1="66" x2="222" y2="66" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                <line x1="206" y1="62" x2="206" y2="70" stroke="var(--bp-accent-mag)" stroke-width="1.2"/>
+                <line x1="222" y1="62" x2="222" y2="70" stroke="var(--bp-accent-mag)" stroke-width="1.2"/>
+                <text class="bp-svg-redline" x="214" y="59" text-anchor="middle">16px</text>
+
+                <g transform="translate(222, 72)">
+                  <rect x="0" y="0" width="96" height="82" rx="5" fill="var(--bp-bg)" stroke-width="1.4"/>
+                  <line x1="0" y1="0" x2="96" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <line x1="96" y1="0" x2="0" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <rect x="0" y="92" width="70" height="14" rx="3" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                </g>
+                <g transform="translate(334, 72)">
+                  <rect x="0" y="0" width="96" height="82" rx="5" fill="url(#uxHatch)" stroke-width="1.4"/>
+                  <line x1="0" y1="0" x2="96" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <line x1="96" y1="0" x2="0" y2="82" stroke-width="0.9" stroke-opacity="0.4"/>
+                  <rect x="0" y="92" width="60" height="14" rx="3" fill="none" stroke-width="1.25"/>
+                </g>
+                <!-- Pointer Cursor Icon on Card 2 -->
+                <path d="M276 168 L276 188 L282 183 L286 191 L290 189 L286 181 L293 181 Z" fill="var(--bp-accent-mag)" stroke="var(--bp-bg)" stroke-width="1.2"/>
+              </g>
+
+              <!-- TABLET MODAL DIALOG OVERLAY (Bottom-Center) -->
+              <g transform="translate(158, 266)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="236" height="172" rx="14" fill="var(--bp-bg)" stroke-width="2"/>
+                <rect x="10" y="10" width="216" height="152" rx="6" fill="url(#uxStipple)" stroke-width="1.25"/>
+                <!-- Centered Modal Dialog Card -->
+                <rect x="34" y="30" width="168" height="112" rx="7" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <line x1="34" y1="54" x2="202" y2="54" stroke-width="1.2"/>
+                <text class="bp-svg-label" x="46" y="46">Modal dialog</text>
+                <text class="bp-svg-micro" x="188" y="46" text-anchor="middle">&#215;</text>
+                <line x1="46" y1="70" x2="184" y2="70" stroke-width="1.35"/>
+                <line x1="46" y1="84" x2="162" y2="84" stroke-width="1.15" stroke-opacity="0.7"/>
+                <line x1="46" y1="98" x2="132" y2="98" stroke-width="1.15" stroke-opacity="0.7"/>
+                <rect x="128" y="112" width="62" height="20" rx="5" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.5"/>
+                <text class="bp-svg-micro" x="159" y="125" text-anchor="middle" fill="var(--bp-accent-mag)">Confirm</text>
+              </g>
+
+              <!-- MOBILE SHEET OVERLAY (Bottom-Right) -->
+              <g transform="translate(422, 232)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="114" height="206" rx="16" fill="var(--bp-bg)" stroke-width="2"/>
+                <line x1="42" y1="9" x2="72" y2="9" stroke-width="1.6"/>
+                <rect x="8" y="18" width="98" height="176" rx="8" fill="none" stroke-width="1.2"/>
+                <text class="bp-svg-micro" x="57" y="34" text-anchor="middle">Mobile</text>
+                <line x1="8" y1="42" x2="106" y2="42" stroke-width="1.1"/>
+                <!-- Mobile Preview Box -->
+                <rect x="16" y="52" width="82" height="66" rx="5" fill="url(#uxStipple)" stroke-width="1.3"/>
+                <line x1="16" y1="52" x2="98" y2="118" stroke-width="0.85" stroke-opacity="0.45"/>
+                <line x1="98" y1="52" x2="16" y2="118" stroke-width="0.85" stroke-opacity="0.45"/>
+                <!-- Bottom Sheet Drawer -->
+                <path d="M8 142 Q8 134 16 134 L98 134 Q106 134 106 142 L106 194 L8 194 Z" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.55"/>
+                <line x1="44" y1="142" x2="70" y2="142" stroke="var(--bp-accent-ind)" stroke-width="2"/>
+                <line x1="20" y1="158" x2="92" y2="158" stroke-width="1.3"/>
+                <line x1="20" y1="170" x2="74" y2="170" stroke-width="1.1" stroke-opacity="0.7"/>
+              </g>
+
+              <!-- Side & Bottom Redline Annotations -->
+              <line x1="550" y1="236" x2="550" y2="434" stroke="var(--bp-accent-ind)" stroke-width="1.25" marker-start="url(#uxArrIndStart)" marker-end="url(#uxArrInd)"/>
+              <text class="bp-svg-redline" x="564" y="340" transform="rotate(-90 564 340)">844px</text>
+              <text class="bp-svg-note" x="98" y="360" text-anchor="middle">focus ring</text>
+              <line x1="126" y1="356" x2="188" y2="356" stroke="var(--bp-accent-mag)" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#uxArrMag)"/>
+              <text class="bp-svg-note" x="276" y="464" text-anchor="middle">Tablet overlay (768px)</text>
+              <text class="bp-svg-note" x="479" y="464" text-anchor="middle">Mobile sheet (390px)</text>
+            </svg>
+          </div>
 
           <!-- ===============================================================
-               ELEMENT 2 (UPPER-RIGHT): 6-Node Isometric Starburst Topology Network
+               STATE 03: COMPONENT ECOSYSTEM ({tokens})
                =============================================================== -->
-          <g class="bp-el-network" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <!-- 6 Radiating Struts from Center Cube (440, 140) -->
-            <line x1="440" y1="126" x2="440" y2="78" stroke-width="1.45"/>
-            <line x1="452" y1="133" x2="496" y2="108" stroke-width="1.45"/>
-            <line x1="452" y1="147" x2="496" y2="173" stroke-width="1.45"/>
-            <line x1="440" y1="155" x2="440" y2="196" stroke-width="1.25" stroke-opacity="0.82"/>
-            <line x1="428" y1="147" x2="384" y2="173" stroke-width="1.45"/>
-            <line x1="428" y1="133" x2="384" y2="108" stroke-width="1.45"/>
-            <!-- 5 Hollow Terminal Nodes + 1 Subtle Anchor Dot -->
-            <circle cx="440" cy="70" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
-            <circle cx="504" cy="103" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
-            <circle cx="504" cy="178" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
-            <circle cx="376" cy="178" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
-            <circle cx="376" cy="103" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
-            <circle cx="440" cy="198" r="2.2" fill="currentColor" stroke="none"/>
-            <!-- Central Mini Stippled Isometric Cube -->
-            <polygon points="440,124 456,133 440,142 424,133" fill="url(#bpStipple)" stroke-width="1.55"/>
-            <polygon points="424,133 440,142 440,160 424,151" fill="url(#bpStippleDense)" stroke-width="1.55"/>
-            <polygon points="456,133 440,142 440,160 456,151" fill="url(#bpStipple)" stroke-width="1.55"/>
-            <!-- Architectural Coordinate Micro-Specks (top-right) -->
-            <circle cx="524" cy="84" r="1.4" fill="currentColor" stroke="none"/>
-            <circle cx="534" cy="91" r="1.1" fill="currentColor" stroke="none"/>
-            <circle cx="516" cy="96" r="1.0" fill="currentColor" stroke="none"/>
-            <line x1="538" y1="82" x2="544" y2="79" stroke-width="1.1"/>
-          </g>
+          <div class="bp-slide" id="bp-panel-2" role="tabpanel" aria-labelledby="bp-tab-2" data-slide="2" aria-hidden="true">
+            <svg class="bp-blueprint-svg" viewBox="0 0 600 490" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Component Ecosystem draftsman illustration with stacked isometric token foundation layers radiating dotted connectors to UI primitives">
+              <!-- Dotted Radiating Connectors from Central Stack (296, 248) -->
+              <path class="bp-flow-dash" d="M242 224 L158 178" stroke="currentColor" stroke-width="1.35" stroke-dasharray="4 4" marker-end="url(#uxArr)"/>
+              <path class="bp-flow-dash" d="M276 202 L262 128" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-dasharray="4 4" marker-end="url(#uxArrMag)"/>
+              <path class="bp-flow-dash" d="M342 224 L424 176" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-dasharray="4 4" marker-end="url(#uxArrInd)"/>
+              <path class="bp-flow-dash" d="M236 254 L154 274" stroke="currentColor" stroke-width="1.35" stroke-dasharray="4 4" marker-end="url(#uxArr)"/>
+              <path class="bp-flow-dash" d="M276 296 L252 356" stroke="var(--bp-accent-ind)" stroke-width="1.45" stroke-dasharray="4 4" marker-end="url(#uxArrInd)"/>
+              <path class="bp-flow-dash" d="M348 272 L426 306" stroke="var(--bp-accent-mag)" stroke-width="1.45" stroke-dasharray="4 4" marker-end="url(#uxArrMag)"/>
+
+              <!-- CENTRAL STACKED ISOMETRIC TOKEN / FOUNDATION LAYERS -->
+              <g transform="translate(296, 246)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Bottom Layer: Primitive Tokens (Indigo Accent) -->
+                <polygon points="0,12 58,42 0,72 -58,42" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.65"/>
+                <polygon points="0,12 58,42 0,72 -58,42" fill="url(#uxHatch)" fill-opacity="0.55" stroke="none"/>
+                <!-- Middle Layer: Semantic Tokens (Stippled Magenta Accent) -->
+                <polygon points="0,-10 58,20 0,50 -58,20" fill="var(--bp-bg)" stroke="var(--bp-accent-mag)" stroke-width="1.75"/>
+                <polygon points="0,-10 58,20 0,50 -58,20" fill="url(#uxMagStipple)" stroke="none"/>
+                <!-- Top Layer: Component Contracts (Crisp White/Ink) -->
+                <polygon points="0,-32 58,-2 0,28 -58,-2" fill="var(--bp-bg)" stroke="currentColor" stroke-width="1.95"/>
+                <polygon points="0,-24 44,-2 0,20 -44,-2" fill="url(#uxStipple)" stroke-width="1.05" stroke-opacity="0.65"/>
+                <text class="bp-svg-micro" x="0" y="2" text-anchor="middle" font-weight="700">TOKENS</text>
+              </g>
+
+              <!-- TOP-LEFT PRIMITIVE: Form Inputs & Password Field (Isometric Skew) -->
+              <g transform="translate(52, 82) skewY(-22)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="114" height="24" rx="5" fill="var(--bp-bg)" stroke-width="1.6"/>
+                <text class="bp-svg-micro" x="10" y="15">Text Input</text>
+                <rect x="0" y="34" width="114" height="24" rx="5" fill="url(#uxStipple)" stroke="var(--bp-accent-ind)" stroke-width="1.55"/>
+                <text class="bp-svg-micro" x="10" y="49">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</text>
+                <rect x="0" y="68" width="114" height="24" rx="5" fill="var(--bp-bg)" stroke-width="1.5"/>
+                <circle cx="14" cy="80" r="5" fill="var(--bp-accent-mag)" stroke="none"/>
+                <line x1="26" y1="80" x2="96" y2="80" stroke-width="1.35"/>
+              </g>
+
+              <!-- TOP-CENTER PRIMITIVE: Metric Card + Toggle Switches -->
+              <g transform="translate(208, 42) skewY(-18)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="84" height="66" rx="7" fill="var(--bp-bg)" stroke-width="1.65"/>
+                <text class="bp-svg-micro" x="10" y="18">States</text>
+                <line x1="10" y1="30" x2="72" y2="30" stroke-width="1.3"/>
+                <line x1="10" y1="42" x2="56" y2="42" stroke-width="1.15" stroke-opacity="0.65"/>
+                <rect x="10" y="50" width="38" height="8" rx="4" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.1"/>
+              </g>
+              <!-- Switches Pair -->
+              <g transform="translate(324, 58)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="44" height="22" rx="11" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.6"/>
+                <circle cx="33" cy="11" r="7.5" fill="var(--bp-accent-mag)" stroke="var(--bp-bg)" stroke-width="1.4"/>
+                <rect x="0" y="30" width="44" height="22" rx="11" fill="var(--bp-bg)" stroke-width="1.55"/>
+                <circle cx="11" cy="41" r="7.5" fill="url(#uxStipple)" stroke-width="1.4"/>
+              </g>
+
+              <!-- TOP-RIGHT PRIMITIVE: Isometric Page Layout Frame -->
+              <g transform="translate(426, 48) skewY(24)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="124" height="106" rx="8" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <line x1="0" y1="22" x2="124" y2="22" stroke-width="1.25"/>
+                <circle cx="12" cy="11" r="2.2" fill="currentColor" stroke="none"/>
+                <circle cx="20" cy="11" r="2.2" fill="currentColor" stroke="none"/>
+                <line x1="34" y1="22" x2="34" y2="106" stroke-width="1.2"/>
+                <rect x="44" y="32" width="68" height="32" rx="4" fill="url(#uxStipple)" stroke-width="1.25"/>
+                <rect x="44" y="72" width="30" height="22" rx="3" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.3"/>
+                <rect x="82" y="72" width="30" height="22" rx="3" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.3"/>
+              </g>
+
+              <!-- BOTTOM-LEFT PRIMITIVE: Action Buttons & Avatar Badge -->
+              <g transform="translate(56, 266) skewY(24)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="94" height="30" rx="7" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.65"/>
+                <text class="bp-svg-pill" x="47" y="19" text-anchor="middle" fill="var(--bp-accent-mag)">Primary CTA</text>
+                <rect x="0" y="42" width="94" height="30" rx="7" fill="var(--bp-bg)" stroke-width="1.55"/>
+                <text class="bp-svg-micro" x="47" y="61" text-anchor="middle">Secondary</text>
+              </g>
+              <g transform="translate(114, 240)" stroke="currentColor">
+                <circle cx="0" cy="0" r="15" fill="var(--bp-bg)" stroke-width="1.65"/>
+                <circle cx="0" cy="-3" r="4.5" fill="none" stroke-width="1.3"/>
+                <path d="M-7 9 C-5 3 5 3 7 9" stroke-width="1.3"/>
+              </g>
+
+              <!-- BOTTOM-CENTER PRIMITIVE: Isometric Data Viz Card -->
+              <g transform="translate(198, 344) skewY(24)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="96" height="84" rx="7" fill="var(--bp-bg)" stroke-width="1.65"/>
+                <text class="bp-svg-micro" x="10" y="18">Analytics</text>
+                <rect x="14" y="54" width="12" height="18" fill="url(#uxStipple)" stroke-width="1.2"/>
+                <rect x="34" y="40" width="12" height="32" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                <rect x="54" y="48" width="12" height="24" fill="url(#uxStipple)" stroke-width="1.2"/>
+                <rect x="74" y="30" width="12" height="42" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.35"/>
+              </g>
+
+              <!-- BOTTOM-RIGHT PRIMITIVE: Component Spec Card + Badges -->
+              <g transform="translate(422, 290) skewY(24)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="126" height="94" rx="8" fill="var(--bp-bg)" stroke-width="1.7"/>
+                <rect x="12" y="14" width="102" height="44" rx="4" fill="url(#uxStipple)" stroke-width="1.25"/>
+                <line x1="12" y1="14" x2="114" y2="58" stroke-width="0.9" stroke-opacity="0.45"/>
+                <line x1="114" y1="14" x2="12" y2="58" stroke-width="0.9" stroke-opacity="0.45"/>
+                <rect x="12" y="68" width="46" height="16" rx="8" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.35"/>
+                <text class="bp-svg-micro" x="35" y="79" text-anchor="middle" fill="var(--bp-accent-ind)">Card</text>
+                <rect x="66" y="68" width="48" height="16" rx="8" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                <text class="bp-svg-micro" x="90" y="79" text-anchor="middle" fill="var(--bp-accent-mag)">Badge</text>
+              </g>
+            </svg>
+          </div>
 
           <!-- ===============================================================
-               ELEMENT 3 (LOWER-RIGHT): Stepped L-Shaped Architectural Floorplan & Stippled Wall
+               STATE 04: PRODUCT DISCOVERY MAP ({ideas})
                =============================================================== -->
-          <g class="bp-el-architecture" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Tall Right Architectural Wall (with fine stipple shading) -->
-            <polygon points="342,162 496,250 496,442 342,354" fill="url(#bpStipple)" stroke="none"/>
-            <!-- Wall thick top cap -->
-            <polygon points="342,162 356,154 510,242 496,250" fill="url(#bpStippleDense)" stroke-width="1.55"/>
-            <!-- Wall outer wireframe & double-drafted corner pillar -->
-            <polygon points="342,162 496,250 496,442 342,354" stroke-width="1.85"/>
-            <polyline points="510,242 510,434 496,442" stroke-width="1.75"/>
-            <line x1="356" y1="154" x2="356" y2="346" stroke-width="1.05" stroke-opacity="0.55"/>
-            <!-- Subtle drafting construction overshoot lines -->
-            <line x1="342" y1="162" x2="310" y2="180" stroke-width="1.15" stroke-opacity="0.72"/>
-            <line x1="496" y1="250" x2="520" y2="236" stroke-width="1.15" stroke-opacity="0.65"/>
+          <div class="bp-slide" id="bp-panel-3" role="tabpanel" aria-labelledby="bp-tab-3" data-slide="3" aria-hidden="true">
+            <svg class="bp-blueprint-svg" viewBox="0 0 600 490" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Product Discovery Map draftsman illustration showing IDEO Double Diamond discovery flow, research sticky notes, card-sorting clusters, and rapid wireframe prototypes">
+              <!-- TOP-LEFT STICKY CLUSTER (Research Synthesis) -->
+              <g transform="translate(36, 36)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="58" height="54" rx="3" fill="var(--bp-bg)" stroke-width="1.55" transform="rotate(-3 29 27)"/>
+                <text class="bp-svg-micro" x="29" y="31" text-anchor="middle">Insight</text>
+                <rect x="68" y="4" width="58" height="54" rx="3" fill="url(#uxStipple)" stroke-width="1.5" transform="rotate(2 97 31)"/>
+                <text class="bp-svg-micro" x="97" y="35" text-anchor="middle">Empathy</text>
+                <rect x="4" y="66" width="58" height="54" rx="3" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.55" transform="rotate(2 33 93)"/>
+                <text class="bp-svg-micro" x="33" y="96" text-anchor="middle" fill="var(--bp-accent-mag)">Cluster</text>
+                <rect x="72" y="68" width="58" height="54" rx="3" fill="var(--bp-bg)" stroke-width="1.55" transform="rotate(-2 101 95)"/>
+                <text class="bp-svg-micro" x="101" y="99" text-anchor="middle">Test</text>
+              </g>
 
-            <!-- Intersecting Horizontal Mid-Deck Plane (with stipple fill) -->
-            <polygon points="274,296 342,257 496,346 428,385" fill="url(#bpStipple)" stroke-width="1.65"/>
-            <!-- Dashed Curved Spatial Trajectory Arc across Wall -->
-            <path d="M352,226 C386,246 416,268 424,306" stroke-width="1.3" stroke-dasharray="6 5" stroke-opacity="0.8"/>
-            <line x1="424" y1="306" x2="424" y2="418" stroke-width="1.1" stroke-opacity="0.65"/>
+              <!-- TOP-CENTER CARD-SORTING CLUSTERS -->
+              <g transform="translate(216, 36)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="46" height="28" rx="3" fill="var(--bp-bg)" stroke-width="1.4"/>
+                <line x1="8" y1="10" x2="38" y2="10" stroke-width="1.2"/>
+                <line x1="8" y1="18" x2="28" y2="18" stroke-width="1.1" stroke-opacity="0.7"/>
+                <rect x="0" y="36" width="46" height="28" rx="3" fill="url(#uxStipple)" stroke-width="1.4"/>
+                <line x1="8" y1="46" x2="36" y2="46" stroke-width="1.2"/>
+                <rect x="0" y="72" width="46" height="28" rx="3" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.45"/>
+                <line x1="8" y1="84" x2="38" y2="84" stroke="var(--bp-accent-ind)" stroke-width="1.25"/>
 
-            <!-- Lower Foreground Stepped Platform / L-Floorplan -->
-            <!-- Main stepped base floor deck -->
-            <polygon points="88,376 226,296 368,378 230,458" fill="none" stroke-width="1.7"/>
-            <!-- Left wall rise + foreground left edge -->
-            <polygon points="88,376 230,458 230,504 88,422" fill="none" stroke-width="1.75"/>
-            <!-- Right lower block + recessed step alcove -->
-            <polygon points="326,406 428,465 428,504 326,445" fill="none" stroke-width="1.75"/>
-            <polygon points="428,465 510,418 510,457 428,504" fill="none" stroke-width="1.85"/>
-            <!-- Alcove inset frame on right front face -->
-            <polygon points="348,426 412,463 412,487 348,450" fill="url(#bpStipple)" fill-opacity="0.45" stroke-width="1.35"/>
-            <polyline points="412,463 456,438 456,462 412,487" stroke-width="1.35"/>
-            <!-- Center corridor raised walkway (stippled deck) -->
-            <polygon points="158,412 276,344 338,380 220,448" fill="url(#bpStipple)" stroke-width="1.45"/>
-            <line x1="230" y1="504" x2="326" y2="445" stroke-width="1.6"/>
-            <!-- Hatched recessed portals on front-left facade -->
-            <polygon points="132,418 164,436 164,466 132,448" fill="url(#bpCrossHatch)" stroke-width="1.45"/>
-            <polygon points="184,448 220,469 220,498 184,477" fill="url(#bpCrossHatch)" stroke-width="1.45"/>
-            <!-- Subtle background vertical wire walls for depth -->
-            <line x1="226" y1="296" x2="226" y2="338" stroke-width="1.1" stroke-opacity="0.6"/>
-            <line x1="88" y1="342" x2="88" y2="376" stroke-width="1.15" stroke-dasharray="3 3" stroke-opacity="0.65"/>
+                <rect x="58" y="0" width="46" height="28" rx="3" fill="url(#uxStipple)" stroke-width="1.4"/>
+                <line x1="66" y1="12" x2="96" y2="12" stroke-width="1.2"/>
+                <rect x="58" y="36" width="46" height="28" rx="3" fill="var(--bp-bg)" stroke-width="1.4"/>
+                <line x1="66" y1="48" x2="94" y2="48" stroke-width="1.2"/>
+                <rect x="58" y="72" width="46" height="28" rx="3" fill="var(--bp-bg)" stroke-width="1.4"/>
+                <line x1="66" y1="84" x2="90" y2="84" stroke-width="1.2"/>
+              </g>
+              <text class="bp-svg-note" x="268" y="156" text-anchor="middle">Card-sorting path</text>
+              <line x1="176" y1="84" x2="208" y2="84" stroke="currentColor" stroke-width="1.4" marker-end="url(#uxArr)"/>
+              <line x1="330" y1="84" x2="364" y2="84" stroke="currentColor" stroke-width="1.4" marker-end="url(#uxArr)"/>
 
-            <!-- Floating Mini Isometric Cube + Alignment Axis (Bottom-Left Foreground) -->
-            <line x1="112" y1="528" x2="178" y2="490" stroke-width="1.25" stroke-dasharray="5 4" stroke-opacity="0.78"/>
-            <line x1="94" y1="472" x2="132" y2="450" stroke-width="1.35"/>
-            <g transform="translate(68, 466)">
-              <polygon points="14,0 28,8 14,16 0,8" fill="url(#bpStipple)" stroke-width="1.55"/>
-              <polygon points="0,8 14,16 14,32 0,24" fill="url(#bpStippleDense)" stroke-width="1.55"/>
-              <polygon points="28,8 14,16 14,32 28,24" fill="url(#bpCrossHatch)" stroke-width="1.55"/>
-            </g>
+              <!-- TOP-RIGHT IDEATION STICKY GROUP -->
+              <g transform="translate(374, 34)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="48" height="36" rx="3" fill="var(--bp-bg)" stroke-width="1.4"/>
+                <line x1="8" y1="12" x2="40" y2="12" stroke-width="1.2"/>
+                <line x1="8" y1="22" x2="32" y2="22" stroke-width="1.1" stroke-opacity="0.7"/>
+                <rect x="56" y="0" width="48" height="36" rx="3" fill="url(#uxStipple)" stroke-width="1.4"/>
+                <line x1="64" y1="12" x2="96" y2="12" stroke-width="1.2"/>
+                <rect x="112" y="22" width="52" height="38" rx="3" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.5"/>
+                <text class="bp-svg-micro" x="138" y="45" text-anchor="middle" fill="var(--bp-accent-ind)">Task</text>
+                <rect x="8" y="48" width="48" height="36" rx="3" fill="var(--bp-bg)" stroke-width="1.4"/>
+                <line x1="16" y1="62" x2="46" y2="62" stroke-width="1.2"/>
+                <rect x="64" y="48" width="48" height="36" rx="3" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.45"/>
+                <line x1="72" y1="62" x2="102" y2="62" stroke="var(--bp-accent-mag)" stroke-width="1.2"/>
+              </g>
 
-            <!-- Small Technical Drafting Callout Marker (Left Mid) -->
-            <path d="M84,332 L90,320 L96,332" stroke-width="1.2"/>
-            <circle cx="90" cy="316" r="1.4" fill="currentColor" stroke="none"/>
-            <text class="bp-dim-micro" x="86" y="346">H</text>
+              <!-- CENTERPIECE: IDEO DOUBLE DIAMOND DISCOVERY FLOW -->
+              <g transform="translate(36, 174)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Entry Box: UX Discovery -->
+                <rect x="0" y="34" width="76" height="52" rx="6" fill="var(--bp-bg)" stroke-width="1.65"/>
+                <text class="bp-svg-micro" x="38" y="56" text-anchor="middle" font-weight="700">UX</text>
+                <text class="bp-svg-micro" x="38" y="72" text-anchor="middle">discovery</text>
+                <line x1="76" y1="60" x2="108" y2="60" stroke="var(--bp-accent-ind)" stroke-width="1.6" marker-end="url(#uxArrInd)"/>
 
-            <!-- ARCHITECTURAL DIMENSION ARROWS AROUND STEPPED PLATFORM -->
-            <!-- Bottom-left slant: 40b -->
-            <line x1="292" y1="480" x2="412" y2="548" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <line x1="306" y1="468" x2="284" y2="482" stroke-width="0.9" stroke-opacity="0.6"/>
-            <line x1="426" y1="538" x2="404" y2="552" stroke-width="0.9" stroke-opacity="0.6"/>
-            <text class="bp-dim-label" x="342" y="532" transform="rotate(30 342 532)">40b</text>
+                <!-- Left Diamond: Discover & Define -->
+                <polygon points="114,60 176,6 238,60 176,114" fill="url(#uxStipple)" stroke="currentColor" stroke-width="1.9"/>
+                <line x1="176" y1="12" x2="176" y2="108" stroke="currentColor" stroke-width="1.05" stroke-dasharray="4 3" stroke-opacity="0.55"/>
+                <text class="bp-svg-label" x="176" y="64" text-anchor="middle">Discover</text>
 
-            <!-- Bottom-right slant: 25m -->
-            <line x1="436" y1="548" x2="538" y2="490" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <line x1="428" y1="510" x2="438" y2="554" stroke-width="0.9" stroke-opacity="0.6"/>
-            <line x1="514" y1="460" x2="544" y2="494" stroke-width="0.9" stroke-opacity="0.6"/>
-            <text class="bp-dim-label" x="492" y="534" transform="rotate(-30 492 534)">25m</text>
+                <!-- Center Convergence Node (Berry Magenta) -->
+                <circle cx="238" cy="60" r="6" fill="var(--bp-accent-mag)" stroke="var(--bp-bg)" stroke-width="2"/>
 
-            <!-- Far-right vertical: 20m (Light) / 26m (Dark) -->
-            <line x1="546" y1="246" x2="546" y2="452" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
-            <line x1="516" y1="246" x2="554" y2="246" stroke-width="0.9" stroke-opacity="0.55"/>
-            <line x1="516" y1="452" x2="554" y2="452" stroke-width="0.9" stroke-opacity="0.55"/>
-            <text class="bp-dim-label bp-lbl-light" x="562" y="356" transform="rotate(-90 562 356)">20m</text>
-            <text class="bp-dim-label bp-lbl-dark" x="562" y="356" transform="rotate(-90 562 356)">26m</text>
-          </g>
-        </svg>
+                <!-- Right Diamond: Define & Validate -->
+                <polygon points="238,60 300,6 362,60 300,114" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.9"/>
+                <polygon points="238,60 300,6 362,60 300,114" fill="url(#uxStipple)" fill-opacity="0.35" stroke="none"/>
+                <line x1="300" y1="12" x2="300" y2="108" stroke="var(--bp-accent-ind)" stroke-width="1.05" stroke-dasharray="4 3" stroke-opacity="0.55"/>
+                <text class="bp-svg-label" x="300" y="64" text-anchor="middle" fill="var(--bp-accent-ind)">Validate</text>
+
+                <!-- Output Arrow -> Rapid Wireframe Prototypes -->
+                <line x1="362" y1="60" x2="394" y2="60" stroke="var(--bp-accent-mag)" stroke-width="1.65" marker-end="url(#uxArrMag)"/>
+
+                <!-- Rapid Wireframe Prototypes (Right) -->
+                <g transform="translate(400, 12)">
+                  <rect x="0" y="0" width="60" height="96" rx="6" fill="var(--bp-bg)" stroke-width="1.65"/>
+                  <rect x="8" y="14" width="44" height="36" rx="3" fill="url(#uxStipple)" stroke-width="1.2"/>
+                  <line x1="8" y1="14" x2="52" y2="50" stroke-width="0.85" stroke-opacity="0.45"/>
+                  <line x1="52" y1="14" x2="8" y2="50" stroke-width="0.85" stroke-opacity="0.45"/>
+                  <line x1="8" y1="62" x2="52" y2="62" stroke-width="1.3"/>
+                  <line x1="8" y1="72" x2="40" y2="72" stroke-width="1.1" stroke-opacity="0.7"/>
+                  <rect x="8" y="80" width="28" height="9" rx="4" fill="var(--bp-accent-mag)" stroke="none"/>
+                </g>
+                <g transform="translate(472, 12)">
+                  <rect x="0" y="0" width="60" height="96" rx="6" fill="var(--bp-bg)" stroke-width="1.65"/>
+                  <rect x="8" y="14" width="44" height="36" rx="3" fill="none" stroke="var(--bp-accent-ind)" stroke-width="1.25"/>
+                  <line x1="8" y1="14" x2="52" y2="50" stroke-width="0.85" stroke-opacity="0.45"/>
+                  <line x1="52" y1="14" x2="8" y2="50" stroke-width="0.85" stroke-opacity="0.45"/>
+                  <line x1="8" y1="62" x2="52" y2="62" stroke-width="1.3"/>
+                  <line x1="8" y1="72" x2="44" y2="72" stroke-width="1.1" stroke-opacity="0.7"/>
+                </g>
+              </g>
+
+              <!-- Connecting Synthesis Arrows (Top & Bottom -> Double Diamond) -->
+              <path class="bp-flow-dash" d="M104 166 C126 184 146 198 164 202" stroke="currentColor" stroke-width="1.35" stroke-dasharray="5 4" marker-end="url(#uxArr)"/>
+              <path class="bp-flow-dash" d="M236 346 C264 334 274 316 274 294" stroke="var(--bp-accent-mag)" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#uxArrMag)"/>
+
+              <!-- BOTTOM-LEFT: Research Interviews Synthesis Grid -->
+              <text class="bp-svg-note" x="96" y="348">Research interviews</text>
+              <g transform="translate(94, 360)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="52" height="44" rx="3" fill="var(--bp-bg)" stroke-width="1.45"/>
+                <text class="bp-svg-micro" x="26" y="25" text-anchor="middle">Insight</text>
+                <rect x="60" y="0" width="52" height="44" rx="3" fill="url(#uxStipple)" stroke-width="1.45"/>
+                <text class="bp-svg-micro" x="86" y="25" text-anchor="middle">Ideation</text>
+                <rect x="0" y="52" width="52" height="44" rx="3" fill="var(--bp-bg)" stroke-width="1.45"/>
+                <text class="bp-svg-micro" x="26" y="77" text-anchor="middle">Sketch</text>
+                <rect x="60" y="52" width="52" height="44" rx="3" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.45"/>
+                <text class="bp-svg-micro" x="86" y="77" text-anchor="middle" fill="var(--bp-accent-mag)">Test</text>
+              </g>
+
+              <!-- BOTTOM-CENTER: Prototype Validation Checklist -->
+              <g transform="translate(242, 366)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="112" height="84" rx="6" fill="var(--bp-bg)" stroke-width="1.55"/>
+                <text class="bp-svg-micro" x="12" y="22">Rapid</text>
+                <text class="bp-svg-micro" x="12" y="38">wireframe</text>
+                <text class="bp-svg-micro" x="12" y="54">prototypes</text>
+                <!-- 2 Checked Validation Boxes -->
+                <rect x="78" y="14" width="22" height="22" rx="4" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.4"/>
+                <polyline points="83,25 87,29 95,20" stroke="var(--bp-accent-mag)" stroke-width="1.9"/>
+                <rect x="78" y="48" width="22" height="22" rx="4" fill="var(--bp-bg)" stroke="var(--bp-accent-ind)" stroke-width="1.4"/>
+                <polyline points="83,59 87,63 95,54" stroke="var(--bp-accent-ind)" stroke-width="1.9"/>
+              </g>
+
+              <!-- BOTTOM-RIGHT: Interactive Prototype Handoff Window -->
+              <g transform="translate(394, 354)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="0" y="0" width="166" height="104" rx="8" fill="var(--bp-bg)" stroke-width="1.75"/>
+                <line x1="0" y1="22" x2="166" y2="22" stroke-width="1.25"/>
+                <circle cx="12" cy="11" r="2.2" fill="currentColor" stroke="none"/>
+                <circle cx="20" cy="11" r="2.2" fill="currentColor" stroke="none"/>
+                <circle cx="28" cy="11" r="2.2" fill="var(--bp-accent-mag)" stroke="none"/>
+                <rect x="12" y="32" width="84" height="58" rx="4" fill="url(#uxStipple)" stroke-width="1.3"/>
+                <line x1="106" y1="38" x2="152" y2="38" stroke-width="1.4"/>
+                <line x1="106" y1="50" x2="144" y2="50" stroke-width="1.2" stroke-opacity="0.7"/>
+                <rect x="106" y="64" width="46" height="18" rx="4" fill="url(#uxMagStipple)" stroke="var(--bp-accent-mag)" stroke-width="1.35"/>
+                <text class="bp-svg-micro" x="129" y="76" text-anchor="middle" fill="var(--bp-accent-mag)">Ship</text>
+              </g>
+              <line x1="358" y1="406" x2="388" y2="406" stroke="currentColor" stroke-width="1.4" marker-end="url(#uxArr)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Minimal Draftsman Segmented Pill Stage Switcher -->
+        <div class="bp-switcher-bar" role="tablist" aria-label="UX draftsman illustration switcher">
+          <button type="button" class="bp-pill is-active" id="bp-tab-0" role="tab" aria-selected="true" aria-controls="bp-panel-0" data-bp-tab="0">
+            <span class="bp-pill-num">01</span><span class="bp-pill-lbl">Journey</span>
+            <span class="bp-pill-prog" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="bp-pill" id="bp-tab-1" role="tab" aria-selected="false" aria-controls="bp-panel-1" data-bp-tab="1">
+            <span class="bp-pill-num">02</span><span class="bp-pill-lbl">Wireframe</span>
+            <span class="bp-pill-prog" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="bp-pill" id="bp-tab-2" role="tab" aria-selected="false" aria-controls="bp-panel-2" data-bp-tab="2">
+            <span class="bp-pill-num">03</span><span class="bp-pill-lbl">Ecosystem</span>
+            <span class="bp-pill-prog" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="bp-pill" id="bp-tab-3" role="tab" aria-selected="false" aria-controls="bp-panel-3" data-bp-tab="3">
+            <span class="bp-pill-num">04</span><span class="bp-pill-lbl">Discovery</span>
+            <span class="bp-pill-prog" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -19064,7 +19644,7 @@ body.is-landing .wrap,
     <div class="f2-footer-inner">
       <div class="f2-footer-brand">
         <span class="f2-footer-mark meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></span>
-        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.12.1</span>
+        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.12.2</span>
       </div>
       <div class="f2-footer-links" aria-label="Meld 11-Module Platform Index">
         <a href="#foundations">01. Foundations</a>
@@ -53573,10 +54153,10 @@ cdInit();
       <!-- Floating Footer: Full Metadata in Expanded | Compact GitHub Icon in Collapsed -->
       <div class="side-footer fluent-sidebar-footer">
         <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-footer-gh-link f2-footer-expanded-only">
-          <span>Meld by IDEO &middot; v1.12.1</span>
+          <span>Meld by IDEO &middot; v1.12.2</span>
           <span class="f2-footer-ext">GitHub &#8599;</span>
         </a>
-        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-rail-gh-btn f2-rail-tip-target" data-tip="GitHub Repository (v1.12.1)" aria-label="GitHub Repository">
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-rail-gh-btn f2-rail-tip-target" data-tip="GitHub Repository (v1.12.2)" aria-label="GitHub Repository">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
@@ -53771,7 +54351,106 @@ cdInit();
     });
   }
 
-  // Technical Blueprint Hero: '{ideas}' stays anchored in crisp draftsman outline (no word cycling)
+    // Technical Blueprint Hero: Synchronized 4-State UX Draftsman Illustration Switcher
+  (function initBlueprintHeroSwitcher() {
+    const root = document.getElementById('bp-hero-switcher');
+    const kwWrap = document.getElementById('f2-word-highlight');
+    if (!root || !kwWrap) return;
+
+    const slides = Array.from(root.querySelectorAll('.bp-slide'));
+    const tabs   = Array.from(root.querySelectorAll('.bp-pill'));
+    const kws    = Array.from(kwWrap.querySelectorAll('.bp-kw-item'));
+    const variants = ['journeys', 'systems', 'tokens', 'ideas'];
+    const reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    let activeIdx = 0;
+    let manualLocked = false;
+    let hoverPaused = false;
+    let focusPaused = false;
+    let timerId = null;
+
+    function syncPausedAttr() {
+      const state = reduceMotion ? 'reduced' : manualLocked ? 'manual' : (hoverPaused || focusPaused) ? 'hover' : 'false';
+      root.setAttribute('data-paused', state);
+    }
+
+    function setSlide(idx) {
+      const next = ((idx % slides.length) + slides.length) % slides.length;
+      activeIdx = next;
+      root.setAttribute('data-active', String(next));
+      kwWrap.setAttribute('data-active-idx', String(next));
+      kwWrap.setAttribute('data-variant', variants[next] || 'ideas');
+
+      slides.forEach((s, i) => {
+        const on = i === next;
+        s.classList.toggle('is-active', on);
+        s.setAttribute('aria-hidden', String(!on));
+      });
+      kws.forEach((k, i) => {
+        const on = i === next;
+        k.classList.toggle('is-active', on);
+        k.setAttribute('aria-hidden', String(!on));
+      });
+      tabs.forEach((t, i) => {
+        const on = i === next;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+    }
+
+    function clearAuto() {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+    }
+
+    function startAuto() {
+      clearAuto();
+      syncPausedAttr();
+      if (reduceMotion || manualLocked || hoverPaused || focusPaused) return;
+      timerId = setInterval(() => {
+        if (!document.body.classList.contains('is-landing')) return;
+        if (manualLocked || hoverPaused || focusPaused) return;
+        setSlide(activeIdx + 1);
+      }, 4500);
+    }
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => {
+        manualLocked = true;
+        clearAuto();
+        setSlide(idx);
+        syncPausedAttr();
+      });
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const dir = e.key === 'ArrowRight' ? 1 : -1;
+          const target = (idx + dir + tabs.length) % tabs.length;
+          manualLocked = true;
+          clearAuto();
+          setSlide(target);
+          tabs[target].focus();
+          syncPausedAttr();
+        }
+      });
+    });
+
+    root.addEventListener('mouseenter', () => { hoverPaused = true; clearAuto(); syncPausedAttr(); });
+    root.addEventListener('mouseleave', () => { hoverPaused = false; startAuto(); });
+    root.addEventListener('focusin', () => { focusPaused = true; clearAuto(); syncPausedAttr(); });
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget)) { focusPaused = false; startAuto(); }
+    });
+
+    window.setMeldHeroSlide = (idx, lock) => {
+      if (lock) { manualLocked = true; clearAuto(); }
+      setSlide(idx);
+      syncPausedAttr();
+    };
+
+    setSlide(0);
+    startAuto();
+  })();
 
   // Backdrop click closes mobile drawer
   const drawerBackdrop = document.getElementById('f2-drawer-backdrop');
