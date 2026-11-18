@@ -18349,7 +18349,7 @@ html[data-theme="dark"] .f2-rail-gh-btn:hover {
 
     <a href="#changelog" class="fluent-util-btn fluent-version-badge" title="View changelog history">
       <span class="v-dot"></span>
-      <span>v1.12.0</span>
+      <span>v1.12.1</span>
     </a>
 
     <!-- Legacy compatibility handles -->
@@ -18478,7 +18478,7 @@ html[data-theme="dark"] .f2-rail-gh-btn:hover {
     <div class="f2-footer-inner">
       <div class="f2-footer-brand">
         <span class="f2-footer-mark meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></span>
-        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.12.0</span>
+        <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.12.1</span>
       </div>
       <div class="f2-footer-links" aria-label="Meld 11-Module Platform Index">
         <a href="#foundations">01. Foundations</a>
@@ -37326,6 +37326,128 @@ ps4.textContent = `
   .pat-vp-mobile .bdg, .pat-dim-card .bdg { display: inline-flex !important; flex-wrap: wrap !important; max-width: 100% !important; white-space: normal !important; height: auto !important; padding: 4px 10px !important; border-radius: 8px !important; line-height: 1.3 !important; text-align: center !important; }
   @media (max-width: 480px) { .pat-canvas .bdg, .pat-dim-card .bdg { display: inline-flex !important; flex-wrap: wrap !important; max-width: 100% !important; white-space: normal !important; height: auto !important; padding: 4px 10px !important; border-radius: 8px !important; line-height: 1.3 !important; text-align: center !important; } }
   .otp-digit.is-compact { width: 32px !important; height: 36px !important; font-size: 15px !important; border-radius: 4px !important; }
+  /* Patterns > Onboarding Scoped Variant & State Styles (v1.12.1) */
+  @keyframes patOnbSpin { to { transform: rotate(360deg); } }
+  .pat-onb-spin {
+    display: inline-block; width: 13px; height: 13px; flex-shrink: 0;
+    border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%;
+    animation: patOnbSpin 0.72s linear infinite; vertical-align: middle;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pat-onb-spin { animation: cp-pulse 1.5s ease-in-out infinite; }
+  }
+  .pat-onb-btn-content { display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+  .pat-onb-focus-cta {
+    outline: 3px solid var(--color-border-focus, #39409A) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px rgba(57, 64, 154, 0.16) !important;
+  }
+  .pat-onb-disabled-wrap {
+    opacity: 0.78;
+  }
+  .pat-onb-disabled-wrap button:disabled,
+  .pat-onb-disabled-wrap input:disabled,
+  .pat-onb-disabled-wrap input[readonly] {
+    cursor: not-allowed !important;
+  }
+  .pat-onb-ws {
+    container-type: inline-size;
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    background: var(--color-surface-page);
+    overflow: hidden;
+    width: 100%;
+  }
+  .pat-onb-ws-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+    padding: 9px 14px;
+    background: var(--color-surface-default);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .pat-onb-ws-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+    align-items: start;
+  }
+  .pat-onb-ws-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  @container (min-width: 520px) {
+    .pat-onb-ws-body {
+      grid-template-columns: 168px minmax(0, 1fr);
+      gap: 14px;
+      padding: 16px;
+    }
+    .pat-onb-ws-steps {
+      flex-direction: column;
+    }
+  }
+  .pat-vp-mobile .pat-onb-ws-body {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 10px;
+  }
+  .pat-onb-ws-rail {
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+  }
+  .pat-onb-ws-stage {
+    background: var(--color-surface-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 0;
+  }
+  .pat-onb-verified {
+    background: var(--color-surface-default);
+    border: 1px solid var(--color-border-success);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+  }
+  .pat-variant-compact .pat-onb-verified {
+    padding: 10px 12px;
+  }
+  .pat-onb-ver-icon {
+    width: 34px; height: 34px; border-radius: 999px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--color-surface-success);
+    border: 1px solid var(--color-border-success);
+    color: var(--color-text-success);
+  }
+  .pat-onb-ver-meta {
+    margin: 10px 0 12px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    font-size: 12px;
+    color: var(--color-text-primary);
+  }
+  .pat-onb-loading-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 10px; margin-bottom: 10px; border-radius: 6px;
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border-interactive, var(--color-border-default));
+    color: var(--color-text-primary);
+    font-size: 12px;
+  }
+  .pat-onb-ro-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap;
+    padding: 6px 10px; margin-bottom: 10px; border-radius: 6px;
+    background: var(--color-surface-disabled, var(--color-surface-subtle));
+    border: 1px solid var(--color-border-disabled, var(--color-border-subtle));
+    color: var(--color-text-secondary);
+    font-size: 11px;
+  }
 `;
 document.head.append(ps4);
 
@@ -37935,18 +38057,18 @@ const PAT_ONBOARD = {
 
   defaults(id) {
     const map = {
-      'onb-firsttime': { slide: 1, started: false },
-      'onb-welcome': { role: 'Design Lead', launched: false },
-      'onb-guided': { tasks: [true, true, false, false] },
-      'onb-multistep': { step: 1, wsName: 'IDEO Design Hub', teamSize: '10-25 Studio Collaborators', done: false },
-      'onb-tour': { step: 2, skipped: false },
-      'onb-progdisc': { basicReady: true, advancedOpen: false, apiKey: 'mld_live_984a' },
-      'onb-empty': { populated: false },
-      'onb-workspace': { orgName: 'Nordic Mobility Lab', slug: 'nordic-mobility', seats: '12', created: false },
-      'onb-profile': { title: 'Staff Product Designer', tz: 'America/Los_Angeles', bio: 'Accessibility & Design Systems', saved: false },
-      'onb-permissions': { status: 'prompt' },
-      'onb-discovery': { dismissed: false, tried: false },
-      'onb-guidance': { param: '16px', openTip: true }
+      'onb-firsttime':   { slide: 1, started: false, loading: false, verified: false, err: '' },
+      'onb-welcome':     { role: 'Design Lead', launched: false, loading: false, verified: false, err: '' },
+      'onb-guided':      { tasks: [true, true, false, false], loading: false, verified: false, err: '' },
+      'onb-multistep':   { step: 1, wsName: 'IDEO Design Hub', teamSize: '10-25 Studio Collaborators', done: false, loading: false, verified: false, err: '' },
+      'onb-tour':        { step: 2, skipped: false, completed: false, loading: false, verified: false, err: '' },
+      'onb-progdisc':    { basicReady: true, advancedOpen: false, apiKey: 'mld_live_984a', loading: false, verified: false, err: '' },
+      'onb-empty':       { populated: false, loading: false, verified: false, err: '' },
+      'onb-workspace':   { orgName: 'Nordic Mobility Lab', slug: 'nordic-mobility', seats: '12', created: false, loading: false, verified: false, err: '' },
+      'onb-profile':     { title: 'Staff Product Designer', tz: 'America/Los_Angeles', bio: 'Accessibility & Design Systems', saved: false, loading: false, verified: false, err: '' },
+      'onb-permissions': { status: 'prompt', loading: false, verified: false, err: '' },
+      'onb-discovery':   { dismissed: false, tried: false, loading: false, verified: false, err: '' },
+      'onb-guidance':    { param: '16px', openTip: true, applied: false, loading: false, verified: false, err: '' }
     };
     return JSON.parse(JSON.stringify(map[id] || {}));
   },
@@ -37956,7 +38078,9 @@ const PAT_ONBOARD = {
     return this.state[id];
   },
 
-  reset(id) { this.state[id] = this.defaults(id); },
+  reset(id) {
+    this.state[id] = this.defaults(id);
+  },
 
   hasEditableInputs(id) {
     return ['onb-multistep', 'onb-progdisc', 'onb-workspace', 'onb-profile', 'onb-guidance'].includes(id);
@@ -37972,99 +38096,990 @@ const PAT_ONBOARD = {
     if ('title' in s) s.title = '';
     if ('bio' in s) s.bio = '';
     if ('param' in s) s.param = '';
+    s.err = '';
+    s.verified = false;
     return true;
   },
 
   syncPreset(id, stName) {
-    this.reset(id);
+    // Preserve typed field values while updating preset status cleanly
     const s = this.ensure(id);
+    const d = this.defaults(id);
     const st = String(stName || '');
+
+    // Clear transient status flags first
+    s.loading = false;
+    s.verified = false;
+    s.err = '';
+    if ('started' in s) s.started = false;
+    if ('launched' in s) s.launched = false;
+    if ('done' in s) s.done = false;
+    if ('skipped' in s) s.skipped = false;
+    if ('completed' in s) s.completed = false;
+    if ('populated' in s) s.populated = false;
+    if ('created' in s) s.created = false;
+    if ('saved' in s) s.saved = false;
+    if ('tried' in s) s.tried = false;
+    if ('dismissed' in s) s.dismissed = false;
+    if ('applied' in s) s.applied = false;
+    if (id === 'onb-permissions') s.status = 'prompt';
+    if (id === 'onb-guided') s.tasks = d.tasks.slice();
+    if (id === 'onb-multistep' && s.step === 3) s.step = 1;
+    if (id === 'onb-progdisc') s.advancedOpen = false;
+    if (id === 'onb-workspace' && !s.orgName) s.orgName = d.orgName;
+    if (id === 'onb-profile' && !s.title) s.title = d.title;
+    if (id === 'onb-multistep' && !s.wsName) s.wsName = d.wsName;
+    if (id === 'onb-guidance' && !s.param) s.param = d.param;
+
+    if (/Loading|Processing|Verifying/i.test(st)) {
+      s.loading = true;
+      if (id === 'onb-progdisc') s.advancedOpen = true;
+      return;
+    }
+
     if (/Success|Verified|Completed/i.test(st)) {
+      s.verified = true;
+      if (id === 'onb-firsttime') s.started = true;
+      if (id === 'onb-welcome') s.launched = true;
       if (id === 'onb-guided') s.tasks = [true, true, true, true];
       if (id === 'onb-multistep') { s.step = 3; s.done = true; }
-      if (id === 'onb-workspace') s.created = true;
+      if (id === 'onb-tour') { s.step = 4; s.completed = true; s.skipped = false; }
+      if (id === 'onb-progdisc') s.advancedOpen = true;
       if (id === 'onb-empty') s.populated = true;
-    } else if (/Error/i.test(st)) {
+      if (id === 'onb-workspace') s.created = true;
+      if (id === 'onb-profile') s.saved = true;
+      if (id === 'onb-permissions') s.status = 'allow';
+      if (id === 'onb-discovery') { s.tried = true; s.dismissed = false; }
+      if (id === 'onb-guidance') { s.applied = true; s.openTip = true; }
+      return;
+    }
+
+    if (/Error|Corrective|Invalid/i.test(st)) {
+      const errMap = {
+        'onb-firsttime':   'Workspace initialization timed out. Retry starting your onboarding journey.',
+        'onb-welcome':     'Select a primary practitioner role lens before entering the studio.',
+        'onb-guided':      '2 mandatory setup tasks remain incomplete before team publishing.',
+        'onb-multistep':   'Workspace Name is required and must be at least 3 characters.',
+        'onb-tour':        'Target hotspot element is out of view. Scroll canvas or restart step.',
+        'onb-progdisc':    'Developer CLI Webhook Key must begin with "mld_live_" (min 12 chars).',
+        'onb-empty':       'Starter token bundle failed checksum verification. Retry import.',
+        'onb-workspace':   'Organization Name is required and workspace slug must be unique.',
+        'onb-profile':     'Role Title is required before saving your practitioner profile.',
+        'onb-permissions': 'Browser blocked notifications. Enable notifications in site settings and retry.',
+        'onb-discovery':   'Inspector extension requires Meld Figma Bridge v1.9+ to launch.',
+        'onb-guidance':    'Base Grid Unit must be a valid 4px or 8px multiple (e.g., 8px, 16px).'
+      };
+      s.err = errMap[id] || 'Complete all required onboarding fields to continue.';
       if (id === 'onb-workspace') s.orgName = '';
+      if (id === 'onb-profile') s.title = '';
+      if (id === 'onb-multistep') s.wsName = '';
+      if (id === 'onb-progdisc') { s.advancedOpen = true; s.apiKey = 'invalid_key'; }
+      if (id === 'onb-guidance') { s.param = '13px'; s.openTip = true; }
+      return;
+    }
+
+    if (/Focus/i.test(st)) {
+      if (id === 'onb-progdisc') s.advancedOpen = true;
+      return;
     }
   },
 
   handleInput(pat, el) {
     const s = this.ensure(pat.id);
     const k = el.dataset.patField;
-    if (k && (k in s)) { s[k] = el.value; patDraw(); return true; }
+    if (k && (k in s)) {
+      s[k] = el.value;
+      s.err = '';
+      patDraw();
+      return true;
+    }
     return false;
   },
 
   handleChange(pat, el) { return this.handleInput(pat, el); },
 
+  setPlaygroundState(stateLabel) {
+    if (typeof PAT_M !== 'undefined') PAT_M.st = stateLabel;
+    const selSt = document.getElementById('pat-ctl-st');
+    if (selSt) selSt.value = stateLabel;
+  },
+
   handleClick(pat, act, btn) {
     const s = this.ensure(pat.id);
-    if (act === 'ob-start') { s.started = true; patDraw(); toast('Onboarding initialized'); return true; }
-    if (act === 'ob-role') { s.role = btn.dataset.role; s.launched = true; patDraw(); toast('Workspace tailored for ' + s.role); return true; }
-    if (act === 'ob-task') { const i = +btn.dataset.idx; s.tasks[i] = !s.tasks[i]; patDraw(); return true; }
-    if (act === 'ob-ms-next') { if (s.step < 3) s.step++; else s.done = true; patDraw(); return true; }
-    if (act === 'ob-ms-prev') { if (s.step > 1) s.step--; patDraw(); return true; }
-    if (act === 'ob-tour-next') { s.step = s.step >= 4 ? 1 : s.step + 1; patDraw(); return true; }
-    if (act === 'ob-tour-skip') { s.skipped = true; patDraw(); return true; }
-    if (act === 'ob-pd-tog') { s.advancedOpen = !s.advancedOpen; patDraw(); return true; }
-    if (act === 'ob-empty-load') { s.populated = true; patDraw(); toast('Loaded 12 starter tokens'); return true; }
-    if (act === 'ob-ws-create') { s.created = true; patDraw(); toast('Created workspace /' + s.slug); return true; }
-    if (act === 'ob-prof-save') { s.saved = true; patDraw(); toast('Profile enriched'); return true; }
-    if (act === 'ob-perm') { s.status = btn.dataset.val; patDraw(); return true; }
-    if (act === 'ob-disc-try') { s.tried = true; patDraw(); return true; }
-    if (act === 'ob-disc-dis') { s.dismissed = true; patDraw(); return true; }
-    if (act === 'ob-guide-tip') { s.openTip = !s.openTip; patDraw(); return true; }
+    if (act === 'ob-continue') {
+      toast('Continuing to Meld Workspace (' + pat.n + ')');
+      return true;
+    }
+    if (act === 'ob-reset-item') {
+      this.reset(pat.id);
+      this.setPlaygroundState('Default / Initial');
+      patDraw();
+      toast('Reset ' + pat.n + ' to initial state');
+      return true;
+    }
+    if (act === 'ob-start') {
+      s.started = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Onboarding journey initialized'); return true;
+    }
+    if (act === 'ob-role') {
+      s.role = btn.dataset.role || s.role;
+      s.launched = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Workspace tailored for ' + s.role); return true;
+    }
+    if (act === 'ob-task') {
+      const i = +btn.dataset.idx;
+      s.tasks[i] = !s.tasks[i];
+      s.err = '';
+      const allDone = s.tasks.every(Boolean);
+      s.verified = allDone;
+      if (allDone) this.setPlaygroundState('Success / Verified');
+      patDraw(); return true;
+    }
+    if (act === 'ob-guided-complete') {
+      s.tasks = [true, true, true, true]; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('All 4 Guided Setup tasks completed'); return true;
+    }
+    if (act === 'ob-ms-next') {
+      if (!String(s.wsName || '').trim() || String(s.wsName).trim().length < 3) {
+        s.err = 'Workspace Name is required and must be at least 3 characters.';
+        this.setPlaygroundState('Error / Corrective');
+        patDraw(); return true;
+      }
+      s.err = '';
+      if (s.step < 3) { s.step++; }
+      else { s.done = true; s.verified = true; this.setPlaygroundState('Success / Verified'); toast('Multi-step onboarding completed'); }
+      patDraw(); return true;
+    }
+    if (act === 'ob-ms-prev') {
+      if (s.step > 1) s.step--;
+      s.done = false; s.verified = false;
+      patDraw(); return true;
+    }
+    if (act === 'ob-tour-next') {
+      if (s.step < 4) { s.step++; }
+      else { s.completed = true; s.verified = true; this.setPlaygroundState('Success / Verified'); toast('Product tour completed'); }
+      s.skipped = false; s.err = '';
+      patDraw(); return true;
+    }
+    if (act === 'ob-tour-skip') {
+      s.skipped = true; s.completed = false; s.verified = false;
+      patDraw(); toast('Product tour dismissed'); return true;
+    }
+    if (act === 'ob-tour-restart') {
+      s.step = 1; s.skipped = false; s.completed = false; s.verified = false;
+      this.setPlaygroundState('Default / Initial');
+      patDraw(); return true;
+    }
+    if (act === 'ob-pd-tog') {
+      s.advancedOpen = !s.advancedOpen; s.err = '';
+      patDraw(); return true;
+    }
+    if (act === 'ob-pd-save') {
+      if (!s.advancedOpen) { s.advancedOpen = true; patDraw(); return true; }
+      if (!String(s.apiKey || '').startsWith('mld_live_') || String(s.apiKey).length < 12) {
+        s.err = 'Developer CLI Webhook Key must begin with "mld_live_" (min 12 chars).';
+        this.setPlaygroundState('Error / Corrective');
+        patDraw(); return true;
+      }
+      s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Advanced CLI API key verified'); return true;
+    }
+    if (act === 'ob-empty-load') {
+      s.populated = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Loaded 12 starter Meld tokens'); return true;
+    }
+    if (act === 'ob-ws-create') {
+      if (!String(s.orgName || '').trim()) {
+        s.err = 'Organization Name is required before provisioning workspace.';
+        this.setPlaygroundState('Error / Corrective');
+        patDraw(); return true;
+      }
+      s.created = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Created workspace /' + (s.slug || 'studio')); return true;
+    }
+    if (act === 'ob-prof-save') {
+      if (!String(s.title || '').trim()) {
+        s.err = 'Role Title is required before saving your practitioner profile.';
+        this.setPlaygroundState('Error / Corrective');
+        patDraw(); return true;
+      }
+      s.saved = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Practitioner profile verified & saved'); return true;
+    }
+    if (act === 'ob-perm') {
+      s.status = btn.dataset.val || 'allow';
+      s.err = '';
+      if (s.status === 'allow') {
+        s.verified = true;
+        this.setPlaygroundState('Success / Verified');
+        toast('Release notifications enabled');
+      } else {
+        s.verified = false;
+        toast('Notification permission deferred cleanly');
+      }
+      patDraw(); return true;
+    }
+    if (act === 'ob-disc-try') {
+      s.tried = true; s.verified = true; s.dismissed = false; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Opened Figma Dimension Inspector'); return true;
+    }
+    if (act === 'ob-disc-dis') {
+      s.dismissed = true; s.verified = false;
+      patDraw(); toast('Feature announcement dismissed'); return true;
+    }
+    if (act === 'ob-guide-tip') {
+      s.openTip = !s.openTip;
+      patDraw(); return true;
+    }
+    if (act === 'ob-guide-apply') {
+      const px = parseInt(String(s.param || ''), 10);
+      if (!px || px % 4 !== 0) {
+        s.err = 'Base Grid Unit must be a valid 4px or 8px multiple (e.g., 8px, 16px).';
+        this.setPlaygroundState('Error / Corrective');
+        patDraw(); return true;
+      }
+      s.applied = true; s.verified = true; s.err = '';
+      this.setPlaygroundState('Success / Verified');
+      patDraw(); toast('Base grid unit (' + s.param + ') verified'); return true;
+    }
     return false;
+  },
+
+  spinner(label) {
+    return `<span class="pat-onb-btn-content"><span class="pat-onb-spin" aria-hidden="true"></span><span>${E(label)}</span></span>`;
+  },
+
+  verifiedCard(opts, isCompact, isModal) {
+    const checkSvg = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+    const actionsHtml = isModal ? '' : `
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button type="button" class="mb v-primary" style="--mb-h:${isCompact?'30px':'34px'};font-size:12px" data-pat-act="ob-continue">Continue to Workspace &#8594;</button>
+        <button type="button" class="mb v-secondary" style="--mb-h:${isCompact?'30px':'34px'};font-size:12px" data-pat-act="ob-reset-item">Reset</button>
+      </div>
+    `;
+    if (isCompact) {
+      return `
+        <div class="pat-onb-verified" role="status" aria-live="polite">
+          <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 180px">
+              <span class="pat-onb-ver-icon" style="width:28px;height:28px">${checkSvg}</span>
+              <div style="min-width:0">
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                  <b style="font-size:13px">${E(opts.title)}</b>
+                  <span class="bdg bd-su" style="font-size:9.5px">${E(opts.badge || 'Verified')}</span>
+                </div>
+                <p class="m" style="margin:2px 0 0;font-size:11.5px">${E(opts.summary)}</p>
+              </div>
+            </div>
+            ${actionsHtml}
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="pat-onb-verified" role="status" aria-live="polite">
+        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">
+          <span class="pat-onb-ver-icon">${checkSvg}</span>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:3px">
+              <h4 style="margin:0;font-size:15.5px;color:var(--color-text-primary)">${E(opts.title)}</h4>
+              <span class="bdg bd-su" style="font-size:10px">${E(opts.badge || 'Verified')}</span>
+            </div>
+            <p class="m" style="margin:0;font-size:12.5px;line-height:1.45">${E(opts.summary)}</p>
+          </div>
+        </div>
+        ${opts.meta ? `<div class="pat-onb-ver-meta">${opts.meta}</div>` : ''}
+        ${actionsHtml}
+      </div>
+    `;
+  },
+
+  shell(pat, innerHtml, variant, state, meta) {
+    const isCompact = /Compact|Inline/i.test(variant);
+    const isModal   = /Modal|Dialog|Sheet/i.test(variant);
+    const isFull    = /Full[- ]Page|Workspace/i.test(variant);
+    const isDis     = /Disabled|Read-only/i.test(state);
+    const isLoading = !isDis && (/Loading|Processing|Verifying/i.test(state) || !!(meta && meta.loading));
+    const isSuccess = !isDis && !isLoading && !!(meta && meta.verified);
+    const isFoc     = !isDis && !isLoading && !isSuccess && /Focus/i.test(state);
+    const m         = meta || {};
+    const disWrap   = isDis ? 'pat-onb-disabled-wrap' : '';
+
+    const statusBar = isLoading
+      ? `<div class="pat-onb-loading-bar" role="status" aria-live="polite"><span class="pat-onb-spin" aria-hidden="true"></span><span><b>${E(m.loadingLabel || 'Processing...')}</b> Controls locked to prevent duplicate submission.</span></div>`
+      : isDis
+      ? `<div class="pat-onb-ro-bar" role="note"><span><b>Read-only mode:</b> Controls disabled by workspace onboarding policy.</span><span class="bdg" style="font-size:9px">Locked</span></div>`
+      : '';
+
+    if (isCompact) {
+      return `
+        <div class="pat-variant-compact pat-box ${disWrap}" data-onb-variant="compact" style="background:var(--color-surface-subtle);border-color:var(--color-border-subtle)">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed var(--color-border-subtle)">
+            <span class="ey" style="margin:0;font-size:10px;color:var(--color-text-secondary)">COMPACT INLINE &middot; ${E(pat.n.toUpperCase())}</span>
+            <span class="bdg ${isSuccess?'bd-su':'bd-inf'}" style="font-size:9px;padding:1px 6px">${isSuccess?'Verified':'Compact 32px'}</span>
+          </div>
+          ${statusBar}
+          ${innerHtml}
+        </div>
+      `;
+    }
+
+    if (isModal) {
+      const footerHtml = isSuccess ? `
+        <button type="button" class="mb v-secondary" style="--mb-h:32px;font-size:12px" data-pat-act="ob-reset-item">Reset</button>
+        <button type="button" class="mb v-primary" style="--mb-h:32px;font-size:12px" data-pat-act="ob-continue">Continue to Workspace &#8594;</button>
+      ` : `
+        <button type="button" class="mb v-secondary" style="--mb-h:32px;font-size:12px" data-pat-act="${m.secondaryAct || 'modal-dismiss'}" ${isDis || isLoading ? 'disabled' : ''}>${E(m.secondaryLabel || 'Cancel')}</button>
+        <button type="button" class="mb v-primary ${isFoc?'pat-onb-focus-cta':''}" style="--mb-h:32px;font-size:12px" data-pat-act="${m.ctaAct || 'pat-action'}" ${isDis || isLoading ? 'disabled' : ''} ${isLoading ? 'aria-busy="true"' : ''}>${isLoading ? this.spinner(m.loadingLabel || 'Processing...') : E(m.ctaLabel || 'Continue')}</button>
+      `;
+
+      return `
+        <div class="pat-modal-stage ${disWrap}" data-onb-variant="modal" style="padding:20px 14px;min-height:330px">
+          <div class="pat-modal-card" role="dialog" aria-modal="true" aria-label="${E(pat.n)}" style="max-width:460px;padding:0;overflow:hidden;border-radius:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;height:48px;padding:0 16px;background:var(--color-surface-subtle);border-bottom:1px solid var(--color-border-subtle)">
+              <div style="display:flex;align-items:center;gap:6px;min-width:0">
+                <span class="bdg ${isSuccess?'bd-su':'bd-inf'}" style="font-size:9px">${isSuccess?'VERIFIED':'DIALOG'}</span>
+                <b style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${E(pat.n)}</b>
+              </div>
+              <button type="button" class="mb v-ghost" style="--mb-h:26px;padding:0 6px;font-size:13px" data-pat-act="modal-dismiss" aria-label="Close dialog" ${isLoading?'disabled':''}>&#10005;</button>
+            </div>
+            <div style="padding:16px">
+              ${statusBar}
+              ${innerHtml}
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;padding:12px 16px;background:var(--color-surface-subtle);border-top:1px solid var(--color-border-subtle)">
+              ${footerHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (isFull) {
+      const railSteps = m.wsSteps || ['1. Orientation', '2. Configuration', '3. Verification'];
+      const activeStepIdx = isSuccess ? railSteps.length : (m.wsActiveIdx || 1);
+      return `
+        <div class="pat-onb-ws ${disWrap}" data-onb-variant="fullpage">
+          <div class="pat-onb-ws-bar">
+            <div style="display:flex;align-items:center;gap:8px;min-width:0">
+              <span class="bdg bd-inf" style="font-size:9px">WORKSPACE</span>
+              <span style="font-size:11.5px;color:var(--color-text-secondary)">Meld Studio / Onboarding / <b style="color:var(--color-text-primary)">${E(pat.n)}</b></span>
+            </div>
+            <span class="bdg ${isSuccess?'bd-su':isLoading?'bd-inf':'bd-wa'}" style="font-size:9.5px">${isSuccess?'100% Verified':isLoading?'Processing...':'Full Workspace'}</span>
+          </div>
+          <div class="pat-onb-ws-body">
+            <aside class="pat-onb-ws-rail" aria-label="Onboarding workspace context">
+              <div class="ey" style="font-size:9.5px;margin:0 0 6px;color:var(--color-text-secondary)">ONBOARDING FLOW</div>
+              <div class="pat-onb-ws-steps">
+                ${railSteps.map((stLbl, idx) => {
+                  const done = isSuccess || idx < activeStepIdx;
+                  const curr = !isSuccess && idx === activeStepIdx;
+                  return `<div style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:5px;background:${curr?'var(--color-surface-default)':'transparent'};border:1px solid ${curr?'var(--color-border-default)':'transparent'};color:${done?'var(--color-text-success)':curr?'var(--color-text-primary)':'var(--color-text-secondary)'};font-weight:${curr||done?'600':'400'}"><span>${done?'&#10003;':curr?'&#9679;':'&#9675;'}</span><span>${E(stLbl)}</span></div>`;
+                }).join('')}
+              </div>
+              <div style="padding-top:8px;border-top:1px dashed var(--color-border-subtle);font-size:10.5px;line-height:1.4">
+                <b style="display:block;color:var(--color-text-primary);margin-bottom:2px">Workspace Context</b>
+                ${E(m.wsNote || 'Full-viewport onboarding shell with persistent progress rail.')}
+              </div>
+            </aside>
+            <div class="pat-onb-ws-stage">
+              ${statusBar}
+              ${innerHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Standard / Default card container
+    return `
+      <div class="pat-box pat-onb-standard ${disWrap}" data-onb-variant="standard" style="max-width:460px;margin:0 auto;padding:20px;border-radius:8px">
+        ${statusBar}
+        ${innerHtml}
+      </div>
+    `;
   },
 
   render(pat, variant, state, theme) {
     const s = this.ensure(pat.id);
-    const isDis = /Disabled/i.test(state);
-    const disAttr = isDis ? 'disabled' : '';
-    const focCls = /Focus/i.test(state) ? 'is-focused' : '';
-    const isErr = /Error/i.test(state);
-    const errB = isErr ? `<div class="msg er" role="alert" style="margin-bottom:10px;padding:6px 10px;font-size:12px">Validation Error: Complete required onboarding parameter.</div>` : '';
     const id = pat.id;
+    const isCompact = /Compact|Inline/i.test(variant);
+    const isModal   = /Modal|Dialog|Sheet/i.test(variant);
+    const isDis     = /Disabled|Read-only/i.test(state);
+    const isLoading = !isDis && (/Loading|Processing|Verifying/i.test(state) || s.loading);
+    const isSuccess = !isDis && !isLoading && (/Success|Verified|Completed/i.test(state) || s.verified);
+    const isFoc     = !isDis && !isLoading && !isSuccess && /Focus/i.test(state);
+    const isErr     = !isDis && !isLoading && !isSuccess && (/Error|Corrective|Invalid/i.test(state) || !!s.err);
 
+    const locked    = isDis || isLoading;
+    const disAttr   = locked ? 'disabled' : '';
+    const roAttr    = isDis ? 'readonly disabled' : (isLoading ? 'disabled' : '');
+    const focCls    = isFoc ? 'is-focused' : '';
+    const ctaFocCls = isFoc ? 'pat-onb-focus-cta' : '';
+    const errCls    = isErr ? 'is-error' : '';
+    const errText   = s.err || 'Complete required onboarding parameter to proceed.';
+    const errBanner = isErr ? `<div class="msg er" role="alert" style="margin-bottom:10px;padding:7px 10px;font-size:12px"><b>&#9888; Validation Required:</b> ${E(errText)}</div>` : '';
+    const fieldErr  = (msg) => isErr ? `<div class="pat-err-txt" role="alert"><span>&#9888;</span><span>${E(msg)}</span></div>` : '';
+
+    // 1. FIRST-TIME USER ONBOARDING
     if (id === 'onb-firsttime') {
-      return `${errB}<h4 style="margin:0 0 4px;font-size:17px">Welcome to Meld System Studio</h4><p class="m" style="margin:0 0 12px;font-size:12px">Unified design tokens, interactive component contracts, and live accessibility checks.</p><div class="pat-grid-3" style="margin-bottom:14px">${[['01 Tokens','Semantic Light & Dark'],['02 Components','191 Core Primitives'],['03 Export','Figma & JSON Sync']].map(([a,b])=>`<div class="pat-subbox" style="padding:8px"><b style="font-size:11px;display:block">${a}</b><span class="pat-hint" style="margin:2px 0 0">${b}</span></div>`).join('')}</div><button type="button" class="mb v-primary" style="--mb-h:38px;width:100%" data-pat-act="ob-start" ${disAttr}>${s.started?'&#10003; Journey Started':'Get Started'}</button>`;
+      const loadingLabel = 'Starting Journey...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Onboarding Journey Initialized',
+          badge: 'Ready to Explore',
+          summary: 'Meld System Studio workspace is configured with semantic Light & Dark tokens, 191 primitives, and Figma sync.',
+          meta: '<b>Active Modules:</b> Foundations &middot; Components &middot; 125 UX Patterns'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Value Intro', '2. Studio Ready', '3. Explore'] });
+      }
+      const ctaBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'38px'};${isCompact?'':'width:100%'}" data-pat-act="ob-start" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading ? this.spinner(loadingLabel) : 'Get Started'}</button>`;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 180px;min-width:0">
+            <b style="font-size:13px;display:block">Welcome to Meld System Studio</b>
+            <span class="pat-hint" style="margin:2px 0 0">01 Tokens &middot; 02 Components &middot; 03 Figma Sync</span>
+          </div>
+          ${ctaBtn}
+        </div>
+      ` : `
+        ${errBanner}
+        <h4 style="margin:0 0 4px;font-size:17px">Welcome to Meld System Studio</h4>
+        <p class="m" style="margin:0 0 12px;font-size:12.5px">Unified design tokens, interactive component contracts, and live accessibility checks.</p>
+        <div class="pat-grid-3" style="margin-bottom:${isModal?'0':'14px'}">
+          ${[['01 Tokens','Semantic Light & Dark'],['02 Components','191 Core Primitives'],['03 Export','Figma & JSON Sync']].map(([a,b])=>`<div class="pat-subbox" style="padding:8px"><b style="font-size:11px;display:block">${a}</b><span class="pat-hint" style="margin:2px 0 0">${b}</span></div>`).join('')}
+        </div>
+        ${ctaBtn}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-start', ctaLabel: 'Get Started', loading: isLoading, loadingLabel,
+        wsSteps: ['1. Value Intro', '2. Studio Ready', '3. Explore'], wsActiveIdx: 0,
+        wsNote: 'First-visit orientation framing core product pillars before entry.'
+      });
     }
+
+    // 2. WELCOME SCREENS
     if (id === 'onb-welcome') {
-      return `${errB}<span class="bdg bd-inf" style="font-size:10px;margin-bottom:6px">PERSONALIZED WELCOME</span><h4 style="margin:0 0 4px;font-size:18px">Welcome back, Ana Kapoor</h4><p class="m" style="margin:0 0 12px;font-size:12px">Choose your primary workflow lens (${E(s.role)} selected):</p><div style="display:flex;gap:6px;flex-wrap:wrap">${['Design Lead','Design Systems Engineer','Researcher'].map(r=>`<button type="button" class="mb ${s.role===r?'v-primary':'v-secondary'}" style="--mb-h:34px;font-size:12px" data-pat-act="ob-role" data-role="${r}" ${disAttr}>${r}</button>`).join('')}</div>`;
+      const loadingLabel = 'Tailoring Workspace...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Workspace Tailored for ' + s.role,
+          badge: 'Role Confirmed',
+          summary: 'Welcome back, Ana Kapoor. Navigation shortcuts, Figma kits, and token inspectors are now customized for your workflow.',
+          meta: `<b>Selected Lens:</b> ${E(s.role)} &middot; <b>Status:</b> Active Session`
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Greeting', '2. Role Lens', '3. Studio Launch'] });
+      }
+      const roles = ['Design Lead', 'Design Systems Engineer', 'Researcher'];
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 140px;min-width:0">
+            <b style="font-size:13px;display:block">Welcome back, Ana Kapoor</b>
+            <span class="pat-hint" style="margin:1px 0 0">Role lens: ${E(s.role)}</span>
+          </div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            ${roles.map((r, idx)=>`<button type="button" class="mb ${s.role===r?'v-primary':'v-secondary'} ${idx===0?ctaFocCls:''}" style="--mb-h:30px;font-size:11px;padding:0 10px" data-pat-act="ob-role" data-role="${r}" ${disAttr} ${isLoading&&s.role===r?'aria-busy="true"':''}>${isLoading&&s.role===r?this.spinner('Applying...'):r}</button>`).join('')}
+          </div>
+        </div>
+      ` : `
+        ${errBanner}
+        <span class="bdg bd-inf" style="font-size:10px;margin-bottom:6px;display:inline-block">PERSONALIZED WELCOME</span>
+        <h4 style="margin:0 0 4px;font-size:18px">Welcome back, Ana Kapoor</h4>
+        <p class="m" style="margin:0 0 12px;font-size:12.5px">Choose your primary workflow lens (<b>${E(s.role)}</b> selected):</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:${isModal?'0':'12px'}">
+          ${roles.map((r, idx)=>`<button type="button" class="mb ${s.role===r?'v-primary':'v-secondary'} ${idx===0?ctaFocCls:''}" style="--mb-h:34px;font-size:12px" data-pat-act="ob-role" data-role="${r}" ${disAttr} ${isLoading&&s.role===r?'aria-busy="true"':''}>${isLoading&&s.role===r?this.spinner(loadingLabel):r}</button>`).join('')}
+        </div>
+        ${fieldErr('Select a role lens to personalize your onboarding workspace.')}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-role', ctaLabel: 'Launch as ' + s.role, loading: isLoading, loadingLabel,
+        wsSteps: ['1. Greeting', '2. Role Lens', '3. Studio Launch'], wsActiveIdx: 1,
+        wsNote: 'Personalizes studio defaults based on practitioner discipline.'
+      });
     }
+
+    // 3. GUIDED SETUP
     if (id === 'onb-guided') {
+      const loadingLabel = 'Syncing Checklist...';
       const doneCnt = s.tasks.filter(Boolean).length;
       const pct = Math.round(doneCnt / 4 * 100);
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Guided Setup Complete (4/4)',
+          badge: '100% Complete',
+          summary: 'All 4 foundational setup milestones are verified: Figma tokens linked, WCAG 2.2 AA baseline passed, collaborators invited, and changelog published.',
+          meta: '<b>Progress:</b> 4/4 Tasks Verified &middot; <b>Studio Health:</b> Passing'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Figma Sync', '2. WCAG Audit', '3. Team Invite', '4. Snapshot'] });
+      }
       const labels = ['Connect Figma Library token file', 'Run WCAG 2.2 AA contrast baseline', 'Invite 2 studio collaborators', 'Publish initial changelog snapshot'];
-      return `${errB}<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><b style="font-size:14px">Guided Setup Checklist</b><span class="bdg bd-su" style="font-size:10px">${doneCnt}/4 (${pct}%)</span></div><div class="pat-prog-track" style="margin-bottom:10px"><div class="pat-prog-fill is-su" style="width:${pct}%"></div></div><div style="display:flex;flex-direction:column;gap:6px">${labels.map((l,i)=>`<button type="button" class="pat-file-row" style="width:100%;text-align:left;cursor:pointer;padding:8px 10px;font-size:12px" data-pat-act="ob-task" data-idx="${i}" ${disAttr}><span>${s.tasks[i]?'&#9745;':'&#9744;'} <span style="${s.tasks[i]?'text-decoration:line-through;opacity:0.7':''}">${l}</span></span></button>`).join('')}</div>`;
+      const completeBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'30px':'34px'};${isCompact?'':'width:100%;margin-top:10px'}" data-pat-act="ob-guided-complete" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Complete Remaining Tasks'}</button>`;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between;margin-bottom:6px">
+          <div style="flex:1 1 160px;min-width:0">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><b style="font-size:12.5px">Guided Setup</b><span class="bdg ${isErr?'bd-er':'bd-su'}" style="font-size:9.5px">${doneCnt}/4 (${pct}%)</span></div>
+            <div class="pat-prog-track"><div class="pat-prog-fill ${isErr?'is-er':'is-su'}" style="width:${pct}%"></div></div>
+          </div>
+          ${completeBtn}
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap">
+          ${labels.map((l,i)=>`<button type="button" class="mb ${s.tasks[i]?'v-secondary':'v-ghost'}" style="--mb-h:26px;font-size:11px;padding:0 8px" data-pat-act="ob-task" data-idx="${i}" ${disAttr}>${s.tasks[i]?'&#9745;':'&#9744;'} Step ${i+1}</button>`).join('')}
+        </div>
+      ` : `
+        ${errBanner}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><b style="font-size:14.5px">Guided Setup Checklist</b><span class="bdg ${isErr?'bd-er':'bd-su'}" style="font-size:10px">${doneCnt}/4 (${pct}%)</span></div>
+        <div class="pat-prog-track" style="margin-bottom:10px"><div class="pat-prog-fill ${isErr?'is-er':'is-su'}" style="width:${pct}%"></div></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          ${labels.map((l,i)=>`<button type="button" class="pat-file-row ${isErr&&!s.tasks[i]?'is-error':''} ${i===2&&isFoc?'is-focused':''}" style="width:100%;text-align:left;cursor:${locked?'not-allowed':'pointer'};padding:8px 10px;font-size:12px;${isErr&&!s.tasks[i]?'border-color:var(--color-border-error)':''}" data-pat-act="ob-task" data-idx="${i}" ${disAttr}><span>${s.tasks[i]?'&#9745;':'&#9744;'} <span style="${s.tasks[i]?'text-decoration:line-through;opacity:0.7':''}">${l}</span></span><span class="m" style="font-size:10.5px">${s.tasks[i]?'Done':'Pending'}</span></button>`).join('')}
+        </div>
+        ${fieldErr('Complete remaining pending milestones before publishing.')}
+        ${completeBtn}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-guided-complete', ctaLabel: 'Complete All Tasks', loading: isLoading, loadingLabel,
+        wsSteps: ['1. Figma Sync', '2. WCAG Audit', '3. Team Invite', '4. Snapshot'], wsActiveIdx: doneCnt,
+        wsNote: 'Non-blocking checklist letting practitioners finish setup tasks in any order.'
+      });
     }
+
+    // 4. MULTI-STEP ONBOARDING
     if (id === 'onb-multistep') {
-      return `${errB}<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--color-border-subtle)"><div><span class="ey" style="margin:0;font-size:10px">WIZARD STEP ${s.step}/3</span><h4 style="margin:2px 0 0;font-size:16px">${s.step===1?'Workspace Identity':s.step===2?'Team Capacity':'Finish Setup'}</h4></div><span class="bdg bd-su" style="font-size:10px">${Math.round(s.step/3*100)}%</span></div><div style="margin-bottom:12px"><label class="pat-lbl">Workspace Name</label><input type="text" class="pat-ctrl ${focCls}" data-pat-field="wsName" value="${E(s.wsName)}" ${disAttr}></div><div style="display:flex;justify-content:space-between;gap:8px"><button type="button" class="mb v-secondary" style="--mb-h:34px" data-pat-act="ob-ms-prev" ${s.step<=1||isDis?'disabled':''}>Previous</button><button type="button" class="mb v-primary" style="--mb-h:34px" data-pat-act="ob-ms-next" ${disAttr}>${s.done?'&#10003; Completed':s.step===3?'Finish':'Continue'}</button></div>`;
+      const loadingLabel = s.step === 3 ? 'Finalizing Setup...' : 'Saving Step ' + s.step + '...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Multi-Step Onboarding Verified',
+          badge: 'Step 3/3 Complete',
+          summary: 'Your workspace identity, team capacity, and starter permissions have been configured and verified.',
+          meta: `<b>Workspace:</b> ${E(s.wsName || 'IDEO Design Hub')} &middot; <b>Capacity:</b> ${E(s.teamSize)}`
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Identity', '2. Capacity', '3. Review'] });
+      }
+      const stepTitles = ['Workspace Identity', 'Team Capacity', 'Confirm & Launch'];
+      const nextLabel = s.step === 3 ? 'Finish Setup' : 'Continue';
+      const fieldHtml = s.step === 2 ? `
+        <label class="pat-lbl">Team Capacity</label>
+        <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="teamSize" value="${E(s.teamSize)}" ${roAttr}>
+      ` : `
+        <label class="pat-lbl">Workspace Name <span class="pat-req">*</span></label>
+        <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="wsName" value="${E(s.wsName)}" placeholder="e.g., IDEO Design Hub" ${roAttr}>
+      `;
+      const navBtns = isModal ? '' : `
+        <div style="display:flex;justify-content:space-between;gap:8px">
+          <button type="button" class="mb v-secondary" style="--mb-h:${isCompact?'32px':'34px'}" data-pat-act="ob-ms-prev" ${s.step<=1||locked?'disabled':''}>Previous</button>
+          <button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'34px'}" data-pat-act="ob-ms-next" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading ? this.spinner(loadingLabel) : nextLabel}</button>
+        </div>
+      `;
+      const body = isCompact ? `
+        ${errBanner}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span class="ey" style="margin:0;font-size:10px">STEP ${s.step}/3 &middot; ${stepTitles[s.step-1].toUpperCase()}</span>
+          <span class="bdg bd-su" style="font-size:9.5px">${Math.round(s.step/3*100)}%</span>
+        </div>
+        <div class="pat-inline-row">
+          <div class="pat-inline-grow">${fieldHtml}</div>
+          ${isModal ? '' : `<button type="button" class="mb v-secondary" data-pat-act="ob-ms-prev" ${s.step<=1||locked?'disabled':''}>Back</button><button type="button" class="mb v-primary ${ctaFocCls}" data-pat-act="ob-ms-next" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):nextLabel}</button>`}
+        </div>
+        ${fieldErr('Enter at least 3 characters for Workspace Name.')}
+      ` : `
+        ${errBanner}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--color-border-subtle)">
+          <div>
+            <span class="ey" style="margin:0;font-size:10px">WIZARD STEP ${s.step} OF 3</span>
+            <h4 style="margin:2px 0 0;font-size:16px">${stepTitles[s.step-1]}</h4>
+          </div>
+          <span class="bdg bd-su" style="font-size:10px">${Math.round(s.step/3*100)}%</span>
+        </div>
+        <div class="pat-prog-track" style="margin-bottom:12px"><div class="pat-prog-fill is-su" style="width:${Math.round(s.step/3*100)}%"></div></div>
+        <div style="margin-bottom:${isModal?'0':'14px'}">
+          ${fieldHtml}
+          ${fieldErr('Workspace Name must contain at least 3 non-space characters.')}
+        </div>
+        ${navBtns}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-ms-next', ctaLabel: nextLabel,
+        secondaryAct: s.step > 1 ? 'ob-ms-prev' : 'modal-dismiss',
+        secondaryLabel: s.step > 1 ? 'Previous' : 'Cancel',
+        loading: isLoading, loadingLabel,
+        wsSteps: ['1. Identity', '2. Capacity', '3. Confirm'], wsActiveIdx: s.step - 1,
+        wsNote: 'Linear 3-step setup sequence validating each stage before advancing.'
+      });
     }
+
+    // 5. PRODUCT TOURS
     if (id === 'onb-tour') {
-      return `${errB}<div class="pat-subbox" style="margin-bottom:12px"><span class="ey" style="font-size:10px;margin:0 0 6px">TARGET INTERFACE WITH HOTSPOT</span><div style="display:flex;gap:10px;align-items:center"><button type="button" class="mb v-primary" style="--mb-h:34px;position:relative">Export Tokens<span style="position:absolute;top:-5px;right:-5px;width:12px;height:12px;background:#BC4989;border-radius:50%;border:2px solid #fff"></span></button><span class="pat-hint" style="margin:0">Beacon active</span></div></div>${s.skipped?'<div class="msg inf" style="font-size:12px">Tour dismissed. Restart anytime via Help (? ).</div>':`<div class="pat-box" style="border-left:3px solid #BC4989;max-width:340px"><span class="ey" style="font-size:10px;color:var(--color-text-secondary)">STEP ${s.step} OF 4 &middot; PRODUCT TOUR</span><h5 style="margin:4px 0;font-size:14px">Export Design Tokens</h5><p class="m" style="margin:0 0 10px;font-size:12px">Publish semantic color &amp; spacing CSS tokens directly from approved libraries.</p><div style="display:flex;justify-content:space-between"><button type="button" class="mb v-ghost" style="--mb-h:26px;font-size:11px" data-pat-act="ob-tour-skip">Skip tour</button><button type="button" class="mb v-primary" style="--mb-h:26px;font-size:11px" data-pat-act="ob-tour-next">Next (${s.step}/4)</button></div></div>`}`;
+      const loadingLabel = 'Loading Next Stop...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Product Tour Completed (4/4)',
+          badge: 'Tour Verified',
+          summary: 'You explored all 4 anchored interface callouts: Token Export, Contrast Inspector, Responsive Breakpoints, and Figma Sync.',
+          meta: '<b>Hotspots Reviewed:</b> 4/4 &middot; <b>Re-launch:</b> Available anytime via Help (?)'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Tokens', '2. Export', '3. Contrast', '4. Sync'] });
+      }
+      const stops = [
+        ['Inspect Semantic Tokens', 'Switch Light & Dark variables live across any pattern preview.'],
+        ['Export Design Tokens', 'Publish semantic color & spacing CSS tokens directly from approved libraries.'],
+        ['Verify WCAG Contrast', 'Audit automated 4.5:1 text and 3:1 UI contrast checks in real time.'],
+        ['Sync Figma Variables', 'Keep Meld library components synchronized with production code.']
+      ];
+      const [stTitle, stDesc] = stops[Math.min(Math.max(s.step - 1, 0), 3)];
+      const nextLbl = s.step >= 4 ? 'Finish Tour' : `Next (${s.step}/4)`;
+      if (s.skipped) {
+        const body = `<div class="msg inf" style="font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>Tour dismissed. Restart anytime via Help (?).</span><button type="button" class="mb v-secondary" style="--mb-h:28px;font-size:11px" data-pat-act="ob-tour-restart" ${disAttr}>Restart Tour</button></div>`;
+        return this.shell(pat, body, variant, state, { ctaAct: 'ob-tour-restart', ctaLabel: 'Restart Tour', loading: isLoading, loadingLabel });
+      }
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 170px;min-width:0">
+            <span class="ey" style="font-size:9.5px;margin:0;color:var(--color-text-secondary)">STEP ${s.step}/4 &middot; BEACON</span>
+            <b style="font-size:12.5px;display:block">${stTitle}</b>
+          </div>
+          ${isModal ? '' : `<div style="display:flex;gap:6px"><button type="button" class="mb v-ghost" style="--mb-h:30px;font-size:11px" data-pat-act="ob-tour-skip" ${disAttr}>Skip</button><button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:30px;font-size:11px" data-pat-act="ob-tour-next" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner('Loading...'):nextLbl}</button></div>`}
+        </div>
+      ` : `
+        ${errBanner}
+        <div class="pat-subbox" style="margin-bottom:12px">
+          <span class="ey" style="font-size:10px;margin:0 0 6px">TARGET INTERFACE WITH HOTSPOT</span>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button type="button" class="mb v-primary" style="--mb-h:34px;position:relative" disabled>Export Tokens<span style="position:absolute;top:-5px;right:-5px;width:12px;height:12px;background:#BC4989;border-radius:50%;border:2px solid #fff"></span></button>
+            <span class="pat-hint" style="margin:0">Beacon anchored &middot; Stop ${s.step} of 4</span>
+          </div>
+        </div>
+        <div class="pat-box" style="border-left:3px solid #BC4989">
+          <span class="ey" style="font-size:10px;color:var(--color-text-secondary)">STEP ${s.step} OF 4 &middot; PRODUCT TOUR</span>
+          <h5 style="margin:4px 0;font-size:14px">${stTitle}</h5>
+          <p class="m" style="margin:0 0 ${isModal?'0':'10px'};font-size:12px">${stDesc}</p>
+          ${isModal ? '' : `<div style="display:flex;justify-content:space-between;gap:8px"><button type="button" class="mb v-ghost" style="--mb-h:28px;font-size:11.5px" data-pat-act="ob-tour-skip" ${disAttr}>Skip tour</button><button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:28px;font-size:11.5px" data-pat-act="ob-tour-next" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):nextLbl}</button></div>`}
+        </div>
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-tour-next', ctaLabel: nextLbl, secondaryAct: 'ob-tour-skip', secondaryLabel: 'Skip Tour',
+        loading: isLoading, loadingLabel,
+        wsSteps: ['1. Tokens', '2. Export', '3. Contrast', '4. Sync'], wsActiveIdx: s.step - 1,
+        wsNote: 'Anchored callout tour spotlighting one high-value surface per stop.'
+      });
     }
+
+    // 6. PROGRESSIVE DISCLOSURE
     if (id === 'onb-progdisc') {
-      return `${errB}<div class="pat-subbox" style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700">1. Essential Setup Complete &#10003;</span><button type="button" class="mb v-secondary" style="--mb-h:28px;font-size:11px" data-pat-act="ob-pd-tog" ${disAttr}>${s.advancedOpen?'Hide Advanced':'Reveal Advanced API'}</button></div></div>${s.advancedOpen?`<div class="pat-cond-branch"><label class="pat-lbl">Developer CLI Webhook Key (Progressive Reveal)</label><input type="text" class="pat-ctrl ${focCls}" data-pat-field="apiKey" value="${E(s.apiKey)}" ${disAttr}></div>`:`<p class="pat-hint">Advanced CLI keys stay hidden until basic workspace steps finish.</p>`}`;
+      const loadingLabel = 'Verifying API Key...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Advanced Developer API Unlocked',
+          badge: 'Verified Key',
+          summary: 'Progressive advanced configuration succeeded. CLI webhook synchronization is now active for your studio.',
+          meta: `<b>CLI Webhook Key:</b> <code>${E(s.apiKey || 'mld_live_984a')}</code>`
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Essential Setup', '2. Reveal API', '3. Connected'] });
+      }
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:flex-end">
+          ${s.advancedOpen ? `
+            <div class="pat-inline-grow">
+              <label class="pat-lbl">CLI Webhook Key</label>
+              <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="apiKey" value="${E(s.apiKey)}" ${roAttr}>
+            </div>
+            ${isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" data-pat-act="ob-pd-save" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner('Verifying...'):'Verify Key'}</button>`}
+          ` : `
+            <div style="flex:1 1 160px;min-width:0"><b style="font-size:12.5px;display:block">1. Essential Setup Complete &#10003;</b><span class="pat-hint" style="margin:0">Advanced CLI keys hidden by default</span></div>
+            <button type="button" class="mb v-secondary ${ctaFocCls}" data-pat-act="ob-pd-tog" ${disAttr}>Reveal Advanced</button>
+          `}
+        </div>
+        ${fieldErr('Key must start with "mld_live_" (min 12 chars).')}
+      ` : `
+        ${errBanner}
+        <div class="pat-subbox" style="margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="font-size:12.5px;font-weight:700">1. Essential Setup Complete &#10003;</span>
+            <button type="button" class="mb v-secondary ${!s.advancedOpen?ctaFocCls:''}" style="--mb-h:28px;font-size:11px" data-pat-act="ob-pd-tog" ${disAttr}>${s.advancedOpen?'Hide Advanced':'Reveal Advanced API'}</button>
+          </div>
+        </div>
+        ${s.advancedOpen ? `
+          <div class="pat-cond-branch">
+            <label class="pat-lbl">Developer CLI Webhook Key (Progressive Reveal)</label>
+            <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="apiKey" value="${E(s.apiKey)}" placeholder="mld_live_..." ${roAttr}>
+            ${fieldErr('Key must begin with "mld_live_" and contain at least 12 characters.')}
+            ${isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:34px;width:100%;margin-top:10px" data-pat-act="ob-pd-save" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Verify & Save API Key'}</button>`}
+          </div>
+        ` : `<p class="pat-hint" style="margin:0">Advanced CLI keys remain hidden until essential workspace configuration finishes.</p>`}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: s.advancedOpen ? 'ob-pd-save' : 'ob-pd-tog',
+        ctaLabel: s.advancedOpen ? 'Verify & Save Key' : 'Reveal Advanced API',
+        loading: isLoading, loadingLabel,
+        wsSteps: ['1. Essential Setup', '2. Reveal API', '3. Connected'], wsActiveIdx: s.advancedOpen ? 1 : 0,
+        wsNote: 'Defers expert webhook controls until baseline setup succeeds.'
+      });
     }
+
+    // 7. EMPTY-STATE ONBOARDING
     if (id === 'onb-empty') {
-      return s.populated ? `<div class="msg su" role="status" style="font-size:12px">&#10003; Loaded 12 starter Meld components &amp; tokens into workspace.</div>` : `${errB}<div style="text-align:center;padding:12px"><b style="font-size:15px;display:block;margin-bottom:4px">Your Design Library Is Empty</b><p class="m" style="margin:0 0 12px;font-size:12px">Start faster by importing canonical IDEO color, spacing, and typography presets.</p><button type="button" class="mb v-primary" style="--mb-h:36px" data-pat-act="ob-empty-load" ${disAttr}>Import Starter Tokens</button></div>`;
+      const loadingLabel = 'Importing Starter Tokens...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Starter Design Library Imported',
+          badge: '12 Presets Loaded',
+          summary: 'Imported canonical IDEO color, spacing, elevation, and typography presets directly into your workspace.',
+          meta: '<b>Imported:</b> 4 Color Scales &middot; 4 Typography Tokens &middot; 4 Grid Presets'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Empty Canvas', '2. Import Bundle', '3. Ready'] });
+      }
+      const ctaBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'36px'}" data-pat-act="ob-empty-load" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Import Starter Tokens'}</button>`;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 170px;min-width:0"><b style="font-size:13px;display:block">Your Design Library Is Empty</b><span class="pat-hint" style="margin:2px 0 0">Import canonical IDEO starter presets</span></div>
+          ${ctaBtn}
+        </div>
+      ` : `
+        ${errBanner}
+        <div style="text-align:center;padding:12px 6px">
+          <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:var(--color-surface-subtle);border:1px solid var(--color-border-subtle);display:flex;align-items:center;justify-content:center;color:var(--color-action-primary);font-weight:700;font-size:18px">&#43;</div>
+          <b style="font-size:15.5px;display:block;margin-bottom:4px">Your Design Library Is Empty</b>
+          <p class="m" style="margin:0 0 ${isModal?'0':'14px'};font-size:12.5px">Start faster by importing canonical IDEO color, spacing, and typography presets.</p>
+          ${ctaBtn}
+        </div>
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-empty-load', ctaLabel: 'Import Starter Tokens', loading: isLoading, loadingLabel,
+        wsSteps: ['1. Empty Canvas', '2. Import Bundle', '3. Ready'], wsActiveIdx: 0,
+        wsNote: 'Converts zero-data states into actionable one-click starter launchpads.'
+      });
     }
+
+    // 8. WORKSPACE CREATION
     if (id === 'onb-workspace') {
-      return `${errB}<h4 style="margin:0 0 10px;font-size:16px">Create Team Workspace</h4><div style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px"><div><label class="pat-lbl">Organization Name</label><input type="text" class="pat-ctrl ${focCls} ${!s.orgName.trim()&&isErr?'is-error':''}" data-pat-field="orgName" value="${E(s.orgName)}" ${disAttr}></div><div class="pat-grid-2"><div><label class="pat-lbl">Workspace Slug</label><input type="text" class="pat-ctrl" data-pat-field="slug" value="${E(s.slug)}" ${disAttr}></div><div><label class="pat-lbl">Team Seats</label><input type="number" class="pat-ctrl" data-pat-field="seats" value="${E(s.seats)}" ${disAttr}></div></div></div><button type="button" class="mb v-primary" style="--mb-h:36px;width:100%" data-pat-act="ob-ws-create" ${disAttr}>${s.created?'&#10003; Provisioned /'+E(s.slug):'Provision Workspace'}</button>`;
+      const loadingLabel = 'Provisioning Workspace...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Team Workspace Provisioned',
+          badge: 'Verified Slug',
+          summary: `Workspace "${s.orgName || 'Nordic Mobility Lab'}" is live and ready for ${s.seats || '12'} team collaborators.`,
+          meta: `<b>Workspace URL:</b> <code>meld.ideo.com/${E(s.slug || 'nordic-mobility')}</code> &middot; <b>Seats:</b> ${E(s.seats || '12')}`
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Organization', '2. Slug & Seats', '3. Provisioned'] });
+      }
+      const ctaBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'36px'};${isCompact?'':'width:100%'}" data-pat-act="ob-ws-create" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Provision Workspace'}</button>`;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="margin-bottom:6px">
+          <div class="pat-inline-grow"><label class="pat-lbl">Organization <span class="pat-req">*</span></label><input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="orgName" value="${E(s.orgName)}" placeholder="Organization name" ${roAttr}></div>
+          <div class="pat-inline-grow"><label class="pat-lbl">Slug</label><input type="text" class="pat-ctrl" data-pat-field="slug" value="${E(s.slug)}" ${roAttr}></div>
+          ${ctaBtn}
+        </div>
+        ${fieldErr('Organization Name is required before provisioning.')}
+      ` : `
+        ${errBanner}
+        <h4 style="margin:0 0 10px;font-size:16px">Create Team Workspace</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:${isModal?'0':'14px'}">
+          <div>
+            <label class="pat-lbl">Organization Name <span class="pat-req">*</span></label>
+            <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="orgName" value="${E(s.orgName)}" placeholder="e.g., Nordic Mobility Lab" ${roAttr}>
+            ${fieldErr('Organization Name is required to reserve a workspace slug.')}
+          </div>
+          <div class="pat-grid-2">
+            <div><label class="pat-lbl">Workspace Slug</label><input type="text" class="pat-ctrl" data-pat-field="slug" value="${E(s.slug)}" ${roAttr}></div>
+            <div><label class="pat-lbl">Team Seats</label><input type="number" class="pat-ctrl" data-pat-field="seats" value="${E(s.seats)}" ${roAttr}></div>
+          </div>
+        </div>
+        ${ctaBtn}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-ws-create', ctaLabel: 'Provision Workspace', loading: isLoading, loadingLabel,
+        wsSteps: ['1. Organization', '2. Slug & Seats', '3. Provisioned'], wsActiveIdx: 1,
+        wsNote: 'Captures organization identity, unique URL slug, and seat allocation.'
+      });
     }
+
+    // 9. PROFILE COMPLETION
     if (id === 'onb-profile') {
-      return `${errB}<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-size:14px">Complete Your Practitioner Profile</b><span class="bdg bd-inf" style="font-size:10px">${s.saved?'100% Complete':'75% Enriched'}</span></div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px"><div><label class="pat-lbl">Role Title</label><input type="text" class="pat-ctrl ${focCls}" data-pat-field="title" value="${E(s.title)}" ${disAttr}></div><div><label class="pat-lbl">Bio Focus</label><input type="text" class="pat-ctrl" data-pat-field="bio" value="${E(s.bio)}" ${disAttr}></div></div><button type="button" class="mb v-primary" style="--mb-h:36px;width:100%" data-pat-act="ob-prof-save" ${disAttr}>${s.saved?'&#10003; Profile Updated':'Save Profile Details'}</button>`;
+      const loadingLabel = 'Saving Profile...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Practitioner Profile Verified',
+          badge: '100% Complete',
+          summary: 'Your studio role and bio focus have been saved and synced across Meld collaboration directories.',
+          meta: `<b>Role Title:</b> ${E(s.title || 'Staff Product Designer')} &middot; <b>Focus:</b> ${E(s.bio || 'Accessibility & Design Systems')}`
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Identity', '2. Bio & Focus', '3. Verified'] });
+      }
+      const ctaBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'36px'};${isCompact?'':'width:100%'}" data-pat-act="ob-prof-save" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Save Profile Details'}</button>`;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row">
+          <div class="pat-inline-grow"><label class="pat-lbl">Role Title <span class="pat-req">*</span></label><input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="title" value="${E(s.title)}" placeholder="e.g., Staff Product Designer" ${roAttr}></div>
+          <div class="pat-inline-grow"><label class="pat-lbl">Bio Focus</label><input type="text" class="pat-ctrl" data-pat-field="bio" value="${E(s.bio)}" ${roAttr}></div>
+          ${ctaBtn}
+        </div>
+        ${fieldErr('Role Title is required before saving profile details.')}
+      ` : `
+        ${errBanner}
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:6px">
+          <b style="font-size:14.5px">Complete Your Practitioner Profile</b>
+          <span class="bdg bd-inf" style="font-size:10px">75% Enriched</span>
+        </div>
+        <div class="pat-prog-track" style="margin-bottom:12px"><div class="pat-prog-fill" style="width:75%"></div></div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:${isModal?'0':'14px'}">
+          <div>
+            <label class="pat-lbl">Role Title <span class="pat-req">*</span></label>
+            <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="title" value="${E(s.title)}" placeholder="e.g., Staff Product Designer" ${roAttr}>
+            ${fieldErr('Role Title cannot be blank.')}
+          </div>
+          <div>
+            <label class="pat-lbl">Bio Focus</label>
+            <input type="text" class="pat-ctrl" data-pat-field="bio" value="${E(s.bio)}" placeholder="e.g., Accessibility & Design Systems" ${roAttr}>
+          </div>
+        </div>
+        ${ctaBtn}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-prof-save', ctaLabel: 'Save Profile Details', loading: isLoading, loadingLabel,
+        wsSteps: ['1. Core Account', '2. Profile Metadata', '3. Complete'], wsActiveIdx: 1,
+        wsNote: 'Progressive enrichment capturing optional role metadata post-registration.'
+      });
     }
+
+    // 10. PERMISSION REQUESTS
     if (id === 'onb-permissions') {
-      return `${errB}<h4 style="margin:0 0 6px;font-size:16px">Enable Release Notifications?</h4><p class="m" style="margin:0 0 12px;font-size:12px">Explain value before OS prompt: receive instant alerts when Figma token syncs finish or audits fail.</p>${s.status!=='prompt'?`<div class="msg ${s.status==='allow'?'su':'inf'}" style="font-size:12px">Permission decision: <b>${s.status==='allow'?'Notifications Enabled':'Deferred cleanly (re-ask later)'}</b></div>`:`<div style="display:flex;gap:8px"><button type="button" class="mb v-primary" style="--mb-h:36px" data-pat-act="ob-perm" data-val="allow" ${disAttr}>Enable Alerts</button><button type="button" class="mb v-secondary" style="--mb-h:36px" data-pat-act="ob-perm" data-val="defer" ${disAttr}>Not Now</button></div>`}`;
+      const loadingLabel = 'Requesting Permission...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Release Notifications Enabled',
+          badge: 'Permission Granted',
+          summary: 'Instant browser alerts are active for Figma token sync completions and WCAG audit regressions.',
+          meta: '<b>Channel:</b> Desktop Notifications &middot; <b>Preference:</b> Editable anytime in Settings'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Value Context', '2. OS Prompt', '3. Enabled'] });
+      }
+      if (s.status === 'defer') {
+        const body = `<div class="msg inf" style="font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>Permission deferred cleanly (we can ask again later).</span><button type="button" class="mb v-secondary" style="--mb-h:28px;font-size:11px" data-pat-act="ob-reset-item" ${disAttr}>Re-open Prompt</button></div>`;
+        return this.shell(pat, body, variant, state, { ctaAct: 'ob-perm', ctaLabel: 'Enable Alerts', loading: isLoading, loadingLabel });
+      }
+      const actions = isModal ? '' : `
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'36px'}" data-pat-act="ob-perm" data-val="allow" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Enable Alerts'}</button>
+          <button type="button" class="mb v-secondary" style="--mb-h:${isCompact?'32px':'36px'}" data-pat-act="ob-perm" data-val="defer" ${disAttr}>Not Now</button>
+        </div>
+      `;
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 170px;min-width:0"><b style="font-size:13px;display:block">Enable Release Notifications?</b><span class="pat-hint" style="margin:1px 0 0">Get alerts when Figma token syncs finish</span></div>
+          ${actions}
+        </div>
+      ` : `
+        ${errBanner}
+        <h4 style="margin:0 0 6px;font-size:16px">Enable Release Notifications?</h4>
+        <p class="m" style="margin:0 0 ${isModal?'0':'14px'};font-size:12.5px">Explain value before OS prompt: receive instant alerts when Figma token syncs finish or audits fail.</p>
+        ${actions}
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-perm', ctaLabel: 'Enable Alerts', secondaryAct: 'modal-dismiss', secondaryLabel: 'Not Now',
+        loading: isLoading, loadingLabel,
+        wsSteps: ['1. Value Context', '2. OS Prompt', '3. Enabled'], wsActiveIdx: 0,
+        wsNote: 'Contextual pre-prompt explaining benefit prior to native browser permission dialog.'
+      });
     }
+
+    // 11. FEATURE DISCOVERY
     if (id === 'onb-discovery') {
-      return s.dismissed ? `<div class="pat-hint">Feature announcement dismissed quietly.</div>` : `${errB}<div class="pat-subbox" style="border-left:3px solid var(--color-action-primary)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span class="bdg bd-inf" style="font-size:10px">NEW &middot; v1.9.0</span><button type="button" class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px" data-pat-act="ob-disc-dis">Dismiss</button></div><b style="font-size:14px;display:block;margin-bottom:4px">Interactive Figma Dimension Inspector</b><p class="m" style="margin:0 0 10px;font-size:12px">Inspect exact container widths, padding, and instance dimensions on all 125 UX patterns.</p><button type="button" class="mb v-primary" style="--mb-h:30px;font-size:12px" data-pat-act="ob-disc-try" ${disAttr}>${s.tried?'&#10003; Opened Inspector':'Try Now'}</button></div>`;
+      const loadingLabel = 'Opening Inspector...';
+      if (isSuccess) {
+        const body = this.verifiedCard({
+          title: 'Dimension Inspector Activated',
+          badge: 'Feature Enabled',
+          summary: 'Interactive Figma Dimension Inspector is now pinned to your Pattern Explorer toolbar across all 125 UX patterns.',
+          meta: '<b>Release:</b> v1.12.1 &middot; <b>Shortcut:</b> Press <code>D</code> on any pattern'
+        }, isCompact, isModal);
+        return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Announcement', '2. Try Feature', '3. Adopted'] });
+      }
+      if (s.dismissed) {
+        const body = `<div class="pat-hint" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>Feature announcement dismissed quietly.</span><button type="button" class="mb v-secondary" style="--mb-h:26px;font-size:11px" data-pat-act="ob-reset-item" ${disAttr}>Show Again</button></div>`;
+        return this.shell(pat, body, variant, state, { ctaAct: 'ob-reset-item', ctaLabel: 'Restore', loading: isLoading, loadingLabel });
+      }
+      const body = isCompact ? `
+        ${errBanner}
+        <div class="pat-inline-row" style="align-items:center;justify-content:space-between">
+          <div style="flex:1 1 170px;min-width:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span class="bdg bd-inf" style="font-size:9.5px">NEW</span>
+            <b style="font-size:12.5px">Figma Dimension Inspector</b>
+          </div>
+          ${isModal ? '' : `<div style="display:flex;gap:6px"><button type="button" class="mb v-ghost" style="--mb-h:30px;font-size:11px" data-pat-act="ob-disc-dis" ${disAttr}>Dismiss</button><button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:30px;font-size:11px" data-pat-act="ob-disc-try" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner('Opening...'):'Try Now'}</button></div>`}
+        </div>
+      ` : `
+        ${errBanner}
+        <div class="pat-subbox" style="border-left:3px solid var(--color-action-primary)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span class="bdg bd-inf" style="font-size:10px">NEW &middot; v1.12.1</span>
+            <button type="button" class="mb v-ghost" style="--mb-h:22px;padding:0 6px;font-size:11px" data-pat-act="ob-disc-dis" ${disAttr}>Dismiss</button>
+          </div>
+          <b style="font-size:14.5px;display:block;margin-bottom:4px">Interactive Figma Dimension Inspector</b>
+          <p class="m" style="margin:0 0 ${isModal?'0':'12px'};font-size:12px">Inspect exact container widths, padding, and instance dimensions on all 125 UX patterns.</p>
+          ${isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:32px;font-size:12px" data-pat-act="ob-disc-try" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Try Now'}</button>`}
+        </div>
+      `;
+      return this.shell(pat, body, variant, state, {
+        ctaAct: 'ob-disc-try', ctaLabel: 'Try Now', secondaryAct: 'ob-disc-dis', secondaryLabel: 'Dismiss',
+        loading: isLoading, loadingLabel,
+        wsSteps: ['1. Announcement', '2. Try Feature', '3. Adopted'], wsActiveIdx: 0,
+        wsNote: 'Non-intrusive discovery banner alerting returning users to new capabilities.'
+      });
     }
-    // onb-guidance
-    return `${errB}<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><label class="pat-lbl" style="margin:0">Base Grid Unit</label><button type="button" class="mb v-secondary" style="--mb-h:20px;padding:0 6px;font-size:10px;border-radius:999px" data-pat-act="ob-guide-tip" ${disAttr}>?</button></div><input type="text" class="pat-ctrl ${focCls}" data-pat-field="param" value="${E(s.param)}" ${disAttr}>${s.openTip?`<div class="pat-subbox" style="margin-top:8px;padding:8px 10px;font-size:11px"><b>Micro-Guidance:</b> Use multiples of <code>4px</code> or <code>8px</code> for padding and layout gaps so Figma Auto Layout frames align cleanly.</div>`:''}`;
+
+    // 12. CONTEXTUAL GUIDANCE (onb-guidance)
+    const loadingLabel = 'Validating Grid Unit...';
+    if (isSuccess) {
+      const body = this.verifiedCard({
+        title: 'Base Grid Unit Verified (' + (s.param || '16px') + ')',
+        badge: '4px/8px Aligned',
+        summary: 'Your layout spacing token passes Meld 4px/8px Auto Layout alignment rules across all responsive breakpoints.',
+        meta: `<b>Base Unit:</b> <code>${E(s.param || '16px')}</code> &middot; <b>Figma Auto Layout:</b> Compliant`
+      }, isCompact, isModal);
+      return this.shell(pat, body, variant, state, { verified: true, wsSteps: ['1. Parameter', '2. Micro-Help', '3. Verified'] });
+    }
+    const applyBtn = isModal ? '' : `<button type="button" class="mb v-primary ${ctaFocCls}" style="--mb-h:${isCompact?'32px':'34px'};${isCompact?'':'margin-top:10px;width:100%'}" data-pat-act="ob-guide-apply" ${disAttr} ${isLoading?'aria-busy="true"':''}>${isLoading?this.spinner(loadingLabel):'Apply Grid Unit'}</button>`;
+    const body = isCompact ? `
+      ${errBanner}
+      <div class="pat-inline-row">
+        <div class="pat-inline-grow">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><label class="pat-lbl" style="margin:0">Base Grid Unit</label><button type="button" class="mb v-secondary" style="--mb-h:18px;padding:0 5px;font-size:10px;border-radius:999px" data-pat-act="ob-guide-tip" ${disAttr} aria-label="Toggle micro-guidance">?</button></div>
+          <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="param" value="${E(s.param)}" ${roAttr}>
+        </div>
+        ${applyBtn}
+      </div>
+      ${fieldErr('Use a 4px or 8px multiple (e.g., 8px, 16px).')}
+      ${s.openTip?`<div class="pat-subbox" style="margin-top:6px;padding:6px 8px;font-size:11px"><b>Tip:</b> Multiples of <code>4px</code> or <code>8px</code> align cleanly with Figma Auto Layout.</div>`:''}
+    ` : `
+      ${errBanner}
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+        <label class="pat-lbl" style="margin:0">Base Grid Unit <span class="pat-req">*</span></label>
+        <button type="button" class="mb v-secondary" style="--mb-h:20px;padding:0 6px;font-size:10px;border-radius:999px" data-pat-act="ob-guide-tip" ${disAttr} aria-label="Toggle micro-guidance">?</button>
+      </div>
+      <input type="text" class="pat-ctrl ${focCls} ${errCls}" data-pat-field="param" value="${E(s.param)}" placeholder="e.g., 8px or 16px" ${roAttr}>
+      ${fieldErr('Base Grid Unit must be a multiple of 4px or 8px (e.g., 8px, 16px).')}
+      ${s.openTip?`<div class="pat-subbox" style="margin-top:8px;padding:8px 10px;font-size:11.5px"><b>Micro-Guidance:</b> Use multiples of <code>4px</code> or <code>8px</code> for padding and layout gaps so Figma Auto Layout frames align cleanly.</div>`:''}
+      ${applyBtn}
+    `;
+    return this.shell(pat, body, variant, state, {
+      ctaAct: 'ob-guide-apply', ctaLabel: 'Apply Grid Unit', loading: isLoading, loadingLabel,
+      wsSteps: ['1. Parameter', '2. Micro-Help', '3. Verified'], wsActiveIdx: 1,
+      wsNote: 'Embeds inline just-in-time guidance right beside domain-specific fields.'
+    });
   }
 };
 
@@ -45942,7 +46957,7 @@ const PAT_AI = {
       const inner = `
         <b style="font-size:14px;display:block;margin-bottom:4px">Meld Autonomous Agent Requests Access</b>
         <p class="pat-hint" style="margin:0 0 10px">Select approved scopes and permission window before execution:</p>
-        <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+        <div class="pat-onb-ws-steps">
           ${items.map(([k, lbl]) => `
             <button type="button" class="pat-file-row" style="width:100%;text-align:left;cursor:pointer;padding:7px 10px;font-size:12px" data-pat-act="aipr-chk" data-scope="${k}">
               <span>${s.scopes[k]?'&#9745;':'&#9744;'} <b>${lbl}</b></span>
@@ -48027,7 +49042,7 @@ const PAT_ENGINE = {
   },
 
   wrapVariant(content, variant, pat, state, theme) {
-    if (pat && (pat.ci === 0 || pat.ci === 3 || pat.ci === 4 || pat.ci === 5 || pat.ci === 7)) {
+    if (pat && (pat.ci === 0 || pat.ci === 1 || pat.ci === 3 || pat.ci === 4 || pat.ci === 5 || pat.ci === 7)) {
       return `<div class="pat-variant-standard cd" style="padding:16px;border-radius:8px;background:var(--color-surface-default)">${content}</div>`;
     }
     const isCompact = /Compact|Inline|Dense/i.test(variant) && !/Thumbnail Row/i.test(variant);
@@ -51972,10 +52987,10 @@ cdInit();
       <!-- Floating Footer: Full Metadata in Expanded | Compact GitHub Icon in Collapsed -->
       <div class="side-footer fluent-sidebar-footer">
         <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-footer-gh-link f2-footer-expanded-only">
-          <span>Meld by IDEO &middot; v1.12.0</span>
+          <span>Meld by IDEO &middot; v1.12.1</span>
           <span class="f2-footer-ext">GitHub &#8599;</span>
         </a>
-        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-rail-gh-btn f2-rail-tip-target" data-tip="GitHub Repository (v1.12.0)" aria-label="GitHub Repository">
+        <a href="https://github.com/akshayashokanpothan/meld-design-system" target="_blank" rel="noopener noreferrer" class="f2-rail-gh-btn f2-rail-tip-target" data-tip="GitHub Repository (v1.12.1)" aria-label="GitHub Repository">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>

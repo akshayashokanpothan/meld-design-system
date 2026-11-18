@@ -1,6 +1,30 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "onboarding-patterns-variants-states-fix-v1121",
+                        "version":  "1.12.1",
+                        "date":  "2026-11-18",
+                        "timestamp":  "15:15:00 IST",
+                        "category":  "fix",
+                        "title":  "Patterns \u003e Onboarding: Variant Structure \u0026 Interaction State Audit Fixes",
+                        "summary":  "Resolved variant structure and interaction state mismatches across all 12 Onboarding patterns so Standard, Compact / Inline, Modal / Dialog Sheet, and Full-Page / Workspace variants and all 6 interaction states (including Loading / Processing and Success / Verified) render accurately in Light and Dark themes.",
+                        "description":  "Upgraded the dedicated PAT_ONBOARD playground engine for all 12 Onboarding workflows (First-Time User Onboarding, Welcome Screens, Guided Setup, Multi-Step Onboarding, Product Tours, Progressive Disclosure, Empty-State Onboarding, Workspace Creation, Profile Completion, Permission Requests, Feature Discovery, and Contextual Guidance). Every pattern now structurally transforms across Standard / Default, Compact / Inline, Modal / Dialog Sheet (dimmed backdrop, accessible dialog, unified state-aware modal footer with zero duplicate CTAs), and Full-Page / Workspace (edge-to-edge workspace top bar + split context rail and canvas). Fixed Loading / Processing to display animated spinners, processing labels, aria-busy=\u0027true\u0027, and locked inputs/controls, and fixed Success / Verified to transition every pattern into a verified confirmation view with semantic success badge, summary, and Continue/Reset actions instead of leaving unsubmitted forms visible.",
+                        "changes":  [
+                                        "Upgraded all 12 Onboarding patterns in PAT_ONBOARD to consume Variant Structure directly via a dedicated variant shell (Standard / Default, Compact / Inline with 32px condensed horizontal layout, Modal / Dialog Sheet with unified state-aware footer and no duplicate buttons, and Full-Page / Workspace with edge-to-edge workspace top bar and split context rail).",
+                                        "Implemented genuine Loading / Processing state across all 12 Onboarding patterns with animated spinner, pattern-specific processing CTA labels (e.g., \u0027Saving Profile...\u0027, \u0027Advancing Step...\u0027, \u0027Provisioning Workspace...\u0027), aria-busy=\u0027true\u0027, and disabled/locked inputs to prevent double submission.",
+                                        "Fixed Success / Verified state across all 12 Onboarding patterns (including Profile Completion, First-Time, Welcome, Product Tours, Progressive Disclosure, Permission Requests, Feature Discovery, and Contextual Guidance) to transition into a clear verified confirmation view with semantic check-circle icon, verified badge, summary details, and Continue to Workspace / Reset actions.",
+                                        "Enhanced Input / Focused (visible #39409A focus rings on primary inputs and CTAs), Error / Corrective (inline field error borders, alert helper text, and recovery guidance), and Disabled / Read-only (muted surfaces, disabled/readonly attributes across every control) states.",
+                                        "Verified Light \u0026 Dark theme token contrast, Desktop/Tablet/Mobile viewport simulation with zero horizontal overflow, and live interactive state synchronization across all 12 Onboarding patterns."
+                                    ],
+                        "affectedAreas":  [
+                                              "Patterns \u003e Onboarding Engine (PAT_ONBOARD — all 12 patterns)",
+                                              "Pattern Playground Variant Wrapper (ci === 1 pass-through)",
+                                              "Scoped Onboarding Variant \u0026 State Styles (.pat-onb-*)",
+                                              "Changelog (v1.12.1)"
+                                          ],
+                        "commitMessage":  "fix(patterns/onboarding): resolve variant structure and interaction state mismatches across onboarding patterns"
+                    },
+                    {
                         "id":  "collapsible-floating-navigation-bar-v1120",
                         "version":  "1.12.0",
                         "date":  "2026-11-18",
