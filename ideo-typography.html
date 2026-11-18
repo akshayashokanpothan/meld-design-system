@@ -1,7 +1,21 @@
 ﻿<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>IDEO Website Design System — Typography</title>
+<title>Meld by IDEO — Design System</title>
+<meta name="description" content="Meld by IDEO: A unified design system for creating consistent, accessible and scalable digital experiences.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141416" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Meld by IDEO — Design System">
+<meta property="og:description" content="A unified design system for creating consistent, accessible and scalable digital experiences.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/icons/icon-512x512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Variable font: supports every weight 300–700 used below -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -17235,8 +17249,81 @@ html[data-theme="dark"] nav.side a.side-link.fluent-nav-link[aria-current="page"
     transition: none !important;
   }
 }
+
+/* Meld by IDEO — Official Brand Symbol Styling (No generic box background) */
+.fluent-brand-logo.meld-logo-mark,
+.fluent-header-brand-logo.meld-logo-mark,
+.f2-footer-mark.meld-logo-mark {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+}
+
+.meld-symbol-svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.meld-mark-for-light { display: inline !important; }
+.meld-mark-for-dark  { display: none !important; }
+
+html[data-theme="dark"] .meld-mark-for-light { display: none !important; }
+html[data-theme="dark"] .meld-mark-for-dark  { display: inline !important; }
+
+.fluent-sidebar-brand {
+  gap: 10px !important;
+}
+
+.fluent-brand-title {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.05 !important;
+}
+
+.fluent-brand-sub {
+  font-size: 8.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  margin-top: 2px !important;
+}
 </style>
 </head><body>
+<svg id="meld-brand-sprite" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="meld-sp-grad-light" x1="4" y1="60" x2="60" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#39409A"/>
+      <stop offset="56%" stop-color="#7B4593"/>
+      <stop offset="100%" stop-color="#BC4989"/>
+    </linearGradient>
+    <linearGradient id="meld-sp-grad-dark" x1="4" y1="60" x2="60" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5B63CC"/>
+      <stop offset="55%" stop-color="#9A5AB0"/>
+      <stop offset="100%" stop-color="#E568AC"/>
+    </linearGradient>
+    <symbol id="meld-mark-light" viewBox="0 0 64 64">
+      <path d="M17 4 H35.5 C33.1 7.3 31.7 11.4 31.7 15.8 C31.7 25.5 39.5 33.3 49.2 33.3 C53.4 33.3 57.2 31.8 60 29.3 V34 C60 36.761 57.761 39 55 39 H39 C35.686 39 33 41.686 33 45 V55.5 C33 57.985 30.985 60 28.5 60 H17 C9.82 60 4 54.18 4 47 V17 C4 9.82 9.82 4 17 4 Z" fill="url(#meld-sp-grad-light)"/>
+      <circle cx="49.2" cy="15.3" r="10.8" fill="#BC4989"/>
+      <path d="M40.5 44 H57.5 C58.881 44 60 45.119 60 46.5 V47.5 C60 54.404 54.404 60 47.5 60 H40.5 C39.119 60 38 58.881 38 57.5 V46.5 C38 45.119 39.119 44 40.5 44 Z" fill="#BC4989"/>
+    </symbol>
+    <symbol id="meld-mark-dark" viewBox="0 0 64 64">
+      <path d="M17 4 H35.5 C33.1 7.3 31.7 11.4 31.7 15.8 C31.7 25.5 39.5 33.3 49.2 33.3 C53.4 33.3 57.2 31.8 60 29.3 V34 C60 36.761 57.761 39 55 39 H39 C35.686 39 33 41.686 33 45 V55.5 C33 57.985 30.985 60 28.5 60 H17 C9.82 60 4 54.18 4 47 V17 C4 9.82 9.82 4 17 4 Z" fill="url(#meld-sp-grad-dark)"/>
+      <circle cx="49.2" cy="15.3" r="10.8" fill="#F071B5"/>
+      <path d="M40.5 44 H57.5 C58.881 44 60 45.119 60 46.5 V47.5 C60 54.404 54.404 60 47.5 60 H40.5 C39.119 60 38 58.881 38 57.5 V46.5 C38 45.119 39.119 44 40.5 44 Z" fill="#E568AC"/>
+    </symbol>
+    <symbol id="meld-mark-mono" viewBox="0 0 64 64">
+      <path d="M17 4 H35.5 C33.1 7.3 31.7 11.4 31.7 15.8 C31.7 25.5 39.5 33.3 49.2 33.3 C53.4 33.3 57.2 31.8 60 29.3 V34 C60 36.761 57.761 39 55 39 H39 C35.686 39 33 41.686 33 45 V55.5 C33 57.985 30.985 60 28.5 60 H17 C9.82 60 4 54.18 4 47 V17 C4 9.82 9.82 4 17 4 Z" fill="currentColor"/>
+      <circle cx="49.2" cy="15.3" r="10.8" fill="currentColor"/>
+      <path d="M40.5 44 H57.5 C58.881 44 60 45.119 60 46.5 V47.5 C60 54.404 54.404 60 47.5 60 H40.5 C39.119 60 38 58.881 38 57.5 V46.5 C38 45.119 39.119 44 40.5 44 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ==========================================================================
      MELD BY IDEO — DEDICATED LANDING SHELL MARKUP (REFERENCE REWORK)
      ========================================================================== -->
@@ -17254,7 +17341,7 @@ html[data-theme="dark"] nav.side a.side-link.fluent-nav-link[aria-current="page"
       <span>Menu</span>
     </button>
     <a href="#home" class="fluent-header-mobile-brand" aria-label="Meld by IDEO Home">
-      <span class="fluent-header-brand-logo">M</span>
+      <span class="fluent-header-brand-logo meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></span>
       <span class="fluent-header-brand-name">Meld</span>
       <span class="fluent-header-brand-sub">BY IDEO</span>
     </a>
@@ -17408,7 +17495,7 @@ html[data-theme="dark"] nav.side a.side-link.fluent-nav-link[aria-current="page"
   <footer class="f2-home-footer">
     <div class="f2-footer-inner">
       <div class="f2-footer-brand">
-        <span class="f2-footer-mark">M</span>
+        <span class="f2-footer-mark meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></span>
         <span><strong>Meld</strong> <span style="opacity:0.65">by IDEO</span> &middot; Open-source design system &middot; v1.10.0</span>
       </div>
       <div class="f2-footer-links">
@@ -25587,7 +25674,21 @@ export const studioTheme = createTheme({
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Meld by IDEO — Design System Specification</title>
+  <title>Meld by IDEO — Design System</title>
+<meta name="description" content="Meld by IDEO: A unified design system for creating consistent, accessible and scalable digital experiences.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141416" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Meld by IDEO — Design System">
+<meta property="og:description" content="A unified design system for creating consistent, accessible and scalable digital experiences.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/icons/icon-512x512.png">
   <style>
     @media print { body { color: #000; background: #fff; } }
     body { font-family: 'Space Grotesk', -apple-system, sans-serif; padding: 40px; color: #171717; line-height: 1.6; }
@@ -50458,6 +50559,20 @@ cdInit();
    ========================================================================== */
 
 (function initMeldPortal() {
+  // Reusable MeldLogo Component (Variants: primary | compact | symbol; Themes: auto | light | dark | mono)
+  window.MeldLogo = function MeldLogo(opts) {
+    const o = Object.assign({ variant: 'primary', theme: 'auto', size: 28 }, opts || {});
+    const sym = o.theme === 'mono'
+      ? `<svg class="meld-symbol-svg" width="${o.size}" height="${o.size}" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-mono"/></svg>`
+      : o.theme === 'light'
+        ? `<svg class="meld-symbol-svg" width="${o.size}" height="${o.size}" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light"/></svg>`
+        : o.theme === 'dark'
+          ? `<svg class="meld-symbol-svg" width="${o.size}" height="${o.size}" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-dark"/></svg>`
+          : `<svg class="meld-symbol-svg" width="${o.size}" height="${o.size}" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg>`;
+    if (o.variant === 'symbol') return `<span class="meld-logo meld-logo-symbol">${sym}</span>`;
+    if (o.variant === 'compact') return `<span class="meld-logo meld-logo-compact">${sym}<span class="fluent-brand-title">Meld</span></span>`;
+    return `<span class="meld-logo meld-logo-primary">${sym}<span class="fluent-brand-text"><span class="fluent-brand-title">Meld</span><span class="fluent-brand-sub">BY IDEO</span></span></span>`;
+  };
       // 1. Fluent 2 Reference-Accurate Navigation Tree (8 Expandable Groups)
   const NAV_TREE = [
     {
@@ -50595,7 +50710,7 @@ cdInit();
     let sideHtml = `
       <div class="fluent-sidebar-header-box">
         <a href="#home" class="fluent-sidebar-brand" aria-label="Meld by IDEO Home">
-          <div class="fluent-brand-logo">M</div>
+          <div class="fluent-brand-logo meld-logo-mark" data-logo-variant="symbol"><svg class="meld-symbol-svg" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><use href="#meld-mark-light" class="meld-mark-for-light"/><use href="#meld-mark-dark" class="meld-mark-for-dark"/></svg></div>
           <div class="fluent-brand-text">
             <span class="fluent-brand-title">Meld</span>
             <span class="fluent-brand-sub">BY IDEO</span>
