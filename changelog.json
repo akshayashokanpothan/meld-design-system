@@ -1,6 +1,30 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "homepage-hero-technical-blueprint-v1121",
+                        "version":  "1.12.1",
+                        "date":  "2026-11-18",
+                        "timestamp":  "17:05:00 IST",
+                        "category":  "improvement",
+                        "title":  "Refactor homepage hero to Technical Blueprint / Draftsman style",
+                        "summary":  "Redesigned the above-the-fold homepage hero with a Light/Dark Technical Blueprint and Draftsman aesthetic featuring dual-scale graph-paper grids, Space Grotesk typography with hollow outlined \u0027{ideas}\u0027 braces, an isometric architectural SVG diagram, and hand-sketched Design \u0026 Develop entry cards.",
+                        "description":  "Replaced the previous homepage hero artwork above the fold with a crisp Technical Blueprint / Draftsman composition across both Light (warm off-white paper grid with #0e0e0e drafting ink) and Dark (deep charcoal slate grid with #ffffff blueprint linework) themes using canonical Meld semantic tokens. Implemented a responsive 2-column hero container seamlessly clearing the collapsible floating navigation rail, a crisp vector-outlined \u0027{ideas}\u0027 curly-brace headline highlight, a scalable isometric draftsman SVG diagram with stippling, node networks, and dimension callouts (2km, 48m/78m, 58m, 40b, 25m, 20m/26m), and reformatted Design and Develop entry cards with hand-sketched wireframe icons and underlined arrow CTAs.",
+                        "changes":  [
+                                        "Added Light Mode off-white architectural graph-paper grid and Dark Mode deep charcoal slate blueprint grid overlays using semantic theme tokens with zero hardcoded mismatches.",
+                                        "Implemented responsive 2-column hero layout seamlessly clearing both the 68px collapsed floating navigation rail and 268px expanded panel while preserving page routing, header, and footer.",
+                                        "Styled Space Grotesk hero typography (\u0027WELCOME TO\u0027, \u0027Meld\u0027, \u0027Let the {ideas} flow\u0027) with a crisp vector-outlined \u0027{ideas}\u0027 curly-brace highlight and high-contrast ink hierarchy.",
+                                        "Built a bespoke scalable Technical Blueprint / Draftsman isometric SVG diagram with dot-stippled 3D chambers, 6-node starburst network, stepped architectural floorplan, and theme-aware dimension annotations (2km, 48m/78m, 58m, 40b, 25m, 20m/26m).",
+                                        "Reformatted the Design (#foundations) and Develop (#handoff) CTA cards with draftsman outlines, hand-sketched cube and terminal icons, underlined arrow links, hover micro-interactions, and accessible focus rings."
+                                    ],
+                        "affectedAreas":  [
+                                              "Homepage Hero Section (#home, .bp-hero-layout)",
+                                              "Technical Blueprint Grid \u0026 Theme Tokens (\u003cstyle id=\u0027meld-blueprint-hero-styles\u0027\u003e)",
+                                              "Design \u0026 Develop Draftsman Entry Cards (.f2-entry-card)",
+                                              "Changelog (v1.12.1)"
+                                          ],
+                        "commitMessage":  "feat(home): redesign homepage hero with brand Technical Blueprint/Draftsman style (v1.12.1)"
+                    },
+                    {
                         "id":  "onboarding-patterns-variants-states-fix-v1121",
                         "version":  "1.12.1",
                         "date":  "2026-11-18",

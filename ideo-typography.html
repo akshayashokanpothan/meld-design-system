@@ -18275,6 +18275,414 @@ html[data-theme="dark"] .f2-rail-gh-btn:hover {
   }
 }
 </style>
+<style id="meld-blueprint-hero-styles">
+/* ==========================================================================
+   MELD BY IDEO — HOMEPAGE HERO: TECHNICAL BLUEPRINT / DRAFTSMAN STYLE (v1.12.1)
+   Strictly scoped to #home above the fold — preserves floating nav & all modules
+   ========================================================================== */
+:root,
+[data-theme="light"] {
+  --bp-bg: #F6F5F1;
+  --bp-ink: #0E0E0E;
+  --bp-desc: #3A3A3A;
+  --bp-grid-minor: rgba(14, 14, 14, 0.045);
+  --bp-grid-major: rgba(14, 14, 14, 0.088);
+  --bp-card-bg: rgba(249, 248, 245, 0.92);
+  --bp-card-bg-hover: #FFFFFF;
+  --bp-card-border: #1A1A1A;
+  --bp-card-shadow: 0 2px 10px rgba(14, 14, 14, 0.045);
+  --bp-card-shadow-hover: 0 10px 24px rgba(14, 14, 14, 0.09);
+  --f2-hero-bg: var(--bp-bg);
+}
+
+[data-theme="dark"],
+html[data-theme="dark"] {
+  --bp-bg: #0E1217;
+  --bp-ink: #FFFFFF;
+  --bp-desc: #CCCCCC;
+  --bp-grid-minor: rgba(148, 163, 184, 0.062);
+  --bp-grid-major: rgba(148, 163, 184, 0.125);
+  --bp-card-bg: rgba(20, 25, 32, 0.84);
+  --bp-card-bg-hover: rgba(26, 33, 43, 0.96);
+  --bp-card-border: rgba(255, 255, 255, 0.62);
+  --bp-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.32);
+  --bp-card-shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.52);
+  --f2-hero-bg: var(--bp-bg);
+}
+
+/* Seamless Graph-Paper / Blueprint Grid across Landing Wrapper & Hero Canvas */
+body.is-landing .wrap,
+#home.bp-hero-section,
+#home .bp-hero-canvas {
+  background-color: var(--bp-bg) !important;
+  background-image:
+    linear-gradient(to right, var(--bp-grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-grid-major) 1px, transparent 1px),
+    linear-gradient(to right, var(--bp-grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-grid-minor) 1px, transparent 1px) !important;
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px !important;
+  background-position: -1px -1px !important;
+}
+
+#home .bp-hero-canvas {
+  position: relative !important;
+  min-height: calc(100vh - 72px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+#home .bp-grid-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background: radial-gradient(circle at 74% 48%, transparent 0%, transparent 56%, var(--bp-bg) 110%) !important;
+  opacity: 0.42 !important;
+}
+
+/* Responsive 2-Column Hero Container clearing the floating nav smoothly */
+#home .bp-hero-layout {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr) !important;
+  align-items: center !important;
+  gap: clamp(24px, 3.6vw, 56px) !important;
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  padding: clamp(78px, 10vh, 112px) clamp(24px, 4vw, 56px) clamp(36px, 5vh, 56px) clamp(24px, 4vw, 56px) !important;
+  box-sizing: border-box !important;
+}
+
+#home .bp-hero-left {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+}
+
+#home .bp-hero-copy {
+  max-width: 560px !important;
+  margin-bottom: clamp(26px, 3.6vh, 40px) !important;
+}
+
+/* Typography Hierarchy — Pure Space Grotesk */
+#home .bp-eyebrow {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 0 0 8px 2px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.10em !important;
+  text-transform: uppercase !important;
+  color: var(--bp-ink) !important;
+  line-height: 1.2 !important;
+}
+
+#home .bp-display {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: clamp(68px, 8.2vw, 112px) !important;
+  font-weight: 700 !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.042em !important;
+  color: var(--bp-ink) !important;
+}
+
+#home .bp-sub-headline {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 14px 0 0 0 !important;
+  font-size: clamp(36px, 4.5vw, 62px) !important;
+  font-weight: 700 !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.032em !important;
+  color: var(--bp-ink) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 2px !important;
+}
+
+#home .bp-headline-row {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.22em !important;
+}
+
+#home .bp-headline-solid,
+#home .bp-headline-flow {
+  color: var(--bp-ink) !important;
+  font-weight: 700 !important;
+}
+
+/* Outlined Hand-Drawn Curly Braces + Hollow '{ideas}' Highlight */
+#home .bp-ideas-token {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  color: var(--bp-ink) !important;
+  border: none !important;
+  line-height: 1 !important;
+  transform: translateY(0.04em) !important;
+  transition: transform 180ms ease, color 180ms ease !important;
+}
+
+#home .bp-ideas-token:hover {
+  transform: translateY(-1px) !important;
+  color: var(--color-action-primary, #BC4989) !important;
+}
+
+#home .bp-ideas-svg {
+  height: 1.16em !important;
+  width: auto !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+#home .bp-ideas-text {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 60px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2.15 !important;
+  stroke-linejoin: round !important;
+  paint-order: stroke fill !important;
+}
+
+#home .bp-hero-desc {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 20px 0 0 2px !important;
+  max-width: 470px !important;
+  font-size: clamp(16px, 1.35vw, 19px) !important;
+  line-height: 1.48 !important;
+  font-weight: 400 !important;
+  color: var(--bp-desc) !important;
+}
+
+/* Draftsman Outlined Design & Develop Entry Cards */
+#home .bp-entry-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  width: 100% !important;
+  max-width: 530px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#home .bp-entry-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 20px 20px 18px 20px !important;
+  border-radius: 12px !important;
+  background: var(--bp-card-bg) !important;
+  border: 1.5px solid var(--bp-card-border) !important;
+  box-shadow: var(--bp-card-shadow) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  color: var(--bp-ink) !important;
+  text-decoration: none !important;
+  min-height: 164px !important;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 180ms ease,
+              border-color 180ms ease,
+              box-shadow 180ms ease !important;
+}
+
+#home .bp-entry-card:hover {
+  transform: translateY(-3px) !important;
+  background: var(--bp-card-bg-hover) !important;
+  border-color: var(--color-action-primary, #BC4989) !important;
+  box-shadow: var(--bp-card-shadow-hover) !important;
+}
+
+#home .bp-entry-card.f2-card-develop:hover {
+  border-color: var(--color-border-focus, #39409A) !important;
+}
+
+#home .bp-entry-card:focus-visible {
+  outline: 3px solid var(--color-border-focus, #39409A) !important;
+  outline-offset: 3px !important;
+  transform: translateY(-2px) !important;
+}
+
+#home .bp-card-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+#home .bp-card-sketch-icon {
+  width: 42px !important;
+  height: 42px !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--bp-ink) !important;
+}
+
+#home .bp-card-title {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 0 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--bp-ink) !important;
+  line-height: 1.2 !important;
+}
+
+#home .bp-card-desc {
+  font-family: "Space Grotesk", sans-serif !important;
+  margin: 2px 0 4px 0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.48 !important;
+  color: var(--bp-desc) !important;
+  font-weight: 400 !important;
+}
+
+#home .bp-card-cta {
+  font-family: "Space Grotesk", sans-serif !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--bp-ink) !important;
+  margin-top: auto !important;
+}
+
+#home .bp-cta-under {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1.5px !important;
+}
+
+#home .bp-entry-card:hover .bp-card-cta {
+  color: var(--color-action-primary, #BC4989) !important;
+}
+
+#home .bp-entry-card.f2-card-develop:hover .bp-card-cta {
+  color: var(--color-border-focus, #39409A) !important;
+}
+
+[data-theme="dark"] #home .bp-entry-card.f2-card-develop:hover .bp-card-cta {
+  color: #A5B4FC !important;
+}
+
+#home .bp-entry-card .f2-arrow {
+  display: inline-block !important;
+  transition: transform 180ms ease !important;
+}
+
+#home .bp-entry-card:hover .f2-arrow {
+  transform: translateX(4px) !important;
+}
+
+/* Right Column: Isometric Technical Blueprint SVG Artwork */
+#home .bp-hero-right {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+#home .bp-blueprint-svg {
+  width: 100% !important;
+  max-width: 575px !important;
+  height: auto !important;
+  display: block !important;
+  color: var(--bp-ink) !important;
+  overflow: visible !important;
+}
+
+#home .bp-dim-label {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  letter-spacing: 0.01em !important;
+}
+
+#home .bp-dim-micro {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  opacity: 0.78 !important;
+}
+
+/* Theme-Aware Architectural Dimension Annotations (Light: 48m / 20m | Dark: 78m / 26m) */
+#home .bp-lbl-dark { display: none !important; }
+#home .bp-lbl-light { display: inline !important; }
+[data-theme="dark"] #home .bp-lbl-light { display: none !important; }
+[data-theme="dark"] #home .bp-lbl-dark { display: inline !important; }
+
+/* Responsive Tablet & Mobile Adaptation */
+@media (max-width: 1120px) {
+  #home .bp-hero-layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 920px) {
+  #home .bp-hero-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding-top: 84px !important;
+    gap: 32px !important;
+  }
+  #home .bp-hero-copy,
+  #home .bp-entry-grid {
+    max-width: 100% !important;
+  }
+  #home .bp-blueprint-svg {
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #home .bp-hero-layout {
+    padding: 76px 16px 28px 16px !important;
+    gap: 24px !important;
+  }
+  #home .bp-entry-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+  #home .bp-entry-card {
+    min-height: 136px !important;
+    padding: 16px !important;
+  }
+  #home .bp-blueprint-svg {
+    max-width: 320px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home .bp-entry-card,
+  #home .bp-ideas-token,
+  #home .bp-entry-card .f2-arrow {
+    transition: none !important;
+  }
+}
+</style>
 </head><body>
 <svg id="meld-brand-sprite" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -18377,98 +18785,276 @@ html[data-theme="dark"] .f2-rail-gh-btn:hover {
 <!-- ==========================================================================
      MELD BY IDEO â€” FLUENT 2 REFERENCE-ACCURATE HERO & TWO PRIMARY ENTRY CARDS
      ========================================================================== -->
-<section id="home" class="f2-hero-section fluent-hero-canvas">
-  <div class="f2-hero-canvas">
-    <!-- Architectural 3D Dichroic Glass Sculpture Backdrop (Light & Dark themes) -->
-    <div class="f2-hero-artwork" aria-hidden="true"></div>
-    <div class="f2-hero-scrim" aria-hidden="true"></div>
+<section id="home" class="f2-hero-section fluent-hero-canvas bp-hero-section">
+  <div class="f2-hero-canvas bp-hero-canvas">
+    <!-- Subtle Blueprint Grid Overlay Layer -->
+    <div class="bp-grid-overlay" aria-hidden="true"></div>
 
-    <!-- Hero Inner Frame: Upper-Left Typography + Bottom Two Entry Cards -->
-    <div class="f2-hero-inner">
-      <div class="f2-hero-copy">
-        <p class="f2-eyebrow">WELCOME TO</p>
-        <h1 class="f2-brand-display">Meld</h1>
-        <p class="f2-sub-headline">
-          Let the <span class="f2-word-highlight" id="f2-word-highlight" data-variant="work"><span class="f2-word-pin" aria-hidden="true"></span><span class="f2-word-text" id="f2-word-text">work</span></span> flow
-        </p>
-        <p class="f2-hero-supporting">
-          A unified design system for creating consistent, accessible and scalable digital experiences.
-        </p>
+    <!-- Responsive 2-Column Technical Blueprint Hero Frame -->
+    <div class="f2-hero-inner bp-hero-layout">
+      <!-- LEFT COLUMN: Brand Typography + {ideas} Highlight + Design/Develop Cards -->
+      <div class="bp-hero-left">
+        <div class="f2-hero-copy bp-hero-copy">
+          <p class="f2-eyebrow bp-eyebrow">WELCOME TO</p>
+          <h1 class="f2-brand-display bp-display">Meld</h1>
+          <p class="f2-sub-headline bp-sub-headline">
+            <span class="bp-headline-row">
+              <span class="bp-headline-solid">Let the</span>
+              <span class="bp-ideas-token" id="f2-word-highlight" data-variant="ideas" aria-label="ideas">
+                <svg class="bp-ideas-svg" viewBox="0 0 216 74" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <!-- Hand-drafted architectural left curly brace '{' hugging 'ideas' tightly -->
+                  <path class="bp-brace-path" d="M25 6 C16 6 14 11 14 19 L14 27 C14 33 10 36 4 37 C10 38 14 41 14 47 L14 55 C14 63 16 68 25 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="bp-brace-inner" d="M25 11 C20 11 18.8 14 18.8 19.5 L18.8 27.5 C18.8 32.5 16 35.8 11 37 C16 38.2 18.8 41.5 18.8 46.5 L18.8 54.5 C18.8 60 20 63 25 63" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Hollow technical-draftsman outlined 'ideas' wordmark in Space Grotesk -->
+                  <text class="bp-ideas-text" x="108" y="56" text-anchor="middle">ideas</text>
+                  <!-- Hand-drafted architectural right curly brace '}' hugging 'ideas' tightly -->
+                  <path class="bp-brace-path" d="M191 6 C200 6 202 11 202 19 L202 27 C202 33 206 36 212 37 C206 38 202 41 202 47 L202 55 C202 63 200 68 191 68" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="bp-brace-inner" d="M191 11 C196 11 197.2 14 197.2 19.5 L197.2 27.5 C197.2 32.5 200 35.8 205 37 C200 38.2 197.2 41.5 197.2 46.5 L197.2 54.5 C197.2 60 196 63 191 63" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </span>
+            <span class="bp-headline-flow">flow</span>
+          </p>
+          <p class="f2-hero-supporting bp-hero-desc">
+            A unified design system for creating consistent, accessible and scalable digital experiences.
+          </p>
+        </div>
+
+        <!-- TWO PRIMARY ENTRY CARDS: DESIGN & DEVELOP (Draftsman Outlined Style) -->
+        <div class="f2-entry-grid bp-entry-grid" role="navigation" aria-label="Primary pathways">
+          <!-- Card 01: DESIGN -->
+          <a href="#foundations" class="f2-entry-card f2-card-design bp-entry-card" data-entry="design">
+            <div class="bp-card-head">
+              <div class="bp-card-sketch-icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="bpCardHatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+                      <line x1="0" y1="0" x2="0" y2="4" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.55"/>
+                    </pattern>
+                    <pattern id="bpCardDots" width="3.5" height="3.5" patternUnits="userSpaceOnUse">
+                      <circle cx="1.4" cy="1.4" r="0.65" fill="currentColor" fill-opacity="0.6"/>
+                    </pattern>
+                  </defs>
+                  <!-- Subtle drafting extension lines -->
+                  <line x1="24" y1="4" x2="24" y2="10" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2" stroke-opacity="0.45"/>
+                  <line x1="8" y1="36" x2="4" y2="39" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.45"/>
+                  <line x1="40" y1="36" x2="44" y2="39" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.45"/>
+                  <!-- Isometric Cube Faces with Sketch Shading -->
+                  <polygon points="24,10 38,18 24,26 10,18" fill="url(#bpCardDots)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <polygon points="10,18 24,26 24,41 10,33" fill="url(#bpCardHatch)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <polygon points="38,18 24,26 24,41 38,33" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <!-- Inner wireframe depth lines -->
+                  <line x1="24" y1="10" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
+                  <line x1="10" y1="33" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
+                  <line x1="38" y1="33" x2="24" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.2 2" stroke-opacity="0.4"/>
+                  <!-- Diagonal drafting callout ray -->
+                  <line x1="29" y1="14" x2="40" y2="6" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+                </svg>
+              </div>
+              <h2 class="f2-card-title bp-card-title">Design</h2>
+            </div>
+            <p class="f2-card-desc bp-card-desc">Dive into our Figma UI kits and design resources.</p>
+            <span class="f2-card-cta bp-card-cta"><span class="bp-cta-under">Explore Design</span> <span class="f2-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Card 02: DEVELOP -->
+          <a href="#handoff" class="f2-entry-card f2-card-develop bp-entry-card" data-entry="develop">
+            <div class="bp-card-head">
+              <div class="bp-card-sketch-icon" aria-hidden="true">
+                <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Hand-sketched terminal frame with subtle double-stroke blueprint outline -->
+                  <rect x="7" y="10" width="34" height="28" rx="3.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M9 39.8 L41.5 39.8 L41.5 13" stroke="currentColor" stroke-width="1.1" stroke-opacity="0.42" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Window titlebar divider + 3 sketch dots -->
+                  <line x1="7" y1="17.5" x2="41" y2="17.5" stroke="currentColor" stroke-width="1.35"/>
+                  <circle cx="11.5" cy="13.8" r="1.2" fill="currentColor"/>
+                  <circle cx="15.8" cy="13.8" r="1.2" fill="currentColor"/>
+                  <circle cx="20.1" cy="13.8" r="1.2" fill="currentColor"/>
+                  <!-- Prompt >_ -->
+                  <polyline points="13.5,24 19.5,28.2 13.5,32.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="22.5" y1="32.4" x2="31.5" y2="32.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h2 class="f2-card-title bp-card-title">Develop</h2>
+            </div>
+            <p class="f2-card-desc bp-card-desc">Find installation guides and tooling tips.</p>
+            <span class="f2-card-cta bp-card-cta"><span class="bp-cta-under">Explore Development</span> <span class="f2-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
       </div>
 
-      <!-- STRICT TWO-CARD ENTRY ARCHITECTURE: DESIGN & DEVELOP ONLY -->
-      <div class="f2-entry-grid" role="navigation" aria-label="Primary pathways">
-        <!-- Card 01: DESIGN -->
-        <a href="#foundations" class="f2-entry-card f2-card-design" data-entry="design">
-          <div class="f2-card-icon-frame" aria-hidden="true">
-            <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="f2DesBg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#BC4989" stop-opacity="0.18"/>
-                  <stop offset="100%" stop-color="#39409A" stop-opacity="0.14"/>
-                </linearGradient>
-                <linearGradient id="f2DesCurve" x1="16" y1="18" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#BC4989"/>
-                  <stop offset="55%" stop-color="#7C3AED"/>
-                  <stop offset="100%" stop-color="#38BDF8"/>
-                </linearGradient>
-                <linearGradient id="f2DesPen" x1="34" y1="22" x2="54" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#38BDF8"/>
-                  <stop offset="100%" stop-color="#34D399"/>
-                </linearGradient>
-              </defs>
-              <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#f2DesBg)" stroke="currentColor" stroke-opacity="0.14" stroke-width="1.5"/>
-              <!-- Vector bounding box with corner handles -->
-              <rect x="14" y="14" width="32" height="32" rx="4" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.5"/>
-              <circle cx="14" cy="14" r="3" fill="#BC4989"/>
-              <circle cx="46" cy="14" r="3" fill="#39409A"/>
-              <circle cx="14" cy="46" r="3" fill="#39409A"/>
-              <circle cx="46" cy="46" r="3" fill="#38BDF8"/>
-              <!-- Flowing S-bezier curve -->
-              <path d="M21 24C21 20.5 26 20.5 26 24.5C26 29.5 21 31.5 21 37C21 41 28 42.5 34 37.5" stroke="url(#f2DesCurve)" stroke-width="4.2" stroke-linecap="round"/>
-              <!-- Stylus / Pen nib -->
-              <path d="M35.5 36.5L49 23C50.4 21.6 52.6 21.6 54 23C55.4 24.4 55.4 26.6 54 28L40.5 41.5L33.5 43.5L35.5 36.5Z" fill="url(#f2DesPen)"/>
-            </svg>
-          </div>
-          <div class="f2-card-content">
-            <h2 class="f2-card-title">Design</h2>
-            <p class="f2-card-desc">Dive into our Figma UI kits and design resources.</p>
-            <span class="f2-card-cta">Explore Design <span class="f2-arrow" aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
+      <!-- RIGHT COLUMN: Architectural Isometric Technical Blueprint / Draftsman SVG -->
+      <div class="bp-hero-right" aria-hidden="true">
+        <svg class="bp-blueprint-svg" viewBox="0 0 600 610" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Architectural Dot-Stipple Shading Patterns (Theme-Agnostic via currentColor) -->
+            <pattern id="bpStipple" width="6" height="6" patternUnits="userSpaceOnUse">
+              <circle cx="1.5" cy="1.5" r="0.72" fill="currentColor" fill-opacity="0.58"/>
+              <circle cx="4.5" cy="4.5" r="0.65" fill="currentColor" fill-opacity="0.46"/>
+            </pattern>
+            <pattern id="bpStippleDense" width="4.5" height="4.5" patternUnits="userSpaceOnUse">
+              <circle cx="1.2" cy="1.2" r="0.72" fill="currentColor" fill-opacity="0.74"/>
+              <circle cx="3.4" cy="3.2" r="0.68" fill="currentColor" fill-opacity="0.58"/>
+            </pattern>
+            <pattern id="bpCrossHatch" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(42)">
+              <line x1="0" y1="0" x2="0" y2="5.5" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.58"/>
+              <line x1="0" y1="0" x2="5.5" y2="0" stroke="currentColor" stroke-width="0.55" stroke-opacity="0.34"/>
+            </pattern>
+            <!-- Open-Vee Architectural Draftsman Arrowheads -->
+            <marker id="bpArrEnd" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="bpArrStart" viewBox="0 0 10 10" refX="1.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M8.5 1.5 L1.5 5 L8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
 
-        <!-- Card 02: DEVELOP -->
-        <a href="#handoff" class="f2-entry-card f2-card-develop" data-entry="develop">
-          <div class="f2-card-icon-frame" aria-hidden="true">
-            <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="f2DevBg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#39409A" stop-opacity="0.20"/>
-                  <stop offset="100%" stop-color="#0284C7" stop-opacity="0.16"/>
-                </linearGradient>
-                <linearGradient id="f2DevFrame" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#38BDF8"/>
-                  <stop offset="100%" stop-color="#39409A"/>
-                </linearGradient>
-                <linearGradient id="f2DevCode" x1="20" y1="22" x2="44" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#34D399"/>
-                  <stop offset="100%" stop-color="#38BDF8"/>
-                </linearGradient>
-              </defs>
-              <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#f2DevBg)" stroke="currentColor" stroke-opacity="0.14" stroke-width="1.5"/>
-              <!-- Modular dashed frame -->
-              <rect x="13" y="13" width="38" height="38" rx="9" stroke="url(#f2DevFrame)" stroke-width="3" stroke-dasharray="11 6"/>
-              <!-- Crisp code chevrons -->
-              <path d="M27.5 24.5L20 32L27.5 39.5" stroke="url(#f2DevCode)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M36.5 24.5L44 32L36.5 39.5" stroke="url(#f2DevCode)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="f2-card-content">
-            <h2 class="f2-card-title">Develop</h2>
-            <p class="f2-card-desc">Find installation guides and tooling tips.</p>
-            <span class="f2-card-cta">Explore Development <span class="f2-arrow" aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
+          <!-- ===============================================================
+               ELEMENT 1 (UPPER-LEFT): Isometric Wireframe Cube + Stippled Inner Chamber
+               =============================================================== -->
+          <g class="bp-el-cube" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Stippled inner chamber faces -->
+            <polygon points="88,186 154,224 206,194 140,156" fill="url(#bpStipple)" stroke="none"/>
+            <polygon points="88,128 140,158 140,218 88,188" fill="url(#bpStippleDense)" stroke="currentColor" stroke-width="1.15" stroke-opacity="0.72"/>
+            <polygon points="206,134 154,164 154,224 206,194" fill="url(#bpStipple)" stroke="currentColor" stroke-width="1.15" stroke-opacity="0.72"/>
+            <!-- Inner cutaway archway/portal detail -->
+            <polygon points="164,174 198,154 198,204 164,224" fill="var(--bp-bg)" stroke="currentColor" stroke-width="1.45"/>
+            <polygon points="164,174 198,154 198,204 164,224" fill="url(#bpStipple)" fill-opacity="0.35" stroke="none"/>
+            <!-- Outer Isometric Wireframe Cube -->
+            <polygon points="148,74 228,120 148,166 68,120" stroke-width="1.75"/>
+            <polygon points="68,120 148,166 148,266 68,220" stroke-width="1.75"/>
+            <polygon points="228,120 148,166 148,266 228,220" stroke-width="1.75"/>
+            <!-- Structural interior guide lines -->
+            <line x1="148" y1="74" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
+            <line x1="68" y1="220" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
+            <line x1="228" y1="220" x2="148" y2="174" stroke-width="1.05" stroke-opacity="0.65"/>
+            <!-- Secondary nested isometric ceiling frame -->
+            <polyline points="88,132 148,98 208,132" stroke-width="1.15" stroke-opacity="0.78"/>
+            <line x1="88" y1="132" x2="88" y2="210" stroke-width="1.15" stroke-opacity="0.78"/>
+            <line x1="208" y1="132" x2="208" y2="210" stroke-width="1.15" stroke-opacity="0.78"/>
+
+            <!-- DIMENSION CALLOUTS AROUND CUBE -->
+            <!-- Top-left: 2km -->
+            <line x1="56" y1="100" x2="142" y2="50" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <text class="bp-dim-label" x="92" y="66" transform="rotate(-30 92 66)">2km</text>
+            <!-- Top-right: 48m (Light) / 78m (Dark) -->
+            <line x1="154" y1="50" x2="240" y2="100" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <text class="bp-dim-label bp-lbl-light" x="200" y="66" transform="rotate(30 200 66)">48m</text>
+            <text class="bp-dim-label bp-lbl-dark" x="200" y="66" transform="rotate(30 200 66)">78m</text>
+            <!-- Left vertical: 58m -->
+            <line x1="48" y1="114" x2="48" y2="220" stroke-width="1.15" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <text class="bp-dim-label" x="40" y="172" transform="rotate(-90 40 172)">58m</text>
+            <!-- Subtle bottom-left directional extension arrow -->
+            <line x1="58" y1="242" x2="128" y2="282" stroke-width="1.1" marker-start="url(#bpArrStart)"/>
+          </g>
+
+          <!-- ===============================================================
+               ELEMENT 2 (UPPER-RIGHT): 6-Node Isometric Starburst Topology Network
+               =============================================================== -->
+          <g class="bp-el-network" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <!-- 6 Radiating Struts from Center Cube (440, 140) -->
+            <line x1="440" y1="126" x2="440" y2="78" stroke-width="1.45"/>
+            <line x1="452" y1="133" x2="496" y2="108" stroke-width="1.45"/>
+            <line x1="452" y1="147" x2="496" y2="173" stroke-width="1.45"/>
+            <line x1="440" y1="155" x2="440" y2="196" stroke-width="1.25" stroke-opacity="0.82"/>
+            <line x1="428" y1="147" x2="384" y2="173" stroke-width="1.45"/>
+            <line x1="428" y1="133" x2="384" y2="108" stroke-width="1.45"/>
+            <!-- 5 Hollow Terminal Nodes + 1 Subtle Anchor Dot -->
+            <circle cx="440" cy="70" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
+            <circle cx="504" cy="103" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
+            <circle cx="504" cy="178" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
+            <circle cx="376" cy="178" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
+            <circle cx="376" cy="103" r="8.5" fill="var(--bp-bg)" stroke-width="1.75"/>
+            <circle cx="440" cy="198" r="2.2" fill="currentColor" stroke="none"/>
+            <!-- Central Mini Stippled Isometric Cube -->
+            <polygon points="440,124 456,133 440,142 424,133" fill="url(#bpStipple)" stroke-width="1.55"/>
+            <polygon points="424,133 440,142 440,160 424,151" fill="url(#bpStippleDense)" stroke-width="1.55"/>
+            <polygon points="456,133 440,142 440,160 456,151" fill="url(#bpStipple)" stroke-width="1.55"/>
+            <!-- Architectural Coordinate Micro-Specks (top-right) -->
+            <circle cx="524" cy="84" r="1.4" fill="currentColor" stroke="none"/>
+            <circle cx="534" cy="91" r="1.1" fill="currentColor" stroke="none"/>
+            <circle cx="516" cy="96" r="1.0" fill="currentColor" stroke="none"/>
+            <line x1="538" y1="82" x2="544" y2="79" stroke-width="1.1"/>
+          </g>
+
+          <!-- ===============================================================
+               ELEMENT 3 (LOWER-RIGHT): Stepped L-Shaped Architectural Floorplan & Stippled Wall
+               =============================================================== -->
+          <g class="bp-el-architecture" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Tall Right Architectural Wall (with fine stipple shading) -->
+            <polygon points="342,162 496,250 496,442 342,354" fill="url(#bpStipple)" stroke="none"/>
+            <!-- Wall thick top cap -->
+            <polygon points="342,162 356,154 510,242 496,250" fill="url(#bpStippleDense)" stroke-width="1.55"/>
+            <!-- Wall outer wireframe & double-drafted corner pillar -->
+            <polygon points="342,162 496,250 496,442 342,354" stroke-width="1.85"/>
+            <polyline points="510,242 510,434 496,442" stroke-width="1.75"/>
+            <line x1="356" y1="154" x2="356" y2="346" stroke-width="1.05" stroke-opacity="0.55"/>
+            <!-- Subtle drafting construction overshoot lines -->
+            <line x1="342" y1="162" x2="310" y2="180" stroke-width="1.15" stroke-opacity="0.72"/>
+            <line x1="496" y1="250" x2="520" y2="236" stroke-width="1.15" stroke-opacity="0.65"/>
+
+            <!-- Intersecting Horizontal Mid-Deck Plane (with stipple fill) -->
+            <polygon points="274,296 342,257 496,346 428,385" fill="url(#bpStipple)" stroke-width="1.65"/>
+            <!-- Dashed Curved Spatial Trajectory Arc across Wall -->
+            <path d="M352,226 C386,246 416,268 424,306" stroke-width="1.3" stroke-dasharray="6 5" stroke-opacity="0.8"/>
+            <line x1="424" y1="306" x2="424" y2="418" stroke-width="1.1" stroke-opacity="0.65"/>
+
+            <!-- Lower Foreground Stepped Platform / L-Floorplan -->
+            <!-- Main stepped base floor deck -->
+            <polygon points="88,376 226,296 368,378 230,458" fill="none" stroke-width="1.7"/>
+            <!-- Left wall rise + foreground left edge -->
+            <polygon points="88,376 230,458 230,504 88,422" fill="none" stroke-width="1.75"/>
+            <!-- Right lower block + recessed step alcove -->
+            <polygon points="326,406 428,465 428,504 326,445" fill="none" stroke-width="1.75"/>
+            <polygon points="428,465 510,418 510,457 428,504" fill="none" stroke-width="1.85"/>
+            <!-- Alcove inset frame on right front face -->
+            <polygon points="348,426 412,463 412,487 348,450" fill="url(#bpStipple)" fill-opacity="0.45" stroke-width="1.35"/>
+            <polyline points="412,463 456,438 456,462 412,487" stroke-width="1.35"/>
+            <!-- Center corridor raised walkway (stippled deck) -->
+            <polygon points="158,412 276,344 338,380 220,448" fill="url(#bpStipple)" stroke-width="1.45"/>
+            <line x1="230" y1="504" x2="326" y2="445" stroke-width="1.6"/>
+            <!-- Hatched recessed portals on front-left facade -->
+            <polygon points="132,418 164,436 164,466 132,448" fill="url(#bpCrossHatch)" stroke-width="1.45"/>
+            <polygon points="184,448 220,469 220,498 184,477" fill="url(#bpCrossHatch)" stroke-width="1.45"/>
+            <!-- Subtle background vertical wire walls for depth -->
+            <line x1="226" y1="296" x2="226" y2="338" stroke-width="1.1" stroke-opacity="0.6"/>
+            <line x1="88" y1="342" x2="88" y2="376" stroke-width="1.15" stroke-dasharray="3 3" stroke-opacity="0.65"/>
+
+            <!-- Floating Mini Isometric Cube + Alignment Axis (Bottom-Left Foreground) -->
+            <line x1="112" y1="528" x2="178" y2="490" stroke-width="1.25" stroke-dasharray="5 4" stroke-opacity="0.78"/>
+            <line x1="94" y1="472" x2="132" y2="450" stroke-width="1.35"/>
+            <g transform="translate(68, 466)">
+              <polygon points="14,0 28,8 14,16 0,8" fill="url(#bpStipple)" stroke-width="1.55"/>
+              <polygon points="0,8 14,16 14,32 0,24" fill="url(#bpStippleDense)" stroke-width="1.55"/>
+              <polygon points="28,8 14,16 14,32 28,24" fill="url(#bpCrossHatch)" stroke-width="1.55"/>
+            </g>
+
+            <!-- Small Technical Drafting Callout Marker (Left Mid) -->
+            <path d="M84,332 L90,320 L96,332" stroke-width="1.2"/>
+            <circle cx="90" cy="316" r="1.4" fill="currentColor" stroke="none"/>
+            <text class="bp-dim-micro" x="86" y="346">H</text>
+
+            <!-- ARCHITECTURAL DIMENSION ARROWS AROUND STEPPED PLATFORM -->
+            <!-- Bottom-left slant: 40b -->
+            <line x1="292" y1="480" x2="412" y2="548" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <line x1="306" y1="468" x2="284" y2="482" stroke-width="0.9" stroke-opacity="0.6"/>
+            <line x1="426" y1="538" x2="404" y2="552" stroke-width="0.9" stroke-opacity="0.6"/>
+            <text class="bp-dim-label" x="342" y="532" transform="rotate(30 342 532)">40b</text>
+
+            <!-- Bottom-right slant: 25m -->
+            <line x1="436" y1="548" x2="538" y2="490" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <line x1="428" y1="510" x2="438" y2="554" stroke-width="0.9" stroke-opacity="0.6"/>
+            <line x1="514" y1="460" x2="544" y2="494" stroke-width="0.9" stroke-opacity="0.6"/>
+            <text class="bp-dim-label" x="492" y="534" transform="rotate(-30 492 534)">25m</text>
+
+            <!-- Far-right vertical: 20m (Light) / 26m (Dark) -->
+            <line x1="546" y1="246" x2="546" y2="452" stroke-width="1.2" marker-start="url(#bpArrStart)" marker-end="url(#bpArrEnd)"/>
+            <line x1="516" y1="246" x2="554" y2="246" stroke-width="0.9" stroke-opacity="0.55"/>
+            <line x1="516" y1="452" x2="554" y2="452" stroke-width="0.9" stroke-opacity="0.55"/>
+            <text class="bp-dim-label bp-lbl-light" x="562" y="356" transform="rotate(-90 562 356)">20m</text>
+            <text class="bp-dim-label bp-lbl-dark" x="562" y="356" transform="rotate(-90 562 356)">26m</text>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
@@ -53185,30 +53771,7 @@ cdInit();
     });
   }
 
-  // Restrained Fluent 2 Hero Word Highlight Cycling (Default: 'work', respects prefers-reduced-motion)
-  (function initHeroWordCycle() {
-    const wrap = document.getElementById('f2-word-highlight');
-    const txt = document.getElementById('f2-word-text');
-    if (!wrap || !txt) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const states = [
-      { mode: 'work',       text: 'work' },
-      { mode: 'ideas',      text: '{ideas}' },
-      { mode: 'design',     text: '@design' },
-      { mode: 'creativity', text: 'creativity' }
-    ];
-    let idx = 0;
-    setInterval(() => {
-      if (!document.body.classList.contains('is-landing')) return;
-      idx = (idx + 1) % states.length;
-      wrap.classList.add('is-fading');
-      setTimeout(() => {
-        wrap.setAttribute('data-variant', states[idx].mode);
-        txt.textContent = states[idx].text;
-        wrap.classList.remove('is-fading');
-      }, 140);
-    }, 6500);
-  })();
+  // Technical Blueprint Hero: '{ideas}' stays anchored in crisp draftsman outline (no word cycling)
 
   // Backdrop click closes mobile drawer
   const drawerBackdrop = document.getElementById('f2-drawer-backdrop');
