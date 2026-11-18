@@ -1,6 +1,33 @@
 ﻿{
     "entries":  [
                     {
+                        "id":  "fluent-2-reference-accurate-redesign-v1100",
+                        "version":  "1.10.0",
+                        "date":  "2026-11-18",
+                        "timestamp":  "09:45:00 IST",
+                        "category":  "feature",
+                        "title":  "Fluent 2 Reference-Accurate Hero, Two-Entry Architecture \u0026 Refined Sidebar",
+                        "summary":  "Refined the Meld by IDEO homepage and unified platform navigation to closely match the Microsoft Fluent 2 reference proportions, typography scale, atmospheric 3D sculptural hero, two-card Design and Develop entry hierarchy, and collapsible sentence-case sidebar.",
+                        "description":  "Replaced the previous four-card hero and floating dashboard collage with a faithful Fluent 2 composition: full-bleed architectural light and dark backgrounds with bespoke 3D dichroic glass sculptures in Meld brand colors (#BC4989, #39409A); oversized Space Grotesk \u0027Meld\u0027 display typography paired directly with \u0027Let the [work] flow\u0027 cursor-highlighted headline; strictly two large horizontal primary entry cards (Design and Develop); and a refined 320px persistent sidebar starting flush at top:0 with left-aligned chevrons, sentence-case collapsible groups, active focus outlines, and direct category deep-linking.",
+                        "changes":  [
+                                        "Rebuilt the homepage hero around a single continuous architectural canvas with custom raytraced 3D interlocking dichroic glass sculptures for both Light Mode and Dark Mode, removing all floating specimen/dashboard cards.",
+                                        "Elevated the hero typography hierarchy to Fluent 2 proportions: crisp uppercase \u0027WELCOME TO\u0027 eyebrow, massive Space Grotesk \u0027Meld\u0027 display title, and tight single-line \u0027Let the [work] flow\u0027 headline with collaborative cursor-highlight treatment and reduced-motion-safe word transitions.",
+                                        "Enforced the strict two-card homepage architecture along the bottom of the hero: exactly two large horizontal cards for Design and Develop with custom 3D glassmorphic icons, proper dark/light surfaces, and hover accents.",
+                                        "Aligned the persistent 320px left sidebar flush to top:0 with a 64px brand-and-search header (\u0027Search /\u0027), floating transparent top-right utility bar over the hero, and seamless 64px top bar on documentation routes.",
+                                        "Refined the 8-group Fluent 2 sidebar (Get started, Design language, Components, Patterns, Templates \u0026 Layouts, Content design, Develop, Changelog) with left-aligned chevrons, sentence-case labels, default collapsed groups, active group outline containers, and live category deep-linking.",
+                                        "Fixed legacy initChangelog() sidebar DOM injection leak and resolved dark-mode card contrast and bottom viewport overflow across 320px-1440px."
+                                    ],
+                        "affectedAreas":  [
+                                              "Homepage Hero Composition (#home, .f2-hero)",
+                                              "3D Dichroic Glass Hero Artwork (assets/hero-3d-light.jpg, assets/hero-3d-dark.jpg)",
+                                              "Two Primary Entry Cards (Design \u0026 Develop, .f2-entry-grid)",
+                                              "Persistent Left Sidebar (nav.side, NAV_TREE, 8 groups)",
+                                              "Global Top Utility Bar (header.hd.fluent-utility-header)",
+                                              "Changelog (v1.10.0)"
+                                          ],
+                        "commitMessage":  "feat: refine Fluent-inspired hero and two-entry homepage"
+                    },
+                    {
                         "id":  "fluent-inspired-global-navigation-hero-v190",
                         "version":  "1.9.0",
                         "date":  "2026-11-17",
