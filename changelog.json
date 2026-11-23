@@ -1,5 +1,41 @@
-﻿{
+{
     "entries":  [
+                    {
+                        "id":  "files-and-media-fix-in-patterns-v1123",
+                        "version":  "1.12.3",
+                        "date":  "2026-11-23",
+                        "timestamp":  "14:30:00 IST",
+                        "category":  "fix",
+                        "title":  "files and media fix in patterns",
+                        "summary":  "Audited and rebuilt all 14 patterns in Category 7 (Files and Media) inside Pattern Explorer with authentic, distinct structural compositions across all variants and unmistakable interaction states.",
+                        "description":  "Executed an exhaustive audit and architectural upgrade across all 14 patterns in Patterns \u003e Files and Media (Single File Upload, Multiple File Upload, Drag-and-Drop Upload, Image Upload, File Replacement, File Removal, Attachment Management, File Preview, Image Gallery, File Download, File Validation, Upload Progress, Failed Upload Recovery, and Unsupported File Handling). Replaced generic fallback wrappers with bespoke responsive layouts across all registered variants (including real 40px Compact Input Strips, Centered Document Badges, Full-Page Batch Ingestion Workspaces, 2-Column Asset Grids, Surface Drag Overlays, Modal Replacement \u0026 Destructive Sheets without duplicate buttons, Split Document Inspectors, and Circular Telemetry Gauges). Synchronized all 6 interaction states (Empty / Awaiting, Focused / Drag-Over, Uploading / Processing with animated progress tracks, Completed / Verified, Error / Policy Rejected, and Disabled / Read-only) with canonical Meld semantic tokens, WCAG AA 4.5:1 contrast, and zero horizontal overflow across 320px to 1440px viewports.",
+                        "changes":  [
+                                        "Updated wrapVariant to grant Category 6 (Files and Media) full structural ownership, removing generic \u0027COMPACT INLINE EMBED\u0027 labels and duplicate modal footer button wrappers.",
+                                        "Single File Upload (file-single): Engineered authentic Compact Input Strip (~40px single-row form embed), Tile / Document Badge Slot (centered portrait card with folded-corner document glyph), and Standard Single Slot with clear 1-file constraint locks.",
+                                        "Multiple File Upload (file-multi): Built Compact Batch Strip with mini progress line and chip pills, Full-Page Batch Workspace with dedicated queue metrics rail and structured tabular queue manager, and Queue List with Aggregate Bar.",
+                                        "Drag-and-Drop Upload (file-dnd): Implemented Compact Inline Drop Strip, Full Dropzone Target, and interactive Surface Overlay Zone with pulsing brand border scrim and genuine HTML5 drag event simulation.",
+                                        "Image Upload (file-image): Replaced generic card with 16:9 Widescreen Cover Frame (with live aspect telemetry and fit mode toggle), 1:1 Square Avatar / Tile (circular/square profile stage), and Compact Thumbnail Row.",
+                                        "File Replacement (file-replace): Implemented Side-by-Side Diff Card (Current v2 vs Staged v3 with delta metrics), Inline Replace Prompt, and elevated Modal Replacement Sheet with accessible dialog semantics.",
+                                        "File Removal (file-remove): Implemented Inline Card Confirmation, Modal Destructive Guard (alertdialog with link impact disclosure), and Optimistic Removal with 8s timed Undo banner.",
+                                        "Attachment Management (file-attach): Built Detailed Metadata List with type filtering, Compact Pill Chips for dense entity headers, and responsive 2-Column Asset Cards.",
+                                        "File Preview (file-preview): Implemented full Document Page Viewer with multi-page pagination, Split Viewer + Metadata Inspector drawer, and Compact Inline Reader.",
+                                        "Image Gallery (file-gallery): Implemented Responsive Grid Gallery, Featured Hero + Filmstrip carousel, Dense Contact Sheet, and full-screen Lightbox Modal overlay.",
+                                        "File Download (file-download): Implemented Rich Resource Card with Checksum, Compact Inline Download Row, and Multi-Format Bundle List (.JSON, .CSV, .SVG) with authentic browser Blob download execution.",
+                                        "File Validation (file-val): Implemented Policy Matrix + Live Tester (with instant valid, oversized, and blocked format testing), Inline Error Diagnostics, and Compact Rules Strip.",
+                                        "Upload Progress (file-progress): Implemented Detailed Transfer Monitor with real-time byte telemetry, Compact Sticky Floating Drawer, and SVG Circular Telemetry Card with accessible role=\u0027progressbar\u0027.",
+                                        "Failed Upload Recovery (file-recovery): Implemented Diagnostic Error Card with root cause troubleshooting, Queue Inline Error Row, and Summary Banner with \u0027Retry All Failed\u0027 batch recovery.",
+                                        "Unsupported File Handling (file-unsupported): Implemented Preview Fallback Card with raw Blob download, Security Rejection Notice for executable formats, and Format Guidance Comparison matrix.",
+                                        "Hardened Light and Dark theme contrast across all 14 patterns adhering strictly to Meld Berry Magenta (#BC4989), Deep Indigo (#39409A), and semantic error/success tokens."
+                                    ],
+                        "affectedAreas":  [
+                                              "Patterns -\u003e Files and Media (PAT_FILES, 14 patterns)",
+                                              "wrapVariant Category 6 Pass-Through (PAT_ENGINE)",
+                                              "Scoped Files and Media CSS (.pat-file-strip, .pat-file-tile, .pat-file-ws, etc.)",
+                                              "Changelog (changelog.json \u0026 CHANGELOG_FALLBACK)",
+                                              "Platform Version Badges (v1.12.3)"
+                                          ],
+                        "commitMessage":  "fix(patterns/files-and-media): files and media fix in patterns"
+                    },
                     {
                         "id":  "ux-draftsman-hero-switcher-v1122",
                         "version":  "1.12.2",
