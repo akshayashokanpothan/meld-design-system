@@ -1,5 +1,36 @@
-{
+﻿{
     "entries":  [
+                    {
+                        "id":  "template-explorer-audit-and-fix-v1124",
+                        "version":  "1.12.4",
+                        "date":  "2026-11-24",
+                        "timestamp":  "16:30:00 IST",
+                        "category":  "fix",
+                        "title":  "Comprehensive Audit & Fix for Template Explorer (All 64 Templates)",
+                        "summary":  "Audited and rebuilt all 64 templates across all 8 categories in Templates & Layouts > Template Explorer with dedicated, domain-authentic architectural compositions, interactive states, and responsive reflow.",
+                        "description":  "Executed an end-to-end architectural overhaul of the Template Explorer module. Replaced legacy single-layout category fallbacks (generic Acme Cloud sidebar shells) with 64 bespoke, production-grade template renderers. Top Navigation Shell now renders true zero-sidebar edge-to-edge layouts with horizontal primary navigation tabs; Collapsible Sidebar Layout features an interactive dual-mode sidebar toggling between 260px expanded and 64px compact icon rail; and all remaining categories (Dashboards & Analytics, Data Management, Form & Workflow, Auth & Onboarding, Settings & Administration, Editorial & Marketing, Communication & Feedback) render distinctive, high-fidelity compositions adhering to WCAG 2.2 AA contrast and zero horizontal overflow across Desktop (1440px), Laptop (1024px), Tablet (768px), Mobile (390px), and Small Mobile (320px).",
+                        "changes":  [
+                                        "Application Shells (tmpl-app-*): Built 8 bespoke shell architectures. Standard Shell (64px header + 260px sidebar + canvas), Sidebar Navigation Shell (full-height vertical tree), Top Navigation Shell (strict zero-sidebar horizontal navbar with fluid data grid), Hybrid Navigation Shell (horizontal module switcher + contextual sidebar), Collapsible Sidebar Layout (dual-mode interactive toggle between 260px and 64px rail), Multi-Workspace Shell (56px global tenant rail + 200px workspace menu), Full-Screen Layout (focus canvas with floating header and dock), and Embedded Layout (host container frame with dashed boundary).",
+                                        "Dashboards & Analytics (tmpl-dash-*): Rebuilt all 8 dashboard templates with domain-authentic scorecards, ARR KPI cards, regional distributions, funnel charts, incident tables, server node clusters, and sprint boards.",
+                                        "Data Management (tmpl-data-*): Engineered all 8 data templates with active filter chips, column visibility toggles, master-detail split inspection drawers, split-pane diff comparisons, record detail tabs, faceted search sidebars, and floating bulk action docks.",
+                                        "Form & Workflow (tmpl-form-*): Built 8 workflow templates including single-column intake forms with sticky submit bars, linear stepper forms with auto-save indicators, vertical wizard checklists, distraction-free full-screen forms with keyboard shortcuts, two-column settings layouts, pre-submission review verification cards, managerial approval diffs with sign-off comments, and two-column checkout layouts.",
+                                        "Authentication & Onboarding (tmpl-auth-*): Implemented 8 authentication layouts including 440px centered sign-in cards with enterprise SSO buttons, 50/50 split brand showcase screens with ambient gradients, biometric passkey modal cards, registration flows with live password strength meters, account recovery magic link flows with cooldown timers, role customization questionnaires, first-run welcome celebration hubs, and organization workspace setup wizards.",
+                                        "Settings & Administration (tmpl-settings-*): Implemented 8 administration layouts including account sub-navigation with active device session management, public designer profile customizers with photo upload, custom apex domain DNS TXT record verification, team member licensing rosters, role-based access control (RBAC) capability matrices, subscription billing and invoice histories, connected third-party integration grids, and global feature flag administration toggles.",
+                                        "Editorial & Marketing (tmpl-mkt-*): Built 8 marketing layouts including full-bleed product hero landing pages with 3-pillar feature grids, interactive token pipeline deep dive pages, feature capability matrices with code previews, commercial 3-tier pricing tables, developer documentation hubs with search heroes, filterable resource download centers, long-form engineering articles with reading progress, and enterprise sales consultation lead intake forms.",
+                                        "Communication & Feedback (tmpl-comm-*): Built 8 communication layouts including in-app notification centers with read/unread filter tabs, chronological audit timeline feeds, threaded message conversations with rich composers, customer support ticket hubs, 3-column help documentation readers, zero-data empty states with creation callouts, human-centered 404/500 recovery pages, and 90-day infrastructure uptime monitors.",
+                                        "Playground Interactivity: Added delegated event handling for in-preview sidebar toggles ([data-tmpl-toggle-sb]), interactive category tabs ([data-tmpl-tab]), period filters ([data-tmpl-filter]), and contextual action buttons ([data-tmpl-action]).",
+                                        "Responsive & Contrast Hardening: Verified fluid reflow across Desktop (1440px), Laptop (1024px), Tablet (768px), Mobile (390px), and Small Mobile (320px) in both Light and Dark themes with zero overflow and full WCAG 2.2 AA contrast compliance."
+                                    ],
+                        "affectedAreas":  [
+                                              "Templates & Layouts > Template Explorer (All 64 Templates)",
+                                              "Templates & Layouts > Layout Primitives",
+                                              "Interactive Viewport Simulation & In-Stage Controls",
+                                              "Meld Semantic Design Tokens & Theme Engine",
+                                              "Changelog Registry & Documentation Metadata",
+                                              "Platform Version Badges (v1.12.4)"
+                                          ],
+                        "author":  "IDEO Design Engineering Team"
+                    },
                     {
                         "id":  "files-and-media-fix-in-patterns-v1123",
                         "version":  "1.12.3",
