@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="Meld by IDEO symbol">
-  <defs>
-    <linearGradient id="meld-grad-dark" x1="4" y1="60" x2="60" y2="4" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#5B63CC"/>
-      <stop offset="55%" stop-color="#9A5AB0"/>
-      <stop offset="100%" stop-color="#E568AC"/>
-    </linearGradient>
-  </defs>
-  <path d="M17 4 H35.5 C33.1 7.3 31.7 11.4 31.7 15.8 C31.7 25.5 39.5 33.3 49.2 33.3 C53.4 33.3 57.2 31.8 60 29.3 V34 C60 36.761 57.761 39 55 39 H39 C35.686 39 33 41.686 33 45 V55.5 C33 57.985 30.985 60 28.5 60 H17 C9.82 60 4 54.18 4 47 V17 C4 9.82 9.82 4 17 4 Z" fill="url(#meld-grad-dark)"/>
-  <circle cx="49.2" cy="15.3" r="10.8" fill="#F071B5"/>
-  <path d="M40.5 44 H57.5 C58.881 44 60 45.119 60 46.5 V47.5 C60 54.404 54.404 60 47.5 60 H40.5 C39.119 60 38 58.881 38 57.5 V46.5 C38 45.119 39.119 44 40.5 44 Z" fill="#E568AC"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="190" viewBox="0 0 180 190" role="img"><defs>
+ <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9CE8F2"/><stop offset="0.34" stop-color="#69B8E8"/><stop offset="0.68" stop-color="#5367C8"/><stop offset="1" stop-color="#7646A8"/></linearGradient>
+ <linearGradient id="middle" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#594FC0"/><stop offset="0.52" stop-color="#9744A8"/><stop offset="1" stop-color="#D64F9B"/></linearGradient>
+ <linearGradient id="bottom" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D45B9F"/><stop offset="1" stop-color="#F2A0BD"/></linearGradient>
+ <linearGradient id="mono" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="currentColor"/><stop offset="1" stop-color="currentColor"/></linearGradient>
+ </defs><g transform="translate(8 8) scale(1.25)"><path d="M 58 0 Q 62 -2 67 1 L 119 31 Q 127 35 119 40 L 67 69 Q 62 72 57 69 L 5 40 Q -3 35 5 31 Z" fill="url(#top)"/><path d="M 58 31 Q 62 29 67 32 L 119 62 Q 127 66 119 71 L 67 100 Q 62 103 57 100 L 5 71 Q -3 66 5 62 Z" fill="url(#middle)"/><path d="M 58 62 Q 62 60 67 63 L 119 93 Q 127 97 119 102 L 67 131 Q 62 134 57 131 L 5 102 Q -3 97 5 93 Z" fill="url(#bottom)"/></g></svg>
